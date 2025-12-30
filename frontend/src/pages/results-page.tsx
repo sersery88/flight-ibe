@@ -1,0 +1,488 @@
+import { useState, useMemo, useCallback, useEffect } from 'react';
+import { ArrowLeft, Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2 } from 'lucide-react';
+import { Button, Badge } from '@/components/ui';
+import { FlightList } from '@/components/flight/flight-list';
+import { FilterSidebar, type FlightFilters } from '@/components/flight/filter-sidebar';
+import { SortTabs, type SortTabOption, calculateBestScore } from '@/components/flight/sort-tabs';
+import { AirportCombobox } from '@/components/flight/airport-combobox';
+import { DateRangePicker, type DateRange } from '@/components/flight/date-picker';
+import { PassengerSelector } from '@/components/flight/passenger-selector';
+import { CabinClassSelect } from '@/components/flight/cabin-class-select';
+import { SearchForm } from '@/components/flight/search-form';
+import { useSearchStore } from '@/stores/search-store';
+import { useBookingStore } from '@/stores/booking-store';
+import { useFlightSearch } from '@/hooks/use-flights';
+import type { FlightOffer } from '@/types/flight';
+import type { TravelClass } from '@/types/flight';
+import { cn, parseDuration } from '@/lib/utils';
+
+// Helper to format travel class
+function formatTravelClass(travelClass: string): string {
+  const classes: Record<string, string> = {
+    ECONOMY: 'Economy',
+    PREMIUM_ECONOMY: 'Premium Economy',
+    BUSINESS: 'Business',
+    FIRST: 'First',
+  };
+  return classes[travelClass] || travelClass;
+}
+
+// Helper to format date
+function formatSearchDate(date: Date | null): string {
+  if (!date) return '';
+  return date.toLocaleDateString('de-DE', { day: '2-digit', month: 'short' });
+}
+
+// ============================================================================
+// Results Page - Display search results with filtering and sorting
+// ============================================================================
+
+interface ResultsPageProps {
+  onBack?: () => void;
+  onSelectFlight?: (offer: FlightOffer) => void;
+  className?: string;
+}
+
+export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPageProps) {
+  const store = useSearchStore();
+  const {
+    searchResults,
+    isSearching,
+    origin,
+    destination,
+    originName,
+    destinationName,
+    departureDate,
+    returnDate,
+    adults,
+    children,
+    infants,
+    travelClass,
+    tripType,
+  } = store;
+  const { setSelectedOffer } = useBookingStore();
+  const { mutate: searchFlights, isPending: isSearchPending } = useFlightSearch();
+
+  // State for mobile search form popup
+  const [showSearchForm, setShowSearchForm] = useState(false);
+
+  // Block body scroll when popup is open
+  useEffect(() => {
+    if (showSearchForm) {
+      // Save current scroll position
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+
+      return () => {
+        // Restore scroll position
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [showSearchForm]);
+
+  // Calculate total passengers (used for validation)
+  const _totalPassengers = adults + children + infants;
+
+  // Date range for picker (Desktop only)
+  const dateRangeValue = useMemo<DateRange | undefined>(() => ({
+    from: departureDate ?? undefined,
+    to: returnDate ?? undefined,
+  }), [departureDate, returnDate]);
+
+  const handleDateRangeChange = useCallback((range: DateRange | undefined) => {
+    store.setDepartureDate(range?.from);
+    store.setReturnDate(range?.to);
+  }, [store]);
+
+  const handleSwapLocations = () => {
+    store.swapLocations();
+  };
+
+  const handleSearch = () => {
+    const request = store.getSearchRequest();
+    if (!request) return;
+    searchFlights(request);
+    setShowSearchForm(false); // Close mobile popup after search
+  };
+  
+  const [sortBy, setSortBy] = useState<SortTabOption>('best');
+  const [filters, setFilters] = useState<FlightFilters>({
+    stops: [],
+    airlines: [],
+    priceRange: [0, 10000],
+    outboundDepartureTime: [0, 24],
+    outboundArrivalTime: [0, 24],
+    returnDepartureTime: [0, 24],
+    returnArrivalTime: [0, 24],
+    durationRange: [0, 2880],
+    transitAirports: [],
+  });
+  const [selectedOfferId, setSelectedOfferId] = useState<string>();
+
+  // Filter offers
+  const filteredOffers = useMemo(() => {
+    return searchResults.filter((offer) => {
+      // Filter by stops
+      if (filters.stops.length > 0) {
+        const stops = offer.itineraries[0].segments.length - 1;
+        const stopCategory = stops >= 2 ? 2 : stops;
+        if (!filters.stops.includes(stopCategory)) return false;
+      }
+
+      // Filter by airlines (main carrier)
+      if (filters.airlines.length > 0) {
+        const mainCarrier = offer.validatingAirlineCodes?.[0] || offer.itineraries[0].segments[0].carrierCode;
+        if (!filters.airlines.includes(mainCarrier)) return false;
+      }
+
+      // Filter by price
+      const price = parseFloat(offer.price.total);
+      if (price < filters.priceRange[0] || price > filters.priceRange[1]) return false;
+
+      // Filter by outbound departure time
+      if (filters.outboundDepartureTime[0] > 0 || filters.outboundDepartureTime[1] < 24) {
+        const depTime = new Date(offer.itineraries[0].segments[0].departure.at);
+        const hour = depTime.getHours();
+        if (hour < filters.outboundDepartureTime[0] || hour >= filters.outboundDepartureTime[1]) {
+          return false;
+        }
+      }
+
+      // Filter by outbound arrival time
+      if (filters.outboundArrivalTime[0] > 0 || filters.outboundArrivalTime[1] < 24) {
+        const lastSegment = offer.itineraries[0].segments[offer.itineraries[0].segments.length - 1];
+        const arrTime = new Date(lastSegment.arrival.at);
+        const hour = arrTime.getHours();
+        if (hour < filters.outboundArrivalTime[0] || hour >= filters.outboundArrivalTime[1]) {
+          return false;
+        }
+      }
+
+      // Filter by return departure time
+      if (offer.itineraries.length > 1 && (filters.returnDepartureTime[0] > 0 || filters.returnDepartureTime[1] < 24)) {
+        const depTime = new Date(offer.itineraries[1].segments[0].departure.at);
+        const hour = depTime.getHours();
+        if (hour < filters.returnDepartureTime[0] || hour >= filters.returnDepartureTime[1]) {
+          return false;
+        }
+      }
+
+      // Filter by return arrival time
+      if (offer.itineraries.length > 1 && (filters.returnArrivalTime[0] > 0 || filters.returnArrivalTime[1] < 24)) {
+        const lastSegment = offer.itineraries[1].segments[offer.itineraries[1].segments.length - 1];
+        const arrTime = new Date(lastSegment.arrival.at);
+        const hour = arrTime.getHours();
+        if (hour < filters.returnArrivalTime[0] || hour >= filters.returnArrivalTime[1]) {
+          return false;
+        }
+      }
+
+      // Filter by duration
+      if (filters.durationRange[0] > 0 || filters.durationRange[1] < 2880) {
+        const duration = parseDuration(offer.itineraries[0].duration);
+        if (duration < filters.durationRange[0] || duration > filters.durationRange[1]) {
+          return false;
+        }
+      }
+
+      // Filter by transit airports
+      if (filters.transitAirports.length > 0) {
+        const transitCodes = offer.itineraries.flatMap((it) =>
+          it.segments.slice(0, -1).map((s) => s.arrival.iataCode)
+        );
+        if (!filters.transitAirports.some((a) => transitCodes.includes(a))) return false;
+      }
+
+      return true;
+    });
+  }, [searchResults, filters]);
+
+  // Sort offers using Kayak-style sorting
+  const sortedOffers = useMemo(() => {
+    const sorted = [...filteredOffers];
+
+    // Calculate min/max for "best" score normalization
+    const prices = sorted.map((o) => parseFloat(o.price.total));
+    const durations = sorted.map((o) =>
+      o.itineraries.reduce((sum, it) => sum + parseDuration(it.duration), 0)
+    );
+    const minPrice = prices.length > 0 ? Math.min(...prices) : 0;
+    const maxPrice = prices.length > 0 ? Math.max(...prices) : 0;
+    const minDuration = durations.length > 0 ? Math.min(...durations) : 0;
+    const maxDuration = durations.length > 0 ? Math.max(...durations) : 0;
+
+    switch (sortBy) {
+      case 'cheapest':
+        sorted.sort((a, b) => parseFloat(a.price.total) - parseFloat(b.price.total));
+        break;
+      case 'fastest':
+        sorted.sort((a, b) => {
+          const durationA = a.itineraries.reduce((sum, it) => sum + parseDuration(it.duration), 0);
+          const durationB = b.itineraries.reduce((sum, it) => sum + parseDuration(it.duration), 0);
+          return durationA - durationB;
+        });
+        break;
+      case 'best':
+        sorted.sort((a, b) => {
+          const scoreA = calculateBestScore(a, minPrice, maxPrice, minDuration, maxDuration);
+          const scoreB = calculateBestScore(b, minPrice, maxPrice, minDuration, maxDuration);
+          return scoreA - scoreB;
+        });
+        break;
+    }
+
+    return sorted;
+  }, [filteredOffers, sortBy]);
+
+  const handleSelectOffer = (offer: FlightOffer) => {
+    setSelectedOfferId(offer.id);
+    setSelectedOffer(offer);
+    onSelectFlight?.(offer);
+  };
+
+  return (
+    <div className={cn('min-h-screen bg-gray-50 dark:bg-gray-950', className)}>
+      {/* Compact Search Header */}
+      <div className="sticky top-0 z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
+        <div className="mx-auto max-w-7xl px-4 py-3">
+          <div className="flex items-center gap-3">
+            {/* Back button */}
+            <Button variant="ghost" size="icon" onClick={onBack} className="shrink-0">
+              <ArrowLeft className="h-5 w-5" />
+            </Button>
+
+            {/* MOBILE: Compact Search Summary - Click to open popup */}
+            <button
+              onClick={() => setShowSearchForm(true)}
+              className="flex flex-1 items-center gap-2 rounded-xl border border-gray-200 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/60 px-3 py-2 text-left transition-all hover:bg-gray-200/80 dark:hover:bg-gray-700/60 lg:hidden"
+            >
+              {/* Route */}
+              <div className="flex items-center gap-1.5 min-w-0">
+                <PlaneIcon className="h-4 w-4 shrink-0 text-gray-500" />
+                <span className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                  {origin || '???'} → {destination || '???'}
+                </span>
+              </div>
+
+              {/* Dates */}
+              {departureDate && (
+                <>
+                  <div className="h-4 w-px bg-gray-300 dark:bg-gray-600 shrink-0" />
+                  <div className="flex items-center gap-1.5 shrink-0">
+                    <Calendar className="h-4 w-4 text-gray-500" />
+                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                      {formatSearchDate(departureDate)}
+                      {returnDate && ` - ${formatSearchDate(returnDate)}`}
+                    </span>
+                  </div>
+                </>
+              )}
+
+              {/* Passengers */}
+              <div className="hidden sm:flex items-center gap-1.5 shrink-0">
+                <div className="h-4 w-px bg-gray-300 dark:bg-gray-600" />
+                <Users className="h-4 w-4 text-gray-500" />
+                <span className="text-sm text-gray-700 dark:text-gray-300">
+                  {adults + children + infants}
+                </span>
+              </div>
+
+              {/* Edit Icon */}
+              <div className="ml-auto shrink-0">
+                <Edit2 className="h-4 w-4 text-gray-400" />
+              </div>
+            </button>
+
+            {/* DESKTOP: Inline Search pill container */}
+            <div className="hidden lg:flex flex-1 items-center rounded-xl border border-gray-200 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/60 p-1.5 gap-1">
+              {/* Origin */}
+              <AirportCombobox
+                value={origin}
+                valueName={originName}
+                onChange={(code, name) => {
+                  store.setOrigin(code);
+                  store.setOriginName(name);
+                }}
+                placeholder="Von"
+                compact
+                className="flex-1"
+              />
+
+              {/* Swap button */}
+              <Button
+                variant="ghost"
+                size="icon"
+                className="shrink-0 h-7 w-7 rounded-full hover:bg-white dark:hover:bg-gray-700 transition-all"
+                onClick={handleSwapLocations}
+              >
+                <ArrowRightLeft className="h-3.5 w-3.5" />
+              </Button>
+
+              {/* Destination */}
+              <AirportCombobox
+                value={destination}
+                valueName={destinationName}
+                onChange={(code, name) => {
+                  store.setDestination(code);
+                  store.setDestinationName(name);
+                }}
+                placeholder="Nach"
+                compact
+                className="flex-1"
+              />
+
+              {/* Divider */}
+              <div className="h-7 w-px bg-gray-300 dark:bg-gray-600 shrink-0" />
+
+              {/* Date Range */}
+              <DateRangePicker
+                value={dateRangeValue}
+                onChange={handleDateRangeChange}
+                compact
+                className="flex-1"
+              />
+
+              {/* Divider */}
+              <div className="h-7 w-px bg-gray-300 dark:bg-gray-600 shrink-0" />
+
+              {/* Passengers */}
+              <PassengerSelector
+                value={{
+                  adults,
+                  children,
+                  infants,
+                }}
+                onChange={(passengers) => {
+                  store.setAdults(passengers.adults);
+                  store.setChildren(passengers.children);
+                  store.setInfants(passengers.infants);
+                }}
+                compact
+                className="shrink-0"
+              />
+
+              {/* Divider */}
+              <div className="h-7 w-px bg-gray-300 dark:bg-gray-600 shrink-0" />
+
+              {/* Cabin Class */}
+              <CabinClassSelect
+                value={travelClass}
+                onChange={(value) => store.setTravelClass(value)}
+                compact
+                className="shrink-0"
+              />
+
+              {/* Search button */}
+              <Button
+                size="sm"
+                className="shrink-0 gap-1.5 rounded-lg"
+                onClick={handleSearch}
+                isLoading={isSearchPending}
+                disabled={!origin || !destination || !departureDate}
+              >
+                <Search className="h-4 w-4" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* MOBILE: Search Form Popup */}
+      {showSearchForm && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm lg:hidden"
+            onClick={() => setShowSearchForm(false)}
+          />
+
+          {/* Popup Container - Full screen with scroll */}
+          <div className="fixed inset-0 z-50 overflow-y-auto lg:hidden">
+            <div className="flex min-h-full items-start justify-center p-4 sm:p-6 md:p-8">
+              <div className="w-full max-w-4xl rounded-2xl bg-white dark:bg-gray-900 shadow-2xl animate-in fade-in slide-in-from-top-4 duration-300 my-8">
+                {/* Header - Sticky */}
+                <div className="sticky top-0 z-10 flex items-center justify-between border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 px-6 py-4 rounded-t-2xl">
+                  <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    Suche anpassen
+                  </h2>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    onClick={() => setShowSearchForm(false)}
+                    className="shrink-0"
+                  >
+                    <ArrowLeft className="h-5 w-5" />
+                  </Button>
+                </div>
+
+                {/* Search Form - Scrollable Content with extra padding for dropdowns */}
+                <div className="p-6 pb-48">
+                  <SearchForm onSearch={handleSearch} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Content */}
+      <div className="flex">
+        {/* Left scroll zone - scrolls the filter sidebar */}
+        <div
+          className="hidden flex-1 lg:block"
+          onWheel={(e) => {
+            const sidebar = document.getElementById('filter-sidebar-scroll');
+            if (sidebar) {
+              e.preventDefault();
+              sidebar.scrollTop += e.deltaY;
+            }
+          }}
+        />
+
+        <div className="w-full max-w-7xl px-4 py-6">
+          <div className="flex gap-6">
+            {/* Sidebar */}
+            <aside className="hidden w-72 shrink-0 lg:block">
+              <div
+                id="filter-sidebar-scroll"
+                className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto scrollbar-none overscroll-contain"
+              >
+                <FilterSidebar
+                  offers={searchResults}
+                  filters={filters}
+                  onFiltersChange={setFilters}
+                />
+              </div>
+            </aside>
+
+            {/* Results */}
+            <main className="flex-1">
+              {/* Sort Tabs - above flight cards only */}
+              <SortTabs
+                value={sortBy}
+                onChange={setSortBy}
+                offers={filteredOffers}
+                className="mb-4 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
+              />
+              <FlightList
+                offers={sortedOffers}
+                isLoading={isSearching}
+                selectedOfferId={selectedOfferId}
+                onSelectOffer={handleSelectOffer}
+              />
+            </main>
+          </div>
+        </div>
+
+        {/* Right empty space for symmetry */}
+        <div className="hidden flex-1 lg:block" />
+      </div>
+    </div>
+  );
+}
+

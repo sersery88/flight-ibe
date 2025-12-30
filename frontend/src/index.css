@@ -1,0 +1,163 @@
+@import 'tailwindcss';
+
+/* Tailwind 4: Use class-based dark mode */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================================================
+   Flypink - Global Styles
+   ============================================================================ */
+
+/* Universal box-sizing and reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  /* Brand Colors - Magenta / Anthrazit / Weiß */
+  --color-primary: 236 72 153; /* magenta/pink-500 */
+  --color-secondary: 64 64 64; /* anthrazit/neutral-700 */
+
+  /* Semantic Colors */
+  --color-success: 34 197 94; /* green-500 */
+  --color-warning: 245 158 11; /* amber-500 */
+  --color-error: 239 68 68; /* red-500 */
+
+  /* Background - Weiß */
+  --color-bg: 255 255 255;
+  --color-bg-subtle: 250 250 250; /* neutral-50 */
+  --color-bg-muted: 245 245 245; /* neutral-100 */
+
+  /* Text - Anthrazit */
+  --color-text: 38 38 38; /* neutral-800 */
+  --color-text-muted: 115 115 115; /* neutral-500 */
+
+  /* Border */
+  --color-border: 229 229 229; /* neutral-200 */
+}
+
+.dark {
+  --color-bg: 23 23 23; /* neutral-900 */
+  --color-bg-subtle: 38 38 38; /* neutral-800 */
+  --color-bg-muted: 64 64 64; /* neutral-700 */
+  --color-text: 250 250 250; /* neutral-50 */
+  --color-text-muted: 163 163 163; /* neutral-400 */
+  --color-border: 82 82 82; /* neutral-600 */
+}
+
+/* Base styles */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+}
+
+/* Hide scrollbar globally */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+html,
+body,
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: rgb(var(--color-bg));
+  color: rgb(var(--color-text));
+  transition: background-color 0.2s, color 0.2s;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid rgb(var(--color-primary));
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(var(--color-bg-muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--color-text-muted) / 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--color-text-muted) / 0.5);
+}
+
+/* Hidden scrollbar utility */
+.scrollbar-none {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Form element accent colors - Pink branding */
+input[type="checkbox"],
+input[type="radio"],
+input[type="range"],
+select {
+  accent-color: rgb(var(--color-primary));
+}
+
+/* Select dropdown option styling */
+option:checked,
+option:hover {
+  background-color: rgb(var(--color-primary) / 0.1);
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
