@@ -146,7 +146,7 @@ function AppContent() {
           {/* Footer */}
           <footer className="w-full border-t border-neutral-200 bg-neutral-50 px-4 py-6 dark:border-neutral-800 dark:bg-neutral-900 sm:py-8" style={{ maxWidth: '100vw' }}>
             <div className="mx-auto w-full max-w-6xl px-0 text-center text-xs text-neutral-500 sm:text-sm">
-              <p>© 2024 Flypink. Powered by Amadeus APIs.</p>
+              <p>© 2026 Flypink by Pink Travel</p>
             </div>
           </footer>
         </div>
