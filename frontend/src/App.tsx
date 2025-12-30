@@ -124,32 +124,7 @@ function AppContent() {
                   </div>
                 </section>
 
-                {/* Features Section */}
-                <section className="w-full px-4 py-12 sm:py-16" style={{ maxWidth: '100vw' }}>
-                  <div className="mx-auto w-full max-w-6xl px-0">
-                    <h2 className="mb-12 text-center text-3xl font-bold">
-                      Warum Flypink?
-                    </h2>
 
-                    <div className="grid gap-8 md:grid-cols-3">
-                      <FeatureCard
-                        icon="✈️"
-                        title="Alle Airlines"
-                        description="Zugang zu über 400 Airlines weltweit, inklusive NDC-Content"
-                      />
-                      <FeatureCard
-                        icon="💰"
-                        title="Beste Preise"
-                        description="Vergleichen Sie GDS und NDC Tarife für den besten Preis"
-                      />
-                      <FeatureCard
-                        icon="🔒"
-                        title="Sicher buchen"
-                        description="Sichere Zahlung und IATA/ARC akkreditiert"
-                      />
-                    </div>
-                  </div>
-                </section>
               </>
             )}
 
@@ -186,17 +161,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AppContent />
     </QueryClientProvider>
-  );
-}
-
-// Feature Card Component
-function FeatureCard({ icon, title, description }: { icon: string; title: string; description: string }) {
-  return (
-    <div className="rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm transition-shadow hover:shadow-md dark:border-gray-800 dark:bg-gray-950">
-      <div className="mb-4 text-4xl">{icon}</div>
-      <h3 className="mb-2 text-lg font-semibold">{title}</h3>
-      <p className="text-gray-500 dark:text-gray-400">{description}</p>
-    </div>
   );
 }
 
