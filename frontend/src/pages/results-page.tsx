@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
 import { ArrowLeft, Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2 } from 'lucide-react';
-import { Button, Badge } from '@/components/ui';
+import { Button } from '@/components/ui';
 import { FlightList } from '@/components/flight/flight-list';
 import { FilterSidebar, type FlightFilters } from '@/components/flight/filter-sidebar';
 import { SortTabs, type SortTabOption, calculateBestScore } from '@/components/flight/sort-tabs';
@@ -13,19 +13,7 @@ import { useSearchStore } from '@/stores/search-store';
 import { useBookingStore } from '@/stores/booking-store';
 import { useFlightSearch } from '@/hooks/use-flights';
 import type { FlightOffer } from '@/types/flight';
-import type { TravelClass } from '@/types/flight';
 import { cn, parseDuration } from '@/lib/utils';
-
-// Helper to format travel class
-function formatTravelClass(travelClass: string): string {
-  const classes: Record<string, string> = {
-    ECONOMY: 'Economy',
-    PREMIUM_ECONOMY: 'Premium Economy',
-    BUSINESS: 'Business',
-    FIRST: 'First',
-  };
-  return classes[travelClass] || travelClass;
-}
 
 // Helper to format date
 function formatSearchDate(date: Date | null): string {
@@ -58,7 +46,6 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
     children,
     infants,
     travelClass,
-    tripType,
   } = store;
   const { setSelectedOffer } = useBookingStore();
   const { mutate: searchFlights, isPending: isSearchPending } = useFlightSearch();
@@ -84,9 +71,6 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
       };
     }
   }, [showSearchForm]);
-
-  // Calculate total passengers (used for validation)
-  const _totalPassengers = adults + children + infants;
 
   // Date range for picker (Desktop only)
   const dateRangeValue = useMemo<DateRange | undefined>(() => ({
