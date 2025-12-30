@@ -52,7 +52,6 @@ function Header({ onHomeClick }: { onHomeClick: () => void }) {
         </button>
 
         <nav className="flex items-center gap-4">
-          <Button variant="ghost" onClick={onHomeClick}>Suche</Button>
           <ThemeToggle />
         </nav>
       </div>
