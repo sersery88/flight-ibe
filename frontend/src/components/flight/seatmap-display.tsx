@@ -225,16 +225,6 @@ function SingleSeatmapDisplay({ seatmap, selectedSeats, onSeatSelect, maxSelecti
   const firstRow = sortedRows[0]?.[0] ?? 1;
   const lastRow = sortedRows[sortedRows.length - 1]?.[0] ?? 30;
 
-  // Build column headers with aisles
-  const columnHeaders = useMemo(() => {
-    const headers: (string | null)[] = [];
-    cabinLayout.sections.forEach((section, i) => {
-      section.forEach(col => headers.push(col));
-      if (i < cabinLayout.sections.length - 1) headers.push(null); // Aisle
-    });
-    return headers;
-  }, [cabinLayout]);
-
   return (
     <div className="flex flex-col items-center w-full px-2 sm:px-0">
       <SeatLegend isWidebody={cabinLayout.isWidebody} className="mb-4 sm:mb-6" />
