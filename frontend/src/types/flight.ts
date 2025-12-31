@@ -206,6 +206,7 @@ export interface Deck {
   deckType?: string;
   deckConfiguration?: DeckConfiguration;
   seats: Seat[];
+  facilities?: Facility[];
 }
 
 export interface DeckConfiguration {
@@ -218,6 +219,18 @@ export interface DeckConfiguration {
   startWingsX?: number;
   endWingsX?: number;
   exitRowsX?: number[];
+}
+
+export interface Facility {
+  code?: string;
+  name?: string;
+  row?: number;
+  column?: string;
+  position?: string;
+  coordinates?: {
+    x?: number;
+    y?: number;
+  };
 }
 
 export interface Seat {

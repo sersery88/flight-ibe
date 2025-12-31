@@ -678,6 +678,27 @@ pub struct Deck {
     pub deck_type: Option<String>,
     pub deck_configuration: Option<DeckConfiguration>,
     pub seats: Vec<Seat>,
+    #[serde(default)]
+    pub facilities: Option<Vec<Facility>>,
+}
+
+/// Facility (Lavatory, Galley, Closet, etc.)
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Facility {
+    pub code: Option<String>,
+    pub name: Option<String>,
+    pub row: Option<i32>,
+    pub column: Option<String>,
+    pub position: Option<String>,
+    pub coordinates: Option<FacilityCoordinates>,
+}
+
+/// Facility coordinates
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct FacilityCoordinates {
+    pub x: Option<i32>,
+    pub y: Option<i32>,
 }
 
 /// Deck configuration
