@@ -5,23 +5,17 @@ import { persist } from 'zustand/middleware';
 // Theme Store - Dark Mode Management
 // ============================================================================
 
-type Theme = 'light' | 'dark' | 'system';
+type Theme = 'light' | 'dark';
 
 interface ThemeState {
   theme: Theme;
-  resolvedTheme: 'light' | 'dark';
   setTheme: (theme: Theme) => void;
   toggleTheme: () => void;
 }
 
-function getSystemTheme(): 'light' | 'dark' {
-  if (typeof window === 'undefined') return 'light';
-  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-}
-
-function applyTheme(theme: 'light' | 'dark') {
+function applyTheme(theme: Theme) {
   if (typeof document === 'undefined') return;
-  
+
   const root = document.documentElement;
   if (theme === 'dark') {
     root.classList.add('dark');
@@ -33,18 +27,16 @@ function applyTheme(theme: 'light' | 'dark') {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set, get) => ({
-      theme: 'system',
-      resolvedTheme: getSystemTheme(),
-      
+      theme: 'light',
+
       setTheme: (theme) => {
-        const resolvedTheme = theme === 'system' ? getSystemTheme() : theme;
-        applyTheme(resolvedTheme);
-        set({ theme, resolvedTheme });
+        applyTheme(theme);
+        set({ theme });
       },
-      
+
       toggleTheme: () => {
         const { theme } = get();
-        const newTheme = theme === 'light' ? 'dark' : theme === 'dark' ? 'system' : 'light';
+        const newTheme = theme === 'light' ? 'dark' : 'light';
         get().setTheme(newTheme);
       },
     }),
@@ -53,24 +45,10 @@ export const useThemeStore = create<ThemeState>()(
       onRehydrateStorage: () => (state) => {
         // Apply theme on hydration
         if (state) {
-          const resolvedTheme = state.theme === 'system' ? getSystemTheme() : state.theme;
-          applyTheme(resolvedTheme);
-          state.resolvedTheme = resolvedTheme;
+          applyTheme(state.theme);
         }
       },
     }
   )
 );
-
-// Listen for system theme changes
-if (typeof window !== 'undefined') {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
-    const state = useThemeStore.getState();
-    if (state.theme === 'system') {
-      const resolvedTheme = e.matches ? 'dark' : 'light';
-      applyTheme(resolvedTheme);
-      useThemeStore.setState({ resolvedTheme });
-    }
-  });
-}
 

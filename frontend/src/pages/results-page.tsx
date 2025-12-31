@@ -1,6 +1,6 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
-import { ArrowLeft, Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2 } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { ArrowLeft, Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2, SlidersHorizontal, X } from 'lucide-react';
+import { Button, Badge } from '@/components/ui';
 import { FlightList } from '@/components/flight/flight-list';
 import { FilterSidebar, type FlightFilters } from '@/components/flight/filter-sidebar';
 import { SortTabs, type SortTabOption, calculateBestScore } from '@/components/flight/sort-tabs';
@@ -52,10 +52,12 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
 
   // State for mobile search form popup
   const [showSearchForm, setShowSearchForm] = useState(false);
+  // State for mobile filter sheet
+  const [showFilters, setShowFilters] = useState(false);
 
   // Block body scroll when popup is open
   useEffect(() => {
-    if (showSearchForm) {
+    if (showSearchForm || showFilters) {
       // Save current scroll position
       const scrollY = window.scrollY;
       document.body.style.position = 'fixed';
@@ -70,7 +72,7 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
         window.scrollTo(0, scrollY);
       };
     }
-  }, [showSearchForm]);
+  }, [showSearchForm, showFilters]);
 
   // Date range for picker (Desktop only)
   const dateRangeValue = useMemo<DateRange | undefined>(() => ({
@@ -222,6 +224,21 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
 
     return sorted;
   }, [filteredOffers, sortBy]);
+
+  // Count active filters for badge
+  const activeFilterCount = useMemo(() => {
+    let count = 0;
+    if (filters.stops.length > 0) count++;
+    if (filters.airlines.length > 0) count++;
+    if (filters.transitAirports.length > 0) count++;
+    if (filters.priceRange[0] > 0 || filters.priceRange[1] < 10000) count++;
+    if (filters.durationRange[0] > 0 || filters.durationRange[1] < 2880) count++;
+    if (filters.outboundDepartureTime[0] > 0 || filters.outboundDepartureTime[1] < 24) count++;
+    if (filters.outboundArrivalTime[0] > 0 || filters.outboundArrivalTime[1] < 24) count++;
+    if (filters.returnDepartureTime[0] > 0 || filters.returnDepartureTime[1] < 24) count++;
+    if (filters.returnArrivalTime[0] > 0 || filters.returnArrivalTime[1] < 24) count++;
+    return count;
+  }, [filters]);
 
   const handleSelectOffer = (offer: FlightOffer) => {
     setSelectedOfferId(offer.id);
@@ -453,6 +470,23 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
                 offers={filteredOffers}
                 className="mb-4 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
               />
+
+              {/* Mobile Filter Button - below sort tabs */}
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => setShowFilters(true)}
+                className="lg:hidden mb-4 w-full gap-2"
+              >
+                <SlidersHorizontal className="h-4 w-4" />
+                <span>Filter</span>
+                {activeFilterCount > 0 && (
+                  <Badge variant="default" className="ml-1">
+                    {activeFilterCount}
+                  </Badge>
+                )}
+              </Button>
+
               <FlightList
                 offers={sortedOffers}
                 isLoading={isSearching}
@@ -466,6 +500,60 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
         {/* Right empty space for symmetry */}
         <div className="hidden flex-1 lg:block" />
       </div>
+
+      {/* MOBILE: Filter Sheet */}
+      {showFilters && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm lg:hidden"
+            onClick={() => setShowFilters(false)}
+          />
+
+          {/* Filter Sheet - Slide from bottom */}
+          <div className="fixed inset-x-0 bottom-0 z-50 lg:hidden animate-in slide-in-from-bottom duration-300">
+            <div className="flex max-h-[85vh] flex-col rounded-t-2xl bg-white dark:bg-gray-900 shadow-2xl">
+              {/* Header */}
+              <div className="flex shrink-0 items-center justify-between border-b border-gray-200 dark:border-gray-700 px-4 py-3">
+                <div className="flex items-center gap-2">
+                  <SlidersHorizontal className="h-5 w-5 text-gray-500" />
+                  <span className="font-semibold">Filter</span>
+                  {activeFilterCount > 0 && (
+                    <Badge variant="default">{activeFilterCount}</Badge>
+                  )}
+                </div>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setShowFilters(false)}
+                >
+                  <X className="h-5 w-5" />
+                </Button>
+              </div>
+
+              {/* Filter Content - Scrollable */}
+              <div className="flex-1 overflow-y-auto p-4">
+                <FilterSidebar
+                  offers={searchResults}
+                  filters={filters}
+                  onFiltersChange={setFilters}
+                  className="border-0 p-0"
+                />
+              </div>
+
+              {/* Footer with Apply Button - always visible */}
+              <div className="shrink-0 border-t border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-4">
+                <Button
+                  className="w-full"
+                  onClick={() => setShowFilters(false)}
+                >
+                  {filteredOffers.length} Ergebnisse anzeigen
+                </Button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

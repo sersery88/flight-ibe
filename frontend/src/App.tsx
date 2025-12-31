@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
-import { Plane, Moon, Sun, Monitor } from 'lucide-react';
+import { Plane, Moon, Sun } from 'lucide-react';
 import { Button, ErrorBoundary, ToastProvider } from '@/components/ui';
 import { SearchForm } from '@/components/flight';
 import { ResultsPage } from '@/pages/results-page';
@@ -28,15 +28,9 @@ const queryClient = new QueryClient({
 function ThemeToggle() {
   const { theme, toggleTheme } = useThemeStore();
 
-  const icons = {
-    light: <Sun className="h-5 w-5" />,
-    dark: <Moon className="h-5 w-5" />,
-    system: <Monitor className="h-5 w-5" />,
-  };
-
   return (
-    <Button variant="ghost" size="icon" onClick={toggleTheme} title={`Theme: ${theme}`}>
-      {icons[theme]}
+    <Button variant="ghost" size="icon" onClick={toggleTheme} title={theme === 'light' ? 'Dunkel' : 'Hell'}>
+      {theme === 'light' ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
     </Button>
   );
 }

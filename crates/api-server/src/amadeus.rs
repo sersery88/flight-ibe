@@ -489,6 +489,8 @@ pub async fn get_seatmaps(
         "data": flight_offers
     });
 
+    tracing::debug!("Sending seatmap request for {} offers", flight_offers.len());
+
     let response = client
         .post(format!("{}/v1/shopping/seatmaps", get_base_url()))
         .header("Authorization", format!("Bearer {}", token))
@@ -499,12 +501,21 @@ pub async fn get_seatmaps(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
+        tracing::error!("Seatmap API error: status={}, body={}", status, error_text);
         return Err(anyhow!("Get seatmaps failed with status {}: {}", status, error_text));
     }
 
-    let seatmap_resp: SeatmapResponse = response.json().await
-        .map_err(|e| anyhow!("Failed to parse seatmap response: {}", e))?;
+    // Get the raw response text first for debugging
+    let response_text = response.text().await?;
+    tracing::debug!("Seatmap raw response length: {} bytes", response_text.len());
 
+    let seatmap_resp: SeatmapResponse = serde_json::from_str(&response_text)
+        .map_err(|e| {
+            tracing::error!("Failed to parse seatmap response: {}. Response preview: {}...", e, &response_text[..response_text.len().min(500)]);
+            anyhow!("Failed to parse seatmap response: {}", e)
+        })?;
+
+    tracing::debug!("Parsed {} seatmaps successfully", seatmap_resp.data.len());
     Ok(seatmap_resp)
 }
 

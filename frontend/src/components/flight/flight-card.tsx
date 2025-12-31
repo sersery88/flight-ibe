@@ -193,14 +193,15 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
     return sum + segmentCo2;
   }, 0);
 
-  // Get baggage info for each itinerary
-  const travelerPricing = offer.travelerPricings[0];
   const outboundSegmentCount = outbound.segments.length;
 
-  // Get branded fare info from first segment
-  const fareDetail = travelerPricing?.fareDetailsBySegment?.[0];
-  const brandedFareName = fareDetail?.brandedFareLabel || fareDetail?.brandedFare;
-  const cabinClass = fareDetail?.cabin || 'ECONOMY';
+  // Get baggage and fare info from SELECTED fare offer (not original)
+  const selectedTravelerPricing = selectedFareOffer.travelerPricings[0];
+
+  // Get branded fare info from first segment of selected fare
+  const selectedFareDetail = selectedTravelerPricing?.fareDetailsBySegment?.[0];
+  const brandedFareName = selectedFareDetail?.brandedFareLabel || selectedFareDetail?.brandedFare;
+  const cabinClass = selectedFareDetail?.cabin || 'ECONOMY';
 
   // Check if multiple fare options are available
   const hasMultipleFares = upsellOffers.length > 1;
@@ -309,7 +310,7 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
             segments={outbound.segments}
             duration={outbound.duration}
             label="Hinflug"
-            fareDetails={travelerPricing?.fareDetailsBySegment?.slice(0, outboundSegmentCount)}
+            fareDetails={selectedTravelerPricing?.fareDetailsBySegment?.slice(0, outboundSegmentCount)}
           />
 
           {/* Return Flight */}
@@ -320,7 +321,7 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
                 segments={returnFlight.segments}
                 duration={returnFlight.duration}
                 label="Rückflug"
-                fareDetails={travelerPricing?.fareDetailsBySegment?.slice(outboundSegmentCount)}
+                fareDetails={selectedTravelerPricing?.fareDetailsBySegment?.slice(outboundSegmentCount)}
               />
             </>
           )}
