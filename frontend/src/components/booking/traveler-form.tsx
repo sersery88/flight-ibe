@@ -2,7 +2,7 @@ import { useState, useMemo } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
-import { User, CreditCard, ChevronDown, Baby } from 'lucide-react';
+import { User, CreditCard, ChevronDown, Baby, Mail, Phone, MapPin } from 'lucide-react';
 import { motion } from 'motion/react';
 import { Input, Label, Card } from '@/components/ui';
 import { cn, getTravelerTypeLabel } from '@/lib/utils';
@@ -19,6 +19,14 @@ const travelerSchema = z.object({
   dateOfBirth: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Format: JJJJ-MM-TT'),
   loyaltyProgramOwner: z.string().optional(),
   loyaltyProgramId: z.string().optional(),
+  // Contact fields for lead traveler
+  email: z.string().email('Ungültige E-Mail-Adresse').optional().or(z.literal('')),
+  phone: z.string().min(6, 'Mindestens 6 Zeichen').optional().or(z.literal('')),
+  // Address fields for lead traveler
+  street: z.string().optional(),
+  postalCode: z.string().optional(),
+  city: z.string().optional(),
+  country: z.string().optional(),
 });
 
 type TravelerFormData = z.infer<typeof travelerSchema>;
@@ -103,6 +111,12 @@ export function TravelerForm({ index, traveler, isLead = false, className, assoc
       dateOfBirth: traveler.dateOfBirth,
       loyaltyProgramOwner: traveler.loyaltyProgram?.programOwner || '',
       loyaltyProgramId: traveler.loyaltyProgram?.id || '',
+      email: traveler.email || '',
+      phone: traveler.phone || '',
+      street: traveler.address?.street || '',
+      postalCode: traveler.address?.postalCode || '',
+      city: traveler.address?.city || '',
+      country: traveler.address?.country || '',
     },
   });
 
@@ -113,6 +127,12 @@ export function TravelerForm({ index, traveler, isLead = false, className, assoc
       loyaltyProgram: values.loyaltyProgramOwner && values.loyaltyProgramId ? {
         programOwner: values.loyaltyProgramOwner,
         id: values.loyaltyProgramId,
+      } : undefined,
+      address: values.street || values.postalCode || values.city || values.country ? {
+        street: values.street || '',
+        postalCode: values.postalCode || '',
+        city: values.city || '',
+        country: values.country || '',
       } : undefined,
     });
   };
@@ -267,6 +287,78 @@ export function TravelerForm({ index, traveler, isLead = false, className, assoc
             <input type="hidden" {...register('dateOfBirth')} />
           </div>
 
+          {/* Contact Fields - Only for Lead Traveler */}
+          {isLead && (
+            <>
+              {/* Email */}
+              <div>
+                <Label htmlFor={`email-${index}`} className="flex items-center gap-2">
+                  <Mail className="h-4 w-4" />
+                  E-Mail
+                </Label>
+                <Input
+                  id={`email-${index}`}
+                  type="email"
+                  {...register('email')}
+                  onBlur={onBlur}
+                  placeholder="max.mustermann@email.ch"
+                  className={errors.email ? 'border-red-500' : ''}
+                />
+                {errors.email && <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>}
+              </div>
+
+              {/* Phone */}
+              <div>
+                <Label htmlFor={`phone-${index}`} className="flex items-center gap-2">
+                  <Phone className="h-4 w-4" />
+                  Telefonnummer
+                </Label>
+                <Input
+                  id={`phone-${index}`}
+                  type="tel"
+                  {...register('phone')}
+                  onBlur={onBlur}
+                  placeholder="+41 79 123 45 67"
+                  className={errors.phone ? 'border-red-500' : ''}
+                />
+                {errors.phone && <p className="mt-1 text-xs text-red-500">{errors.phone.message}</p>}
+              </div>
+
+              {/* Address */}
+              <div className="md:col-span-2">
+                <Label className="flex items-center gap-2">
+                  <MapPin className="h-4 w-4" />
+                  Wohnadresse
+                </Label>
+                <div className="mt-1 grid gap-2 md:grid-cols-2">
+                  <Input
+                    {...register('street')}
+                    onBlur={onBlur}
+                    placeholder="Strasse und Hausnummer"
+                    className="md:col-span-2"
+                  />
+                  <Input
+                    {...register('postalCode')}
+                    onBlur={onBlur}
+                    placeholder="PLZ"
+                  />
+                  <Input
+                    {...register('city')}
+                    onBlur={onBlur}
+                    placeholder="Ort"
+                  />
+                  <Input
+                    {...register('country')}
+                    onBlur={onBlur}
+                    placeholder="Land"
+                    defaultValue="Schweiz"
+                    className="md:col-span-2"
+                  />
+                </div>
+              </div>
+            </>
+          )}
+
           {/* Frequent Flyer Program - für Erwachsene und Kinder */}
           {(traveler.type === 'ADULT' || traveler.type === 'CHILD') && (
             <div className="md:col-span-2">
@@ -357,7 +449,7 @@ function InfantSection({ infant, infantIndex, adultLastName }: InfantSectionProp
           <Baby className="h-4 w-4 text-pink-600" />
         </div>
         <div>
-          <h4 className="font-medium">Baby (auf dem Schoß)</h4>
+          <h4 className="font-medium">Baby (auf dem Schoss)</h4>
           <p className="text-xs text-gray-500">Unter 2 Jahren, reist mit diesem Erwachsenen</p>
         </div>
       </div>

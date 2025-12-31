@@ -382,7 +382,7 @@ function WingIndicator({ side, startRow, endRow, firstRow }: WingIndicatorProps)
         'flex h-full w-4 sm:w-10 items-center justify-center rounded-md sm:rounded-lg bg-gradient-to-b from-gray-200 via-gray-300 to-gray-200 dark:from-gray-700 dark:via-gray-600 dark:to-gray-700',
         side === 'left' ? 'rounded-l-full' : 'rounded-r-full'
       )}>
-        <span className="text-[6px] sm:text-xs font-medium text-gray-500 dark:text-gray-400 [writing-mode:vertical-lr] rotate-180">
+        <span className="select-none text-[6px] sm:text-xs font-medium text-gray-500 dark:text-gray-400 [writing-mode:vertical-lr] rotate-180">
           FLÜGEL
         </span>
       </div>

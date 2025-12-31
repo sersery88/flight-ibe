@@ -137,7 +137,7 @@ export function PassengerSelector({
             ))}
             
             <div className="border-t border-gray-200 pt-3 text-xs text-gray-500 dark:border-gray-700">
-              Maximal 9 Passagiere. Babys müssen auf dem Schoß eines Erwachsenen reisen.
+              Maximal 9 Passagiere. Babys müssen auf dem Schoss eines Erwachsenen reisen.
             </div>
           </div>
         </PopoverPanel>

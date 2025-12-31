@@ -14,6 +14,13 @@ export interface TravelerData {
   dateOfBirth: string;
   email?: string;
   phone?: string;
+  // Address (for lead traveler)
+  address?: {
+    street: string;
+    postalCode: string;
+    city: string;
+    country: string;
+  };
   // APIS (Passport) data
   document?: {
     type: 'PASSPORT' | 'ID_CARD';

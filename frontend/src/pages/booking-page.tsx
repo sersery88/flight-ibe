@@ -110,7 +110,7 @@ export function BookingPage({ onBack, onComplete }: BookingPageProps) {
           <ArrowLeft className="h-5 w-5" />
         </Button>
         <div className="min-w-0">
-          <h1 className="text-xl font-bold sm:text-2xl">Buchung abschließen</h1>
+          <h1 className="text-xl font-bold sm:text-2xl">Buchung abschliessen</h1>
           <p className="truncate text-sm text-gray-500 sm:text-base">
             Gesamtpreis: <span className="font-semibold text-pink-500">
               {formatCurrency(Number(totalPrice), (pricedOffer || selectedOffer).price.currency)}

@@ -151,7 +151,7 @@ export function BookingSummary({ onConfirm, onEdit, isLoading, className }: Book
                 'ADULT': 'Erwachsener',
                 'CHILD': 'Kind',
                 'SEATED_INFANT': 'Kleinkind (mit Sitz)',
-                'HELD_INFANT': 'Baby (auf Schoß)',
+                'HELD_INFANT': 'Baby (auf Schoss)',
               };
 
               // Group travelers by type
