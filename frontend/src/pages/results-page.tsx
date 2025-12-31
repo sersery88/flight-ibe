@@ -432,33 +432,16 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
       )}
 
       {/* Content */}
-      <div className="flex">
-        {/* Left scroll zone - scrolls the filter sidebar */}
-        <div
-          className="hidden flex-1 lg:block"
-          onWheel={(e) => {
-            const sidebar = document.getElementById('filter-sidebar-scroll');
-            if (sidebar) {
-              e.preventDefault();
-              sidebar.scrollTop += e.deltaY;
-            }
-          }}
-        />
-
+      <div className="flex justify-center">
         <div className="w-full max-w-7xl px-4 py-6">
           <div className="flex gap-6">
-            {/* Sidebar */}
+            {/* Sidebar - no fixed height on desktop, scrolls with page */}
             <aside className="hidden w-72 shrink-0 lg:block">
-              <div
-                id="filter-sidebar-scroll"
-                className="sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto scrollbar-none overscroll-contain"
-              >
-                <FilterSidebar
-                  offers={searchResults}
-                  filters={filters}
-                  onFiltersChange={setFilters}
-                />
-              </div>
+              <FilterSidebar
+                offers={searchResults}
+                filters={filters}
+                onFiltersChange={setFilters}
+              />
             </aside>
 
             {/* Results */}
@@ -496,9 +479,6 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
             </main>
           </div>
         </div>
-
-        {/* Right empty space for symmetry */}
-        <div className="hidden flex-1 lg:block" />
       </div>
 
       {/* MOBILE: Filter Sheet */}

@@ -243,7 +243,9 @@ function SingleSeatmapDisplay({ seatmap, selectedSeats, onSeatSelect, maxSelecti
           <>
             <span>•</span>
             <span>{seatmap.aircraft.code}</span>
-            {cabinLayout.isWidebody && <Badge variant="outline" className="ml-0.5 sm:ml-1 text-[8px] sm:text-xs">Widebody</Badge>}
+            <Badge variant="outline" className="ml-0.5 sm:ml-1 text-[8px] sm:text-xs">
+              {cabinLayout.isWidebody ? 'Widebody' : 'Narrowbody'}
+            </Badge>
           </>
         )}
       </div>
