@@ -1,0 +1,8215 @@
+### Page state
+- Page URL: https://developers.amadeus.com/self-service/category/flights/api-doc/seatmap-display/api-reference
+- Page Title: API Reference | SeatMap Display API | Amadeus for Developers
+- Page Snapshot:
+```yaml
+- generic [ref=e3]:
+  - generic:
+    - generic:
+      - navigation [ref=e4]:
+        - generic [ref=e8] [cursor=pointer]:
+          - img "Amadeus logo" [ref=e10]
+          - generic [ref=e11]: for Developers
+        - form [ref=e12]:
+          - link "Register" [ref=e13] [cursor=pointer]:
+            - /url: /register
+          - generic [ref=e15] [cursor=pointer]: Sign In
+        - list [ref=e17]:
+          - listitem [ref=e18]:
+            - generic [ref=e19]:
+              - text: Products
+              - generic [ref=e20]: 
+          - listitem [ref=e21]:
+            - link "Blog" [ref=e22] [cursor=pointer]:
+              - /url: /blog
+          - listitem [ref=e23]:
+            - link "Support" [ref=e24] [cursor=pointer]:
+              - /url: /support
+          - listitem
+      - generic [ref=e26]:
+        - generic [ref=e29]:
+          - generic [ref=e30] [cursor=pointer]:
+            - generic [ref=e31]: Self-Service APIs
+            - generic [ref=e32]: 
+          - generic [ref=e33] [cursor=pointer]:
+            - generic [ref=e34]: Enterprise APIs
+            - generic [ref=e35]: 
+        - generic [ref=e38]:
+          - generic [ref=e39]:
+            - link "Self-Service APIs" [ref=e40] [cursor=pointer]:
+              - /url: /self-service
+            - generic [ref=e41]: Quick access to the travel essentials. Start building powerful travel apps in minutes.
+          - generic [ref=e42]:
+            - generic [ref=e43]:
+              - generic [ref=e44]:
+                - link "Flights" [ref=e46] [cursor=pointer]:
+                  - /url: /self-service/category/flights
+                - paragraph [ref=e47]: Access data from over 400 airlines and build applicat...
+              - generic [ref=e48]:
+                - link "Destination experie..." [ref=e50] [cursor=pointer]:
+                  - /url: /self-service/category/destination-experiences
+                - paragraph [ref=e51]: Find data on over 2 million places and 150,000 activi...
+              - generic [ref=e52]:
+                - link "Market insights" [ref=e54] [cursor=pointer]:
+                  - /url: /self-service/category/market-insights
+                - paragraph [ref=e55]: Get insights from millions of bookings. Spot trends a...
+              - generic [ref=e56]:
+                - link "Cars and Transfers" [ref=e58] [cursor=pointer]:
+                  - /url: /self-service/category/cars-and-transfers
+                - paragraph [ref=e59]: Tap into the potential of global transportation provi...
+              - generic [ref=e60]:
+                - link "Hotels" [ref=e62] [cursor=pointer]:
+                  - /url: /self-service/category/hotels
+                - paragraph [ref=e63]: Build with data from over 125,000 hotels and help you...
+              - generic [ref=e64]:
+                - link " See all categories" [ref=e66] [cursor=pointer]:
+                  - /url: /self-service
+                  - generic [ref=e67]: 
+                  - text: See all categories
+                - paragraph [ref=e68]: Browse all Self-Service APIs
+            - generic [ref=e69]:
+              - link " Get Started" [ref=e71] [cursor=pointer]:
+                - /url: /get-started/get-started-with-self-service-apis-335
+                - generic [ref=e72]: 
+                - text: Get Started
+              - link " Docs" [ref=e74] [cursor=pointer]:
+                - /url: /self-service/apis-docs
+                - generic [ref=e75]: 
+                - text: Docs
+              - link " API Changelog" [ref=e77] [cursor=pointer]:
+                - /url: /self-service/apis-changelog
+                - generic [ref=e78]: 
+                - text: API Changelog
+              - link " Pricing" [ref=e80] [cursor=pointer]:
+                - /url: /pricing
+                - generic [ref=e81]: 
+                - text: Pricing
+              - link " GitHub" [ref=e83] [cursor=pointer]:
+                - /url: https://github.com/amadeus4dev/
+                - generic [ref=e84]: 
+                - text: GitHub
+  - generic [ref=e90]:
+    - navigation "Breadcrumb" [ref=e92]:
+      - list [ref=e93]:
+        - listitem [ref=e94]:
+          - link "" [ref=e95] [cursor=pointer]:
+            - /url: /
+            - generic [ref=e96]: 
+        - listitem [ref=e97]:
+          - text: /
+          - link "Self-Service APIs" [ref=e98] [cursor=pointer]:
+            - /url: /self-service
+        - listitem [ref=e99]:
+          - text: /
+          - link "Flights" [ref=e100] [cursor=pointer]:
+            - /url: /self-service/category/flights
+        - listitem [ref=e101]:
+          - text: /
+          - link "Seatmap Display" [ref=e102] [cursor=pointer]:
+            - /url: /self-service/category/flights/api-doc/seatmap-display
+        - listitem [ref=e103]: /API documentation and examples
+    - generic [ref=e104] [cursor=pointer]:
+      - generic [ref=e105]: 
+      - text: Go back to API overview
+    - generic:
+      - heading [level=2]
+    - generic [ref=e108]:
+      - generic [ref=e109]:
+        - generic [ref=e110]: Register to get your API key and start coding
+        - generic [ref=e111]: Create an account to get instant access to this API.
+      - link "Register now" [ref=e112] [cursor=pointer]:
+        - /url: /register
+    - tablist [ref=e113]:
+      - listitem [ref=e114]:
+        - tab "Documentation" [selected] [ref=e115] [cursor=pointer]
+      - listitem [ref=e116]:
+        - tab "API Explorer" [ref=e117] [cursor=pointer]
+    - tabpanel "Documentation" [ref=e120]:
+      - generic [ref=e123]:
+        - generic:
+          - img
+        - generic [ref=e124]:
+          - generic [ref=e128]:
+            - generic [ref=e129]:
+              - heading "Seatmap Display 1.9.2 OAS 2.0" [level=2] [ref=e130]:
+                - text: Seatmap Display
+                - generic [ref=e131]:
+                  - generic [ref=e133]: 1.9.2
+                  - generic [ref=e135]: OAS 2.0
+              - generic [ref=e136]: "[ Base URL: test.api.amadeus.com/v1 ]"
+            - generic [ref=e138]:
+              - paragraph [ref=e139]:
+                - text: Before using this API, we recommend you read our
+                - strong [ref=e140]:
+                  - link "Authorization Guide" [ref=e141] [cursor=pointer]:
+                    - /url: https://developers.amadeus.com/self-service/apis-docs/guides/authorization-262
+                - text: for more information on how to generate an access token.
+              - paragraph [ref=e142]: Please also be aware that our test environment is based on a subset of the production, if you are not returning any results try with big cities/airports like LON (London) or NYC (New-York).
+          - generic [ref=e146]:
+            - generic [ref=e147]: Schemes
+            - combobox "Schemes" [ref=e148]:
+              - option "https" [selected]
+          - generic [ref=e153]:
+            - heading "Display SeatMaps Collapse operation" [level=3] [ref=e154] [cursor=pointer]:
+              - generic [ref=e155]: Display SeatMaps
+              - button "Collapse operation" [expanded] [ref=e156]:
+                - img [ref=e157]
+            - generic [ref=e160]:
+              - generic [ref=e163] [cursor=pointer]:
+                - button "GET /shopping/seatmaps Returns all the seat maps of a given order." [ref=e164]:
+                  - generic [ref=e165]: GET
+                  - generic [ref=e166]:
+                    - generic [ref=e169]:
+                      - text: /shopping
+                      - text: /seatmaps
+                    - generic [ref=e170]: Returns all the seat maps of a given order.
+                - generic "Copy to clipboard"
+                - button "get /shopping/seatmaps" [ref=e173]:
+                  - img [ref=e174]
+              - generic [ref=e178] [cursor=pointer]:
+                - button "POST /shopping/seatmaps Returns all the seat maps of a given flightOffer." [ref=e179]:
+                  - generic [ref=e180]: POST
+                  - generic [ref=e181]:
+                    - generic [ref=e184]:
+                      - text: /shopping
+                      - text: /seatmaps
+                    - generic [ref=e185]: Returns all the seat maps of a given flightOffer.
+                - generic "Copy to clipboard"
+                - button "post /shopping/seatmaps" [ref=e188]:
+                  - img [ref=e189]
+          - generic [ref=e193]:
+            - heading "Models" [level=4] [ref=e194] [cursor=pointer]:
+              - button "Models" [expanded] [ref=e195]:
+                - generic [ref=e196]: Models
+                - img [ref=e197]
+            - generic [ref=e199]:
+              - generic [ref=e204]:
+                - button "FlightSegment" [expanded] [ref=e205] [cursor=pointer]:
+                  - generic [ref=e207]: FlightSegment
+                - text: "{"
+                - table [ref=e210]:
+                  - rowgroup [ref=e211]:
+                    - 'row "description: defining a flight segment; including both operating and marketing details when applicable" [ref=e212]':
+                      - cell "description:" [ref=e213]
+                      - cell "defining a flight segment; including both operating and marketing details when applicable" [ref=e214]:
+                        - paragraph [ref=e216]: defining a flight segment; including both operating and marketing details when applicable
+                    - 'row "departure FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e217]':
+                      - cell "departure" [ref=e218]
+                      - 'cell "FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e219]':
+                        - generic [ref=e221]:
+                          - button "FlightEndPoint" [expanded] [ref=e222] [cursor=pointer]:
+                            - generic [ref=e224]: FlightEndPoint
+                          - text: "{"
+                          - table [ref=e227]:
+                            - rowgroup [ref=e228]:
+                              - 'row "description: departure or arrival information" [ref=e229]':
+                                - cell "description:" [ref=e230]
+                                - cell "departure or arrival information" [ref=e231]:
+                                  - paragraph [ref=e233]: departure or arrival information
+                              - 'row "iataCode string example: JFK IATA airline codes" [ref=e234]':
+                                - cell "iataCode" [ref=e235]
+                                - 'cell "string example: JFK IATA airline codes" [ref=e236]':
+                                  - generic [ref=e238]:
+                                    - button [expanded] [ref=e239] [cursor=pointer]
+                                    - generic [ref=e241]:
+                                      - text: string
+                                      - generic [ref=e242]: "example: JFK"
+                                      - paragraph [ref=e244]:
+                                        - link "IATA airline codes" [ref=e245] [cursor=pointer]:
+                                          - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                              - 'row "terminal string example: T2 terminal name / number" [ref=e246]':
+                                - cell "terminal" [ref=e247]
+                                - 'cell "string example: T2 terminal name / number" [ref=e248]':
+                                  - generic [ref=e250]:
+                                    - button [expanded] [ref=e251] [cursor=pointer]
+                                    - generic [ref=e253]:
+                                      - text: string
+                                      - generic [ref=e254]: "example: T2"
+                                      - paragraph [ref=e256]: terminal name / number
+                              - 'row "at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e257]':
+                                - cell "at" [ref=e258]
+                                - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e259]':
+                                  - generic [ref=e261]:
+                                    - button [expanded] [ref=e262] [cursor=pointer]
+                                    - generic [ref=e264]:
+                                      - text: string
+                                      - generic [ref=e265]: ($date-time)
+                                      - generic [ref=e266]: "example: 2017-10-23T20:00:00+02:00"
+                                      - paragraph [ref=e268]:
+                                        - text: local date and time in
+                                        - link "ISO8601" [ref=e269] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                        - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                          - text: "}"
+                    - 'row "arrival FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e270]':
+                      - cell "arrival" [ref=e271]
+                      - 'cell "FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e272]':
+                        - generic [ref=e274]:
+                          - button "FlightEndPoint" [expanded] [ref=e275] [cursor=pointer]:
+                            - generic [ref=e277]: FlightEndPoint
+                          - text: "{"
+                          - table [ref=e280]:
+                            - rowgroup [ref=e281]:
+                              - 'row "description: departure or arrival information" [ref=e282]':
+                                - cell "description:" [ref=e283]
+                                - cell "departure or arrival information" [ref=e284]:
+                                  - paragraph [ref=e286]: departure or arrival information
+                              - 'row "iataCode string example: JFK IATA airline codes" [ref=e287]':
+                                - cell "iataCode" [ref=e288]
+                                - 'cell "string example: JFK IATA airline codes" [ref=e289]':
+                                  - generic [ref=e291]:
+                                    - button [expanded] [ref=e292] [cursor=pointer]
+                                    - generic [ref=e294]:
+                                      - text: string
+                                      - generic [ref=e295]: "example: JFK"
+                                      - paragraph [ref=e297]:
+                                        - link "IATA airline codes" [ref=e298] [cursor=pointer]:
+                                          - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                              - 'row "terminal string example: T2 terminal name / number" [ref=e299]':
+                                - cell "terminal" [ref=e300]
+                                - 'cell "string example: T2 terminal name / number" [ref=e301]':
+                                  - generic [ref=e303]:
+                                    - button [expanded] [ref=e304] [cursor=pointer]
+                                    - generic [ref=e306]:
+                                      - text: string
+                                      - generic [ref=e307]: "example: T2"
+                                      - paragraph [ref=e309]: terminal name / number
+                              - 'row "at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e310]':
+                                - cell "at" [ref=e311]
+                                - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e312]':
+                                  - generic [ref=e314]:
+                                    - button [expanded] [ref=e315] [cursor=pointer]
+                                    - generic [ref=e317]:
+                                      - text: string
+                                      - generic [ref=e318]: ($date-time)
+                                      - generic [ref=e319]: "example: 2017-10-23T20:00:00+02:00"
+                                      - paragraph [ref=e321]:
+                                        - text: local date and time in
+                                        - link "ISO8601" [ref=e322] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                        - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                          - text: "}"
+                    - 'row "carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e323]':
+                      - cell "carrierCode" [ref=e324]
+                      - 'cell "string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e325]':
+                        - generic [ref=e327]:
+                          - button [expanded] [ref=e328] [cursor=pointer]
+                          - generic [ref=e330]:
+                            - text: string
+                            - generic [ref=e331]: "minLength: 1"
+                            - generic [ref=e332]: "maxLength: 2"
+                            - generic [ref=e333]: "example: DL"
+                            - paragraph [ref=e335]: providing the airline / carrier code
+                    - 'row "number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e336]':
+                      - cell "number" [ref=e337]
+                      - 'cell "string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e338]':
+                        - generic [ref=e340]:
+                          - button [expanded] [ref=e341] [cursor=pointer]
+                          - generic [ref=e343]:
+                            - text: string
+                            - generic [ref=e344]: "minLength: 1"
+                            - generic [ref=e345]: "maxLength: 4"
+                            - generic [ref=e346]: "example: 212"
+                            - paragraph [ref=e348]: the flight number as assigned by the carrier
+                    - 'row "aircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e349]':
+                      - cell "aircraft" [ref=e350]
+                      - 'cell "AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e351]':
+                        - generic [ref=e353]:
+                          - button "AircraftEquipment" [expanded] [ref=e354] [cursor=pointer]:
+                            - generic [ref=e356]: AircraftEquipment
+                          - text: "{"
+                          - table [ref=e359]:
+                            - rowgroup [ref=e360]:
+                              - 'row "description: information related to the aircraft" [ref=e361]':
+                                - cell "description:" [ref=e362]
+                                - cell "information related to the aircraft" [ref=e363]:
+                                  - paragraph [ref=e365]: information related to the aircraft
+                              - 'row "code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e366]':
+                                - cell "code" [ref=e367]
+                                - 'cell "string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e368]':
+                                  - generic [ref=e370]:
+                                    - button [expanded] [ref=e371] [cursor=pointer]
+                                    - generic [ref=e373]:
+                                      - text: string
+                                      - generic [ref=e374]: "pattern: [a-zA-Z0-9]{3}"
+                                      - generic [ref=e375]: "example: 318"
+                                      - paragraph [ref=e377]:
+                                        - text: IATA aircraft code (
+                                        - link "http://www.flugzeuginfo.net/table_accodes_iata_en.php" [ref=e378] [cursor=pointer]:
+                                          - /url: http://www.flugzeuginfo.net/table_accodes_iata_en.php
+                                        - text: )
+                          - text: "}"
+                    - 'row "operating OperatingFlight { description: information about the operating flight carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier }" [ref=e379]':
+                      - cell "operating" [ref=e380]
+                      - 'cell "OperatingFlight { description: information about the operating flight carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier }" [ref=e381]':
+                        - generic [ref=e383]:
+                          - button "OperatingFlight" [expanded] [ref=e384] [cursor=pointer]:
+                            - generic [ref=e386]: OperatingFlight
+                          - text: "{"
+                          - table [ref=e389]:
+                            - rowgroup [ref=e390]:
+                              - 'row "description: information about the operating flight" [ref=e391]':
+                                - cell "description:" [ref=e392]
+                                - cell "information about the operating flight" [ref=e393]:
+                                  - paragraph [ref=e395]: information about the operating flight
+                              - 'row "carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e396]':
+                                - cell "carrierCode" [ref=e397]
+                                - 'cell "string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e398]':
+                                  - generic [ref=e400]:
+                                    - button [expanded] [ref=e401] [cursor=pointer]
+                                    - generic [ref=e403]:
+                                      - text: string
+                                      - generic [ref=e404]: "minLength: 1"
+                                      - generic [ref=e405]: "maxLength: 2"
+                                      - generic [ref=e406]: "example: DL"
+                                      - paragraph [ref=e408]: providing the airline / carrier code
+                              - 'row "number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e409]':
+                                - cell "number" [ref=e410]
+                                - 'cell "string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e411]':
+                                  - generic [ref=e413]:
+                                    - button [expanded] [ref=e414] [cursor=pointer]
+                                    - generic [ref=e416]:
+                                      - text: string
+                                      - generic [ref=e417]: "minLength: 1"
+                                      - generic [ref=e418]: "maxLength: 4"
+                                      - generic [ref=e419]: "example: 212"
+                                      - paragraph [ref=e421]: the flight number as assigned by the carrier
+                              - 'row "suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e422]':
+                                - cell "suffix" [ref=e423]
+                                - 'cell "string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e424]':
+                                  - generic [ref=e426]:
+                                    - button [expanded] [ref=e427] [cursor=pointer]
+                                    - generic [ref=e429]:
+                                      - text: string
+                                      - generic [ref=e430]: "minLength: 1"
+                                      - generic [ref=e431]: "maxLength: 4"
+                                      - paragraph [ref=e433]: the flight number suffix as assigned by the carrier
+                          - text: "}"
+                    - 'row "duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e434]':
+                      - cell "duration" [ref=e435]
+                      - 'cell "string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e436]':
+                        - generic [ref=e438]:
+                          - button [expanded] [ref=e439] [cursor=pointer]
+                          - generic [ref=e441]:
+                            - text: string
+                            - generic [ref=e442]: "example: PT2H10M"
+                            - paragraph [ref=e444]:
+                              - text: stop duration in
+                              - link "ISO8601" [ref=e445] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_8601
+                              - text: PnYnMnDTnHnMnS format, e.g. PT2H10M
+                    - 'row "stops [ information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge... FlightStop { description: details of stops for direct or change of gauge flights iataCode string example: JFK IATA airline codes newAircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) } duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M arrivalAt string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 departureAt string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }]" [ref=e446]':
+                      - cell "stops" [ref=e447]
+                      - 'cell "[ information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge... FlightStop { description: details of stops for direct or change of gauge flights iataCode string example: JFK IATA airline codes newAircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) } duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M arrivalAt string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 departureAt string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }]" [ref=e448]':
+                        - generic [ref=e450]:
+                          - button [expanded] [ref=e451] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e454]: information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...
+                          - generic [ref=e457]:
+                            - button "FlightStop" [expanded] [ref=e458] [cursor=pointer]:
+                              - generic [ref=e460]: FlightStop
+                            - text: "{"
+                            - table [ref=e463]:
+                              - rowgroup [ref=e464]:
+                                - 'row "description: details of stops for direct or change of gauge flights" [ref=e465]':
+                                  - cell "description:" [ref=e466]
+                                  - cell "details of stops for direct or change of gauge flights" [ref=e467]:
+                                    - paragraph [ref=e469]: details of stops for direct or change of gauge flights
+                                - 'row "iataCode string example: JFK IATA airline codes" [ref=e470]':
+                                  - cell "iataCode" [ref=e471]
+                                  - 'cell "string example: JFK IATA airline codes" [ref=e472]':
+                                    - generic [ref=e474]:
+                                      - button [expanded] [ref=e475] [cursor=pointer]
+                                      - generic [ref=e477]:
+                                        - text: string
+                                        - generic [ref=e478]: "example: JFK"
+                                        - paragraph [ref=e480]:
+                                          - link "IATA airline codes" [ref=e481] [cursor=pointer]:
+                                            - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                                - 'row "newAircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e482]':
+                                  - cell "newAircraft" [ref=e483]
+                                  - 'cell "AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e484]':
+                                    - generic [ref=e486]:
+                                      - button "AircraftEquipment" [expanded] [ref=e487] [cursor=pointer]:
+                                        - generic [ref=e489]: AircraftEquipment
+                                      - text: "{"
+                                      - table [ref=e492]:
+                                        - rowgroup [ref=e493]:
+                                          - 'row "description: information related to the aircraft" [ref=e494]':
+                                            - cell "description:" [ref=e495]
+                                            - cell "information related to the aircraft" [ref=e496]:
+                                              - paragraph [ref=e498]: information related to the aircraft
+                                          - 'row "code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e499]':
+                                            - cell "code" [ref=e500]
+                                            - 'cell "string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e501]':
+                                              - generic [ref=e503]:
+                                                - button [expanded] [ref=e504] [cursor=pointer]
+                                                - generic [ref=e506]:
+                                                  - text: string
+                                                  - generic [ref=e507]: "pattern: [a-zA-Z0-9]{3}"
+                                                  - generic [ref=e508]: "example: 318"
+                                                  - paragraph [ref=e510]:
+                                                    - text: IATA aircraft code (
+                                                    - link "http://www.flugzeuginfo.net/table_accodes_iata_en.php" [ref=e511] [cursor=pointer]:
+                                                      - /url: http://www.flugzeuginfo.net/table_accodes_iata_en.php
+                                                    - text: )
+                                      - text: "}"
+                                - 'row "duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e512]':
+                                  - cell "duration" [ref=e513]
+                                  - 'cell "string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e514]':
+                                    - generic [ref=e516]:
+                                      - button [expanded] [ref=e517] [cursor=pointer]
+                                      - generic [ref=e519]:
+                                        - text: string
+                                        - generic [ref=e520]: "example: PT2H10M"
+                                        - paragraph [ref=e522]:
+                                          - text: stop duration in
+                                          - link "ISO8601" [ref=e523] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                          - text: PnYnMnDTnHnMnS format, e.g. PT2H10M
+                                - 'row "arrivalAt string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e524]':
+                                  - cell "arrivalAt" [ref=e525]
+                                  - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e526]':
+                                    - generic [ref=e528]:
+                                      - button [expanded] [ref=e529] [cursor=pointer]
+                                      - generic [ref=e531]:
+                                        - text: string
+                                        - generic [ref=e532]: ($date-time)
+                                        - generic [ref=e533]: "example: 2017-10-23T20:00:00+02:00"
+                                        - paragraph [ref=e535]:
+                                          - text: arrival at the stop in
+                                          - link "ISO8601" [ref=e536] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                          - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                                - 'row "departureAt string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e537]':
+                                  - cell "departureAt" [ref=e538]
+                                  - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e539]':
+                                    - generic [ref=e541]:
+                                      - button [expanded] [ref=e542] [cursor=pointer]
+                                      - generic [ref=e544]:
+                                        - text: string
+                                        - generic [ref=e545]: ($date-time)
+                                        - generic [ref=e546]: "example: 2017-10-23T20:00:00+02:00"
+                                        - paragraph [ref=e548]:
+                                          - text: departure from the stop in
+                                          - link "ISO8601" [ref=e549] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                          - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e554]:
+                - button "FlightEndPoint" [expanded] [ref=e555] [cursor=pointer]:
+                  - generic [ref=e557]: FlightEndPoint
+                - text: "{"
+                - table [ref=e560]:
+                  - rowgroup [ref=e561]:
+                    - 'row "description: departure or arrival information" [ref=e562]':
+                      - cell "description:" [ref=e563]
+                      - cell "departure or arrival information" [ref=e564]:
+                        - paragraph [ref=e566]: departure or arrival information
+                    - 'row "iataCode string example: JFK IATA airline codes" [ref=e567]':
+                      - cell "iataCode" [ref=e568]
+                      - 'cell "string example: JFK IATA airline codes" [ref=e569]':
+                        - generic [ref=e571]:
+                          - button [expanded] [ref=e572] [cursor=pointer]
+                          - generic [ref=e574]:
+                            - text: string
+                            - generic [ref=e575]: "example: JFK"
+                            - paragraph [ref=e577]:
+                              - link "IATA airline codes" [ref=e578] [cursor=pointer]:
+                                - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                    - 'row "terminal string example: T2 terminal name / number" [ref=e579]':
+                      - cell "terminal" [ref=e580]
+                      - 'cell "string example: T2 terminal name / number" [ref=e581]':
+                        - generic [ref=e583]:
+                          - button [expanded] [ref=e584] [cursor=pointer]
+                          - generic [ref=e586]:
+                            - text: string
+                            - generic [ref=e587]: "example: T2"
+                            - paragraph [ref=e589]: terminal name / number
+                    - 'row "at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e590]':
+                      - cell "at" [ref=e591]
+                      - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e592]':
+                        - generic [ref=e594]:
+                          - button [expanded] [ref=e595] [cursor=pointer]
+                          - generic [ref=e597]:
+                            - text: string
+                            - generic [ref=e598]: ($date-time)
+                            - generic [ref=e599]: "example: 2017-10-23T20:00:00+02:00"
+                            - paragraph [ref=e601]:
+                              - text: local date and time in
+                              - link "ISO8601" [ref=e602] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_8601
+                              - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                - text: "}"
+              - generic [ref=e607]:
+                - button "FlightStop" [expanded] [ref=e608] [cursor=pointer]:
+                  - generic [ref=e610]: FlightStop
+                - text: "{"
+                - table [ref=e613]:
+                  - rowgroup [ref=e614]:
+                    - 'row "description: details of stops for direct or change of gauge flights" [ref=e615]':
+                      - cell "description:" [ref=e616]
+                      - cell "details of stops for direct or change of gauge flights" [ref=e617]:
+                        - paragraph [ref=e619]: details of stops for direct or change of gauge flights
+                    - 'row "iataCode string example: JFK IATA airline codes" [ref=e620]':
+                      - cell "iataCode" [ref=e621]
+                      - 'cell "string example: JFK IATA airline codes" [ref=e622]':
+                        - generic [ref=e624]:
+                          - button [expanded] [ref=e625] [cursor=pointer]
+                          - generic [ref=e627]:
+                            - text: string
+                            - generic [ref=e628]: "example: JFK"
+                            - paragraph [ref=e630]:
+                              - link "IATA airline codes" [ref=e631] [cursor=pointer]:
+                                - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                    - 'row "newAircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e632]':
+                      - cell "newAircraft" [ref=e633]
+                      - 'cell "AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e634]':
+                        - generic [ref=e636]:
+                          - button "AircraftEquipment" [expanded] [ref=e637] [cursor=pointer]:
+                            - generic [ref=e639]: AircraftEquipment
+                          - text: "{"
+                          - table [ref=e642]:
+                            - rowgroup [ref=e643]:
+                              - 'row "description: information related to the aircraft" [ref=e644]':
+                                - cell "description:" [ref=e645]
+                                - cell "information related to the aircraft" [ref=e646]:
+                                  - paragraph [ref=e648]: information related to the aircraft
+                              - 'row "code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e649]':
+                                - cell "code" [ref=e650]
+                                - 'cell "string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e651]':
+                                  - generic [ref=e653]:
+                                    - button [expanded] [ref=e654] [cursor=pointer]
+                                    - generic [ref=e656]:
+                                      - text: string
+                                      - generic [ref=e657]: "pattern: [a-zA-Z0-9]{3}"
+                                      - generic [ref=e658]: "example: 318"
+                                      - paragraph [ref=e660]:
+                                        - text: IATA aircraft code (
+                                        - link "http://www.flugzeuginfo.net/table_accodes_iata_en.php" [ref=e661] [cursor=pointer]:
+                                          - /url: http://www.flugzeuginfo.net/table_accodes_iata_en.php
+                                        - text: )
+                          - text: "}"
+                    - 'row "duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e662]':
+                      - cell "duration" [ref=e663]
+                      - 'cell "string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e664]':
+                        - generic [ref=e666]:
+                          - button [expanded] [ref=e667] [cursor=pointer]
+                          - generic [ref=e669]:
+                            - text: string
+                            - generic [ref=e670]: "example: PT2H10M"
+                            - paragraph [ref=e672]:
+                              - text: stop duration in
+                              - link "ISO8601" [ref=e673] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_8601
+                              - text: PnYnMnDTnHnMnS format, e.g. PT2H10M
+                    - 'row "arrivalAt string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e674]':
+                      - cell "arrivalAt" [ref=e675]
+                      - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e676]':
+                        - generic [ref=e678]:
+                          - button [expanded] [ref=e679] [cursor=pointer]
+                          - generic [ref=e681]:
+                            - text: string
+                            - generic [ref=e682]: ($date-time)
+                            - generic [ref=e683]: "example: 2017-10-23T20:00:00+02:00"
+                            - paragraph [ref=e685]:
+                              - text: arrival at the stop in
+                              - link "ISO8601" [ref=e686] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_8601
+                              - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                    - 'row "departureAt string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e687]':
+                      - cell "departureAt" [ref=e688]
+                      - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e689]':
+                        - generic [ref=e691]:
+                          - button [expanded] [ref=e692] [cursor=pointer]
+                          - generic [ref=e694]:
+                            - text: string
+                            - generic [ref=e695]: ($date-time)
+                            - generic [ref=e696]: "example: 2017-10-23T20:00:00+02:00"
+                            - paragraph [ref=e698]:
+                              - text: departure from the stop in
+                              - link "ISO8601" [ref=e699] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_8601
+                              - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                - text: "}"
+              - generic [ref=e704]:
+                - button "AircraftEquipment" [expanded] [ref=e705] [cursor=pointer]:
+                  - generic [ref=e707]: AircraftEquipment
+                - text: "{"
+                - table [ref=e710]:
+                  - rowgroup [ref=e711]:
+                    - 'row "description: information related to the aircraft" [ref=e712]':
+                      - cell "description:" [ref=e713]
+                      - cell "information related to the aircraft" [ref=e714]:
+                        - paragraph [ref=e716]: information related to the aircraft
+                    - 'row "code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e717]':
+                      - cell "code" [ref=e718]
+                      - 'cell "string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e719]':
+                        - generic [ref=e721]:
+                          - button [expanded] [ref=e722] [cursor=pointer]
+                          - generic [ref=e724]:
+                            - text: string
+                            - generic [ref=e725]: "pattern: [a-zA-Z0-9]{3}"
+                            - generic [ref=e726]: "example: 318"
+                            - paragraph [ref=e728]:
+                              - text: IATA aircraft code (
+                              - link "http://www.flugzeuginfo.net/table_accodes_iata_en.php" [ref=e729] [cursor=pointer]:
+                                - /url: http://www.flugzeuginfo.net/table_accodes_iata_en.php
+                              - text: )
+                - text: "}"
+              - generic [ref=e734]:
+                - button "OperatingFlight" [expanded] [ref=e735] [cursor=pointer]:
+                  - generic [ref=e737]: OperatingFlight
+                - text: "{"
+                - table [ref=e740]:
+                  - rowgroup [ref=e741]:
+                    - 'row "description: information about the operating flight" [ref=e742]':
+                      - cell "description:" [ref=e743]
+                      - cell "information about the operating flight" [ref=e744]:
+                        - paragraph [ref=e746]: information about the operating flight
+                    - 'row "carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e747]':
+                      - cell "carrierCode" [ref=e748]
+                      - 'cell "string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e749]':
+                        - generic [ref=e751]:
+                          - button [expanded] [ref=e752] [cursor=pointer]
+                          - generic [ref=e754]:
+                            - text: string
+                            - generic [ref=e755]: "minLength: 1"
+                            - generic [ref=e756]: "maxLength: 2"
+                            - generic [ref=e757]: "example: DL"
+                            - paragraph [ref=e759]: providing the airline / carrier code
+                    - 'row "number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e760]':
+                      - cell "number" [ref=e761]
+                      - 'cell "string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e762]':
+                        - generic [ref=e764]:
+                          - button [expanded] [ref=e765] [cursor=pointer]
+                          - generic [ref=e767]:
+                            - text: string
+                            - generic [ref=e768]: "minLength: 1"
+                            - generic [ref=e769]: "maxLength: 4"
+                            - generic [ref=e770]: "example: 212"
+                            - paragraph [ref=e772]: the flight number as assigned by the carrier
+                    - 'row "suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e773]':
+                      - cell "suffix" [ref=e774]
+                      - 'cell "string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e775]':
+                        - generic [ref=e777]:
+                          - button [expanded] [ref=e778] [cursor=pointer]
+                          - generic [ref=e780]:
+                            - text: string
+                            - generic [ref=e781]: "minLength: 1"
+                            - generic [ref=e782]: "maxLength: 4"
+                            - paragraph [ref=e784]: the flight number suffix as assigned by the carrier
+                - text: "}"
+              - generic [ref=e789]:
+                - button "Flight-offer" [expanded] [ref=e790] [cursor=pointer]:
+                  - generic [ref=e792]: Flight-offer
+                - text: "{"
+                - table [ref=e795]:
+                  - rowgroup [ref=e796]:
+                    - 'row "type* string example: flight-offer the resource name" [ref=e797]':
+                      - cell "type*" [ref=e798]
+                      - 'cell "string example: flight-offer the resource name" [ref=e799]':
+                        - generic [ref=e801]:
+                          - button [expanded] [ref=e802] [cursor=pointer]
+                          - generic [ref=e804]:
+                            - text: string
+                            - generic [ref=e805]: "example: flight-offer"
+                            - paragraph [ref=e807]: the resource name
+                    - 'row "id* string example: 1 Id of the flight offer" [ref=e808]':
+                      - cell "id*" [ref=e809]
+                      - 'cell "string example: 1 Id of the flight offer" [ref=e810]':
+                        - generic [ref=e812]:
+                          - button [expanded] [ref=e813] [cursor=pointer]
+                          - generic [ref=e815]:
+                            - text: string
+                            - generic [ref=e816]: "example: 1"
+                            - paragraph [ref=e818]: Id of the flight offer
+                    - 'row "source FlightOfferSource FlightOfferSource string example: GDS source of the flight offer Enum: [ GDS ]" [ref=e819]':
+                      - cell "source" [ref=e820]
+                      - 'cell "FlightOfferSource FlightOfferSource string example: GDS source of the flight offer Enum: [ GDS ]" [ref=e821]':
+                        - generic [ref=e823]:
+                          - button "FlightOfferSource" [expanded] [ref=e824] [cursor=pointer]:
+                            - generic [ref=e826]: FlightOfferSource
+                          - generic [ref=e828]:
+                            - generic [ref=e829]: FlightOfferSource
+                            - text: string
+                            - generic [ref=e830]: "example: GDS"
+                            - paragraph [ref=e832]: source of the flight offer
+                            - generic [ref=e833]:
+                              - text: "Enum:"
+                              - generic [ref=e834]:
+                                - button [expanded] [ref=e835] [cursor=pointer]
+                                - text: "[ GDS ]"
+                    - 'row "instantTicketingRequired boolean example: false If true, inform that a ticketing will be required at booking step." [ref=e837]':
+                      - cell "instantTicketingRequired" [ref=e838]
+                      - 'cell "boolean example: false If true, inform that a ticketing will be required at booking step." [ref=e839]':
+                        - generic [ref=e841]:
+                          - button [expanded] [ref=e842] [cursor=pointer]
+                          - generic [ref=e844]:
+                            - text: boolean
+                            - generic [ref=e845]: "example: false"
+                            - paragraph [ref=e847]: If true, inform that a ticketing will be required at booking step.
+                    - 'row "disablePricing boolean example: false BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source \"GDS\"" [ref=e848]':
+                      - cell "disablePricing" [ref=e849]
+                      - 'cell "boolean example: false BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source \"GDS\"" [ref=e850]':
+                        - generic [ref=e852]:
+                          - button [expanded] [ref=e853] [cursor=pointer]
+                          - generic [ref=e855]:
+                            - text: boolean
+                            - generic [ref=e856]: "example: false"
+                            - paragraph [ref=e858]: BOOK step ONLY - If true, allows to book a PNR without pricing. Only for the source "GDS"
+                    - 'row "nonHomogeneous boolean example: false If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)" [ref=e859]':
+                      - cell "nonHomogeneous" [ref=e860]
+                      - 'cell "boolean example: false If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)" [ref=e861]':
+                        - generic [ref=e863]:
+                          - button [expanded] [ref=e864] [cursor=pointer]
+                          - generic [ref=e866]:
+                            - text: boolean
+                            - generic [ref=e867]: "example: false"
+                            - paragraph [ref=e869]: If true, upon completion of the booking, this pricing solution is expected to yield multiple records (a record contains booking information confirmed and stored, typically a Passenger Name Record (PNR), in the provider GDS or system)
+                    - 'row "oneWay boolean example: false If true, the flight offer fulfills only one originDestination and has to be combined with other oneWays to complete the whole journey." [ref=e870]':
+                      - cell "oneWay" [ref=e871]
+                      - 'cell "boolean example: false If true, the flight offer fulfills only one originDestination and has to be combined with other oneWays to complete the whole journey." [ref=e872]':
+                        - generic [ref=e874]:
+                          - button [expanded] [ref=e875] [cursor=pointer]
+                          - generic [ref=e877]:
+                            - text: boolean
+                            - generic [ref=e878]: "example: false"
+                            - paragraph [ref=e880]: If true, the flight offer fulfills only one originDestination and has to be combined with other oneWays to complete the whole journey.
+                    - 'row "paymentCardRequired boolean example: false If true, a payment card is mandatory to book this flight offer" [ref=e881]':
+                      - cell "paymentCardRequired" [ref=e882]
+                      - 'cell "boolean example: false If true, a payment card is mandatory to book this flight offer" [ref=e883]':
+                        - generic [ref=e885]:
+                          - button [expanded] [ref=e886] [cursor=pointer]
+                          - generic [ref=e888]:
+                            - text: boolean
+                            - generic [ref=e889]: "example: false"
+                            - paragraph [ref=e891]: If true, a payment card is mandatory to book this flight offer
+                    - 'row "lastTicketingDate string example: 2018-06-19T00:00:00.000Z If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07" [ref=e892]':
+                      - cell "lastTicketingDate" [ref=e893]
+                      - 'cell "string example: 2018-06-19T00:00:00.000Z If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07" [ref=e894]':
+                        - generic [ref=e896]:
+                          - button [expanded] [ref=e897] [cursor=pointer]
+                          - generic [ref=e899]:
+                            - text: string
+                            - generic [ref=e900]: "example: 2018-06-19T00:00:00.000Z"
+                            - paragraph [ref=e902]: If booked on the same day as the search (with respect to timezone), this flight offer is guaranteed to be thereafter valid for ticketing until this date (included). Unspecified when it does not make sense for this flight offer (e.g. no control over ticketing once booked). YYYY-MM-DD format, e.g. 2019-06-07
+                    - 'row "numberOfBookableSeats number example: 9 minimum: 1 maximum: 9 Number of seats bookable in a single request. Can not be higher than 9." [ref=e903]':
+                      - cell "numberOfBookableSeats" [ref=e904]
+                      - 'cell "number example: 9 minimum: 1 maximum: 9 Number of seats bookable in a single request. Can not be higher than 9." [ref=e905]':
+                        - generic [ref=e907]:
+                          - button [expanded] [ref=e908] [cursor=pointer]
+                          - generic [ref=e910]:
+                            - text: number
+                            - generic [ref=e911]: "example: 9"
+                            - generic [ref=e912]: "minimum: 1"
+                            - generic [ref=e913]: "maximum: 9"
+                            - paragraph [ref=e915]: Number of seats bookable in a single request. Can not be higher than 9.
+                    - 'row "itineraries [ minItems: 1 maxItems: 250 Itineraries { duration string example: PT2H10M duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m segments* Segments [ title: Segments minItems: 1 maxItems: 9 Segment {...}] }]" [ref=e916]':
+                      - cell "itineraries" [ref=e917]
+                      - 'cell "[ minItems: 1 maxItems: 250 Itineraries { duration string example: PT2H10M duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m segments* Segments [ title: Segments minItems: 1 maxItems: 9 Segment {...}] }]" [ref=e918]':
+                        - generic [ref=e920]:
+                          - button [expanded] [ref=e921] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e923]: "minItems: 1"
+                          - generic [ref=e924]: "maxItems: 250"
+                          - generic [ref=e927]:
+                            - button "Itineraries" [expanded] [ref=e928] [cursor=pointer]:
+                              - generic [ref=e930]: Itineraries
+                            - text: "{"
+                            - table [ref=e933]:
+                              - rowgroup [ref=e934]:
+                                - 'row "duration string example: PT2H10M duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m" [ref=e935]':
+                                  - cell "duration" [ref=e936]
+                                  - 'cell "string example: PT2H10M duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m" [ref=e937]':
+                                    - generic [ref=e939]:
+                                      - button [expanded] [ref=e940] [cursor=pointer]
+                                      - generic [ref=e942]:
+                                        - text: string
+                                        - generic [ref=e943]: "example: PT2H10M"
+                                        - paragraph [ref=e945]:
+                                          - text: duration in
+                                          - link "ISO8601" [ref=e946] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                          - text: PnYnMnDTnHnMnS format, e.g. PT2H10M for a duration of 2h10m
+                                - 'row "segments* Segments [ title: Segments minItems: 1 maxItems: 9 Segment {...}]" [ref=e947]':
+                                  - cell "segments*" [ref=e948]
+                                  - 'cell "Segments [ title: Segments minItems: 1 maxItems: 9 Segment {...}]" [ref=e949]':
+                                    - generic [ref=e951]:
+                                      - button "Segments" [expanded] [ref=e952] [cursor=pointer]:
+                                        - generic [ref=e954]: Segments
+                                      - text: "["
+                                      - generic [ref=e956]: "title: Segments"
+                                      - generic [ref=e957]: "minItems: 1"
+                                      - generic [ref=e958]: "maxItems: 9"
+                                      - 'button "Segment {...}" [ref=e962] [cursor=pointer]':
+                                        - generic [ref=e964]: Segment
+                                        - generic [ref=e967]: "{...}"
+                                      - text: "]"
+                            - text: "}"
+                          - text: "]"
+                    - row [ref=e968]:
+                      - cell "price" [ref=e969]
+                      - cell [ref=e970]:
+                        - generic [ref=e972]:
+                          - button "Price" [expanded] [ref=e973] [cursor=pointer]:
+                            - generic [ref=e975]: Price
+                          - text: "{"
+                          - table [ref=e978]:
+                            - rowgroup [ref=e979]:
+                              - 'row "description: price information" [ref=e980]':
+                                - cell "description:" [ref=e981]
+                                - cell "price information" [ref=e982]:
+                                  - paragraph [ref=e984]: price information
+                              - 'row "margin string example: 1.00 BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated." [ref=e985]':
+                                - cell "margin" [ref=e986]
+                                - 'cell "string example: 1.00 BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated." [ref=e987]':
+                                  - generic [ref=e989]:
+                                    - button [expanded] [ref=e990] [cursor=pointer]
+                                    - generic [ref=e992]:
+                                      - text: string
+                                      - generic [ref=e993]: "example: 1.00"
+                                      - paragraph [ref=e995]: BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.
+                              - 'row "grandTotal string example: 987.00 Total amount paid by the user (including fees and selected additional services)." [ref=e996]':
+                                - cell "grandTotal" [ref=e997]
+                                - 'cell "string example: 987.00 Total amount paid by the user (including fees and selected additional services)." [ref=e998]':
+                                  - generic [ref=e1000]:
+                                    - button [expanded] [ref=e1001] [cursor=pointer]
+                                    - generic [ref=e1003]:
+                                      - text: string
+                                      - generic [ref=e1004]: "example: 987.00"
+                                      - paragraph [ref=e1006]: Total amount paid by the user (including fees and selected additional services).
+                              - 'row "billingCurrency string example: EUR Currency of the payment. It may be different than the requested currency" [ref=e1007]':
+                                - cell "billingCurrency" [ref=e1008]
+                                - 'cell "string example: EUR Currency of the payment. It may be different than the requested currency" [ref=e1009]':
+                                  - generic [ref=e1011]:
+                                    - button [expanded] [ref=e1012] [cursor=pointer]
+                                    - generic [ref=e1014]:
+                                      - text: string
+                                      - generic [ref=e1015]: "example: EUR"
+                                      - paragraph [ref=e1017]: Currency of the payment. It may be different than the requested currency
+                              - 'row "additionalServices AdditionalServices [ title: AdditionalServices AdditionalService { amount string example: 332.70 type AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ] }]" [ref=e1018]':
+                                - cell "additionalServices" [ref=e1019]
+                                - 'cell "AdditionalServices [ title: AdditionalServices AdditionalService { amount string example: 332.70 type AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ] }]" [ref=e1020]':
+                                  - generic [ref=e1022]:
+                                    - button "AdditionalServices" [expanded] [ref=e1023] [cursor=pointer]:
+                                      - generic [ref=e1025]: AdditionalServices
+                                    - text: "["
+                                    - generic [ref=e1027]: "title: AdditionalServices"
+                                    - generic [ref=e1030]:
+                                      - button "AdditionalService" [expanded] [ref=e1031] [cursor=pointer]:
+                                        - generic [ref=e1033]: AdditionalService
+                                      - text: "{"
+                                      - table [ref=e1036]:
+                                        - rowgroup [ref=e1037]:
+                                          - 'row "amount string example: 332.70" [ref=e1038]':
+                                            - cell "amount" [ref=e1039]
+                                            - 'cell "string example: 332.70" [ref=e1040]':
+                                              - generic [ref=e1042]:
+                                                - button [expanded] [ref=e1043] [cursor=pointer]
+                                                - generic [ref=e1045]:
+                                                  - text: string
+                                                  - generic [ref=e1046]: "example: 332.70"
+                                          - 'row "type AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ]" [ref=e1047]':
+                                            - cell "type" [ref=e1048]
+                                            - 'cell "AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ]" [ref=e1049]':
+                                              - generic [ref=e1051]:
+                                                - button "AdditionalServiceType" [expanded] [ref=e1052] [cursor=pointer]:
+                                                  - generic [ref=e1054]: AdditionalServiceType
+                                                - generic [ref=e1056]:
+                                                  - generic [ref=e1057]: AdditionalServiceType
+                                                  - text: string
+                                                  - generic [ref=e1058]: "example: CHECKED_BAGS"
+                                                  - paragraph [ref=e1060]: additional service type
+                                                  - generic [ref=e1061]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e1062]:
+                                                      - button [expanded] [ref=e1063] [cursor=pointer]
+                                                      - text: "[ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ]"
+                                      - text: "}"
+                                    - text: "]"
+                              - 'row "currency string example: USD" [ref=e1065]':
+                                - cell "currency" [ref=e1066]
+                                - 'cell "string example: USD" [ref=e1067]':
+                                  - generic [ref=e1069]:
+                                    - button [expanded] [ref=e1070] [cursor=pointer]
+                                    - generic [ref=e1072]:
+                                      - text: string
+                                      - generic [ref=e1073]: "example: USD"
+                              - 'row "total string example: 932.70 Total amount paid by the user" [ref=e1074]':
+                                - cell "total" [ref=e1075]
+                                - 'cell "string example: 932.70 Total amount paid by the user" [ref=e1076]':
+                                  - generic [ref=e1078]:
+                                    - button [expanded] [ref=e1079] [cursor=pointer]
+                                    - generic [ref=e1081]:
+                                      - text: string
+                                      - generic [ref=e1082]: "example: 932.70"
+                                      - paragraph [ref=e1084]: Total amount paid by the user
+                              - 'row "base string example: 632.70 Amount without taxes" [ref=e1085]':
+                                - cell "base" [ref=e1086]
+                                - 'cell "string example: 632.70 Amount without taxes" [ref=e1087]':
+                                  - generic [ref=e1089]:
+                                    - button [expanded] [ref=e1090] [cursor=pointer]
+                                    - generic [ref=e1092]:
+                                      - text: string
+                                      - generic [ref=e1093]: "example: 632.70"
+                                      - paragraph [ref=e1095]: Amount without taxes
+                              - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e1096]':
+                                - cell "fees" [ref=e1097]
+                                - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e1098]':
+                                  - generic [ref=e1100]:
+                                    - button [expanded] [ref=e1101] [cursor=pointer]
+                                    - text: "["
+                                    - paragraph [ref=e1104]: List of applicable fees
+                                    - generic [ref=e1107]:
+                                      - button "Fee" [expanded] [ref=e1108] [cursor=pointer]:
+                                        - generic [ref=e1110]: Fee
+                                      - text: "{"
+                                      - table [ref=e1113]:
+                                        - rowgroup [ref=e1114]:
+                                          - 'row "description: a fee" [ref=e1115]':
+                                            - cell "description:" [ref=e1116]
+                                            - cell "a fee" [ref=e1117]:
+                                              - paragraph [ref=e1119]: a fee
+                                          - 'row "amount string example: 332.70" [ref=e1120]':
+                                            - cell "amount" [ref=e1121]
+                                            - 'cell "string example: 332.70" [ref=e1122]':
+                                              - generic [ref=e1124]:
+                                                - button [expanded] [ref=e1125] [cursor=pointer]
+                                                - generic [ref=e1127]:
+                                                  - text: string
+                                                  - generic [ref=e1128]: "example: 332.70"
+                                          - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e1129]':
+                                            - cell "type" [ref=e1130]
+                                            - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e1131]':
+                                              - generic [ref=e1133]:
+                                                - button "FeeType" [expanded] [ref=e1134] [cursor=pointer]:
+                                                  - generic [ref=e1136]: FeeType
+                                                - generic [ref=e1138]:
+                                                  - generic [ref=e1139]: FeeType
+                                                  - text: string
+                                                  - generic [ref=e1140]: "example: TICKETING"
+                                                  - paragraph [ref=e1142]: type of fee
+                                                  - generic [ref=e1143]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e1144]:
+                                                      - button [expanded] [ref=e1145] [cursor=pointer]
+                                                      - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                                      - text: "}"
+                                    - text: "]"
+                              - 'row "taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e1147]':
+                                - cell "taxes" [ref=e1148]
+                                - 'cell "[ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e1149]':
+                                  - generic [ref=e1151]:
+                                    - button [expanded] [ref=e1152] [cursor=pointer]
+                                    - text: "["
+                                    - generic [ref=e1156]:
+                                      - button "Tax" [expanded] [ref=e1157] [cursor=pointer]:
+                                        - generic [ref=e1159]: Tax
+                                      - text: "{"
+                                      - table [ref=e1162]:
+                                        - rowgroup [ref=e1163]:
+                                          - 'row "description: a tax" [ref=e1164]':
+                                            - cell "description:" [ref=e1165]
+                                            - cell "a tax" [ref=e1166]:
+                                              - paragraph [ref=e1168]: a tax
+                                          - 'row "amount string example: 332.70" [ref=e1169]':
+                                            - cell "amount" [ref=e1170]
+                                            - 'cell "string example: 332.70" [ref=e1171]':
+                                              - generic [ref=e1173]:
+                                                - button [expanded] [ref=e1174] [cursor=pointer]
+                                                - generic [ref=e1176]:
+                                                  - text: string
+                                                  - generic [ref=e1177]: "example: 332.70"
+                                          - 'row "code string example: MX" [ref=e1178]':
+                                            - cell "code" [ref=e1179]
+                                            - 'cell "string example: MX" [ref=e1180]':
+                                              - generic [ref=e1182]:
+                                                - button [expanded] [ref=e1183] [cursor=pointer]
+                                                - generic [ref=e1185]:
+                                                  - text: string
+                                                  - generic [ref=e1186]: "example: MX"
+                                      - text: "}"
+                                    - text: "]"
+                          - text: "}"
+                    - 'row "pricingOptions PricingOptions { fareType PricingOptionsFareType [ example: List [ \"PUBLISHED\" ] type of fare of the flight-offer string Enum: [ PUBLISHED, NEGOTIATED, CORPORATE ] ] corporateCodes [ example: List [ \"123456\" ] Allow Corporate negotiated fares using one or more corporate number (corporate code). string] includedCheckedBagsOnly boolean example: true If true, returns the flight-offers with included checked bags only refundableFare boolean example: true If true, returns the flight-offers with refundable fares only noRestrictionFare boolean example: true If true, returns the flight-offers with no restriction fares only noPenaltyFare boolean example: true If true, returns the flight-offers with no penalty fares only }" [ref=e1187]':
+                      - cell "pricingOptions" [ref=e1188]
+                      - 'cell "PricingOptions { fareType PricingOptionsFareType [ example: List [ \"PUBLISHED\" ] type of fare of the flight-offer string Enum: [ PUBLISHED, NEGOTIATED, CORPORATE ] ] corporateCodes [ example: List [ \"123456\" ] Allow Corporate negotiated fares using one or more corporate number (corporate code). string] includedCheckedBagsOnly boolean example: true If true, returns the flight-offers with included checked bags only refundableFare boolean example: true If true, returns the flight-offers with refundable fares only noRestrictionFare boolean example: true If true, returns the flight-offers with no restriction fares only noPenaltyFare boolean example: true If true, returns the flight-offers with no penalty fares only }" [ref=e1189]':
+                        - generic [ref=e1191]:
+                          - button "PricingOptions" [expanded] [ref=e1192] [cursor=pointer]:
+                            - generic [ref=e1194]: PricingOptions
+                          - text: "{"
+                          - table [ref=e1197]:
+                            - rowgroup [ref=e1198]:
+                              - 'row "fareType PricingOptionsFareType [ example: List [ \"PUBLISHED\" ] type of fare of the flight-offer string Enum: [ PUBLISHED, NEGOTIATED, CORPORATE ] ]" [ref=e1199]':
+                                - cell "fareType" [ref=e1200]
+                                - 'cell "PricingOptionsFareType [ example: List [ \"PUBLISHED\" ] type of fare of the flight-offer string Enum: [ PUBLISHED, NEGOTIATED, CORPORATE ] ]" [ref=e1201]':
+                                  - generic [ref=e1203]:
+                                    - button "PricingOptionsFareType" [expanded] [ref=e1204] [cursor=pointer]:
+                                      - generic [ref=e1206]: PricingOptionsFareType
+                                    - text: "["
+                                    - generic [ref=e1208]: "example: List [ \"PUBLISHED\" ]"
+                                    - paragraph [ref=e1210]: type of fare of the flight-offer
+                                    - generic [ref=e1213]:
+                                      - button [expanded] [ref=e1214] [cursor=pointer]
+                                      - generic [ref=e1216]:
+                                        - text: string
+                                        - generic [ref=e1217]:
+                                          - text: "Enum:"
+                                          - generic [ref=e1218]:
+                                            - button [expanded] [ref=e1219] [cursor=pointer]
+                                            - text: "[ PUBLISHED, NEGOTIATED, CORPORATE ]"
+                                    - text: "]"
+                              - 'row "corporateCodes [ example: List [ \"123456\" ] Allow Corporate negotiated fares using one or more corporate number (corporate code). string]" [ref=e1221]':
+                                - cell "corporateCodes" [ref=e1222]
+                                - 'cell "[ example: List [ \"123456\" ] Allow Corporate negotiated fares using one or more corporate number (corporate code). string]" [ref=e1223]':
+                                  - generic [ref=e1225]:
+                                    - button [expanded] [ref=e1226] [cursor=pointer]
+                                    - text: "["
+                                    - generic [ref=e1228]: "example: List [ \"123456\" ]"
+                                    - paragraph [ref=e1230]: Allow Corporate negotiated fares using one or more corporate number (corporate code).
+                                    - generic [ref=e1233]:
+                                      - button [expanded] [ref=e1234] [cursor=pointer]
+                                      - generic [ref=e1236]: string
+                                    - text: "]"
+                              - 'row "includedCheckedBagsOnly boolean example: true If true, returns the flight-offers with included checked bags only" [ref=e1237]':
+                                - cell "includedCheckedBagsOnly" [ref=e1238]
+                                - 'cell "boolean example: true If true, returns the flight-offers with included checked bags only" [ref=e1239]':
+                                  - generic [ref=e1241]:
+                                    - button [expanded] [ref=e1242] [cursor=pointer]
+                                    - generic [ref=e1244]:
+                                      - text: boolean
+                                      - generic [ref=e1245]: "example: true"
+                                      - paragraph [ref=e1247]: If true, returns the flight-offers with included checked bags only
+                              - 'row "refundableFare boolean example: true If true, returns the flight-offers with refundable fares only" [ref=e1248]':
+                                - cell "refundableFare" [ref=e1249]
+                                - 'cell "boolean example: true If true, returns the flight-offers with refundable fares only" [ref=e1250]':
+                                  - generic [ref=e1252]:
+                                    - button [expanded] [ref=e1253] [cursor=pointer]
+                                    - generic [ref=e1255]:
+                                      - text: boolean
+                                      - generic [ref=e1256]: "example: true"
+                                      - paragraph [ref=e1258]: If true, returns the flight-offers with refundable fares only
+                              - 'row "noRestrictionFare boolean example: true If true, returns the flight-offers with no restriction fares only" [ref=e1259]':
+                                - cell "noRestrictionFare" [ref=e1260]
+                                - 'cell "boolean example: true If true, returns the flight-offers with no restriction fares only" [ref=e1261]':
+                                  - generic [ref=e1263]:
+                                    - button [expanded] [ref=e1264] [cursor=pointer]
+                                    - generic [ref=e1266]:
+                                      - text: boolean
+                                      - generic [ref=e1267]: "example: true"
+                                      - paragraph [ref=e1269]: If true, returns the flight-offers with no restriction fares only
+                              - 'row "noPenaltyFare boolean example: true If true, returns the flight-offers with no penalty fares only" [ref=e1270]':
+                                - cell "noPenaltyFare" [ref=e1271]
+                                - 'cell "boolean example: true If true, returns the flight-offers with no penalty fares only" [ref=e1272]':
+                                  - generic [ref=e1274]:
+                                    - button [expanded] [ref=e1275] [cursor=pointer]
+                                    - generic [ref=e1277]:
+                                      - text: boolean
+                                      - generic [ref=e1278]: "example: true"
+                                      - paragraph [ref=e1280]: If true, returns the flight-offers with no penalty fares only
+                          - text: "}"
+                    - 'row "validatingAirlineCodes [ minItems: 1 maxItems: 9 example: List [ \"AF\" ] This option ensures that the system will only consider these airlines. string]" [ref=e1281]':
+                      - cell "validatingAirlineCodes" [ref=e1282]
+                      - 'cell "[ minItems: 1 maxItems: 9 example: List [ \"AF\" ] This option ensures that the system will only consider these airlines. string]" [ref=e1283]':
+                        - generic [ref=e1285]:
+                          - button [expanded] [ref=e1286] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e1288]: "minItems: 1"
+                          - generic [ref=e1289]: "maxItems: 9"
+                          - generic [ref=e1290]: "example: List [ \"AF\" ]"
+                          - paragraph [ref=e1292]: This option ensures that the system will only consider these airlines.
+                          - generic [ref=e1295]:
+                            - button [expanded] [ref=e1296] [cursor=pointer]
+                            - generic [ref=e1298]: string
+                          - text: "]"
+                    - row [ref=e1299]:
+                      - cell "travelerPricings" [ref=e1300]
+                      - cell [ref=e1301]:
+                        - generic [ref=e1303]:
+                          - button "TravelerPricings" [expanded] [ref=e1304] [cursor=pointer]:
+                            - generic [ref=e1306]: TravelerPricings
+                          - text: "["
+                          - generic [ref=e1308]: "title: TravelerPricings"
+                          - generic [ref=e1309]: "minItems: 1"
+                          - generic [ref=e1310]: "maxItems: 18"
+                          - paragraph [ref=e1312]: Fare information for each traveler/segment
+                          - generic [ref=e1315]:
+                            - button "TravelerPricing" [expanded] [ref=e1316] [cursor=pointer]:
+                              - generic [ref=e1318]: TravelerPricing
+                            - text: "{"
+                            - table [ref=e1321]:
+                              - rowgroup [ref=e1322]:
+                                - 'row "travelerId* string example: 1 Id of the traveler" [ref=e1323]':
+                                  - cell "travelerId*" [ref=e1324]
+                                  - 'cell "string example: 1 Id of the traveler" [ref=e1325]':
+                                    - generic [ref=e1327]:
+                                      - button [expanded] [ref=e1328] [cursor=pointer]
+                                      - generic [ref=e1330]:
+                                        - text: string
+                                        - generic [ref=e1331]: "example: 1"
+                                        - paragraph [ref=e1333]: Id of the traveler
+                                - 'row "fareOption* TravelerPricingFareOption TravelerPricingFareOption string example: STANDARD option specifying a group of fares, which may be valid under certain conditons Can be used to specify special fare discount for a passenger Enum: [ STANDARD, INCLUSIVE_TOUR, SPANISH_MELILLA_RESIDENT, SPANISH_CEUTA_RESIDENT, SPANISH_CANARY_RESIDENT, SPANISH_BALEARIC_RESIDENT, AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS, AIR_FRANCE_DOM_DISCOUNT_PASS, AIR_FRANCE_COMBINED_DISCOUNT_PASS, AIR_FRANCE_FAMILY, ADULT_WITH_COMPANION, COMPANION ]" [ref=e1334]':
+                                  - cell "fareOption*" [ref=e1335]
+                                  - 'cell "TravelerPricingFareOption TravelerPricingFareOption string example: STANDARD option specifying a group of fares, which may be valid under certain conditons Can be used to specify special fare discount for a passenger Enum: [ STANDARD, INCLUSIVE_TOUR, SPANISH_MELILLA_RESIDENT, SPANISH_CEUTA_RESIDENT, SPANISH_CANARY_RESIDENT, SPANISH_BALEARIC_RESIDENT, AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS, AIR_FRANCE_DOM_DISCOUNT_PASS, AIR_FRANCE_COMBINED_DISCOUNT_PASS, AIR_FRANCE_FAMILY, ADULT_WITH_COMPANION, COMPANION ]" [ref=e1336]':
+                                    - generic [ref=e1338]:
+                                      - button "TravelerPricingFareOption" [expanded] [ref=e1339] [cursor=pointer]:
+                                        - generic [ref=e1341]: TravelerPricingFareOption
+                                      - generic [ref=e1343]:
+                                        - generic [ref=e1344]: TravelerPricingFareOption
+                                        - text: string
+                                        - generic [ref=e1345]: "example: STANDARD"
+                                        - paragraph [ref=e1347]:
+                                          - text: option specifying a group of fares, which may be valid under certain conditons
+                                          - text: Can be used to specify special fare discount for a passenger
+                                        - generic [ref=e1348]:
+                                          - text: "Enum:"
+                                          - generic [ref=e1349]:
+                                            - button [expanded] [ref=e1350] [cursor=pointer]
+                                            - text: "[ STANDARD, INCLUSIVE_TOUR, SPANISH_MELILLA_RESIDENT, SPANISH_CEUTA_RESIDENT, SPANISH_CANARY_RESIDENT, SPANISH_BALEARIC_RESIDENT, AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS, AIR_FRANCE_DOM_DISCOUNT_PASS, AIR_FRANCE_COMBINED_DISCOUNT_PASS, AIR_FRANCE_FAMILY, ADULT_WITH_COMPANION, COMPANION ]"
+                                - 'row "travelerType* TravelerType TravelerType string example: ADULT traveler type age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y Enum: [ ADULT, CHILD, SENIOR, YOUNG, HELD_INFANT, SEATED_INFANT, STUDENT ]" [ref=e1352]':
+                                  - cell "travelerType*" [ref=e1353]
+                                  - 'cell "TravelerType TravelerType string example: ADULT traveler type age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y Enum: [ ADULT, CHILD, SENIOR, YOUNG, HELD_INFANT, SEATED_INFANT, STUDENT ]" [ref=e1354]':
+                                    - generic [ref=e1356]:
+                                      - button "TravelerType" [expanded] [ref=e1357] [cursor=pointer]:
+                                        - generic [ref=e1359]: TravelerType
+                                      - generic [ref=e1361]:
+                                        - generic [ref=e1362]: TravelerType
+                                        - text: string
+                                        - generic [ref=e1363]: "example: ADULT"
+                                        - paragraph [ref=e1365]:
+                                          - text: traveler type
+                                          - text: "age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y"
+                                        - generic [ref=e1366]:
+                                          - text: "Enum:"
+                                          - generic [ref=e1367]:
+                                            - button [expanded] [ref=e1368] [cursor=pointer]
+                                            - text: "[ ADULT, CHILD, SENIOR, YOUNG, HELD_INFANT, SEATED_INFANT, STUDENT ]"
+                                - row "associatedAdultId string if type=\"HELD_INFANT\", corresponds to the adult traveler's id who will share the seat" [ref=e1370]:
+                                  - cell "associatedAdultId" [ref=e1371]
+                                  - cell "string if type=\"HELD_INFANT\", corresponds to the adult traveler's id who will share the seat" [ref=e1372]:
+                                    - generic [ref=e1374]:
+                                      - button [expanded] [ref=e1375] [cursor=pointer]
+                                      - generic [ref=e1377]:
+                                        - text: string
+                                        - paragraph [ref=e1379]: if type="HELD_INFANT", corresponds to the adult traveler's id who will share the seat
+                                - 'row "price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e1380]':
+                                  - cell "price" [ref=e1381]
+                                  - 'cell "Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e1382]':
+                                    - generic [ref=e1384]:
+                                      - button "Price" [expanded] [ref=e1385] [cursor=pointer]:
+                                        - generic [ref=e1387]: Price
+                                      - text: "{"
+                                      - table [ref=e1390]:
+                                        - rowgroup [ref=e1391]:
+                                          - 'row "currency string example: USD" [ref=e1392]':
+                                            - cell "currency" [ref=e1393]
+                                            - 'cell "string example: USD" [ref=e1394]':
+                                              - generic [ref=e1396]:
+                                                - button [expanded] [ref=e1397] [cursor=pointer]
+                                                - generic [ref=e1399]:
+                                                  - text: string
+                                                  - generic [ref=e1400]: "example: USD"
+                                          - 'row "total string example: 932.70 Total amount paid by the user" [ref=e1401]':
+                                            - cell "total" [ref=e1402]
+                                            - 'cell "string example: 932.70 Total amount paid by the user" [ref=e1403]':
+                                              - generic [ref=e1405]:
+                                                - button [expanded] [ref=e1406] [cursor=pointer]
+                                                - generic [ref=e1408]:
+                                                  - text: string
+                                                  - generic [ref=e1409]: "example: 932.70"
+                                                  - paragraph [ref=e1411]: Total amount paid by the user
+                                          - 'row "base string example: 632.70 Amount without taxes" [ref=e1412]':
+                                            - cell "base" [ref=e1413]
+                                            - 'cell "string example: 632.70 Amount without taxes" [ref=e1414]':
+                                              - generic [ref=e1416]:
+                                                - button [expanded] [ref=e1417] [cursor=pointer]
+                                                - generic [ref=e1419]:
+                                                  - text: string
+                                                  - generic [ref=e1420]: "example: 632.70"
+                                                  - paragraph [ref=e1422]: Amount without taxes
+                                          - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e1423]':
+                                            - cell "fees" [ref=e1424]
+                                            - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e1425]':
+                                              - generic [ref=e1427]:
+                                                - button [expanded] [ref=e1428] [cursor=pointer]
+                                                - text: "["
+                                                - paragraph [ref=e1431]: List of applicable fees
+                                                - generic [ref=e1434]:
+                                                  - button "Fee" [expanded] [ref=e1435] [cursor=pointer]:
+                                                    - generic [ref=e1437]: Fee
+                                                  - text: "{"
+                                                  - table [ref=e1440]:
+                                                    - rowgroup [ref=e1441]:
+                                                      - 'row "description: a fee" [ref=e1442]':
+                                                        - cell "description:" [ref=e1443]
+                                                        - cell "a fee" [ref=e1444]:
+                                                          - paragraph [ref=e1446]: a fee
+                                                      - 'row "amount string example: 332.70" [ref=e1447]':
+                                                        - cell "amount" [ref=e1448]
+                                                        - 'cell "string example: 332.70" [ref=e1449]':
+                                                          - generic [ref=e1451]:
+                                                            - button [expanded] [ref=e1452] [cursor=pointer]
+                                                            - generic [ref=e1454]:
+                                                              - text: string
+                                                              - generic [ref=e1455]: "example: 332.70"
+                                                      - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e1456]':
+                                                        - cell "type" [ref=e1457]
+                                                        - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e1458]':
+                                                          - generic [ref=e1460]:
+                                                            - button "FeeType" [expanded] [ref=e1461] [cursor=pointer]:
+                                                              - generic [ref=e1463]: FeeType
+                                                            - generic [ref=e1465]:
+                                                              - generic [ref=e1466]: FeeType
+                                                              - text: string
+                                                              - generic [ref=e1467]: "example: TICKETING"
+                                                              - paragraph [ref=e1469]: type of fee
+                                                              - generic [ref=e1470]:
+                                                                - text: "Enum:"
+                                                                - generic [ref=e1471]:
+                                                                  - button [expanded] [ref=e1472] [cursor=pointer]
+                                                                  - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                                                  - text: "}"
+                                                - text: "]"
+                                          - 'row "taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e1474]':
+                                            - cell "taxes" [ref=e1475]
+                                            - 'cell "[ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e1476]':
+                                              - generic [ref=e1478]:
+                                                - button [expanded] [ref=e1479] [cursor=pointer]
+                                                - text: "["
+                                                - generic [ref=e1483]:
+                                                  - button "Tax" [expanded] [ref=e1484] [cursor=pointer]:
+                                                    - generic [ref=e1486]: Tax
+                                                  - text: "{"
+                                                  - table [ref=e1489]:
+                                                    - rowgroup [ref=e1490]:
+                                                      - 'row "description: a tax" [ref=e1491]':
+                                                        - cell "description:" [ref=e1492]
+                                                        - cell "a tax" [ref=e1493]:
+                                                          - paragraph [ref=e1495]: a tax
+                                                      - 'row "amount string example: 332.70" [ref=e1496]':
+                                                        - cell "amount" [ref=e1497]
+                                                        - 'cell "string example: 332.70" [ref=e1498]':
+                                                          - generic [ref=e1500]:
+                                                            - button [expanded] [ref=e1501] [cursor=pointer]
+                                                            - generic [ref=e1503]:
+                                                              - text: string
+                                                              - generic [ref=e1504]: "example: 332.70"
+                                                      - 'row "code string example: MX" [ref=e1505]':
+                                                        - cell "code" [ref=e1506]
+                                                        - 'cell "string example: MX" [ref=e1507]':
+                                                          - generic [ref=e1509]:
+                                                            - button [expanded] [ref=e1510] [cursor=pointer]
+                                                            - generic [ref=e1512]:
+                                                              - text: string
+                                                              - generic [ref=e1513]: "example: MX"
+                                                  - text: "}"
+                                                - text: "]"
+                                      - text: "}"
+                                - row [ref=e1514]:
+                                  - cell "fareDetailsBySegment*" [ref=e1515]
+                                  - cell [ref=e1516]:
+                                    - generic [ref=e1518]:
+                                      - button [expanded] [ref=e1519] [cursor=pointer]
+                                      - text: "["
+                                      - generic [ref=e1521]: "minItems: 1"
+                                      - generic [ref=e1522]: "maxItems: 18"
+                                      - generic [ref=e1525]:
+                                        - button "FareDetailsBySegment" [expanded] [ref=e1526] [cursor=pointer]:
+                                          - generic [ref=e1528]: FareDetailsBySegment
+                                        - text: "{"
+                                        - table [ref=e1531]:
+                                          - rowgroup [ref=e1532]:
+                                            - 'row "description: Fare details of the segment" [ref=e1533]':
+                                              - cell "description:" [ref=e1534]
+                                              - cell "Fare details of the segment" [ref=e1535]:
+                                                - paragraph [ref=e1537]: Fare details of the segment
+                                            - 'row "segmentId* string example: 1 Id of the segment" [ref=e1538]':
+                                              - cell "segmentId*" [ref=e1539]
+                                              - 'cell "string example: 1 Id of the segment" [ref=e1540]':
+                                                - generic [ref=e1542]:
+                                                  - button [expanded] [ref=e1543] [cursor=pointer]
+                                                  - generic [ref=e1545]:
+                                                    - text: string
+                                                    - generic [ref=e1546]: "example: 1"
+                                                    - paragraph [ref=e1548]: Id of the segment
+                                            - 'row "cabin TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]" [ref=e1549]':
+                                              - cell "cabin" [ref=e1550]
+                                              - 'cell "TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]" [ref=e1551]':
+                                                - generic [ref=e1553]:
+                                                  - button "TravelClass" [expanded] [ref=e1554] [cursor=pointer]:
+                                                    - generic [ref=e1556]: TravelClass
+                                                  - generic [ref=e1558]:
+                                                    - generic [ref=e1559]: TravelClass
+                                                    - text: string
+                                                    - generic [ref=e1560]: "example: PREMIUM_ECONOMY"
+                                                    - paragraph [ref=e1562]: quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class
+                                                    - generic [ref=e1563]:
+                                                      - text: "Enum:"
+                                                      - generic [ref=e1564]:
+                                                        - button [expanded] [ref=e1565] [cursor=pointer]
+                                                        - text: "[ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]"
+                                            - 'row "fareBasis string example: ANNNNF4K pattern: [[A-Z0-9]{1,18} Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements." [ref=e1567]':
+                                              - cell "fareBasis" [ref=e1568]
+                                              - 'cell "string example: ANNNNF4K pattern: [[A-Z0-9]{1,18} Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements." [ref=e1569]':
+                                                - generic [ref=e1571]:
+                                                  - button [expanded] [ref=e1572] [cursor=pointer]
+                                                  - generic [ref=e1574]:
+                                                    - text: string
+                                                    - generic [ref=e1575]: "example: ANNNNF4K"
+                                                    - generic [ref=e1576]: "pattern: [[A-Z0-9]{1,18}"
+                                                    - paragraph [ref=e1578]: Fare basis specifying the rules of a fare. Usually, though not always, is composed of the booking class code followed by a set of letters and digits representing other characteristics of the ticket, such as refundability, minimum stay requirements, discounts or special promotional elements.
+                                            - 'row "brandedFare string example: LIGHTONE The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled" [ref=e1579]':
+                                              - cell "brandedFare" [ref=e1580]
+                                              - 'cell "string example: LIGHTONE The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled" [ref=e1581]':
+                                                - generic [ref=e1583]:
+                                                  - button [expanded] [ref=e1584] [cursor=pointer]
+                                                  - generic [ref=e1586]:
+                                                    - text: string
+                                                    - generic [ref=e1587]: "example: LIGHTONE"
+                                                    - paragraph [ref=e1589]: The name of the Fare Family corresponding to the fares. Only for the GDS provider and if the airline has fare families filled
+                                            - 'row "class string example: A pattern: [A-Z]{1} The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)" [ref=e1590]':
+                                              - cell "class" [ref=e1591]
+                                              - 'cell "string example: A pattern: [A-Z]{1} The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)" [ref=e1592]':
+                                                - generic [ref=e1594]:
+                                                  - button [expanded] [ref=e1595] [cursor=pointer]
+                                                  - generic [ref=e1597]:
+                                                    - text: string
+                                                    - generic [ref=e1598]: "example: A"
+                                                    - generic [ref=e1599]: "pattern: [A-Z]{1}"
+                                                    - paragraph [ref=e1601]: The code of the booking class, a.k.a. class of service or Reservations/Booking Designator (RBD)
+                                            - 'row "isAllotment boolean example: true True if the corresponding booking class is in an allotment" [ref=e1602]':
+                                              - cell "isAllotment" [ref=e1603]
+                                              - 'cell "boolean example: true True if the corresponding booking class is in an allotment" [ref=e1604]':
+                                                - generic [ref=e1606]:
+                                                  - button [expanded] [ref=e1607] [cursor=pointer]
+                                                  - generic [ref=e1609]:
+                                                    - text: boolean
+                                                    - generic [ref=e1610]: "example: true"
+                                                    - paragraph [ref=e1612]: True if the corresponding booking class is in an allotment
+                                            - 'row "allotmentDetails AllotmentDetails { tourName string tourReference string }" [ref=e1613]':
+                                              - cell "allotmentDetails" [ref=e1614]
+                                              - 'cell "AllotmentDetails { tourName string tourReference string }" [ref=e1615]':
+                                                - generic [ref=e1617]:
+                                                  - button "AllotmentDetails" [expanded] [ref=e1618] [cursor=pointer]:
+                                                    - generic [ref=e1620]: AllotmentDetails
+                                                  - text: "{"
+                                                  - table [ref=e1623]:
+                                                    - rowgroup [ref=e1624]:
+                                                      - row "tourName string" [ref=e1625]:
+                                                        - cell "tourName" [ref=e1626]
+                                                        - cell "string" [ref=e1627]:
+                                                          - generic [ref=e1629]:
+                                                            - button [expanded] [ref=e1630] [cursor=pointer]
+                                                            - generic [ref=e1632]: string
+                                                      - row "tourReference string" [ref=e1633]:
+                                                        - cell "tourReference" [ref=e1634]
+                                                        - cell "string" [ref=e1635]:
+                                                          - generic [ref=e1637]:
+                                                            - button [expanded] [ref=e1638] [cursor=pointer]
+                                                            - generic [ref=e1640]: string
+                                                  - text: "}"
+                                            - 'row "sliceDiceIndicator SliceDiceIndicator SliceDiceIndicator string slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability Enum: [ LOCAL_AVAILABILITY, SUB_OD_AVAILABILITY_1, SUB_OD_AVAILABILITY_2 ]" [ref=e1641]':
+                                              - cell "sliceDiceIndicator" [ref=e1642]
+                                              - 'cell "SliceDiceIndicator SliceDiceIndicator string slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability Enum: [ LOCAL_AVAILABILITY, SUB_OD_AVAILABILITY_1, SUB_OD_AVAILABILITY_2 ]" [ref=e1643]':
+                                                - generic [ref=e1645]:
+                                                  - button "SliceDiceIndicator" [expanded] [ref=e1646] [cursor=pointer]:
+                                                    - generic [ref=e1648]: SliceDiceIndicator
+                                                  - generic [ref=e1650]:
+                                                    - generic [ref=e1651]: SliceDiceIndicator
+                                                    - text: string
+                                                    - paragraph [ref=e1653]: slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability
+                                                    - generic [ref=e1654]:
+                                                      - text: "Enum:"
+                                                      - generic [ref=e1655]:
+                                                        - button [expanded] [ref=e1656] [cursor=pointer]
+                                                        - text: "[ LOCAL_AVAILABILITY, SUB_OD_AVAILABILITY_1, SUB_OD_AVAILABILITY_2 ]"
+                                            - 'row "includedCheckedBags BaggageAllowance { description: baggageAllowance excessRate ElementaryPrice { description: elementaryPrice amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, ''A''signifies additional collection. currencyCode string Currency type of the fare. } quantity integer example: 1 Total number of units weight integer example: 20 Weight of the baggage allowance weightUnit string example: KG Code to qualify unit as pounds or kilos }" [ref=e1658]':
+                                              - cell "includedCheckedBags" [ref=e1659]
+                                              - 'cell "BaggageAllowance { description: baggageAllowance excessRate ElementaryPrice { description: elementaryPrice amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, ''A''signifies additional collection. currencyCode string Currency type of the fare. } quantity integer example: 1 Total number of units weight integer example: 20 Weight of the baggage allowance weightUnit string example: KG Code to qualify unit as pounds or kilos }" [ref=e1660]':
+                                                - generic [ref=e1662]:
+                                                  - button "BaggageAllowance" [expanded] [ref=e1663] [cursor=pointer]:
+                                                    - generic [ref=e1665]: BaggageAllowance
+                                                  - text: "{"
+                                                  - table [ref=e1668]:
+                                                    - rowgroup [ref=e1669]:
+                                                      - 'row "description: baggageAllowance" [ref=e1670]':
+                                                        - cell "description:" [ref=e1671]
+                                                        - cell "baggageAllowance" [ref=e1672]:
+                                                          - paragraph [ref=e1674]: baggageAllowance
+                                                      - 'row "excessRate ElementaryPrice { description: elementaryPrice amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, ''A''signifies additional collection. currencyCode string Currency type of the fare. }" [ref=e1675]':
+                                                        - cell "excessRate" [ref=e1676]
+                                                        - 'cell "ElementaryPrice { description: elementaryPrice amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, ''A''signifies additional collection. currencyCode string Currency type of the fare. }" [ref=e1677]':
+                                                          - generic [ref=e1679]:
+                                                            - button "ElementaryPrice" [expanded] [ref=e1680] [cursor=pointer]:
+                                                              - generic [ref=e1682]: ElementaryPrice
+                                                            - text: "{"
+                                                            - table [ref=e1685]:
+                                                              - rowgroup [ref=e1686]:
+                                                                - 'row "description: elementaryPrice" [ref=e1687]':
+                                                                  - cell "description:" [ref=e1688]
+                                                                  - cell "elementaryPrice" [ref=e1689]:
+                                                                    - paragraph [ref=e1691]: elementaryPrice
+                                                                - row "amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection." [ref=e1692]:
+                                                                  - cell "amount" [ref=e1693]
+                                                                  - cell "string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection." [ref=e1694]:
+                                                                    - generic [ref=e1696]:
+                                                                      - button [expanded] [ref=e1697] [cursor=pointer]
+                                                                      - generic [ref=e1699]:
+                                                                        - text: string
+                                                                        - paragraph [ref=e1701]: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
+                                                                - row "currencyCode string Currency type of the fare." [ref=e1702]:
+                                                                  - cell "currencyCode" [ref=e1703]
+                                                                  - cell "string Currency type of the fare." [ref=e1704]:
+                                                                    - generic [ref=e1706]:
+                                                                      - button [expanded] [ref=e1707] [cursor=pointer]
+                                                                      - generic [ref=e1709]:
+                                                                        - text: string
+                                                                        - paragraph [ref=e1711]: Currency type of the fare.
+                                                            - text: "}"
+                                                      - 'row "quantity integer example: 1 Total number of units" [ref=e1712]':
+                                                        - cell "quantity" [ref=e1713]
+                                                        - 'cell "integer example: 1 Total number of units" [ref=e1714]':
+                                                          - generic [ref=e1716]:
+                                                            - button [expanded] [ref=e1717] [cursor=pointer]
+                                                            - generic [ref=e1719]:
+                                                              - text: integer
+                                                              - generic [ref=e1720]: "example: 1"
+                                                              - paragraph [ref=e1722]: Total number of units
+                                                      - 'row "weight integer example: 20 Weight of the baggage allowance" [ref=e1723]':
+                                                        - cell "weight" [ref=e1724]
+                                                        - 'cell "integer example: 20 Weight of the baggage allowance" [ref=e1725]':
+                                                          - generic [ref=e1727]:
+                                                            - button [expanded] [ref=e1728] [cursor=pointer]
+                                                            - generic [ref=e1730]:
+                                                              - text: integer
+                                                              - generic [ref=e1731]: "example: 20"
+                                                              - paragraph [ref=e1733]: Weight of the baggage allowance
+                                                      - 'row "weightUnit string example: KG Code to qualify unit as pounds or kilos" [ref=e1734]':
+                                                        - cell "weightUnit" [ref=e1735]
+                                                        - 'cell "string example: KG Code to qualify unit as pounds or kilos" [ref=e1736]':
+                                                          - generic [ref=e1738]:
+                                                            - button [expanded] [ref=e1739] [cursor=pointer]
+                                                            - generic [ref=e1741]:
+                                                              - text: string
+                                                              - generic [ref=e1742]: "example: KG"
+                                                              - paragraph [ref=e1744]: Code to qualify unit as pounds or kilos
+                                                  - text: "}"
+                                            - 'row "additionalServices AdditionalServicesRequest { chargeableCheckedBags BaggageAllowance {...} chargeableSeatNumber string example: 33D pattern: [1-9][0-9]{0,2}[A-Z]? seat number otherServices [ example: List [ \"PRIORITY_BOARDING\" ] Other services to add ServiceName ServiceName string example: PRIORITY_BOARDING type of service Enum: [ PRIORITY_BOARDING, AIRPORT_CHECKIN ] ] }" [ref=e1745]':
+                                              - cell "additionalServices" [ref=e1746]
+                                              - 'cell "AdditionalServicesRequest { chargeableCheckedBags BaggageAllowance {...} chargeableSeatNumber string example: 33D pattern: [1-9][0-9]{0,2}[A-Z]? seat number otherServices [ example: List [ \"PRIORITY_BOARDING\" ] Other services to add ServiceName ServiceName string example: PRIORITY_BOARDING type of service Enum: [ PRIORITY_BOARDING, AIRPORT_CHECKIN ] ] }" [ref=e1747]':
+                                                - generic [ref=e1749]:
+                                                  - button "AdditionalServicesRequest" [expanded] [ref=e1750] [cursor=pointer]:
+                                                    - generic [ref=e1752]: AdditionalServicesRequest
+                                                  - text: "{"
+                                                  - table [ref=e1755]:
+                                                    - rowgroup [ref=e1756]:
+                                                      - 'row "chargeableCheckedBags BaggageAllowance {...}" [ref=e1757]':
+                                                        - cell "chargeableCheckedBags" [ref=e1758]
+                                                        - 'cell "BaggageAllowance {...}" [ref=e1759]':
+                                                          - 'button "BaggageAllowance {...}" [ref=e1762] [cursor=pointer]':
+                                                            - generic [ref=e1764]: BaggageAllowance
+                                                            - generic [ref=e1767]: "{...}"
+                                                      - 'row "chargeableSeatNumber string example: 33D pattern: [1-9][0-9]{0,2}[A-Z]? seat number" [ref=e1768]':
+                                                        - cell "chargeableSeatNumber" [ref=e1769]
+                                                        - 'cell "string example: 33D pattern: [1-9][0-9]{0,2}[A-Z]? seat number" [ref=e1770]':
+                                                          - generic [ref=e1772]:
+                                                            - button [expanded] [ref=e1773] [cursor=pointer]
+                                                            - generic [ref=e1775]:
+                                                              - text: string
+                                                              - generic [ref=e1776]: "example: 33D"
+                                                              - generic [ref=e1777]: "pattern: [1-9][0-9]{0,2}[A-Z]?"
+                                                              - paragraph [ref=e1779]: seat number
+                                                      - 'row "otherServices [ example: List [ \"PRIORITY_BOARDING\" ] Other services to add ServiceName ServiceName string example: PRIORITY_BOARDING type of service Enum: [ PRIORITY_BOARDING, AIRPORT_CHECKIN ] ]" [ref=e1780]':
+                                                        - cell "otherServices" [ref=e1781]
+                                                        - 'cell "[ example: List [ \"PRIORITY_BOARDING\" ] Other services to add ServiceName ServiceName string example: PRIORITY_BOARDING type of service Enum: [ PRIORITY_BOARDING, AIRPORT_CHECKIN ] ]" [ref=e1782]':
+                                                          - generic [ref=e1784]:
+                                                            - button [expanded] [ref=e1785] [cursor=pointer]
+                                                            - text: "["
+                                                            - generic [ref=e1787]: "example: List [ \"PRIORITY_BOARDING\" ]"
+                                                            - paragraph [ref=e1789]: Other services to add
+                                                            - generic [ref=e1792]:
+                                                              - button "ServiceName" [expanded] [ref=e1793] [cursor=pointer]:
+                                                                - generic [ref=e1795]: ServiceName
+                                                              - generic [ref=e1797]:
+                                                                - generic [ref=e1798]: ServiceName
+                                                                - text: string
+                                                                - generic [ref=e1799]: "example: PRIORITY_BOARDING"
+                                                                - paragraph [ref=e1801]: type of service
+                                                                - generic [ref=e1802]:
+                                                                  - text: "Enum:"
+                                                                  - generic [ref=e1803]:
+                                                                    - button [expanded] [ref=e1804] [cursor=pointer]
+                                                                    - text: "[ PRIORITY_BOARDING, AIRPORT_CHECKIN ]"
+                                                            - text: "]"
+                                                  - text: "}"
+                                        - text: "}"
+                                      - text: "]"
+                            - text: "}"
+                          - text: "]"
+                    - 'row "fareRules FareRules { currency string The currency of the penalties rules [ minItems: 1 TermAndCondition { category string example: EXCHANGE This defines what type of modification is concerned in this rule. Enum: [ REFUND, EXCHANGE, REVALIDATION, REISSUE, REBOOK, CANCELLATION ] circumstances string notApplicable boolean maxPenaltyAmount string descriptions [Description { descriptionType string text string }] }] }" [ref=e1806]':
+                      - cell "fareRules" [ref=e1807]
+                      - 'cell "FareRules { currency string The currency of the penalties rules [ minItems: 1 TermAndCondition { category string example: EXCHANGE This defines what type of modification is concerned in this rule. Enum: [ REFUND, EXCHANGE, REVALIDATION, REISSUE, REBOOK, CANCELLATION ] circumstances string notApplicable boolean maxPenaltyAmount string descriptions [Description { descriptionType string text string }] }] }" [ref=e1808]':
+                        - generic [ref=e1810]:
+                          - button "FareRules" [expanded] [ref=e1811] [cursor=pointer]:
+                            - generic [ref=e1813]: FareRules
+                          - text: "{"
+                          - table [ref=e1816]:
+                            - rowgroup [ref=e1817]:
+                              - row "currency string The currency of the penalties" [ref=e1818]:
+                                - cell "currency" [ref=e1819]
+                                - cell "string The currency of the penalties" [ref=e1820]:
+                                  - generic [ref=e1822]:
+                                    - button [expanded] [ref=e1823] [cursor=pointer]
+                                    - generic [ref=e1825]:
+                                      - text: string
+                                      - paragraph [ref=e1827]: The currency of the penalties
+                              - 'row "rules [ minItems: 1 TermAndCondition { category string example: EXCHANGE This defines what type of modification is concerned in this rule. Enum: [ REFUND, EXCHANGE, REVALIDATION, REISSUE, REBOOK, CANCELLATION ] circumstances string notApplicable boolean maxPenaltyAmount string descriptions [Description { descriptionType string text string }] }]" [ref=e1828]':
+                                - cell "rules" [ref=e1829]
+                                - 'cell "[ minItems: 1 TermAndCondition { category string example: EXCHANGE This defines what type of modification is concerned in this rule. Enum: [ REFUND, EXCHANGE, REVALIDATION, REISSUE, REBOOK, CANCELLATION ] circumstances string notApplicable boolean maxPenaltyAmount string descriptions [Description { descriptionType string text string }] }]" [ref=e1830]':
+                                  - generic [ref=e1832]:
+                                    - button [expanded] [ref=e1833] [cursor=pointer]
+                                    - text: "["
+                                    - generic [ref=e1835]: "minItems: 1"
+                                    - generic [ref=e1838]:
+                                      - button "TermAndCondition" [expanded] [ref=e1839] [cursor=pointer]:
+                                        - generic [ref=e1841]: TermAndCondition
+                                      - text: "{"
+                                      - table [ref=e1844]:
+                                        - rowgroup [ref=e1845]:
+                                          - 'row "category string example: EXCHANGE This defines what type of modification is concerned in this rule. Enum: [ REFUND, EXCHANGE, REVALIDATION, REISSUE, REBOOK, CANCELLATION ]" [ref=e1846]':
+                                            - cell "category" [ref=e1847]
+                                            - 'cell "string example: EXCHANGE This defines what type of modification is concerned in this rule. Enum: [ REFUND, EXCHANGE, REVALIDATION, REISSUE, REBOOK, CANCELLATION ]" [ref=e1848]':
+                                              - generic [ref=e1850]:
+                                                - button [expanded] [ref=e1851] [cursor=pointer]
+                                                - generic [ref=e1853]:
+                                                  - text: string
+                                                  - generic [ref=e1854]: "example: EXCHANGE"
+                                                  - paragraph [ref=e1856]: This defines what type of modification is concerned in this rule.
+                                                  - generic [ref=e1857]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e1858]:
+                                                      - button [expanded] [ref=e1859] [cursor=pointer]
+                                                      - text: "[ REFUND, EXCHANGE, REVALIDATION, REISSUE, REBOOK, CANCELLATION ]"
+                                          - row "circumstances string" [ref=e1861]:
+                                            - cell "circumstances" [ref=e1862]
+                                            - cell "string" [ref=e1863]:
+                                              - generic [ref=e1865]:
+                                                - button [expanded] [ref=e1866] [cursor=pointer]
+                                                - generic [ref=e1868]: string
+                                          - row "notApplicable boolean" [ref=e1869]:
+                                            - cell "notApplicable" [ref=e1870]
+                                            - cell "boolean" [ref=e1871]:
+                                              - generic [ref=e1873]:
+                                                - button [expanded] [ref=e1874] [cursor=pointer]
+                                                - generic [ref=e1876]: boolean
+                                          - row "maxPenaltyAmount string" [ref=e1877]:
+                                            - cell "maxPenaltyAmount" [ref=e1878]
+                                            - cell "string" [ref=e1879]:
+                                              - generic [ref=e1881]:
+                                                - button [expanded] [ref=e1882] [cursor=pointer]
+                                                - generic [ref=e1884]: string
+                                          - 'row "descriptions [Description { descriptionType string text string }]" [ref=e1885]':
+                                            - cell "descriptions" [ref=e1886]
+                                            - 'cell "[Description { descriptionType string text string }]" [ref=e1887]':
+                                              - generic [ref=e1889]:
+                                                - button [expanded] [ref=e1890] [cursor=pointer]
+                                                - text: "["
+                                                - generic [ref=e1894]:
+                                                  - button "Description" [expanded] [ref=e1895] [cursor=pointer]:
+                                                    - generic [ref=e1897]: Description
+                                                  - text: "{"
+                                                  - table [ref=e1900]:
+                                                    - rowgroup [ref=e1901]:
+                                                      - row "descriptionType string" [ref=e1902]:
+                                                        - cell "descriptionType" [ref=e1903]
+                                                        - cell "string" [ref=e1904]:
+                                                          - generic [ref=e1906]:
+                                                            - button [expanded] [ref=e1907] [cursor=pointer]
+                                                            - generic [ref=e1909]: string
+                                                      - row "text string" [ref=e1910]:
+                                                        - cell "text" [ref=e1911]
+                                                        - cell "string" [ref=e1912]:
+                                                          - generic [ref=e1914]:
+                                                            - button [expanded] [ref=e1915] [cursor=pointer]
+                                                            - generic [ref=e1917]: string
+                                                  - text: "}"
+                                                - text: "]"
+                                      - text: "}"
+                                    - text: "]"
+                          - text: "}"
+                - text: "}"
+              - generic [ref=e1922]:
+                - button "FlightOfferSource" [expanded] [ref=e1923] [cursor=pointer]:
+                  - generic [ref=e1925]: FlightOfferSource
+                - generic [ref=e1927]:
+                  - text: string
+                  - generic [ref=e1928]: "example: GDS"
+                  - paragraph [ref=e1930]: source of the flight offer
+                  - generic [ref=e1931]:
+                    - text: "Enum:"
+                    - generic [ref=e1932]:
+                      - button [expanded] [ref=e1933] [cursor=pointer]
+                      - text: "[ GDS ]"
+              - generic [ref=e1939]:
+                - button "Segment" [expanded] [ref=e1940] [cursor=pointer]:
+                  - generic [ref=e1942]: Segment
+                - text: "{"
+                - table [ref=e1945]:
+                  - rowgroup [ref=e1946]:
+                    - 'row "description: defining a flight segment; including both operating and marketing details when applicable" [ref=e1947]':
+                      - cell "description:" [ref=e1948]
+                      - cell "defining a flight segment; including both operating and marketing details when applicable" [ref=e1949]:
+                        - paragraph [ref=e1951]: defining a flight segment; including both operating and marketing details when applicable
+                    - 'row "id string example: 1 Id of the segment" [ref=e1952]':
+                      - cell "id" [ref=e1953]
+                      - 'cell "string example: 1 Id of the segment" [ref=e1954]':
+                        - generic [ref=e1956]:
+                          - button [expanded] [ref=e1957] [cursor=pointer]
+                          - generic [ref=e1959]:
+                            - text: string
+                            - generic [ref=e1960]: "example: 1"
+                            - paragraph [ref=e1962]: Id of the segment
+                    - 'row "numberOfStops integer example: 0 Number of stops" [ref=e1963]':
+                      - cell "numberOfStops" [ref=e1964]
+                      - 'cell "integer example: 0 Number of stops" [ref=e1965]':
+                        - generic [ref=e1967]:
+                          - button [expanded] [ref=e1968] [cursor=pointer]
+                          - generic [ref=e1970]:
+                            - text: integer
+                            - generic [ref=e1971]: "example: 0"
+                            - paragraph [ref=e1973]: Number of stops
+                    - 'row "blacklistedInEU boolean example: false When the flight has a marketing or/and operating airline that is identified as blacklisted by the European Commission. To improve travel safety, the European Commission regularly updates the list of the banned carriers from operating in Europe. It allows any Travel Agency located in the European Union to easily identify and hide any travel recommendation based on some unsafe airlines. The list of the banned airlines is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline" [ref=e1974]':
+                      - cell "blacklistedInEU" [ref=e1975]
+                      - 'cell "boolean example: false When the flight has a marketing or/and operating airline that is identified as blacklisted by the European Commission. To improve travel safety, the European Commission regularly updates the list of the banned carriers from operating in Europe. It allows any Travel Agency located in the European Union to easily identify and hide any travel recommendation based on some unsafe airlines. The list of the banned airlines is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline" [ref=e1976]':
+                        - generic [ref=e1978]:
+                          - button [expanded] [ref=e1979] [cursor=pointer]
+                          - generic [ref=e1981]:
+                            - text: boolean
+                            - generic [ref=e1982]: "example: false"
+                            - generic [ref=e1983]:
+                              - paragraph [ref=e1984]: When the flight has a marketing or/and operating airline that is identified as blacklisted by the European Commission.
+                              - paragraph [ref=e1985]:
+                                - text: To improve travel safety, the European Commission regularly updates the list of the banned carriers from operating in Europe. It allows any Travel Agency located in the European Union to easily identify and hide any travel recommendation based on some unsafe airlines.
+                                - text: The
+                                - link "list of the banned airlines" [ref=e1986] [cursor=pointer]:
+                                  - /url: https://ec.europa.eu/transport/sites/transport/files/air-safety-list_en.pdf
+                                - text: is published in the Official Journal of the European Union, where they are included as annexes A and B to the Commission Regulation. The blacklist of an airline can concern all its flights or some specific aircraft types pertaining to the airline
+                    - 'row "co2Emissions [ minItems: 1 Co2 informations Co2Emission { weight integer example: 90 Weight of Co2 emitted for the concerned segment weightUnit string example: KG Code to qualify unit as pounds or kilos cabin TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ] }]" [ref=e1987]':
+                      - cell "co2Emissions" [ref=e1988]
+                      - 'cell "[ minItems: 1 Co2 informations Co2Emission { weight integer example: 90 Weight of Co2 emitted for the concerned segment weightUnit string example: KG Code to qualify unit as pounds or kilos cabin TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ] }]" [ref=e1989]':
+                        - generic [ref=e1991]:
+                          - button [expanded] [ref=e1992] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e1994]: "minItems: 1"
+                          - paragraph [ref=e1996]: Co2 informations
+                          - generic [ref=e1999]:
+                            - button "Co2Emission" [expanded] [ref=e2000] [cursor=pointer]:
+                              - generic [ref=e2002]: Co2Emission
+                            - text: "{"
+                            - table [ref=e2005]:
+                              - rowgroup [ref=e2006]:
+                                - 'row "weight integer example: 90 Weight of Co2 emitted for the concerned segment" [ref=e2007]':
+                                  - cell "weight" [ref=e2008]
+                                  - 'cell "integer example: 90 Weight of Co2 emitted for the concerned segment" [ref=e2009]':
+                                    - generic [ref=e2011]:
+                                      - button [expanded] [ref=e2012] [cursor=pointer]
+                                      - generic [ref=e2014]:
+                                        - text: integer
+                                        - generic [ref=e2015]: "example: 90"
+                                        - paragraph [ref=e2017]: Weight of Co2 emitted for the concerned segment
+                                - 'row "weightUnit string example: KG Code to qualify unit as pounds or kilos" [ref=e2018]':
+                                  - cell "weightUnit" [ref=e2019]
+                                  - 'cell "string example: KG Code to qualify unit as pounds or kilos" [ref=e2020]':
+                                    - generic [ref=e2022]:
+                                      - button [expanded] [ref=e2023] [cursor=pointer]
+                                      - generic [ref=e2025]:
+                                        - text: string
+                                        - generic [ref=e2026]: "example: KG"
+                                        - paragraph [ref=e2028]: Code to qualify unit as pounds or kilos
+                                - 'row "cabin TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]" [ref=e2029]':
+                                  - cell "cabin" [ref=e2030]
+                                  - 'cell "TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]" [ref=e2031]':
+                                    - generic [ref=e2033]:
+                                      - button "TravelClass" [expanded] [ref=e2034] [cursor=pointer]:
+                                        - generic [ref=e2036]: TravelClass
+                                      - generic [ref=e2038]:
+                                        - generic [ref=e2039]: TravelClass
+                                        - text: string
+                                        - generic [ref=e2040]: "example: PREMIUM_ECONOMY"
+                                        - paragraph [ref=e2042]: quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class
+                                        - generic [ref=e2043]:
+                                          - text: "Enum:"
+                                          - generic [ref=e2044]:
+                                            - button [expanded] [ref=e2045] [cursor=pointer]
+                                            - text: "[ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]"
+                            - text: "}"
+                          - text: "]"
+                    - 'row "departure FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e2047]':
+                      - cell "departure" [ref=e2048]
+                      - 'cell "FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e2049]':
+                        - generic [ref=e2051]:
+                          - button "FlightEndPoint" [expanded] [ref=e2052] [cursor=pointer]:
+                            - generic [ref=e2054]: FlightEndPoint
+                          - text: "{"
+                          - table [ref=e2057]:
+                            - rowgroup [ref=e2058]:
+                              - 'row "description: departure or arrival information" [ref=e2059]':
+                                - cell "description:" [ref=e2060]
+                                - cell "departure or arrival information" [ref=e2061]:
+                                  - paragraph [ref=e2063]: departure or arrival information
+                              - 'row "iataCode string example: JFK IATA airline codes" [ref=e2064]':
+                                - cell "iataCode" [ref=e2065]
+                                - 'cell "string example: JFK IATA airline codes" [ref=e2066]':
+                                  - generic [ref=e2068]:
+                                    - button [expanded] [ref=e2069] [cursor=pointer]
+                                    - generic [ref=e2071]:
+                                      - text: string
+                                      - generic [ref=e2072]: "example: JFK"
+                                      - paragraph [ref=e2074]:
+                                        - link "IATA airline codes" [ref=e2075] [cursor=pointer]:
+                                          - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                              - 'row "terminal string example: T2 terminal name / number" [ref=e2076]':
+                                - cell "terminal" [ref=e2077]
+                                - 'cell "string example: T2 terminal name / number" [ref=e2078]':
+                                  - generic [ref=e2080]:
+                                    - button [expanded] [ref=e2081] [cursor=pointer]
+                                    - generic [ref=e2083]:
+                                      - text: string
+                                      - generic [ref=e2084]: "example: T2"
+                                      - paragraph [ref=e2086]: terminal name / number
+                              - 'row "at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2087]':
+                                - cell "at" [ref=e2088]
+                                - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2089]':
+                                  - generic [ref=e2091]:
+                                    - button [expanded] [ref=e2092] [cursor=pointer]
+                                    - generic [ref=e2094]:
+                                      - text: string
+                                      - generic [ref=e2095]: ($date-time)
+                                      - generic [ref=e2096]: "example: 2017-10-23T20:00:00+02:00"
+                                      - paragraph [ref=e2098]:
+                                        - text: local date and time in
+                                        - link "ISO8601" [ref=e2099] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                        - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                          - text: "}"
+                    - 'row "arrival FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e2100]':
+                      - cell "arrival" [ref=e2101]
+                      - 'cell "FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e2102]':
+                        - generic [ref=e2104]:
+                          - button "FlightEndPoint" [expanded] [ref=e2105] [cursor=pointer]:
+                            - generic [ref=e2107]: FlightEndPoint
+                          - text: "{"
+                          - table [ref=e2110]:
+                            - rowgroup [ref=e2111]:
+                              - 'row "description: departure or arrival information" [ref=e2112]':
+                                - cell "description:" [ref=e2113]
+                                - cell "departure or arrival information" [ref=e2114]:
+                                  - paragraph [ref=e2116]: departure or arrival information
+                              - 'row "iataCode string example: JFK IATA airline codes" [ref=e2117]':
+                                - cell "iataCode" [ref=e2118]
+                                - 'cell "string example: JFK IATA airline codes" [ref=e2119]':
+                                  - generic [ref=e2121]:
+                                    - button [expanded] [ref=e2122] [cursor=pointer]
+                                    - generic [ref=e2124]:
+                                      - text: string
+                                      - generic [ref=e2125]: "example: JFK"
+                                      - paragraph [ref=e2127]:
+                                        - link "IATA airline codes" [ref=e2128] [cursor=pointer]:
+                                          - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                              - 'row "terminal string example: T2 terminal name / number" [ref=e2129]':
+                                - cell "terminal" [ref=e2130]
+                                - 'cell "string example: T2 terminal name / number" [ref=e2131]':
+                                  - generic [ref=e2133]:
+                                    - button [expanded] [ref=e2134] [cursor=pointer]
+                                    - generic [ref=e2136]:
+                                      - text: string
+                                      - generic [ref=e2137]: "example: T2"
+                                      - paragraph [ref=e2139]: terminal name / number
+                              - 'row "at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2140]':
+                                - cell "at" [ref=e2141]
+                                - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2142]':
+                                  - generic [ref=e2144]:
+                                    - button [expanded] [ref=e2145] [cursor=pointer]
+                                    - generic [ref=e2147]:
+                                      - text: string
+                                      - generic [ref=e2148]: ($date-time)
+                                      - generic [ref=e2149]: "example: 2017-10-23T20:00:00+02:00"
+                                      - paragraph [ref=e2151]:
+                                        - text: local date and time in
+                                        - link "ISO8601" [ref=e2152] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                        - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                          - text: "}"
+                    - 'row "carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e2153]':
+                      - cell "carrierCode" [ref=e2154]
+                      - 'cell "string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e2155]':
+                        - generic [ref=e2157]:
+                          - button [expanded] [ref=e2158] [cursor=pointer]
+                          - generic [ref=e2160]:
+                            - text: string
+                            - generic [ref=e2161]: "minLength: 1"
+                            - generic [ref=e2162]: "maxLength: 2"
+                            - generic [ref=e2163]: "example: DL"
+                            - paragraph [ref=e2165]: providing the airline / carrier code
+                    - 'row "number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e2166]':
+                      - cell "number" [ref=e2167]
+                      - 'cell "string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e2168]':
+                        - generic [ref=e2170]:
+                          - button [expanded] [ref=e2171] [cursor=pointer]
+                          - generic [ref=e2173]:
+                            - text: string
+                            - generic [ref=e2174]: "minLength: 1"
+                            - generic [ref=e2175]: "maxLength: 4"
+                            - generic [ref=e2176]: "example: 212"
+                            - paragraph [ref=e2178]: the flight number as assigned by the carrier
+                    - 'row "aircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e2179]':
+                      - cell "aircraft" [ref=e2180]
+                      - 'cell "AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e2181]':
+                        - generic [ref=e2183]:
+                          - button "AircraftEquipment" [expanded] [ref=e2184] [cursor=pointer]:
+                            - generic [ref=e2186]: AircraftEquipment
+                          - text: "{"
+                          - table [ref=e2189]:
+                            - rowgroup [ref=e2190]:
+                              - 'row "description: information related to the aircraft" [ref=e2191]':
+                                - cell "description:" [ref=e2192]
+                                - cell "information related to the aircraft" [ref=e2193]:
+                                  - paragraph [ref=e2195]: information related to the aircraft
+                              - 'row "code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e2196]':
+                                - cell "code" [ref=e2197]
+                                - 'cell "string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e2198]':
+                                  - generic [ref=e2200]:
+                                    - button [expanded] [ref=e2201] [cursor=pointer]
+                                    - generic [ref=e2203]:
+                                      - text: string
+                                      - generic [ref=e2204]: "pattern: [a-zA-Z0-9]{3}"
+                                      - generic [ref=e2205]: "example: 318"
+                                      - paragraph [ref=e2207]:
+                                        - text: IATA aircraft code (
+                                        - link "http://www.flugzeuginfo.net/table_accodes_iata_en.php" [ref=e2208] [cursor=pointer]:
+                                          - /url: http://www.flugzeuginfo.net/table_accodes_iata_en.php
+                                        - text: )
+                          - text: "}"
+                    - 'row "operating OperatingFlight { description: information about the operating flight carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier }" [ref=e2209]':
+                      - cell "operating" [ref=e2210]
+                      - 'cell "OperatingFlight { description: information about the operating flight carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier }" [ref=e2211]':
+                        - generic [ref=e2213]:
+                          - button "OperatingFlight" [expanded] [ref=e2214] [cursor=pointer]:
+                            - generic [ref=e2216]: OperatingFlight
+                          - text: "{"
+                          - table [ref=e2219]:
+                            - rowgroup [ref=e2220]:
+                              - 'row "description: information about the operating flight" [ref=e2221]':
+                                - cell "description:" [ref=e2222]
+                                - cell "information about the operating flight" [ref=e2223]:
+                                  - paragraph [ref=e2225]: information about the operating flight
+                              - 'row "carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e2226]':
+                                - cell "carrierCode" [ref=e2227]
+                                - 'cell "string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e2228]':
+                                  - generic [ref=e2230]:
+                                    - button [expanded] [ref=e2231] [cursor=pointer]
+                                    - generic [ref=e2233]:
+                                      - text: string
+                                      - generic [ref=e2234]: "minLength: 1"
+                                      - generic [ref=e2235]: "maxLength: 2"
+                                      - generic [ref=e2236]: "example: DL"
+                                      - paragraph [ref=e2238]: providing the airline / carrier code
+                              - 'row "number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e2239]':
+                                - cell "number" [ref=e2240]
+                                - 'cell "string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e2241]':
+                                  - generic [ref=e2243]:
+                                    - button [expanded] [ref=e2244] [cursor=pointer]
+                                    - generic [ref=e2246]:
+                                      - text: string
+                                      - generic [ref=e2247]: "minLength: 1"
+                                      - generic [ref=e2248]: "maxLength: 4"
+                                      - generic [ref=e2249]: "example: 212"
+                                      - paragraph [ref=e2251]: the flight number as assigned by the carrier
+                              - 'row "suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e2252]':
+                                - cell "suffix" [ref=e2253]
+                                - 'cell "string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e2254]':
+                                  - generic [ref=e2256]:
+                                    - button [expanded] [ref=e2257] [cursor=pointer]
+                                    - generic [ref=e2259]:
+                                      - text: string
+                                      - generic [ref=e2260]: "minLength: 1"
+                                      - generic [ref=e2261]: "maxLength: 4"
+                                      - paragraph [ref=e2263]: the flight number suffix as assigned by the carrier
+                          - text: "}"
+                    - 'row "duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e2264]':
+                      - cell "duration" [ref=e2265]
+                      - 'cell "string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e2266]':
+                        - generic [ref=e2268]:
+                          - button [expanded] [ref=e2269] [cursor=pointer]
+                          - generic [ref=e2271]:
+                            - text: string
+                            - generic [ref=e2272]: "example: PT2H10M"
+                            - paragraph [ref=e2274]:
+                              - text: stop duration in
+                              - link "ISO8601" [ref=e2275] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_8601
+                              - text: PnYnMnDTnHnMnS format, e.g. PT2H10M
+                    - 'row "stops [ information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge... FlightStop { description: details of stops for direct or change of gauge flights iataCode string example: JFK IATA airline codes newAircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) } duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M arrivalAt string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 departureAt string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }]" [ref=e2276]':
+                      - cell "stops" [ref=e2277]
+                      - 'cell "[ information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge... FlightStop { description: details of stops for direct or change of gauge flights iataCode string example: JFK IATA airline codes newAircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) } duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M arrivalAt string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 departureAt string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }]" [ref=e2278]':
+                        - generic [ref=e2280]:
+                          - button [expanded] [ref=e2281] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e2284]: information regarding the different stops composing the flight segment. E.g. technical stop, change of gauge...
+                          - generic [ref=e2287]:
+                            - button "FlightStop" [expanded] [ref=e2288] [cursor=pointer]:
+                              - generic [ref=e2290]: FlightStop
+                            - text: "{"
+                            - table [ref=e2293]:
+                              - rowgroup [ref=e2294]:
+                                - 'row "description: details of stops for direct or change of gauge flights" [ref=e2295]':
+                                  - cell "description:" [ref=e2296]
+                                  - cell "details of stops for direct or change of gauge flights" [ref=e2297]:
+                                    - paragraph [ref=e2299]: details of stops for direct or change of gauge flights
+                                - 'row "iataCode string example: JFK IATA airline codes" [ref=e2300]':
+                                  - cell "iataCode" [ref=e2301]
+                                  - 'cell "string example: JFK IATA airline codes" [ref=e2302]':
+                                    - generic [ref=e2304]:
+                                      - button [expanded] [ref=e2305] [cursor=pointer]
+                                      - generic [ref=e2307]:
+                                        - text: string
+                                        - generic [ref=e2308]: "example: JFK"
+                                        - paragraph [ref=e2310]:
+                                          - link "IATA airline codes" [ref=e2311] [cursor=pointer]:
+                                            - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                                - 'row "newAircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e2312]':
+                                  - cell "newAircraft" [ref=e2313]
+                                  - 'cell "AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e2314]':
+                                    - generic [ref=e2316]:
+                                      - button "AircraftEquipment" [expanded] [ref=e2317] [cursor=pointer]:
+                                        - generic [ref=e2319]: AircraftEquipment
+                                      - text: "{"
+                                      - table [ref=e2322]:
+                                        - rowgroup [ref=e2323]:
+                                          - 'row "description: information related to the aircraft" [ref=e2324]':
+                                            - cell "description:" [ref=e2325]
+                                            - cell "information related to the aircraft" [ref=e2326]:
+                                              - paragraph [ref=e2328]: information related to the aircraft
+                                          - 'row "code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e2329]':
+                                            - cell "code" [ref=e2330]
+                                            - 'cell "string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e2331]':
+                                              - generic [ref=e2333]:
+                                                - button [expanded] [ref=e2334] [cursor=pointer]
+                                                - generic [ref=e2336]:
+                                                  - text: string
+                                                  - generic [ref=e2337]: "pattern: [a-zA-Z0-9]{3}"
+                                                  - generic [ref=e2338]: "example: 318"
+                                                  - paragraph [ref=e2340]:
+                                                    - text: IATA aircraft code (
+                                                    - link "http://www.flugzeuginfo.net/table_accodes_iata_en.php" [ref=e2341] [cursor=pointer]:
+                                                      - /url: http://www.flugzeuginfo.net/table_accodes_iata_en.php
+                                                    - text: )
+                                      - text: "}"
+                                - 'row "duration string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e2342]':
+                                  - cell "duration" [ref=e2343]
+                                  - 'cell "string example: PT2H10M stop duration in ISO8601 PnYnMnDTnHnMnS format, e.g. PT2H10M" [ref=e2344]':
+                                    - generic [ref=e2346]:
+                                      - button [expanded] [ref=e2347] [cursor=pointer]
+                                      - generic [ref=e2349]:
+                                        - text: string
+                                        - generic [ref=e2350]: "example: PT2H10M"
+                                        - paragraph [ref=e2352]:
+                                          - text: stop duration in
+                                          - link "ISO8601" [ref=e2353] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                          - text: PnYnMnDTnHnMnS format, e.g. PT2H10M
+                                - 'row "arrivalAt string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2354]':
+                                  - cell "arrivalAt" [ref=e2355]
+                                  - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 arrival at the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2356]':
+                                    - generic [ref=e2358]:
+                                      - button [expanded] [ref=e2359] [cursor=pointer]
+                                      - generic [ref=e2361]:
+                                        - text: string
+                                        - generic [ref=e2362]: ($date-time)
+                                        - generic [ref=e2363]: "example: 2017-10-23T20:00:00+02:00"
+                                        - paragraph [ref=e2365]:
+                                          - text: arrival at the stop in
+                                          - link "ISO8601" [ref=e2366] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                          - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                                - 'row "departureAt string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2367]':
+                                  - cell "departureAt" [ref=e2368]
+                                  - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 departure from the stop in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e2369]':
+                                    - generic [ref=e2371]:
+                                      - button [expanded] [ref=e2372] [cursor=pointer]
+                                      - generic [ref=e2374]:
+                                        - text: string
+                                        - generic [ref=e2375]: ($date-time)
+                                        - generic [ref=e2376]: "example: 2017-10-23T20:00:00+02:00"
+                                        - paragraph [ref=e2378]:
+                                          - text: departure from the stop in
+                                          - link "ISO8601" [ref=e2379] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                          - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e2384]:
+                - button "Price" [expanded] [ref=e2385] [cursor=pointer]:
+                  - generic [ref=e2387]: Price
+                - text: "{"
+                - table [ref=e2390]:
+                  - rowgroup [ref=e2391]:
+                    - 'row "description: price information" [ref=e2392]':
+                      - cell "description:" [ref=e2393]
+                      - cell "price information" [ref=e2394]:
+                        - paragraph [ref=e2396]: price information
+                    - 'row "margin string example: 1.00 BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated." [ref=e2397]':
+                      - cell "margin" [ref=e2398]
+                      - 'cell "string example: 1.00 BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated." [ref=e2399]':
+                        - generic [ref=e2401]:
+                          - button [expanded] [ref=e2402] [cursor=pointer]
+                          - generic [ref=e2404]:
+                            - text: string
+                            - generic [ref=e2405]: "example: 1.00"
+                            - paragraph [ref=e2407]: BOOK step ONLY - The price margin percentage (plus or minus) that the booking can tolerate. When set to 0, then no price magin is tolerated.
+                    - 'row "grandTotal string example: 987.00 Total amount paid by the user (including fees and selected additional services)." [ref=e2408]':
+                      - cell "grandTotal" [ref=e2409]
+                      - 'cell "string example: 987.00 Total amount paid by the user (including fees and selected additional services)." [ref=e2410]':
+                        - generic [ref=e2412]:
+                          - button [expanded] [ref=e2413] [cursor=pointer]
+                          - generic [ref=e2415]:
+                            - text: string
+                            - generic [ref=e2416]: "example: 987.00"
+                            - paragraph [ref=e2418]: Total amount paid by the user (including fees and selected additional services).
+                    - 'row "billingCurrency string example: EUR Currency of the payment. It may be different than the requested currency" [ref=e2419]':
+                      - cell "billingCurrency" [ref=e2420]
+                      - 'cell "string example: EUR Currency of the payment. It may be different than the requested currency" [ref=e2421]':
+                        - generic [ref=e2423]:
+                          - button [expanded] [ref=e2424] [cursor=pointer]
+                          - generic [ref=e2426]:
+                            - text: string
+                            - generic [ref=e2427]: "example: EUR"
+                            - paragraph [ref=e2429]: Currency of the payment. It may be different than the requested currency
+                    - 'row "additionalServices AdditionalServices [ title: AdditionalServices AdditionalService { amount string example: 332.70 type AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ] }]" [ref=e2430]':
+                      - cell "additionalServices" [ref=e2431]
+                      - 'cell "AdditionalServices [ title: AdditionalServices AdditionalService { amount string example: 332.70 type AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ] }]" [ref=e2432]':
+                        - generic [ref=e2434]:
+                          - button "AdditionalServices" [expanded] [ref=e2435] [cursor=pointer]:
+                            - generic [ref=e2437]: AdditionalServices
+                          - text: "["
+                          - generic [ref=e2439]: "title: AdditionalServices"
+                          - generic [ref=e2442]:
+                            - button "AdditionalService" [expanded] [ref=e2443] [cursor=pointer]:
+                              - generic [ref=e2445]: AdditionalService
+                            - text: "{"
+                            - table [ref=e2448]:
+                              - rowgroup [ref=e2449]:
+                                - 'row "amount string example: 332.70" [ref=e2450]':
+                                  - cell "amount" [ref=e2451]
+                                  - 'cell "string example: 332.70" [ref=e2452]':
+                                    - generic [ref=e2454]:
+                                      - button [expanded] [ref=e2455] [cursor=pointer]
+                                      - generic [ref=e2457]:
+                                        - text: string
+                                        - generic [ref=e2458]: "example: 332.70"
+                                - 'row "type AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ]" [ref=e2459]':
+                                  - cell "type" [ref=e2460]
+                                  - 'cell "AdditionalServiceType AdditionalServiceType string example: CHECKED_BAGS additional service type Enum: [ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ]" [ref=e2461]':
+                                    - generic [ref=e2463]:
+                                      - button "AdditionalServiceType" [expanded] [ref=e2464] [cursor=pointer]:
+                                        - generic [ref=e2466]: AdditionalServiceType
+                                      - generic [ref=e2468]:
+                                        - generic [ref=e2469]: AdditionalServiceType
+                                        - text: string
+                                        - generic [ref=e2470]: "example: CHECKED_BAGS"
+                                        - paragraph [ref=e2472]: additional service type
+                                        - generic [ref=e2473]:
+                                          - text: "Enum:"
+                                          - generic [ref=e2474]:
+                                            - button [expanded] [ref=e2475] [cursor=pointer]
+                                            - text: "[ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ]"
+                            - text: "}"
+                          - text: "]"
+                    - 'row "currency string example: USD" [ref=e2477]':
+                      - cell "currency" [ref=e2478]
+                      - 'cell "string example: USD" [ref=e2479]':
+                        - generic [ref=e2481]:
+                          - button [expanded] [ref=e2482] [cursor=pointer]
+                          - generic [ref=e2484]:
+                            - text: string
+                            - generic [ref=e2485]: "example: USD"
+                    - 'row "total string example: 932.70 Total amount paid by the user" [ref=e2486]':
+                      - cell "total" [ref=e2487]
+                      - 'cell "string example: 932.70 Total amount paid by the user" [ref=e2488]':
+                        - generic [ref=e2490]:
+                          - button [expanded] [ref=e2491] [cursor=pointer]
+                          - generic [ref=e2493]:
+                            - text: string
+                            - generic [ref=e2494]: "example: 932.70"
+                            - paragraph [ref=e2496]: Total amount paid by the user
+                    - 'row "base string example: 632.70 Amount without taxes" [ref=e2497]':
+                      - cell "base" [ref=e2498]
+                      - 'cell "string example: 632.70 Amount without taxes" [ref=e2499]':
+                        - generic [ref=e2501]:
+                          - button [expanded] [ref=e2502] [cursor=pointer]
+                          - generic [ref=e2504]:
+                            - text: string
+                            - generic [ref=e2505]: "example: 632.70"
+                            - paragraph [ref=e2507]: Amount without taxes
+                    - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e2508]':
+                      - cell "fees" [ref=e2509]
+                      - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e2510]':
+                        - generic [ref=e2512]:
+                          - button [expanded] [ref=e2513] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e2516]: List of applicable fees
+                          - generic [ref=e2519]:
+                            - button "Fee" [expanded] [ref=e2520] [cursor=pointer]:
+                              - generic [ref=e2522]: Fee
+                            - text: "{"
+                            - table [ref=e2525]:
+                              - rowgroup [ref=e2526]:
+                                - 'row "description: a fee" [ref=e2527]':
+                                  - cell "description:" [ref=e2528]
+                                  - cell "a fee" [ref=e2529]:
+                                    - paragraph [ref=e2531]: a fee
+                                - 'row "amount string example: 332.70" [ref=e2532]':
+                                  - cell "amount" [ref=e2533]
+                                  - 'cell "string example: 332.70" [ref=e2534]':
+                                    - generic [ref=e2536]:
+                                      - button [expanded] [ref=e2537] [cursor=pointer]
+                                      - generic [ref=e2539]:
+                                        - text: string
+                                        - generic [ref=e2540]: "example: 332.70"
+                                - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e2541]':
+                                  - cell "type" [ref=e2542]
+                                  - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e2543]':
+                                    - generic [ref=e2545]:
+                                      - button "FeeType" [expanded] [ref=e2546] [cursor=pointer]:
+                                        - generic [ref=e2548]: FeeType
+                                      - generic [ref=e2550]:
+                                        - generic [ref=e2551]: FeeType
+                                        - text: string
+                                        - generic [ref=e2552]: "example: TICKETING"
+                                        - paragraph [ref=e2554]: type of fee
+                                        - generic [ref=e2555]:
+                                          - text: "Enum:"
+                                          - generic [ref=e2556]:
+                                            - button [expanded] [ref=e2557] [cursor=pointer]
+                                            - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                            - text: "}"
+                          - text: "]"
+                    - 'row "taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e2559]':
+                      - cell "taxes" [ref=e2560]
+                      - 'cell "[ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e2561]':
+                        - generic [ref=e2563]:
+                          - button [expanded] [ref=e2564] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e2568]:
+                            - button "Tax" [expanded] [ref=e2569] [cursor=pointer]:
+                              - generic [ref=e2571]: Tax
+                            - text: "{"
+                            - table [ref=e2574]:
+                              - rowgroup [ref=e2575]:
+                                - 'row "description: a tax" [ref=e2576]':
+                                  - cell "description:" [ref=e2577]
+                                  - cell "a tax" [ref=e2578]:
+                                    - paragraph [ref=e2580]: a tax
+                                - 'row "amount string example: 332.70" [ref=e2581]':
+                                  - cell "amount" [ref=e2582]
+                                  - 'cell "string example: 332.70" [ref=e2583]':
+                                    - generic [ref=e2585]:
+                                      - button [expanded] [ref=e2586] [cursor=pointer]
+                                      - generic [ref=e2588]:
+                                        - text: string
+                                        - generic [ref=e2589]: "example: 332.70"
+                                - 'row "code string example: MX" [ref=e2590]':
+                                  - cell "code" [ref=e2591]
+                                  - 'cell "string example: MX" [ref=e2592]':
+                                    - generic [ref=e2594]:
+                                      - button [expanded] [ref=e2595] [cursor=pointer]
+                                      - generic [ref=e2597]:
+                                        - text: string
+                                        - generic [ref=e2598]: "example: MX"
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e2603]:
+                - button "PricingOptionsFareType" [expanded] [ref=e2604] [cursor=pointer]:
+                  - generic [ref=e2606]: PricingOptionsFareType
+                - text: "["
+                - generic [ref=e2608]: "example: List [ \"PUBLISHED\" ]"
+                - paragraph [ref=e2610]: type of fare of the flight-offer
+                - generic [ref=e2613]:
+                  - button "PricingOptionsFareType" [expanded] [ref=e2614] [cursor=pointer]:
+                    - generic [ref=e2616]: PricingOptionsFareType
+                  - generic [ref=e2618]:
+                    - text: string
+                    - generic [ref=e2619]:
+                      - text: "Enum:"
+                      - generic [ref=e2620]:
+                        - button [expanded] [ref=e2621] [cursor=pointer]
+                        - text: "[ PUBLISHED, NEGOTIATED, CORPORATE ]"
+                - text: "]"
+              - generic [ref=e2627]:
+                - button "TravelerPricingFareOption" [expanded] [ref=e2628] [cursor=pointer]:
+                  - generic [ref=e2630]: TravelerPricingFareOption
+                - generic [ref=e2632]:
+                  - text: string
+                  - generic [ref=e2633]: "example: STANDARD"
+                  - paragraph [ref=e2635]:
+                    - text: option specifying a group of fares, which may be valid under certain conditons
+                    - text: Can be used to specify special fare discount for a passenger
+                  - generic [ref=e2636]:
+                    - text: "Enum:"
+                    - generic [ref=e2637]:
+                      - button [expanded] [ref=e2638] [cursor=pointer]
+                      - text: "[ STANDARD, INCLUSIVE_TOUR, SPANISH_MELILLA_RESIDENT, SPANISH_CEUTA_RESIDENT, SPANISH_CANARY_RESIDENT, SPANISH_BALEARIC_RESIDENT, AIR_FRANCE_METROPOLITAN_DISCOUNT_PASS, AIR_FRANCE_DOM_DISCOUNT_PASS, AIR_FRANCE_COMBINED_DISCOUNT_PASS, AIR_FRANCE_FAMILY, ADULT_WITH_COMPANION, COMPANION ]"
+              - generic [ref=e2644]:
+                - button "TravelerType" [expanded] [ref=e2645] [cursor=pointer]:
+                  - generic [ref=e2647]: TravelerType
+                - generic [ref=e2649]:
+                  - text: string
+                  - generic [ref=e2650]: "example: ADULT"
+                  - paragraph [ref=e2652]:
+                    - text: traveler type
+                    - text: "age restrictions : CHILD < 12y, HELD_INFANT < 2y, SEATED_INFANT < 2y, SENIOR >=60y"
+                  - generic [ref=e2653]:
+                    - text: "Enum:"
+                    - generic [ref=e2654]:
+                      - button [expanded] [ref=e2655] [cursor=pointer]
+                      - text: "[ ADULT, CHILD, SENIOR, YOUNG, HELD_INFANT, SEATED_INFANT, STUDENT ]"
+              - generic [ref=e2661]:
+                - button "TravelClass" [expanded] [ref=e2662] [cursor=pointer]:
+                  - generic [ref=e2664]: TravelClass
+                - generic [ref=e2666]:
+                  - text: string
+                  - generic [ref=e2667]: "example: PREMIUM_ECONOMY"
+                  - paragraph [ref=e2669]: quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class
+                  - generic [ref=e2670]:
+                    - text: "Enum:"
+                    - generic [ref=e2671]:
+                      - button [expanded] [ref=e2672] [cursor=pointer]
+                      - text: "[ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]"
+              - generic [ref=e2678]:
+                - button "SliceDiceIndicator" [expanded] [ref=e2679] [cursor=pointer]:
+                  - generic [ref=e2681]: SliceDiceIndicator
+                - generic [ref=e2683]:
+                  - text: string
+                  - paragraph [ref=e2685]: slice and Dice indicator, such as Local Availability, Sub OnD(Origin and Destination) 1 Availability and Sub OnD 2 Availability
+                  - generic [ref=e2686]:
+                    - text: "Enum:"
+                    - generic [ref=e2687]:
+                      - button [expanded] [ref=e2688] [cursor=pointer]
+                      - text: "[ LOCAL_AVAILABILITY, SUB_OD_AVAILABILITY_1, SUB_OD_AVAILABILITY_2 ]"
+              - generic [ref=e2694]:
+                - button "BaggageAllowance" [expanded] [ref=e2695] [cursor=pointer]:
+                  - generic [ref=e2697]: BaggageAllowance
+                - text: "{"
+                - table [ref=e2700]:
+                  - rowgroup [ref=e2701]:
+                    - 'row "description: baggageAllowance" [ref=e2702]':
+                      - cell "description:" [ref=e2703]
+                      - cell "baggageAllowance" [ref=e2704]:
+                        - paragraph [ref=e2706]: baggageAllowance
+                    - 'row "excessRate ElementaryPrice { description: elementaryPrice amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, ''A''signifies additional collection. currencyCode string Currency type of the fare. }" [ref=e2707]':
+                      - cell "excessRate" [ref=e2708]
+                      - 'cell "ElementaryPrice { description: elementaryPrice amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, ''A''signifies additional collection. currencyCode string Currency type of the fare. }" [ref=e2709]':
+                        - generic [ref=e2711]:
+                          - button "ElementaryPrice" [expanded] [ref=e2712] [cursor=pointer]:
+                            - generic [ref=e2714]: ElementaryPrice
+                          - text: "{"
+                          - table [ref=e2717]:
+                            - rowgroup [ref=e2718]:
+                              - 'row "description: elementaryPrice" [ref=e2719]':
+                                - cell "description:" [ref=e2720]
+                                - cell "elementaryPrice" [ref=e2721]:
+                                  - paragraph [ref=e2723]: elementaryPrice
+                              - row "amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection." [ref=e2724]:
+                                - cell "amount" [ref=e2725]
+                                - cell "string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection." [ref=e2726]:
+                                  - generic [ref=e2728]:
+                                    - button [expanded] [ref=e2729] [cursor=pointer]
+                                    - generic [ref=e2731]:
+                                      - text: string
+                                      - paragraph [ref=e2733]: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
+                              - row "currencyCode string Currency type of the fare." [ref=e2734]:
+                                - cell "currencyCode" [ref=e2735]
+                                - cell "string Currency type of the fare." [ref=e2736]:
+                                  - generic [ref=e2738]:
+                                    - button [expanded] [ref=e2739] [cursor=pointer]
+                                    - generic [ref=e2741]:
+                                      - text: string
+                                      - paragraph [ref=e2743]: Currency type of the fare.
+                          - text: "}"
+                    - 'row "quantity integer example: 1 Total number of units" [ref=e2744]':
+                      - cell "quantity" [ref=e2745]
+                      - 'cell "integer example: 1 Total number of units" [ref=e2746]':
+                        - generic [ref=e2748]:
+                          - button [expanded] [ref=e2749] [cursor=pointer]
+                          - generic [ref=e2751]:
+                            - text: integer
+                            - generic [ref=e2752]: "example: 1"
+                            - paragraph [ref=e2754]: Total number of units
+                    - 'row "weight integer example: 20 Weight of the baggage allowance" [ref=e2755]':
+                      - cell "weight" [ref=e2756]
+                      - 'cell "integer example: 20 Weight of the baggage allowance" [ref=e2757]':
+                        - generic [ref=e2759]:
+                          - button [expanded] [ref=e2760] [cursor=pointer]
+                          - generic [ref=e2762]:
+                            - text: integer
+                            - generic [ref=e2763]: "example: 20"
+                            - paragraph [ref=e2765]: Weight of the baggage allowance
+                    - 'row "weightUnit string example: KG Code to qualify unit as pounds or kilos" [ref=e2766]':
+                      - cell "weightUnit" [ref=e2767]
+                      - 'cell "string example: KG Code to qualify unit as pounds or kilos" [ref=e2768]':
+                        - generic [ref=e2770]:
+                          - button [expanded] [ref=e2771] [cursor=pointer]
+                          - generic [ref=e2773]:
+                            - text: string
+                            - generic [ref=e2774]: "example: KG"
+                            - paragraph [ref=e2776]: Code to qualify unit as pounds or kilos
+                - text: "}"
+              - generic [ref=e2781]:
+                - button "ElementaryPrice" [expanded] [ref=e2782] [cursor=pointer]:
+                  - generic [ref=e2784]: ElementaryPrice
+                - text: "{"
+                - table [ref=e2787]:
+                  - rowgroup [ref=e2788]:
+                    - 'row "description: elementaryPrice" [ref=e2789]':
+                      - cell "description:" [ref=e2790]
+                      - cell "elementaryPrice" [ref=e2791]:
+                        - paragraph [ref=e2793]: elementaryPrice
+                    - row "amount string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection." [ref=e2794]:
+                      - cell "amount" [ref=e2795]
+                      - cell "string Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection." [ref=e2796]:
+                        - generic [ref=e2798]:
+                          - button [expanded] [ref=e2799] [cursor=pointer]
+                          - generic [ref=e2801]:
+                            - text: string
+                            - paragraph [ref=e2803]: Amount of the fare. could be alpha numeric. Ex- 500.20 or 514.13A, 'A'signifies additional collection.
+                    - row "currencyCode string Currency type of the fare." [ref=e2804]:
+                      - cell "currencyCode" [ref=e2805]
+                      - cell "string Currency type of the fare." [ref=e2806]:
+                        - generic [ref=e2808]:
+                          - button [expanded] [ref=e2809] [cursor=pointer]
+                          - generic [ref=e2811]:
+                            - text: string
+                            - paragraph [ref=e2813]: Currency type of the fare.
+                - text: "}"
+              - generic [ref=e2818]:
+                - button "AdditionalServiceType" [expanded] [ref=e2819] [cursor=pointer]:
+                  - generic [ref=e2821]: AdditionalServiceType
+                - generic [ref=e2823]:
+                  - text: string
+                  - generic [ref=e2824]: "example: CHECKED_BAGS"
+                  - paragraph [ref=e2826]: additional service type
+                  - generic [ref=e2827]:
+                    - text: "Enum:"
+                    - generic [ref=e2828]:
+                      - button [expanded] [ref=e2829] [cursor=pointer]
+                      - text: "[ CHECKED_BAGS, MEALS, SEATS, OTHER_SERVICES ]"
+              - generic [ref=e2835]:
+                - button "ServiceName" [expanded] [ref=e2836] [cursor=pointer]:
+                  - generic [ref=e2838]: ServiceName
+                - generic [ref=e2840]:
+                  - text: string
+                  - generic [ref=e2841]: "example: PRIORITY_BOARDING"
+                  - paragraph [ref=e2843]: type of service
+                  - generic [ref=e2844]:
+                    - text: "Enum:"
+                    - generic [ref=e2845]:
+                      - button [expanded] [ref=e2846] [cursor=pointer]
+                      - text: "[ PRIORITY_BOARDING, AIRPORT_CHECKIN ]"
+              - button "FareRules" [ref=e2850] [cursor=pointer]:
+                - generic [ref=e2852]: FareRules
+              - button "TermAndCondition" [ref=e2856] [cursor=pointer]:
+                - generic [ref=e2858]: TermAndCondition
+              - generic [ref=e2864]:
+                - button "Co2Emission" [expanded] [ref=e2865] [cursor=pointer]:
+                  - generic [ref=e2867]: Co2Emission
+                - text: "{"
+                - table [ref=e2870]:
+                  - rowgroup [ref=e2871]:
+                    - 'row "weight integer example: 90 Weight of Co2 emitted for the concerned segment" [ref=e2872]':
+                      - cell "weight" [ref=e2873]
+                      - 'cell "integer example: 90 Weight of Co2 emitted for the concerned segment" [ref=e2874]':
+                        - generic [ref=e2876]:
+                          - button [expanded] [ref=e2877] [cursor=pointer]
+                          - generic [ref=e2879]:
+                            - text: integer
+                            - generic [ref=e2880]: "example: 90"
+                            - paragraph [ref=e2882]: Weight of Co2 emitted for the concerned segment
+                    - 'row "weightUnit string example: KG Code to qualify unit as pounds or kilos" [ref=e2883]':
+                      - cell "weightUnit" [ref=e2884]
+                      - 'cell "string example: KG Code to qualify unit as pounds or kilos" [ref=e2885]':
+                        - generic [ref=e2887]:
+                          - button [expanded] [ref=e2888] [cursor=pointer]
+                          - generic [ref=e2890]:
+                            - text: string
+                            - generic [ref=e2891]: "example: KG"
+                            - paragraph [ref=e2893]: Code to qualify unit as pounds or kilos
+                    - 'row "cabin TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]" [ref=e2894]':
+                      - cell "cabin" [ref=e2895]
+                      - 'cell "TravelClass TravelClass string example: PREMIUM_ECONOMY quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class Enum: [ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]" [ref=e2896]':
+                        - generic [ref=e2898]:
+                          - button "TravelClass" [expanded] [ref=e2899] [cursor=pointer]:
+                            - generic [ref=e2901]: TravelClass
+                          - generic [ref=e2903]:
+                            - generic [ref=e2904]: TravelClass
+                            - text: string
+                            - generic [ref=e2905]: "example: PREMIUM_ECONOMY"
+                            - paragraph [ref=e2907]: quality of service offered in the cabin where the seat is located in this flight. Economy, premium economy, business or first class
+                            - generic [ref=e2908]:
+                              - text: "Enum:"
+                              - generic [ref=e2909]:
+                                - button [expanded] [ref=e2910] [cursor=pointer]
+                                - text: "[ ECONOMY, PREMIUM_ECONOMY, BUSINESS, FIRST ]"
+                - text: "}"
+              - generic [ref=e2916]:
+                - button "Price" [expanded] [ref=e2917] [cursor=pointer]:
+                  - generic [ref=e2919]: Price
+                - text: "{"
+                - table [ref=e2922]:
+                  - rowgroup [ref=e2923]:
+                    - 'row "currency string example: USD" [ref=e2924]':
+                      - cell "currency" [ref=e2925]
+                      - 'cell "string example: USD" [ref=e2926]':
+                        - generic [ref=e2928]:
+                          - button [expanded] [ref=e2929] [cursor=pointer]
+                          - generic [ref=e2931]:
+                            - text: string
+                            - generic [ref=e2932]: "example: USD"
+                    - 'row "total string example: 932.70 Total amount paid by the user" [ref=e2933]':
+                      - cell "total" [ref=e2934]
+                      - 'cell "string example: 932.70 Total amount paid by the user" [ref=e2935]':
+                        - generic [ref=e2937]:
+                          - button [expanded] [ref=e2938] [cursor=pointer]
+                          - generic [ref=e2940]:
+                            - text: string
+                            - generic [ref=e2941]: "example: 932.70"
+                            - paragraph [ref=e2943]: Total amount paid by the user
+                    - 'row "base string example: 632.70 Amount without taxes" [ref=e2944]':
+                      - cell "base" [ref=e2945]
+                      - 'cell "string example: 632.70 Amount without taxes" [ref=e2946]':
+                        - generic [ref=e2948]:
+                          - button [expanded] [ref=e2949] [cursor=pointer]
+                          - generic [ref=e2951]:
+                            - text: string
+                            - generic [ref=e2952]: "example: 632.70"
+                            - paragraph [ref=e2954]: Amount without taxes
+                    - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e2955]':
+                      - cell "fees" [ref=e2956]
+                      - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e2957]':
+                        - generic [ref=e2959]:
+                          - button [expanded] [ref=e2960] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e2963]: List of applicable fees
+                          - generic [ref=e2966]:
+                            - button "Fee" [expanded] [ref=e2967] [cursor=pointer]:
+                              - generic [ref=e2969]: Fee
+                            - text: "{"
+                            - table [ref=e2972]:
+                              - rowgroup [ref=e2973]:
+                                - 'row "description: a fee" [ref=e2974]':
+                                  - cell "description:" [ref=e2975]
+                                  - cell "a fee" [ref=e2976]:
+                                    - paragraph [ref=e2978]: a fee
+                                - 'row "amount string example: 332.70" [ref=e2979]':
+                                  - cell "amount" [ref=e2980]
+                                  - 'cell "string example: 332.70" [ref=e2981]':
+                                    - generic [ref=e2983]:
+                                      - button [expanded] [ref=e2984] [cursor=pointer]
+                                      - generic [ref=e2986]:
+                                        - text: string
+                                        - generic [ref=e2987]: "example: 332.70"
+                                - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e2988]':
+                                  - cell "type" [ref=e2989]
+                                  - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e2990]':
+                                    - generic [ref=e2992]:
+                                      - button "FeeType" [expanded] [ref=e2993] [cursor=pointer]:
+                                        - generic [ref=e2995]: FeeType
+                                      - generic [ref=e2997]:
+                                        - generic [ref=e2998]: FeeType
+                                        - text: string
+                                        - generic [ref=e2999]: "example: TICKETING"
+                                        - paragraph [ref=e3001]: type of fee
+                                        - generic [ref=e3002]:
+                                          - text: "Enum:"
+                                          - generic [ref=e3003]:
+                                            - button [expanded] [ref=e3004] [cursor=pointer]
+                                            - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                            - text: "}"
+                          - text: "]"
+                    - 'row "taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e3006]':
+                      - cell "taxes" [ref=e3007]
+                      - 'cell "[ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e3008]':
+                        - generic [ref=e3010]:
+                          - button [expanded] [ref=e3011] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e3015]:
+                            - button "Tax" [expanded] [ref=e3016] [cursor=pointer]:
+                              - generic [ref=e3018]: Tax
+                            - text: "{"
+                            - table [ref=e3021]:
+                              - rowgroup [ref=e3022]:
+                                - 'row "description: a tax" [ref=e3023]':
+                                  - cell "description:" [ref=e3024]
+                                  - cell "a tax" [ref=e3025]:
+                                    - paragraph [ref=e3027]: a tax
+                                - 'row "amount string example: 332.70" [ref=e3028]':
+                                  - cell "amount" [ref=e3029]
+                                  - 'cell "string example: 332.70" [ref=e3030]':
+                                    - generic [ref=e3032]:
+                                      - button [expanded] [ref=e3033] [cursor=pointer]
+                                      - generic [ref=e3035]:
+                                        - text: string
+                                        - generic [ref=e3036]: "example: 332.70"
+                                - 'row "code string example: MX" [ref=e3037]':
+                                  - cell "code" [ref=e3038]
+                                  - 'cell "string example: MX" [ref=e3039]':
+                                    - generic [ref=e3041]:
+                                      - button [expanded] [ref=e3042] [cursor=pointer]
+                                      - generic [ref=e3044]:
+                                        - text: string
+                                        - generic [ref=e3045]: "example: MX"
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e3050]:
+                - button "Fee" [expanded] [ref=e3051] [cursor=pointer]:
+                  - generic [ref=e3053]: Fee
+                - text: "{"
+                - table [ref=e3056]:
+                  - rowgroup [ref=e3057]:
+                    - 'row "description: a fee" [ref=e3058]':
+                      - cell "description:" [ref=e3059]
+                      - cell "a fee" [ref=e3060]:
+                        - paragraph [ref=e3062]: a fee
+                    - 'row "amount string example: 332.70" [ref=e3063]':
+                      - cell "amount" [ref=e3064]
+                      - 'cell "string example: 332.70" [ref=e3065]':
+                        - generic [ref=e3067]:
+                          - button [expanded] [ref=e3068] [cursor=pointer]
+                          - generic [ref=e3070]:
+                            - text: string
+                            - generic [ref=e3071]: "example: 332.70"
+                    - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e3072]':
+                      - cell "type" [ref=e3073]
+                      - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e3074]':
+                        - generic [ref=e3076]:
+                          - button "FeeType" [expanded] [ref=e3077] [cursor=pointer]:
+                            - generic [ref=e3079]: FeeType
+                          - generic [ref=e3081]:
+                            - generic [ref=e3082]: FeeType
+                            - text: string
+                            - generic [ref=e3083]: "example: TICKETING"
+                            - paragraph [ref=e3085]: type of fee
+                            - generic [ref=e3086]:
+                              - text: "Enum:"
+                              - generic [ref=e3087]:
+                                - button [expanded] [ref=e3088] [cursor=pointer]
+                                - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                - text: "}"
+              - generic [ref=e3094]:
+                - button "FeeType" [expanded] [ref=e3095] [cursor=pointer]:
+                  - generic [ref=e3097]: FeeType
+                - generic [ref=e3099]:
+                  - text: string
+                  - generic [ref=e3100]: "example: TICKETING"
+                  - paragraph [ref=e3102]: type of fee
+                  - generic [ref=e3103]:
+                    - text: "Enum:"
+                    - generic [ref=e3104]:
+                      - button [expanded] [ref=e3105] [cursor=pointer]
+                      - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+              - generic [ref=e3111]:
+                - button "Tax" [expanded] [ref=e3112] [cursor=pointer]:
+                  - generic [ref=e3114]: Tax
+                - text: "{"
+                - table [ref=e3117]:
+                  - rowgroup [ref=e3118]:
+                    - 'row "description: a tax" [ref=e3119]':
+                      - cell "description:" [ref=e3120]
+                      - cell "a tax" [ref=e3121]:
+                        - paragraph [ref=e3123]: a tax
+                    - 'row "amount string example: 332.70" [ref=e3124]':
+                      - cell "amount" [ref=e3125]
+                      - 'cell "string example: 332.70" [ref=e3126]':
+                        - generic [ref=e3128]:
+                          - button [expanded] [ref=e3129] [cursor=pointer]
+                          - generic [ref=e3131]:
+                            - text: string
+                            - generic [ref=e3132]: "example: 332.70"
+                    - 'row "code string example: MX" [ref=e3133]':
+                      - cell "code" [ref=e3134]
+                      - 'cell "string example: MX" [ref=e3135]':
+                        - generic [ref=e3137]:
+                          - button [expanded] [ref=e3138] [cursor=pointer]
+                          - generic [ref=e3140]:
+                            - text: string
+                            - generic [ref=e3141]: "example: MX"
+                - text: "}"
+              - generic [ref=e3146]:
+                - button "SeatMap" [expanded] [ref=e3147] [cursor=pointer]:
+                  - generic [ref=e3149]: SeatMap
+                - text: "{"
+                - table [ref=e3152]:
+                  - rowgroup [ref=e3153]:
+                    - 'row "description: seat map information" [ref=e3154]':
+                      - cell "description:" [ref=e3155]
+                      - cell "seat map information" [ref=e3156]:
+                        - paragraph [ref=e3158]: seat map information
+                    - 'row "type string readOnly: true example: seatmap Ressource name" [ref=e3159]':
+                      - cell "type" [ref=e3160]
+                      - 'cell "string readOnly: true example: seatmap Ressource name" [ref=e3161]':
+                        - generic [ref=e3163]:
+                          - button [expanded] [ref=e3164] [cursor=pointer]
+                          - generic [ref=e3166]:
+                            - text: string
+                            - generic [ref=e3167]: "readOnly: true"
+                            - generic [ref=e3168]: "example: seatmap"
+                            - paragraph [ref=e3170]: Ressource name
+                    - row "id string item identifier" [ref=e3171]:
+                      - cell "id" [ref=e3172]
+                      - cell "string item identifier" [ref=e3173]:
+                        - generic [ref=e3175]:
+                          - button [expanded] [ref=e3176] [cursor=pointer]
+                          - generic [ref=e3178]:
+                            - text: string
+                            - paragraph [ref=e3180]: item identifier
+                    - 'row "self Link { href* string($uri) methods [ string Enum: [ GET, PUT, DELETE, POST, PATCH ] ] count integer } example: OrderedMap { \"href\": \"string\" }" [ref=e3181]':
+                      - cell "self" [ref=e3182]
+                      - 'cell "Link { href* string($uri) methods [ string Enum: [ GET, PUT, DELETE, POST, PATCH ] ] count integer } example: OrderedMap { \"href\": \"string\" }" [ref=e3183]':
+                        - generic [ref=e3184]:
+                          - generic [ref=e3185]:
+                            - button "Link" [expanded] [ref=e3186] [cursor=pointer]:
+                              - generic [ref=e3188]: Link
+                            - text: "{"
+                            - table [ref=e3191]:
+                              - rowgroup [ref=e3192]:
+                                - row "href* string($uri)" [ref=e3193]:
+                                  - cell "href*" [ref=e3194]
+                                  - cell "string($uri)" [ref=e3195]:
+                                    - generic [ref=e3197]:
+                                      - button [expanded] [ref=e3198] [cursor=pointer]
+                                      - generic [ref=e3200]:
+                                        - text: string
+                                        - generic [ref=e3201]: ($uri)
+                                - 'row "methods [ string Enum: [ GET, PUT, DELETE, POST, PATCH ] ]" [ref=e3202]':
+                                  - cell "methods" [ref=e3203]
+                                  - 'cell "[ string Enum: [ GET, PUT, DELETE, POST, PATCH ] ]" [ref=e3204]':
+                                    - generic [ref=e3206]:
+                                      - button [expanded] [ref=e3207] [cursor=pointer]
+                                      - text: "["
+                                      - generic [ref=e3211]:
+                                        - button [expanded] [ref=e3212] [cursor=pointer]
+                                        - generic [ref=e3214]:
+                                          - text: string
+                                          - generic [ref=e3215]:
+                                            - text: "Enum:"
+                                            - generic [ref=e3216]:
+                                              - button [expanded] [ref=e3217] [cursor=pointer]
+                                              - text: "[ GET, PUT, DELETE, POST, PATCH ]"
+                                      - text: "]"
+                                - row "count integer" [ref=e3219]:
+                                  - cell "count" [ref=e3220]
+                                  - cell "integer" [ref=e3221]:
+                                    - generic [ref=e3223]:
+                                      - button [expanded] [ref=e3224] [cursor=pointer]
+                                      - generic [ref=e3226]: integer
+                            - text: "}"
+                          - generic [ref=e3227]: "example: OrderedMap { \"href\": \"string\" }"
+                    - 'row "departure FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e3228]':
+                      - cell "departure" [ref=e3229]
+                      - 'cell "FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e3230]':
+                        - generic [ref=e3232]:
+                          - button "FlightEndPoint" [expanded] [ref=e3233] [cursor=pointer]:
+                            - generic [ref=e3235]: FlightEndPoint
+                          - text: "{"
+                          - table [ref=e3238]:
+                            - rowgroup [ref=e3239]:
+                              - 'row "description: departure or arrival information" [ref=e3240]':
+                                - cell "description:" [ref=e3241]
+                                - cell "departure or arrival information" [ref=e3242]:
+                                  - paragraph [ref=e3244]: departure or arrival information
+                              - 'row "iataCode string example: JFK IATA airline codes" [ref=e3245]':
+                                - cell "iataCode" [ref=e3246]
+                                - 'cell "string example: JFK IATA airline codes" [ref=e3247]':
+                                  - generic [ref=e3249]:
+                                    - button [expanded] [ref=e3250] [cursor=pointer]
+                                    - generic [ref=e3252]:
+                                      - text: string
+                                      - generic [ref=e3253]: "example: JFK"
+                                      - paragraph [ref=e3255]:
+                                        - link "IATA airline codes" [ref=e3256] [cursor=pointer]:
+                                          - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                              - 'row "terminal string example: T2 terminal name / number" [ref=e3257]':
+                                - cell "terminal" [ref=e3258]
+                                - 'cell "string example: T2 terminal name / number" [ref=e3259]':
+                                  - generic [ref=e3261]:
+                                    - button [expanded] [ref=e3262] [cursor=pointer]
+                                    - generic [ref=e3264]:
+                                      - text: string
+                                      - generic [ref=e3265]: "example: T2"
+                                      - paragraph [ref=e3267]: terminal name / number
+                              - 'row "at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e3268]':
+                                - cell "at" [ref=e3269]
+                                - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e3270]':
+                                  - generic [ref=e3272]:
+                                    - button [expanded] [ref=e3273] [cursor=pointer]
+                                    - generic [ref=e3275]:
+                                      - text: string
+                                      - generic [ref=e3276]: ($date-time)
+                                      - generic [ref=e3277]: "example: 2017-10-23T20:00:00+02:00"
+                                      - paragraph [ref=e3279]:
+                                        - text: local date and time in
+                                        - link "ISO8601" [ref=e3280] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                        - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                          - text: "}"
+                    - 'row "arrival FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e3281]':
+                      - cell "arrival" [ref=e3282]
+                      - 'cell "FlightEndPoint { description: departure or arrival information iataCode string example: JFK IATA airline codes terminal string example: T2 terminal name / number at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00 }" [ref=e3283]':
+                        - generic [ref=e3285]:
+                          - button "FlightEndPoint" [expanded] [ref=e3286] [cursor=pointer]:
+                            - generic [ref=e3288]: FlightEndPoint
+                          - text: "{"
+                          - table [ref=e3291]:
+                            - rowgroup [ref=e3292]:
+                              - 'row "description: departure or arrival information" [ref=e3293]':
+                                - cell "description:" [ref=e3294]
+                                - cell "departure or arrival information" [ref=e3295]:
+                                  - paragraph [ref=e3297]: departure or arrival information
+                              - 'row "iataCode string example: JFK IATA airline codes" [ref=e3298]':
+                                - cell "iataCode" [ref=e3299]
+                                - 'cell "string example: JFK IATA airline codes" [ref=e3300]':
+                                  - generic [ref=e3302]:
+                                    - button [expanded] [ref=e3303] [cursor=pointer]
+                                    - generic [ref=e3305]:
+                                      - text: string
+                                      - generic [ref=e3306]: "example: JFK"
+                                      - paragraph [ref=e3308]:
+                                        - link "IATA airline codes" [ref=e3309] [cursor=pointer]:
+                                          - /url: http://www.iata.org/publications/Pages/code-search.aspx
+                              - 'row "terminal string example: T2 terminal name / number" [ref=e3310]':
+                                - cell "terminal" [ref=e3311]
+                                - 'cell "string example: T2 terminal name / number" [ref=e3312]':
+                                  - generic [ref=e3314]:
+                                    - button [expanded] [ref=e3315] [cursor=pointer]
+                                    - generic [ref=e3317]:
+                                      - text: string
+                                      - generic [ref=e3318]: "example: T2"
+                                      - paragraph [ref=e3320]: terminal name / number
+                              - 'row "at string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e3321]':
+                                - cell "at" [ref=e3322]
+                                - 'cell "string($date-time) example: 2017-10-23T20:00:00+02:00 local date and time in ISO8601 YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00" [ref=e3323]':
+                                  - generic [ref=e3325]:
+                                    - button [expanded] [ref=e3326] [cursor=pointer]
+                                    - generic [ref=e3328]:
+                                      - text: string
+                                      - generic [ref=e3329]: ($date-time)
+                                      - generic [ref=e3330]: "example: 2017-10-23T20:00:00+02:00"
+                                      - paragraph [ref=e3332]:
+                                        - text: local date and time in
+                                        - link "ISO8601" [ref=e3333] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_8601
+                                        - text: YYYY-MM-ddThh:mm±hh:mm format, e.g. 2017-02-10T20:40:00+02:00
+                          - text: "}"
+                    - 'row "carrierCode string minLength: 1 maxLength: 2 example: DL providing the marketing airline carrier code" [ref=e3334]':
+                      - cell "carrierCode" [ref=e3335]
+                      - 'cell "string minLength: 1 maxLength: 2 example: DL providing the marketing airline carrier code" [ref=e3336]':
+                        - generic [ref=e3338]:
+                          - button [expanded] [ref=e3339] [cursor=pointer]
+                          - generic [ref=e3341]:
+                            - text: string
+                            - generic [ref=e3342]: "minLength: 1"
+                            - generic [ref=e3343]: "maxLength: 2"
+                            - generic [ref=e3344]: "example: DL"
+                            - paragraph [ref=e3346]: providing the marketing airline carrier code
+                    - 'row "number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the marketing carrier" [ref=e3347]':
+                      - cell "number" [ref=e3348]
+                      - 'cell "string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the marketing carrier" [ref=e3349]':
+                        - generic [ref=e3351]:
+                          - button [expanded] [ref=e3352] [cursor=pointer]
+                          - generic [ref=e3354]:
+                            - text: string
+                            - generic [ref=e3355]: "minLength: 1"
+                            - generic [ref=e3356]: "maxLength: 4"
+                            - generic [ref=e3357]: "example: 212"
+                            - paragraph [ref=e3359]: the flight number as assigned by the marketing carrier
+                    - 'row "operating OperatingFlight { description: information about the operating flight carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier }" [ref=e3360]':
+                      - cell "operating" [ref=e3361]
+                      - 'cell "OperatingFlight { description: information about the operating flight carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier }" [ref=e3362]':
+                        - generic [ref=e3364]:
+                          - button "OperatingFlight" [expanded] [ref=e3365] [cursor=pointer]:
+                            - generic [ref=e3367]: OperatingFlight
+                          - text: "{"
+                          - table [ref=e3370]:
+                            - rowgroup [ref=e3371]:
+                              - 'row "description: information about the operating flight" [ref=e3372]':
+                                - cell "description:" [ref=e3373]
+                                - cell "information about the operating flight" [ref=e3374]:
+                                  - paragraph [ref=e3376]: information about the operating flight
+                              - 'row "carrierCode string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e3377]':
+                                - cell "carrierCode" [ref=e3378]
+                                - 'cell "string minLength: 1 maxLength: 2 example: DL providing the airline / carrier code" [ref=e3379]':
+                                  - generic [ref=e3381]:
+                                    - button [expanded] [ref=e3382] [cursor=pointer]
+                                    - generic [ref=e3384]:
+                                      - text: string
+                                      - generic [ref=e3385]: "minLength: 1"
+                                      - generic [ref=e3386]: "maxLength: 2"
+                                      - generic [ref=e3387]: "example: DL"
+                                      - paragraph [ref=e3389]: providing the airline / carrier code
+                              - 'row "number string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e3390]':
+                                - cell "number" [ref=e3391]
+                                - 'cell "string minLength: 1 maxLength: 4 example: 212 the flight number as assigned by the carrier" [ref=e3392]':
+                                  - generic [ref=e3394]:
+                                    - button [expanded] [ref=e3395] [cursor=pointer]
+                                    - generic [ref=e3397]:
+                                      - text: string
+                                      - generic [ref=e3398]: "minLength: 1"
+                                      - generic [ref=e3399]: "maxLength: 4"
+                                      - generic [ref=e3400]: "example: 212"
+                                      - paragraph [ref=e3402]: the flight number as assigned by the carrier
+                              - 'row "suffix string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e3403]':
+                                - cell "suffix" [ref=e3404]
+                                - 'cell "string minLength: 1 maxLength: 4 the flight number suffix as assigned by the carrier" [ref=e3405]':
+                                  - generic [ref=e3407]:
+                                    - button [expanded] [ref=e3408] [cursor=pointer]
+                                    - generic [ref=e3410]:
+                                      - text: string
+                                      - generic [ref=e3411]: "minLength: 1"
+                                      - generic [ref=e3412]: "maxLength: 4"
+                                      - paragraph [ref=e3414]: the flight number suffix as assigned by the carrier
+                          - text: "}"
+                    - 'row "aircraft AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e3415]':
+                      - cell "aircraft" [ref=e3416]
+                      - 'cell "AircraftEquipment { description: information related to the aircraft code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php ) }" [ref=e3417]':
+                        - generic [ref=e3419]:
+                          - button "AircraftEquipment" [expanded] [ref=e3420] [cursor=pointer]:
+                            - generic [ref=e3422]: AircraftEquipment
+                          - text: "{"
+                          - table [ref=e3425]:
+                            - rowgroup [ref=e3426]:
+                              - 'row "description: information related to the aircraft" [ref=e3427]':
+                                - cell "description:" [ref=e3428]
+                                - cell "information related to the aircraft" [ref=e3429]:
+                                  - paragraph [ref=e3431]: information related to the aircraft
+                              - 'row "code string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e3432]':
+                                - cell "code" [ref=e3433]
+                                - 'cell "string pattern: [a-zA-Z0-9]{3} example: 318 IATA aircraft code ( http://www.flugzeuginfo.net/table_accodes_iata_en.php )" [ref=e3434]':
+                                  - generic [ref=e3436]:
+                                    - button [expanded] [ref=e3437] [cursor=pointer]
+                                    - generic [ref=e3439]:
+                                      - text: string
+                                      - generic [ref=e3440]: "pattern: [a-zA-Z0-9]{3}"
+                                      - generic [ref=e3441]: "example: 318"
+                                      - paragraph [ref=e3443]:
+                                        - text: IATA aircraft code (
+                                        - link "http://www.flugzeuginfo.net/table_accodes_iata_en.php" [ref=e3444] [cursor=pointer]:
+                                          - /url: http://www.flugzeuginfo.net/table_accodes_iata_en.php
+                                        - text: )
+                          - text: "}"
+                    - 'row "class string minLength: 1 maxLength: 2 reservation booking designator (RBD) of the carrier" [ref=e3445]':
+                      - cell "class" [ref=e3446]
+                      - 'cell "string minLength: 1 maxLength: 2 reservation booking designator (RBD) of the carrier" [ref=e3447]':
+                        - generic [ref=e3449]:
+                          - button [expanded] [ref=e3450] [cursor=pointer]
+                          - generic [ref=e3452]:
+                            - text: string
+                            - generic [ref=e3453]: "minLength: 1"
+                            - generic [ref=e3454]: "maxLength: 2"
+                            - paragraph [ref=e3456]: reservation booking designator (RBD) of the carrier
+                    - 'row "flightOfferId string example: 1 Id of the impacted flight offer" [ref=e3457]':
+                      - cell "flightOfferId" [ref=e3458]
+                      - 'cell "string example: 1 Id of the impacted flight offer" [ref=e3459]':
+                        - generic [ref=e3461]:
+                          - button [expanded] [ref=e3462] [cursor=pointer]
+                          - generic [ref=e3464]:
+                            - text: string
+                            - generic [ref=e3465]: "example: 1"
+                            - paragraph [ref=e3467]: Id of the impacted flight offer
+                    - 'row "segmentId string example: 1 Id of the impacted segment" [ref=e3468]':
+                      - cell "segmentId" [ref=e3469]
+                      - 'cell "string example: 1 Id of the impacted segment" [ref=e3470]':
+                        - generic [ref=e3472]:
+                          - button [expanded] [ref=e3473] [cursor=pointer]
+                          - generic [ref=e3475]:
+                            - text: string
+                            - generic [ref=e3476]: "example: 1"
+                            - paragraph [ref=e3478]: Id of the impacted segment
+                    - row [ref=e3479]:
+                      - cell "decks" [ref=e3480]
+                      - cell [ref=e3481]:
+                        - generic [ref=e3483]:
+                          - button [expanded] [ref=e3484] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e3487]: decks information
+                          - generic [ref=e3490]:
+                            - button "Deck" [expanded] [ref=e3491] [cursor=pointer]:
+                              - generic [ref=e3493]: Deck
+                            - text: "{"
+                            - table [ref=e3496]:
+                              - rowgroup [ref=e3497]:
+                                - 'row "description: deck information" [ref=e3498]':
+                                  - cell "description:" [ref=e3499]
+                                  - cell "deck information" [ref=e3500]:
+                                    - paragraph [ref=e3502]: deck information
+                                - 'row "deckType string A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated. Enum: [ UPPER, MAIN, LOWER ]" [ref=e3503]':
+                                  - cell "deckType" [ref=e3504]
+                                  - 'cell "string A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated. Enum: [ UPPER, MAIN, LOWER ]" [ref=e3505]':
+                                    - generic [ref=e3507]:
+                                      - button [expanded] [ref=e3508] [cursor=pointer]
+                                      - generic [ref=e3510]:
+                                        - text: string
+                                        - paragraph [ref=e3512]: A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated.
+                                        - generic [ref=e3513]:
+                                          - text: "Enum:"
+                                          - generic [ref=e3514]:
+                                            - button [expanded] [ref=e3515] [cursor=pointer]
+                                            - text: "[ UPPER, MAIN, LOWER ]"
+                                - 'row "deckConfiguration DeckConfiguration { description: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins) width integer Width (y-axis) of the deck. length integer Length (x-axis) of the deck. startSeatRow integer seat row where the deck is starting endSeatRow integer seat row where the deck is ending startWingsX integer Start x coordinate of the wings.The wings display starts relatively to the length. endWingsX integer End x coordinate of the wings.The wings display ends relatively to the length. startWingsRow integer seat row where the wing is starting endWingsRow integer seat row where the wing is ending exitRowsX [ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer] }" [ref=e3517]':
+                                  - cell "deckConfiguration" [ref=e3518]
+                                  - 'cell "DeckConfiguration { description: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins) width integer Width (y-axis) of the deck. length integer Length (x-axis) of the deck. startSeatRow integer seat row where the deck is starting endSeatRow integer seat row where the deck is ending startWingsX integer Start x coordinate of the wings.The wings display starts relatively to the length. endWingsX integer End x coordinate of the wings.The wings display ends relatively to the length. startWingsRow integer seat row where the wing is starting endWingsRow integer seat row where the wing is ending exitRowsX [ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer] }" [ref=e3519]':
+                                    - generic [ref=e3521]:
+                                      - button "DeckConfiguration" [expanded] [ref=e3522] [cursor=pointer]:
+                                        - generic [ref=e3524]: DeckConfiguration
+                                      - text: "{"
+                                      - table [ref=e3527]:
+                                        - rowgroup [ref=e3528]:
+                                          - 'row "description: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)" [ref=e3529]':
+                                            - cell "description:" [ref=e3530]
+                                            - cell "deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)" [ref=e3531]:
+                                              - paragraph [ref=e3533]: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)
+                                          - row "width integer Width (y-axis) of the deck." [ref=e3534]:
+                                            - cell "width" [ref=e3535]
+                                            - cell "integer Width (y-axis) of the deck." [ref=e3536]:
+                                              - generic [ref=e3538]:
+                                                - button [expanded] [ref=e3539] [cursor=pointer]
+                                                - generic [ref=e3541]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3543]: Width (y-axis) of the deck.
+                                          - row "length integer Length (x-axis) of the deck." [ref=e3544]:
+                                            - cell "length" [ref=e3545]
+                                            - cell "integer Length (x-axis) of the deck." [ref=e3546]:
+                                              - generic [ref=e3548]:
+                                                - button [expanded] [ref=e3549] [cursor=pointer]
+                                                - generic [ref=e3551]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3553]: Length (x-axis) of the deck.
+                                          - row "startSeatRow integer seat row where the deck is starting" [ref=e3554]:
+                                            - cell "startSeatRow" [ref=e3555]
+                                            - cell "integer seat row where the deck is starting" [ref=e3556]:
+                                              - generic [ref=e3558]:
+                                                - button [expanded] [ref=e3559] [cursor=pointer]
+                                                - generic [ref=e3561]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3563]: seat row where the deck is starting
+                                          - row "endSeatRow integer seat row where the deck is ending" [ref=e3564]:
+                                            - cell "endSeatRow" [ref=e3565]
+                                            - cell "integer seat row where the deck is ending" [ref=e3566]:
+                                              - generic [ref=e3568]:
+                                                - button [expanded] [ref=e3569] [cursor=pointer]
+                                                - generic [ref=e3571]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3573]: seat row where the deck is ending
+                                          - row "startWingsX integer Start x coordinate of the wings.The wings display starts relatively to the length." [ref=e3574]:
+                                            - cell "startWingsX" [ref=e3575]
+                                            - cell "integer Start x coordinate of the wings.The wings display starts relatively to the length." [ref=e3576]:
+                                              - generic [ref=e3578]:
+                                                - button [expanded] [ref=e3579] [cursor=pointer]
+                                                - generic [ref=e3581]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3583]: Start x coordinate of the wings.The wings display starts relatively to the length.
+                                          - row "endWingsX integer End x coordinate of the wings.The wings display ends relatively to the length." [ref=e3584]:
+                                            - cell "endWingsX" [ref=e3585]
+                                            - cell "integer End x coordinate of the wings.The wings display ends relatively to the length." [ref=e3586]:
+                                              - generic [ref=e3588]:
+                                                - button [expanded] [ref=e3589] [cursor=pointer]
+                                                - generic [ref=e3591]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3593]: End x coordinate of the wings.The wings display ends relatively to the length.
+                                          - row "startWingsRow integer seat row where the wing is starting" [ref=e3594]:
+                                            - cell "startWingsRow" [ref=e3595]
+                                            - cell "integer seat row where the wing is starting" [ref=e3596]:
+                                              - generic [ref=e3598]:
+                                                - button [expanded] [ref=e3599] [cursor=pointer]
+                                                - generic [ref=e3601]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3603]: seat row where the wing is starting
+                                          - row "endWingsRow integer seat row where the wing is ending" [ref=e3604]:
+                                            - cell "endWingsRow" [ref=e3605]
+                                            - cell "integer seat row where the wing is ending" [ref=e3606]:
+                                              - generic [ref=e3608]:
+                                                - button [expanded] [ref=e3609] [cursor=pointer]
+                                                - generic [ref=e3611]:
+                                                  - text: integer
+                                                  - paragraph [ref=e3613]: seat row where the wing is ending
+                                          - row "exitRowsX [ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer]" [ref=e3614]:
+                                            - cell "exitRowsX" [ref=e3615]
+                                            - cell "[ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer]" [ref=e3616]:
+                                              - generic [ref=e3618]:
+                                                - button [expanded] [ref=e3619] [cursor=pointer]
+                                                - text: "["
+                                                - paragraph [ref=e3622]: X coordinate of the exit rows.The exit rows are displayed relatively to the length.
+                                                - generic [ref=e3625]:
+                                                  - button [expanded] [ref=e3626] [cursor=pointer]
+                                                  - generic [ref=e3628]: integer
+                                                - text: "]"
+                                      - text: "}"
+                                - 'row "facilities [ Facility { code string Facility code, as described in the facility dictionary column string row string position string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ] coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width } }]" [ref=e3629]':
+                                  - cell "facilities" [ref=e3630]
+                                  - 'cell "[ Facility { code string Facility code, as described in the facility dictionary column string row string position string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ] coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width } }]" [ref=e3631]':
+                                    - generic [ref=e3633]:
+                                      - button [expanded] [ref=e3634] [cursor=pointer]
+                                      - text: "["
+                                      - generic [ref=e3638]:
+                                        - button "Facility" [expanded] [ref=e3639] [cursor=pointer]:
+                                          - generic [ref=e3641]: Facility
+                                        - text: "{"
+                                        - table [ref=e3644]:
+                                          - rowgroup [ref=e3645]:
+                                            - row "code string Facility code, as described in the facility dictionary" [ref=e3646]:
+                                              - cell "code" [ref=e3647]
+                                              - cell "string Facility code, as described in the facility dictionary" [ref=e3648]:
+                                                - generic [ref=e3650]:
+                                                  - button [expanded] [ref=e3651] [cursor=pointer]
+                                                  - generic [ref=e3653]:
+                                                    - text: string
+                                                    - paragraph [ref=e3655]: Facility code, as described in the facility dictionary
+                                            - row "column string" [ref=e3656]:
+                                              - cell "column" [ref=e3657]
+                                              - cell "string" [ref=e3658]:
+                                                - generic [ref=e3660]:
+                                                  - button [expanded] [ref=e3661] [cursor=pointer]
+                                                  - generic [ref=e3663]: string
+                                            - row "row string" [ref=e3664]:
+                                              - cell "row" [ref=e3665]
+                                              - cell "string" [ref=e3666]:
+                                                - generic [ref=e3668]:
+                                                  - button [expanded] [ref=e3669] [cursor=pointer]
+                                                  - generic [ref=e3671]: string
+                                            - 'row "position string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ]" [ref=e3672]':
+                                              - cell "position" [ref=e3673]
+                                              - 'cell "string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ]" [ref=e3674]':
+                                                - generic [ref=e3676]:
+                                                  - button [expanded] [ref=e3677] [cursor=pointer]
+                                                  - generic [ref=e3679]:
+                                                    - text: string
+                                                    - paragraph [ref=e3681]: Position is either front, rear or seat (in case the facility takes the place of a seat)
+                                                    - generic [ref=e3682]:
+                                                      - text: "Enum:"
+                                                      - generic [ref=e3683]:
+                                                        - button [expanded] [ref=e3684] [cursor=pointer]
+                                                        - text: "[ FRONT, REAR, SEAT ]"
+                                            - 'row "coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e3686]':
+                                              - cell "coordinates" [ref=e3687]
+                                              - 'cell "Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e3688]':
+                                                - generic [ref=e3690]:
+                                                  - button "Coordinates" [expanded] [ref=e3691] [cursor=pointer]:
+                                                    - generic [ref=e3693]: Coordinates
+                                                  - text: "{"
+                                                  - table [ref=e3696]:
+                                                    - rowgroup [ref=e3697]:
+                                                      - row "x integer coordinate for the Length" [ref=e3698]:
+                                                        - cell "x" [ref=e3699]
+                                                        - cell "integer coordinate for the Length" [ref=e3700]:
+                                                          - generic [ref=e3702]:
+                                                            - button [expanded] [ref=e3703] [cursor=pointer]
+                                                            - generic [ref=e3705]:
+                                                              - text: integer
+                                                              - paragraph [ref=e3707]: coordinate for the Length
+                                                      - row "y integer coordinate for the Width" [ref=e3708]:
+                                                        - cell "y" [ref=e3709]
+                                                        - cell "integer coordinate for the Width" [ref=e3710]:
+                                                          - generic [ref=e3712]:
+                                                            - button [expanded] [ref=e3713] [cursor=pointer]
+                                                            - generic [ref=e3715]:
+                                                              - text: integer
+                                                              - paragraph [ref=e3717]: coordinate for the Width
+                                                  - text: "}"
+                                        - text: "}"
+                                      - text: "]"
+                                - row [ref=e3718]:
+                                  - cell "seats" [ref=e3719]
+                                  - cell [ref=e3720]:
+                                    - generic [ref=e3722]:
+                                      - button [expanded] [ref=e3723] [cursor=pointer]
+                                      - text: "["
+                                      - generic [ref=e3727]:
+                                        - button "Seat" [expanded] [ref=e3728] [cursor=pointer]:
+                                          - generic [ref=e3730]: Seat
+                                        - text: "{"
+                                        - table [ref=e3733]:
+                                          - rowgroup [ref=e3734]:
+                                            - 'row "cabin string example: ECO Cabin of the seat." [ref=e3735]':
+                                              - cell "cabin" [ref=e3736]
+                                              - 'cell "string example: ECO Cabin of the seat." [ref=e3737]':
+                                                - generic [ref=e3739]:
+                                                  - button [expanded] [ref=e3740] [cursor=pointer]
+                                                  - generic [ref=e3742]:
+                                                    - text: string
+                                                    - generic [ref=e3743]: "example: ECO"
+                                                    - paragraph [ref=e3745]: Cabin of the seat.
+                                            - 'row "number string example: 12B Concatenation of the row id and the column id, for example 12B" [ref=e3746]':
+                                              - cell "number" [ref=e3747]
+                                              - 'cell "string example: 12B Concatenation of the row id and the column id, for example 12B" [ref=e3748]':
+                                                - generic [ref=e3750]:
+                                                  - button [expanded] [ref=e3751] [cursor=pointer]
+                                                  - generic [ref=e3753]:
+                                                    - text: string
+                                                    - generic [ref=e3754]: "example: 12B"
+                                                    - paragraph [ref=e3756]: Concatenation of the row id and the column id, for example 12B
+                                            - 'row "characteristicsCodes [ List of seat characteristics (the characteristic''s names can be retrieved in the seat characteristic dictionary) Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825 Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat string]" [ref=e3757]':
+                                              - cell "characteristicsCodes" [ref=e3758]
+                                              - 'cell "[ List of seat characteristics (the characteristic''s names can be retrieved in the seat characteristic dictionary) Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825 Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat string]" [ref=e3759]':
+                                                - generic [ref=e3761]:
+                                                  - button [expanded] [ref=e3762] [cursor=pointer]
+                                                  - text: "["
+                                                  - generic [ref=e3764]:
+                                                    - paragraph [ref=e3765]: "List of seat characteristics (the characteristic's names can be retrieved in the seat characteristic dictionary) Possible values are part of:"
+                                                    - paragraph [ref=e3766]: "IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825"
+                                                    - paragraph [ref=e3767]: "Amadeus Code: defined as extension, example MV=row with movie screen"
+                                                    - paragraph [ref=e3768]: "Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat"
+                                                  - generic [ref=e3771]:
+                                                    - button [expanded] [ref=e3772] [cursor=pointer]
+                                                    - generic [ref=e3774]: string
+                                                  - text: "]"
+                                            - 'row "travelerPricing [ Traveler''s information and price SeatmapTravelerPricing { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ] price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] } }]" [ref=e3775]':
+                                              - cell "travelerPricing" [ref=e3776]
+                                              - 'cell "[ Traveler''s information and price SeatmapTravelerPricing { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ] price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] } }]" [ref=e3777]':
+                                                - generic [ref=e3779]:
+                                                  - button [expanded] [ref=e3780] [cursor=pointer]
+                                                  - text: "["
+                                                  - paragraph [ref=e3783]: Traveler's information and price
+                                                  - generic [ref=e3786]:
+                                                    - button "SeatmapTravelerPricing" [expanded] [ref=e3787] [cursor=pointer]:
+                                                      - generic [ref=e3789]: SeatmapTravelerPricing
+                                                    - text: "{"
+                                                    - table [ref=e3792]:
+                                                      - rowgroup [ref=e3793]:
+                                                        - 'row "travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e3794]':
+                                                          - cell "travelerId" [ref=e3795]
+                                                          - 'cell "string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e3796]':
+                                                            - generic [ref=e3798]:
+                                                              - button [expanded] [ref=e3799] [cursor=pointer]
+                                                              - generic [ref=e3801]:
+                                                                - text: string
+                                                                - generic [ref=e3802]: "pattern: [a-zA-Z0-9-]{1,20}"
+                                                                - paragraph [ref=e3804]: Traveler id
+                                                        - 'row "seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ]" [ref=e3805]':
+                                                          - cell "seatAvailabilityStatus" [ref=e3806]
+                                                          - 'cell "string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ]" [ref=e3807]':
+                                                            - generic [ref=e3809]:
+                                                              - button [expanded] [ref=e3810] [cursor=pointer]
+                                                              - generic [ref=e3812]:
+                                                                - text: string
+                                                                - paragraph [ref=e3814]: Seat availability for this specific traveler. Allows better seat choice per traveler
+                                                                - generic [ref=e3815]:
+                                                                  - text: "Enum:"
+                                                                  - generic [ref=e3816]:
+                                                                    - button [expanded] [ref=e3817] [cursor=pointer]
+                                                                    - text: "[ AVAILABLE, BLOCKED, OCCUPIED ]"
+                                                        - 'row "price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e3819]':
+                                                          - cell "price" [ref=e3820]
+                                                          - 'cell "Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e3821]':
+                                                            - generic [ref=e3823]:
+                                                              - button "Price" [expanded] [ref=e3824] [cursor=pointer]:
+                                                                - generic [ref=e3826]: Price
+                                                              - text: "{"
+                                                              - table [ref=e3829]:
+                                                                - rowgroup [ref=e3830]:
+                                                                  - 'row "currency string example: USD" [ref=e3831]':
+                                                                    - cell "currency" [ref=e3832]
+                                                                    - 'cell "string example: USD" [ref=e3833]':
+                                                                      - generic [ref=e3835]:
+                                                                        - button [expanded] [ref=e3836] [cursor=pointer]
+                                                                        - generic [ref=e3838]:
+                                                                          - text: string
+                                                                          - generic [ref=e3839]: "example: USD"
+                                                                  - 'row "total string example: 932.70 Total amount paid by the user" [ref=e3840]':
+                                                                    - cell "total" [ref=e3841]
+                                                                    - 'cell "string example: 932.70 Total amount paid by the user" [ref=e3842]':
+                                                                      - generic [ref=e3844]:
+                                                                        - button [expanded] [ref=e3845] [cursor=pointer]
+                                                                        - generic [ref=e3847]:
+                                                                          - text: string
+                                                                          - generic [ref=e3848]: "example: 932.70"
+                                                                          - paragraph [ref=e3850]: Total amount paid by the user
+                                                                  - 'row "base string example: 632.70 Amount without taxes" [ref=e3851]':
+                                                                    - cell "base" [ref=e3852]
+                                                                    - 'cell "string example: 632.70 Amount without taxes" [ref=e3853]':
+                                                                      - generic [ref=e3855]:
+                                                                        - button [expanded] [ref=e3856] [cursor=pointer]
+                                                                        - generic [ref=e3858]:
+                                                                          - text: string
+                                                                          - generic [ref=e3859]: "example: 632.70"
+                                                                          - paragraph [ref=e3861]: Amount without taxes
+                                                                  - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e3862]':
+                                                                    - cell "fees" [ref=e3863]
+                                                                    - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e3864]':
+                                                                      - generic [ref=e3866]:
+                                                                        - button [expanded] [ref=e3867] [cursor=pointer]
+                                                                        - text: "["
+                                                                        - paragraph [ref=e3870]: List of applicable fees
+                                                                        - generic [ref=e3873]:
+                                                                          - button "Fee" [expanded] [ref=e3874] [cursor=pointer]:
+                                                                            - generic [ref=e3876]: Fee
+                                                                          - text: "{"
+                                                                          - table [ref=e3879]:
+                                                                            - rowgroup [ref=e3880]:
+                                                                              - 'row "description: a fee" [ref=e3881]':
+                                                                                - cell "description:" [ref=e3882]
+                                                                                - cell "a fee" [ref=e3883]:
+                                                                                  - paragraph [ref=e3885]: a fee
+                                                                              - 'row "amount string example: 332.70" [ref=e3886]':
+                                                                                - cell "amount" [ref=e3887]
+                                                                                - 'cell "string example: 332.70" [ref=e3888]':
+                                                                                  - generic [ref=e3890]:
+                                                                                    - button [expanded] [ref=e3891] [cursor=pointer]
+                                                                                    - generic [ref=e3893]:
+                                                                                      - text: string
+                                                                                      - generic [ref=e3894]: "example: 332.70"
+                                                                              - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e3895]':
+                                                                                - cell "type" [ref=e3896]
+                                                                                - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e3897]':
+                                                                                  - generic [ref=e3899]:
+                                                                                    - button "FeeType" [expanded] [ref=e3900] [cursor=pointer]:
+                                                                                      - generic [ref=e3902]: FeeType
+                                                                                    - generic [ref=e3904]:
+                                                                                      - generic [ref=e3905]: FeeType
+                                                                                      - text: string
+                                                                                      - generic [ref=e3906]: "example: TICKETING"
+                                                                                      - paragraph [ref=e3908]: type of fee
+                                                                                      - generic [ref=e3909]:
+                                                                                        - text: "Enum:"
+                                                                                        - generic [ref=e3910]:
+                                                                                          - button [expanded] [ref=e3911] [cursor=pointer]
+                                                                                          - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                                                                          - text: "}"
+                                                                        - text: "]"
+                                                                  - 'row "taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e3913]':
+                                                                    - cell "taxes" [ref=e3914]
+                                                                    - 'cell "[ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e3915]':
+                                                                      - generic [ref=e3917]:
+                                                                        - button [expanded] [ref=e3918] [cursor=pointer]
+                                                                        - text: "["
+                                                                        - generic [ref=e3922]:
+                                                                          - button "Tax" [expanded] [ref=e3923] [cursor=pointer]:
+                                                                            - generic [ref=e3925]: Tax
+                                                                          - text: "{"
+                                                                          - table [ref=e3928]:
+                                                                            - rowgroup [ref=e3929]:
+                                                                              - 'row "description: a tax" [ref=e3930]':
+                                                                                - cell "description:" [ref=e3931]
+                                                                                - cell "a tax" [ref=e3932]:
+                                                                                  - paragraph [ref=e3934]: a tax
+                                                                              - 'row "amount string example: 332.70" [ref=e3935]':
+                                                                                - cell "amount" [ref=e3936]
+                                                                                - 'cell "string example: 332.70" [ref=e3937]':
+                                                                                  - generic [ref=e3939]:
+                                                                                    - button [expanded] [ref=e3940] [cursor=pointer]
+                                                                                    - generic [ref=e3942]:
+                                                                                      - text: string
+                                                                                      - generic [ref=e3943]: "example: 332.70"
+                                                                              - 'row "code string example: MX" [ref=e3944]':
+                                                                                - cell "code" [ref=e3945]
+                                                                                - 'cell "string example: MX" [ref=e3946]':
+                                                                                  - generic [ref=e3948]:
+                                                                                    - button [expanded] [ref=e3949] [cursor=pointer]
+                                                                                    - generic [ref=e3951]:
+                                                                                      - text: string
+                                                                                      - generic [ref=e3952]: "example: MX"
+                                                                          - text: "}"
+                                                                        - text: "]"
+                                                              - text: "}"
+                                                    - text: "}"
+                                                  - text: "]"
+                                            - 'row "coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e3953]':
+                                              - cell "coordinates" [ref=e3954]
+                                              - 'cell "Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e3955]':
+                                                - generic [ref=e3957]:
+                                                  - button "Coordinates" [expanded] [ref=e3958] [cursor=pointer]:
+                                                    - generic [ref=e3960]: Coordinates
+                                                  - text: "{"
+                                                  - table [ref=e3963]:
+                                                    - rowgroup [ref=e3964]:
+                                                      - row "x integer coordinate for the Length" [ref=e3965]:
+                                                        - cell "x" [ref=e3966]
+                                                        - cell "integer coordinate for the Length" [ref=e3967]:
+                                                          - generic [ref=e3969]:
+                                                            - button [expanded] [ref=e3970] [cursor=pointer]
+                                                            - generic [ref=e3972]:
+                                                              - text: integer
+                                                              - paragraph [ref=e3974]: coordinate for the Length
+                                                      - row "y integer coordinate for the Width" [ref=e3975]:
+                                                        - cell "y" [ref=e3976]
+                                                        - cell "integer coordinate for the Width" [ref=e3977]:
+                                                          - generic [ref=e3979]:
+                                                            - button [expanded] [ref=e3980] [cursor=pointer]
+                                                            - generic [ref=e3982]:
+                                                              - text: integer
+                                                              - paragraph [ref=e3984]: coordinate for the Width
+                                                  - text: "}"
+                                        - text: "}"
+                                      - text: "]"
+                            - text: "}"
+                          - text: "]"
+                    - row [ref=e3985]:
+                      - cell "aircraftCabinAmenities" [ref=e3986]
+                      - cell [ref=e3987]:
+                        - generic [ref=e3989]:
+                          - button "AircraftCabinAmenities" [expanded] [ref=e3990] [cursor=pointer]:
+                            - generic [ref=e3992]: AircraftCabinAmenities
+                          - text: "{"
+                          - table [ref=e3995]:
+                            - rowgroup [ref=e3996]:
+                              - 'row "description: Type of available amenities for a given flight" [ref=e3997]':
+                                - cell "description:" [ref=e3998]
+                                - cell "Type of available amenities for a given flight" [ref=e3999]:
+                                  - paragraph [ref=e4001]: Type of available amenities for a given flight
+                              - 'row "power Amenity { description: Type of power outlet for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity powerType string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ] usbType string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ] }" [ref=e4002]':
+                                - cell "power" [ref=e4003]
+                                - 'cell "Amenity { description: Type of power outlet for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity powerType string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ] usbType string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ] }" [ref=e4004]':
+                                  - generic [ref=e4006]:
+                                    - button "Amenity" [expanded] [ref=e4007] [cursor=pointer]:
+                                      - generic [ref=e4009]: Amenity
+                                    - text: "{"
+                                    - table [ref=e4012]:
+                                      - rowgroup [ref=e4013]:
+                                        - 'row "description: Type of power outlet for a given flight" [ref=e4014]':
+                                          - cell "description:" [ref=e4015]
+                                          - cell "Type of power outlet for a given flight" [ref=e4016]:
+                                            - paragraph [ref=e4018]: Type of power outlet for a given flight
+                                        - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4019]:
+                                          - cell "isChargeable" [ref=e4020]
+                                          - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4021]:
+                                            - generic [ref=e4023]:
+                                              - button [expanded] [ref=e4024] [cursor=pointer]
+                                              - generic [ref=e4026]:
+                                                - text: boolean
+                                                - paragraph [ref=e4028]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                                        - 'row "powerType string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]" [ref=e4029]':
+                                          - cell "powerType" [ref=e4030]
+                                          - 'cell "string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]" [ref=e4031]':
+                                            - generic [ref=e4033]:
+                                              - button [expanded] [ref=e4034] [cursor=pointer]
+                                              - generic [ref=e4036]:
+                                                - text: string
+                                                - generic [ref=e4037]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4038]:
+                                                    - button [expanded] [ref=e4039] [cursor=pointer]
+                                                    - text: "[ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]"
+                                        - 'row "usbType string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ]" [ref=e4041]':
+                                          - cell "usbType" [ref=e4042]
+                                          - 'cell "string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ]" [ref=e4043]':
+                                            - generic [ref=e4045]:
+                                              - button [expanded] [ref=e4046] [cursor=pointer]
+                                              - generic [ref=e4048]:
+                                                - text: string
+                                                - generic [ref=e4049]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4050]:
+                                                    - button [expanded] [ref=e4051] [cursor=pointer]
+                                                    - text: "[ USB_A, USB_C, USB_A_AND_USB_C ]"
+                                    - text: "}"
+                              - row [ref=e4053]:
+                                - cell "seat" [ref=e4054]
+                                - cell [ref=e4055]:
+                                  - generic [ref=e4057]:
+                                    - button "Amenity_Seat" [expanded] [ref=e4058] [cursor=pointer]:
+                                      - generic [ref=e4060]: Amenity_Seat
+                                    - text: "{"
+                                    - table [ref=e4063]:
+                                      - rowgroup [ref=e4064]:
+                                        - 'row "description: Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space" [ref=e4065]':
+                                          - cell "description:" [ref=e4066]
+                                          - cell "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space" [ref=e4067]:
+                                            - paragraph [ref=e4069]: Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space
+                                        - 'row "legSpace integer example: 33 Space between 2 seats" [ref=e4070]':
+                                          - cell "legSpace" [ref=e4071]
+                                          - 'cell "integer example: 33 Space between 2 seats" [ref=e4072]':
+                                            - generic [ref=e4074]:
+                                              - button [expanded] [ref=e4075] [cursor=pointer]
+                                              - generic [ref=e4077]:
+                                                - text: integer
+                                                - generic [ref=e4078]: "example: 33"
+                                                - paragraph [ref=e4080]: Space between 2 seats
+                                        - 'row "spaceUnit string Enum: [ INCHES, CENTIMENTERS ]" [ref=e4081]':
+                                          - cell "spaceUnit" [ref=e4082]
+                                          - 'cell "string Enum: [ INCHES, CENTIMENTERS ]" [ref=e4083]':
+                                            - generic [ref=e4085]:
+                                              - button [expanded] [ref=e4086] [cursor=pointer]
+                                              - generic [ref=e4088]:
+                                                - text: string
+                                                - generic [ref=e4089]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4090]:
+                                                    - button [expanded] [ref=e4091] [cursor=pointer]
+                                                    - text: "[ INCHES, CENTIMENTERS ]"
+                                        - 'row "tilt string Flatness of a seat Enum: [ FULL_FLAT, ANGLE_FLAT, NORMAL ]" [ref=e4093]':
+                                          - cell "tilt" [ref=e4094]
+                                          - 'cell "string Flatness of a seat Enum: [ FULL_FLAT, ANGLE_FLAT, NORMAL ]" [ref=e4095]':
+                                            - generic [ref=e4097]:
+                                              - button [expanded] [ref=e4098] [cursor=pointer]
+                                              - generic [ref=e4100]:
+                                                - text: string
+                                                - paragraph [ref=e4102]: Flatness of a seat
+                                                - generic [ref=e4103]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4104]:
+                                                    - button [expanded] [ref=e4105] [cursor=pointer]
+                                                    - text: "[ FULL_FLAT, ANGLE_FLAT, NORMAL ]"
+                                        - 'row "amenityType string Enum: [ SEAT ]" [ref=e4107]':
+                                          - cell "amenityType" [ref=e4108]
+                                          - 'cell "string Enum: [ SEAT ]" [ref=e4109]':
+                                            - generic [ref=e4111]:
+                                              - button [expanded] [ref=e4112] [cursor=pointer]
+                                              - generic [ref=e4114]:
+                                                - text: string
+                                                - generic [ref=e4115]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4116]:
+                                                    - button [expanded] [ref=e4117] [cursor=pointer]
+                                                    - text: "[ SEAT ]"
+                                        - row [ref=e4119]:
+                                          - cell "medias" [ref=e4120]
+                                          - cell [ref=e4121]:
+                                            - generic [ref=e4123]:
+                                              - button [expanded] [ref=e4124] [cursor=pointer]
+                                              - text: "["
+                                              - paragraph [ref=e4127]: list of media associated to the seat (rich content)
+                                              - generic [ref=e4130]:
+                                                - button "Media" [expanded] [ref=e4131] [cursor=pointer]:
+                                                  - generic [ref=e4133]: Media
+                                                - text: "{"
+                                                - table [ref=e4136]:
+                                                  - rowgroup [ref=e4137]:
+                                                    - 'row "description: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e4138]':
+                                                      - cell "description:" [ref=e4139]
+                                                      - cell "Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e4140]:
+                                                        - paragraph [ref=e4142]: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also.
+                                                    - 'row "title string example: My image title media title" [ref=e4143]':
+                                                      - cell "title" [ref=e4144]
+                                                      - 'cell "string example: My image title media title" [ref=e4145]':
+                                                        - generic [ref=e4147]:
+                                                          - button [expanded] [ref=e4148] [cursor=pointer]
+                                                          - generic [ref=e4150]:
+                                                            - text: string
+                                                            - generic [ref=e4151]: "example: My image title"
+                                                            - paragraph [ref=e4153]: media title
+                                                    - 'row "href string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e4154]':
+                                                      - cell "href" [ref=e4155]
+                                                      - 'cell "string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e4156]':
+                                                        - generic [ref=e4158]:
+                                                          - button [expanded] [ref=e4159] [cursor=pointer]
+                                                          - generic [ref=e4161]:
+                                                            - text: string
+                                                            - generic [ref=e4162]: ($uri)
+                                                            - generic [ref=e4163]: "example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6"
+                                                            - paragraph [ref=e4165]: href to display the original media.
+                                                    - 'row "description QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e4166]':
+                                                      - cell "description" [ref=e4167]
+                                                      - 'cell "QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e4168]':
+                                                        - generic [ref=e4170]:
+                                                          - button "QualifiedFreeText" [expanded] [ref=e4171] [cursor=pointer]:
+                                                            - generic [ref=e4173]: QualifiedFreeText
+                                                          - text: "{"
+                                                          - table [ref=e4176]:
+                                                            - rowgroup [ref=e4177]:
+                                                              - 'row "description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e4178]':
+                                                                - cell "description:" [ref=e4179]
+                                                                - cell "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e4180]:
+                                                                  - paragraph [ref=e4182]: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language
+                                                              - 'row "text string example: Do you need and example ? Free Text" [ref=e4183]':
+                                                                - cell "text" [ref=e4184]
+                                                                - 'cell "string example: Do you need and example ? Free Text" [ref=e4185]':
+                                                                  - generic [ref=e4187]:
+                                                                    - button [expanded] [ref=e4188] [cursor=pointer]
+                                                                    - generic [ref=e4190]:
+                                                                      - text: string
+                                                                      - generic [ref=e4191]: "example: Do you need and example ?"
+                                                                      - paragraph [ref=e4193]: Free Text
+                                                              - 'row "lang string example: fr-FR see RFC 5646" [ref=e4194]':
+                                                                - cell "lang" [ref=e4195]
+                                                                - 'cell "string example: fr-FR see RFC 5646" [ref=e4196]':
+                                                                  - generic [ref=e4198]:
+                                                                    - button [expanded] [ref=e4199] [cursor=pointer]
+                                                                    - generic [ref=e4201]:
+                                                                      - text: string
+                                                                      - generic [ref=e4202]: "example: fr-FR"
+                                                                      - paragraph [ref=e4204]: see RFC 5646
+                                                          - text: "}"
+                                                    - 'row "mediaType string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e4205]':
+                                                      - cell "mediaType" [ref=e4206]
+                                                      - 'cell "string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e4207]':
+                                                        - generic [ref=e4209]:
+                                                          - button [expanded] [ref=e4210] [cursor=pointer]
+                                                          - generic [ref=e4212]:
+                                                            - text: string
+                                                            - generic [ref=e4213]: "example: image"
+                                                            - paragraph [ref=e4215]:
+                                                              - text: media type as per IANA (
+                                                              - link "https://www.iana.org/assignments/media-types/media-types.xhtml" [ref=e4216] [cursor=pointer]:
+                                                                - /url: https://www.iana.org/assignments/media-types/media-types.xhtml
+                                                              - text: )
+                                                            - generic [ref=e4217]:
+                                                              - text: "Enum:"
+                                                              - generic [ref=e4218]:
+                                                                - button [expanded] [ref=e4219] [cursor=pointer]
+                                                                - text: "[ application, audio, font, example, image, message, model, multipart, text, video ]"
+                                                - text: "}"
+                                              - text: "]"
+                                    - text: "}"
+                              - 'row "wifi Amenity { description: Level of area coverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity wifiCoverage string Enum: [ FULL, PARTIAL ] }" [ref=e4221]':
+                                - cell "wifi" [ref=e4222]
+                                - 'cell "Amenity { description: Level of area coverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity wifiCoverage string Enum: [ FULL, PARTIAL ] }" [ref=e4223]':
+                                  - generic [ref=e4225]:
+                                    - button "Amenity" [expanded] [ref=e4226] [cursor=pointer]:
+                                      - generic [ref=e4228]: Amenity
+                                    - text: "{"
+                                    - table [ref=e4231]:
+                                      - rowgroup [ref=e4232]:
+                                        - 'row "description: Level of area coverage for a given flight" [ref=e4233]':
+                                          - cell "description:" [ref=e4234]
+                                          - cell "Level of area coverage for a given flight" [ref=e4235]:
+                                            - paragraph [ref=e4237]: Level of area coverage for a given flight
+                                        - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4238]:
+                                          - cell "isChargeable" [ref=e4239]
+                                          - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4240]:
+                                            - generic [ref=e4242]:
+                                              - button [expanded] [ref=e4243] [cursor=pointer]
+                                              - generic [ref=e4245]:
+                                                - text: boolean
+                                                - paragraph [ref=e4247]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                                        - 'row "wifiCoverage string Enum: [ FULL, PARTIAL ]" [ref=e4248]':
+                                          - cell "wifiCoverage" [ref=e4249]
+                                          - 'cell "string Enum: [ FULL, PARTIAL ]" [ref=e4250]':
+                                            - generic [ref=e4252]:
+                                              - button [expanded] [ref=e4253] [cursor=pointer]
+                                              - generic [ref=e4255]:
+                                                - text: string
+                                                - generic [ref=e4256]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4257]:
+                                                    - button [expanded] [ref=e4258] [cursor=pointer]
+                                                    - text: "[ FULL, PARTIAL ]"
+                                    - text: "}"
+                              - 'row "entertainment [ Amenity { description: Type of entertainment contents for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity entertainmentType string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ] }]" [ref=e4260]':
+                                - cell "entertainment" [ref=e4261]
+                                - 'cell "[ Amenity { description: Type of entertainment contents for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity entertainmentType string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ] }]" [ref=e4262]':
+                                  - generic [ref=e4264]:
+                                    - button [expanded] [ref=e4265] [cursor=pointer]
+                                    - text: "["
+                                    - generic [ref=e4269]:
+                                      - button "Amenity" [expanded] [ref=e4270] [cursor=pointer]:
+                                        - generic [ref=e4272]: Amenity
+                                      - text: "{"
+                                      - table [ref=e4275]:
+                                        - rowgroup [ref=e4276]:
+                                          - 'row "description: Type of entertainment contents for a given flight" [ref=e4277]':
+                                            - cell "description:" [ref=e4278]
+                                            - cell "Type of entertainment contents for a given flight" [ref=e4279]:
+                                              - paragraph [ref=e4281]: Type of entertainment contents for a given flight
+                                          - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4282]:
+                                            - cell "isChargeable" [ref=e4283]
+                                            - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4284]:
+                                              - generic [ref=e4286]:
+                                                - button [expanded] [ref=e4287] [cursor=pointer]
+                                                - generic [ref=e4289]:
+                                                  - text: boolean
+                                                  - paragraph [ref=e4291]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                                          - 'row "entertainmentType string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]" [ref=e4292]':
+                                            - cell "entertainmentType" [ref=e4293]
+                                            - 'cell "string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]" [ref=e4294]':
+                                              - generic [ref=e4296]:
+                                                - button [expanded] [ref=e4297] [cursor=pointer]
+                                                - generic [ref=e4299]:
+                                                  - text: string
+                                                  - generic [ref=e4300]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e4301]:
+                                                      - button [expanded] [ref=e4302] [cursor=pointer]
+                                                      - text: "[ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]"
+                                      - text: "}"
+                                    - text: "]"
+                              - 'row "food Amenity { description: Type of food for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity foodType string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ] }" [ref=e4304]':
+                                - cell "food" [ref=e4305]
+                                - 'cell "Amenity { description: Type of food for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity foodType string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ] }" [ref=e4306]':
+                                  - generic [ref=e4308]:
+                                    - button "Amenity" [expanded] [ref=e4309] [cursor=pointer]:
+                                      - generic [ref=e4311]: Amenity
+                                    - text: "{"
+                                    - table [ref=e4314]:
+                                      - rowgroup [ref=e4315]:
+                                        - 'row "description: Type of food for a given flight" [ref=e4316]':
+                                          - cell "description:" [ref=e4317]
+                                          - cell "Type of food for a given flight" [ref=e4318]:
+                                            - paragraph [ref=e4320]: Type of food for a given flight
+                                        - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4321]:
+                                          - cell "isChargeable" [ref=e4322]
+                                          - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4323]:
+                                            - generic [ref=e4325]:
+                                              - button [expanded] [ref=e4326] [cursor=pointer]
+                                              - generic [ref=e4328]:
+                                                - text: boolean
+                                                - paragraph [ref=e4330]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                                        - 'row "foodType string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]" [ref=e4331]':
+                                          - cell "foodType" [ref=e4332]
+                                          - 'cell "string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]" [ref=e4333]':
+                                            - generic [ref=e4335]:
+                                              - button [expanded] [ref=e4336] [cursor=pointer]
+                                              - generic [ref=e4338]:
+                                                - text: string
+                                                - generic [ref=e4339]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4340]:
+                                                    - button [expanded] [ref=e4341] [cursor=pointer]
+                                                    - text: "[ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]"
+                                    - text: "}"
+                              - 'row "beverage Amenity { description: Type of beverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity beverageType string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ] }" [ref=e4343]':
+                                - cell "beverage" [ref=e4344]
+                                - 'cell "Amenity { description: Type of beverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity beverageType string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ] }" [ref=e4345]':
+                                  - generic [ref=e4347]:
+                                    - button "Amenity" [expanded] [ref=e4348] [cursor=pointer]:
+                                      - generic [ref=e4350]: Amenity
+                                    - text: "{"
+                                    - table [ref=e4353]:
+                                      - rowgroup [ref=e4354]:
+                                        - 'row "description: Type of beverage for a given flight" [ref=e4355]':
+                                          - cell "description:" [ref=e4356]
+                                          - cell "Type of beverage for a given flight" [ref=e4357]:
+                                            - paragraph [ref=e4359]: Type of beverage for a given flight
+                                        - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4360]:
+                                          - cell "isChargeable" [ref=e4361]
+                                          - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e4362]:
+                                            - generic [ref=e4364]:
+                                              - button [expanded] [ref=e4365] [cursor=pointer]
+                                              - generic [ref=e4367]:
+                                                - text: boolean
+                                                - paragraph [ref=e4369]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                                        - 'row "beverageType string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]" [ref=e4370]':
+                                          - cell "beverageType" [ref=e4371]
+                                          - 'cell "string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]" [ref=e4372]':
+                                            - generic [ref=e4374]:
+                                              - button [expanded] [ref=e4375] [cursor=pointer]
+                                              - generic [ref=e4377]:
+                                                - text: string
+                                                - generic [ref=e4378]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e4379]:
+                                                    - button [expanded] [ref=e4380] [cursor=pointer]
+                                                    - text: "[ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]"
+                                    - text: "}"
+                          - text: "}"
+                    - 'row "availableSeatsCounters [ number of seats available for each passenger AvailableSeatsCounter { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id value integer example: 5 Number of Seats with status AVAILABLE }]" [ref=e4382]':
+                      - cell "availableSeatsCounters" [ref=e4383]
+                      - 'cell "[ number of seats available for each passenger AvailableSeatsCounter { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id value integer example: 5 Number of Seats with status AVAILABLE }]" [ref=e4384]':
+                        - generic [ref=e4386]:
+                          - button [expanded] [ref=e4387] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e4390]: number of seats available for each passenger
+                          - generic [ref=e4393]:
+                            - button "AvailableSeatsCounter" [expanded] [ref=e4394] [cursor=pointer]:
+                              - generic [ref=e4396]: AvailableSeatsCounter
+                            - text: "{"
+                            - table [ref=e4399]:
+                              - rowgroup [ref=e4400]:
+                                - 'row "travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e4401]':
+                                  - cell "travelerId" [ref=e4402]
+                                  - 'cell "string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e4403]':
+                                    - generic [ref=e4405]:
+                                      - button [expanded] [ref=e4406] [cursor=pointer]
+                                      - generic [ref=e4408]:
+                                        - text: string
+                                        - generic [ref=e4409]: "pattern: [a-zA-Z0-9-]{1,20}"
+                                        - paragraph [ref=e4411]: Traveler id
+                                - 'row "value integer example: 5 Number of Seats with status AVAILABLE" [ref=e4412]':
+                                  - cell "value" [ref=e4413]
+                                  - 'cell "integer example: 5 Number of Seats with status AVAILABLE" [ref=e4414]':
+                                    - generic [ref=e4416]:
+                                      - button [expanded] [ref=e4417] [cursor=pointer]
+                                      - generic [ref=e4419]:
+                                        - text: integer
+                                        - generic [ref=e4420]: "example: 5"
+                                        - paragraph [ref=e4422]: Number of Seats with status AVAILABLE
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e4427]:
+                - button "Deck" [expanded] [ref=e4428] [cursor=pointer]:
+                  - generic [ref=e4430]: Deck
+                - text: "{"
+                - table [ref=e4433]:
+                  - rowgroup [ref=e4434]:
+                    - 'row "description: deck information" [ref=e4435]':
+                      - cell "description:" [ref=e4436]
+                      - cell "deck information" [ref=e4437]:
+                        - paragraph [ref=e4439]: deck information
+                    - 'row "deckType string A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated. Enum: [ UPPER, MAIN, LOWER ]" [ref=e4440]':
+                      - cell "deckType" [ref=e4441]
+                      - 'cell "string A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated. Enum: [ UPPER, MAIN, LOWER ]" [ref=e4442]':
+                        - generic [ref=e4444]:
+                          - button [expanded] [ref=e4445] [cursor=pointer]
+                          - generic [ref=e4447]:
+                            - text: string
+                            - paragraph [ref=e4449]: A deck is a level on an aircraft. The deck location of the cabin (current possible values are upper or main) The main deck, where passengers are seated on a passenger flight. Upper deck is above the main deck where more passengers are seated.
+                            - generic [ref=e4450]:
+                              - text: "Enum:"
+                              - generic [ref=e4451]:
+                                - button [expanded] [ref=e4452] [cursor=pointer]
+                                - text: "[ UPPER, MAIN, LOWER ]"
+                    - 'row "deckConfiguration DeckConfiguration { description: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins) width integer Width (y-axis) of the deck. length integer Length (x-axis) of the deck. startSeatRow integer seat row where the deck is starting endSeatRow integer seat row where the deck is ending startWingsX integer Start x coordinate of the wings.The wings display starts relatively to the length. endWingsX integer End x coordinate of the wings.The wings display ends relatively to the length. startWingsRow integer seat row where the wing is starting endWingsRow integer seat row where the wing is ending exitRowsX [ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer] }" [ref=e4454]':
+                      - cell "deckConfiguration" [ref=e4455]
+                      - 'cell "DeckConfiguration { description: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins) width integer Width (y-axis) of the deck. length integer Length (x-axis) of the deck. startSeatRow integer seat row where the deck is starting endSeatRow integer seat row where the deck is ending startWingsX integer Start x coordinate of the wings.The wings display starts relatively to the length. endWingsX integer End x coordinate of the wings.The wings display ends relatively to the length. startWingsRow integer seat row where the wing is starting endWingsRow integer seat row where the wing is ending exitRowsX [ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer] }" [ref=e4456]':
+                        - generic [ref=e4458]:
+                          - button "DeckConfiguration" [expanded] [ref=e4459] [cursor=pointer]:
+                            - generic [ref=e4461]: DeckConfiguration
+                          - text: "{"
+                          - table [ref=e4464]:
+                            - rowgroup [ref=e4465]:
+                              - 'row "description: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)" [ref=e4466]':
+                                - cell "description:" [ref=e4467]
+                                - cell "deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)" [ref=e4468]:
+                                  - paragraph [ref=e4470]: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)
+                              - row "width integer Width (y-axis) of the deck." [ref=e4471]:
+                                - cell "width" [ref=e4472]
+                                - cell "integer Width (y-axis) of the deck." [ref=e4473]:
+                                  - generic [ref=e4475]:
+                                    - button [expanded] [ref=e4476] [cursor=pointer]
+                                    - generic [ref=e4478]:
+                                      - text: integer
+                                      - paragraph [ref=e4480]: Width (y-axis) of the deck.
+                              - row "length integer Length (x-axis) of the deck." [ref=e4481]:
+                                - cell "length" [ref=e4482]
+                                - cell "integer Length (x-axis) of the deck." [ref=e4483]:
+                                  - generic [ref=e4485]:
+                                    - button [expanded] [ref=e4486] [cursor=pointer]
+                                    - generic [ref=e4488]:
+                                      - text: integer
+                                      - paragraph [ref=e4490]: Length (x-axis) of the deck.
+                              - row "startSeatRow integer seat row where the deck is starting" [ref=e4491]:
+                                - cell "startSeatRow" [ref=e4492]
+                                - cell "integer seat row where the deck is starting" [ref=e4493]:
+                                  - generic [ref=e4495]:
+                                    - button [expanded] [ref=e4496] [cursor=pointer]
+                                    - generic [ref=e4498]:
+                                      - text: integer
+                                      - paragraph [ref=e4500]: seat row where the deck is starting
+                              - row "endSeatRow integer seat row where the deck is ending" [ref=e4501]:
+                                - cell "endSeatRow" [ref=e4502]
+                                - cell "integer seat row where the deck is ending" [ref=e4503]:
+                                  - generic [ref=e4505]:
+                                    - button [expanded] [ref=e4506] [cursor=pointer]
+                                    - generic [ref=e4508]:
+                                      - text: integer
+                                      - paragraph [ref=e4510]: seat row where the deck is ending
+                              - row "startWingsX integer Start x coordinate of the wings.The wings display starts relatively to the length." [ref=e4511]:
+                                - cell "startWingsX" [ref=e4512]
+                                - cell "integer Start x coordinate of the wings.The wings display starts relatively to the length." [ref=e4513]:
+                                  - generic [ref=e4515]:
+                                    - button [expanded] [ref=e4516] [cursor=pointer]
+                                    - generic [ref=e4518]:
+                                      - text: integer
+                                      - paragraph [ref=e4520]: Start x coordinate of the wings.The wings display starts relatively to the length.
+                              - row "endWingsX integer End x coordinate of the wings.The wings display ends relatively to the length." [ref=e4521]:
+                                - cell "endWingsX" [ref=e4522]
+                                - cell "integer End x coordinate of the wings.The wings display ends relatively to the length." [ref=e4523]:
+                                  - generic [ref=e4525]:
+                                    - button [expanded] [ref=e4526] [cursor=pointer]
+                                    - generic [ref=e4528]:
+                                      - text: integer
+                                      - paragraph [ref=e4530]: End x coordinate of the wings.The wings display ends relatively to the length.
+                              - row "startWingsRow integer seat row where the wing is starting" [ref=e4531]:
+                                - cell "startWingsRow" [ref=e4532]
+                                - cell "integer seat row where the wing is starting" [ref=e4533]:
+                                  - generic [ref=e4535]:
+                                    - button [expanded] [ref=e4536] [cursor=pointer]
+                                    - generic [ref=e4538]:
+                                      - text: integer
+                                      - paragraph [ref=e4540]: seat row where the wing is starting
+                              - row "endWingsRow integer seat row where the wing is ending" [ref=e4541]:
+                                - cell "endWingsRow" [ref=e4542]
+                                - cell "integer seat row where the wing is ending" [ref=e4543]:
+                                  - generic [ref=e4545]:
+                                    - button [expanded] [ref=e4546] [cursor=pointer]
+                                    - generic [ref=e4548]:
+                                      - text: integer
+                                      - paragraph [ref=e4550]: seat row where the wing is ending
+                              - row "exitRowsX [ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer]" [ref=e4551]:
+                                - cell "exitRowsX" [ref=e4552]
+                                - cell "[ X coordinate of the exit rows.The exit rows are displayed relatively to the length. integer]" [ref=e4553]:
+                                  - generic [ref=e4555]:
+                                    - button [expanded] [ref=e4556] [cursor=pointer]
+                                    - text: "["
+                                    - paragraph [ref=e4559]: X coordinate of the exit rows.The exit rows are displayed relatively to the length.
+                                    - generic [ref=e4562]:
+                                      - button [expanded] [ref=e4563] [cursor=pointer]
+                                      - generic [ref=e4565]: integer
+                                    - text: "]"
+                          - text: "}"
+                    - 'row "facilities [ Facility { code string Facility code, as described in the facility dictionary column string row string position string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ] coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width } }]" [ref=e4566]':
+                      - cell "facilities" [ref=e4567]
+                      - 'cell "[ Facility { code string Facility code, as described in the facility dictionary column string row string position string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ] coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width } }]" [ref=e4568]':
+                        - generic [ref=e4570]:
+                          - button [expanded] [ref=e4571] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e4575]:
+                            - button "Facility" [expanded] [ref=e4576] [cursor=pointer]:
+                              - generic [ref=e4578]: Facility
+                            - text: "{"
+                            - table [ref=e4581]:
+                              - rowgroup [ref=e4582]:
+                                - row "code string Facility code, as described in the facility dictionary" [ref=e4583]:
+                                  - cell "code" [ref=e4584]
+                                  - cell "string Facility code, as described in the facility dictionary" [ref=e4585]:
+                                    - generic [ref=e4587]:
+                                      - button [expanded] [ref=e4588] [cursor=pointer]
+                                      - generic [ref=e4590]:
+                                        - text: string
+                                        - paragraph [ref=e4592]: Facility code, as described in the facility dictionary
+                                - row "column string" [ref=e4593]:
+                                  - cell "column" [ref=e4594]
+                                  - cell "string" [ref=e4595]:
+                                    - generic [ref=e4597]:
+                                      - button [expanded] [ref=e4598] [cursor=pointer]
+                                      - generic [ref=e4600]: string
+                                - row "row string" [ref=e4601]:
+                                  - cell "row" [ref=e4602]
+                                  - cell "string" [ref=e4603]:
+                                    - generic [ref=e4605]:
+                                      - button [expanded] [ref=e4606] [cursor=pointer]
+                                      - generic [ref=e4608]: string
+                                - 'row "position string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ]" [ref=e4609]':
+                                  - cell "position" [ref=e4610]
+                                  - 'cell "string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ]" [ref=e4611]':
+                                    - generic [ref=e4613]:
+                                      - button [expanded] [ref=e4614] [cursor=pointer]
+                                      - generic [ref=e4616]:
+                                        - text: string
+                                        - paragraph [ref=e4618]: Position is either front, rear or seat (in case the facility takes the place of a seat)
+                                        - generic [ref=e4619]:
+                                          - text: "Enum:"
+                                          - generic [ref=e4620]:
+                                            - button [expanded] [ref=e4621] [cursor=pointer]
+                                            - text: "[ FRONT, REAR, SEAT ]"
+                                - 'row "coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e4623]':
+                                  - cell "coordinates" [ref=e4624]
+                                  - 'cell "Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e4625]':
+                                    - generic [ref=e4627]:
+                                      - button "Coordinates" [expanded] [ref=e4628] [cursor=pointer]:
+                                        - generic [ref=e4630]: Coordinates
+                                      - text: "{"
+                                      - table [ref=e4633]:
+                                        - rowgroup [ref=e4634]:
+                                          - row "x integer coordinate for the Length" [ref=e4635]:
+                                            - cell "x" [ref=e4636]
+                                            - cell "integer coordinate for the Length" [ref=e4637]:
+                                              - generic [ref=e4639]:
+                                                - button [expanded] [ref=e4640] [cursor=pointer]
+                                                - generic [ref=e4642]:
+                                                  - text: integer
+                                                  - paragraph [ref=e4644]: coordinate for the Length
+                                          - row "y integer coordinate for the Width" [ref=e4645]:
+                                            - cell "y" [ref=e4646]
+                                            - cell "integer coordinate for the Width" [ref=e4647]:
+                                              - generic [ref=e4649]:
+                                                - button [expanded] [ref=e4650] [cursor=pointer]
+                                                - generic [ref=e4652]:
+                                                  - text: integer
+                                                  - paragraph [ref=e4654]: coordinate for the Width
+                                      - text: "}"
+                            - text: "}"
+                          - text: "]"
+                    - row [ref=e4655]:
+                      - cell "seats" [ref=e4656]
+                      - cell [ref=e4657]:
+                        - generic [ref=e4659]:
+                          - button [expanded] [ref=e4660] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e4664]:
+                            - button "Seat" [expanded] [ref=e4665] [cursor=pointer]:
+                              - generic [ref=e4667]: Seat
+                            - text: "{"
+                            - table [ref=e4670]:
+                              - rowgroup [ref=e4671]:
+                                - 'row "cabin string example: ECO Cabin of the seat." [ref=e4672]':
+                                  - cell "cabin" [ref=e4673]
+                                  - 'cell "string example: ECO Cabin of the seat." [ref=e4674]':
+                                    - generic [ref=e4676]:
+                                      - button [expanded] [ref=e4677] [cursor=pointer]
+                                      - generic [ref=e4679]:
+                                        - text: string
+                                        - generic [ref=e4680]: "example: ECO"
+                                        - paragraph [ref=e4682]: Cabin of the seat.
+                                - 'row "number string example: 12B Concatenation of the row id and the column id, for example 12B" [ref=e4683]':
+                                  - cell "number" [ref=e4684]
+                                  - 'cell "string example: 12B Concatenation of the row id and the column id, for example 12B" [ref=e4685]':
+                                    - generic [ref=e4687]:
+                                      - button [expanded] [ref=e4688] [cursor=pointer]
+                                      - generic [ref=e4690]:
+                                        - text: string
+                                        - generic [ref=e4691]: "example: 12B"
+                                        - paragraph [ref=e4693]: Concatenation of the row id and the column id, for example 12B
+                                - 'row "characteristicsCodes [ List of seat characteristics (the characteristic''s names can be retrieved in the seat characteristic dictionary) Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825 Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat string]" [ref=e4694]':
+                                  - cell "characteristicsCodes" [ref=e4695]
+                                  - 'cell "[ List of seat characteristics (the characteristic''s names can be retrieved in the seat characteristic dictionary) Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825 Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat string]" [ref=e4696]':
+                                    - generic [ref=e4698]:
+                                      - button [expanded] [ref=e4699] [cursor=pointer]
+                                      - text: "["
+                                      - generic [ref=e4701]:
+                                        - paragraph [ref=e4702]: "List of seat characteristics (the characteristic's names can be retrieved in the seat characteristic dictionary) Possible values are part of:"
+                                        - paragraph [ref=e4703]: "IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825"
+                                        - paragraph [ref=e4704]: "Amadeus Code: defined as extension, example MV=row with movie screen"
+                                        - paragraph [ref=e4705]: "Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat"
+                                      - generic [ref=e4708]:
+                                        - button [expanded] [ref=e4709] [cursor=pointer]
+                                        - generic [ref=e4711]: string
+                                      - text: "]"
+                                - 'row "travelerPricing [ Traveler''s information and price SeatmapTravelerPricing { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: Array [ 3 ] price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax {...}] } }]" [ref=e4712]':
+                                  - cell "travelerPricing" [ref=e4713]
+                                  - 'cell "[ Traveler''s information and price SeatmapTravelerPricing { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: Array [ 3 ] price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax {...}] } }]" [ref=e4714]':
+                                    - generic [ref=e4716]:
+                                      - button [expanded] [ref=e4717] [cursor=pointer]
+                                      - text: "["
+                                      - paragraph [ref=e4720]: Traveler's information and price
+                                      - generic [ref=e4723]:
+                                        - button "SeatmapTravelerPricing" [expanded] [ref=e4724] [cursor=pointer]:
+                                          - generic [ref=e4726]: SeatmapTravelerPricing
+                                        - text: "{"
+                                        - table [ref=e4729]:
+                                          - rowgroup [ref=e4730]:
+                                            - 'row "travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e4731]':
+                                              - cell "travelerId" [ref=e4732]
+                                              - 'cell "string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e4733]':
+                                                - generic [ref=e4735]:
+                                                  - button [expanded] [ref=e4736] [cursor=pointer]
+                                                  - generic [ref=e4738]:
+                                                    - text: string
+                                                    - generic [ref=e4739]: "pattern: [a-zA-Z0-9-]{1,20}"
+                                                    - paragraph [ref=e4741]: Traveler id
+                                            - 'row "seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: Array [ 3 ]" [ref=e4742]':
+                                              - cell "seatAvailabilityStatus" [ref=e4743]
+                                              - 'cell "string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: Array [ 3 ]" [ref=e4744]':
+                                                - generic [ref=e4746]:
+                                                  - button [expanded] [ref=e4747] [cursor=pointer]
+                                                  - generic [ref=e4749]:
+                                                    - text: string
+                                                    - paragraph [ref=e4751]: Seat availability for this specific traveler. Allows better seat choice per traveler
+                                                    - generic [ref=e4752]:
+                                                      - text: "Enum:"
+                                                      - button "Array [ 3 ]" [ref=e4754] [cursor=pointer]:
+                                                        - generic [ref=e4757]: Array [ 3 ]
+                                            - 'row "price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax {...}] }" [ref=e4758]':
+                                              - cell "price" [ref=e4759]
+                                              - 'cell "Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax {...}] }" [ref=e4760]':
+                                                - generic [ref=e4762]:
+                                                  - button "Price" [expanded] [ref=e4763] [cursor=pointer]:
+                                                    - generic [ref=e4765]: Price
+                                                  - text: "{"
+                                                  - table [ref=e4768]:
+                                                    - rowgroup [ref=e4769]:
+                                                      - 'row "currency string example: USD" [ref=e4770]':
+                                                        - cell "currency" [ref=e4771]
+                                                        - 'cell "string example: USD" [ref=e4772]':
+                                                          - generic [ref=e4774]:
+                                                            - button [expanded] [ref=e4775] [cursor=pointer]
+                                                            - generic [ref=e4777]:
+                                                              - text: string
+                                                              - generic [ref=e4778]: "example: USD"
+                                                      - 'row "total string example: 932.70 Total amount paid by the user" [ref=e4779]':
+                                                        - cell "total" [ref=e4780]
+                                                        - 'cell "string example: 932.70 Total amount paid by the user" [ref=e4781]':
+                                                          - generic [ref=e4783]:
+                                                            - button [expanded] [ref=e4784] [cursor=pointer]
+                                                            - generic [ref=e4786]:
+                                                              - text: string
+                                                              - generic [ref=e4787]: "example: 932.70"
+                                                              - paragraph [ref=e4789]: Total amount paid by the user
+                                                      - 'row "base string example: 632.70 Amount without taxes" [ref=e4790]':
+                                                        - cell "base" [ref=e4791]
+                                                        - 'cell "string example: 632.70 Amount without taxes" [ref=e4792]':
+                                                          - generic [ref=e4794]:
+                                                            - button [expanded] [ref=e4795] [cursor=pointer]
+                                                            - generic [ref=e4797]:
+                                                              - text: string
+                                                              - generic [ref=e4798]: "example: 632.70"
+                                                              - paragraph [ref=e4800]: Amount without taxes
+                                                      - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e4801]':
+                                                        - cell "fees" [ref=e4802]
+                                                        - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e4803]':
+                                                          - generic [ref=e4805]:
+                                                            - button [expanded] [ref=e4806] [cursor=pointer]
+                                                            - text: "["
+                                                            - paragraph [ref=e4809]: List of applicable fees
+                                                            - generic [ref=e4812]:
+                                                              - button "Fee" [expanded] [ref=e4813] [cursor=pointer]:
+                                                                - generic [ref=e4815]: Fee
+                                                              - text: "{"
+                                                              - table [ref=e4818]:
+                                                                - rowgroup [ref=e4819]:
+                                                                  - 'row "description: a fee" [ref=e4820]':
+                                                                    - cell "description:" [ref=e4821]
+                                                                    - cell "a fee" [ref=e4822]:
+                                                                      - paragraph [ref=e4824]: a fee
+                                                                  - 'row "amount string example: 332.70" [ref=e4825]':
+                                                                    - cell "amount" [ref=e4826]
+                                                                    - 'cell "string example: 332.70" [ref=e4827]':
+                                                                      - generic [ref=e4829]:
+                                                                        - button [expanded] [ref=e4830] [cursor=pointer]
+                                                                        - generic [ref=e4832]:
+                                                                          - text: string
+                                                                          - generic [ref=e4833]: "example: 332.70"
+                                                                  - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e4834]':
+                                                                    - cell "type" [ref=e4835]
+                                                                    - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e4836]':
+                                                                      - generic [ref=e4838]:
+                                                                        - button "FeeType" [expanded] [ref=e4839] [cursor=pointer]:
+                                                                          - generic [ref=e4841]: FeeType
+                                                                        - generic [ref=e4843]:
+                                                                          - generic [ref=e4844]: FeeType
+                                                                          - text: string
+                                                                          - generic [ref=e4845]: "example: TICKETING"
+                                                                          - paragraph [ref=e4847]: type of fee
+                                                                          - generic [ref=e4848]:
+                                                                            - text: "Enum:"
+                                                                            - generic [ref=e4849]:
+                                                                              - button [expanded] [ref=e4850] [cursor=pointer]
+                                                                              - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                                                              - text: "}"
+                                                            - text: "]"
+                                                      - 'row "taxes [ Tax {...}]" [ref=e4852]':
+                                                        - cell "taxes" [ref=e4853]
+                                                        - 'cell "[ Tax {...}]" [ref=e4854]':
+                                                          - generic [ref=e4856]:
+                                                            - button [expanded] [ref=e4857] [cursor=pointer]
+                                                            - text: "["
+                                                            - 'button "Tax {...}" [ref=e4862] [cursor=pointer]':
+                                                              - generic [ref=e4864]: Tax
+                                                              - generic [ref=e4867]: "{...}"
+                                                            - text: "]"
+                                                  - text: "}"
+                                        - text: "}"
+                                      - text: "]"
+                                - 'row "coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e4868]':
+                                  - cell "coordinates" [ref=e4869]
+                                  - 'cell "Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e4870]':
+                                    - generic [ref=e4872]:
+                                      - button "Coordinates" [expanded] [ref=e4873] [cursor=pointer]:
+                                        - generic [ref=e4875]: Coordinates
+                                      - text: "{"
+                                      - table [ref=e4878]:
+                                        - rowgroup [ref=e4879]:
+                                          - row "x integer coordinate for the Length" [ref=e4880]:
+                                            - cell "x" [ref=e4881]
+                                            - cell "integer coordinate for the Length" [ref=e4882]:
+                                              - generic [ref=e4884]:
+                                                - button [expanded] [ref=e4885] [cursor=pointer]
+                                                - generic [ref=e4887]:
+                                                  - text: integer
+                                                  - paragraph [ref=e4889]: coordinate for the Length
+                                          - row "y integer coordinate for the Width" [ref=e4890]:
+                                            - cell "y" [ref=e4891]
+                                            - cell "integer coordinate for the Width" [ref=e4892]:
+                                              - generic [ref=e4894]:
+                                                - button [expanded] [ref=e4895] [cursor=pointer]
+                                                - generic [ref=e4897]:
+                                                  - text: integer
+                                                  - paragraph [ref=e4899]: coordinate for the Width
+                                      - text: "}"
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e4904]:
+                - button "DeckConfiguration" [expanded] [ref=e4905] [cursor=pointer]:
+                  - generic [ref=e4907]: DeckConfiguration
+                - text: "{"
+                - table [ref=e4910]:
+                  - rowgroup [ref=e4911]:
+                    - 'row "description: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)" [ref=e4912]':
+                      - cell "description:" [ref=e4913]
+                      - cell "deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)" [ref=e4914]:
+                        - paragraph [ref=e4916]: deck dimensions are used as a reference to display the entire aircraft or to the section associated to the requested cabin (or set of cabins)
+                    - row "width integer Width (y-axis) of the deck." [ref=e4917]:
+                      - cell "width" [ref=e4918]
+                      - cell "integer Width (y-axis) of the deck." [ref=e4919]:
+                        - generic [ref=e4921]:
+                          - button [expanded] [ref=e4922] [cursor=pointer]
+                          - generic [ref=e4924]:
+                            - text: integer
+                            - paragraph [ref=e4926]: Width (y-axis) of the deck.
+                    - row "length integer Length (x-axis) of the deck." [ref=e4927]:
+                      - cell "length" [ref=e4928]
+                      - cell "integer Length (x-axis) of the deck." [ref=e4929]:
+                        - generic [ref=e4931]:
+                          - button [expanded] [ref=e4932] [cursor=pointer]
+                          - generic [ref=e4934]:
+                            - text: integer
+                            - paragraph [ref=e4936]: Length (x-axis) of the deck.
+                    - row "startSeatRow integer seat row where the deck is starting" [ref=e4937]:
+                      - cell "startSeatRow" [ref=e4938]
+                      - cell "integer seat row where the deck is starting" [ref=e4939]:
+                        - generic [ref=e4941]:
+                          - button [expanded] [ref=e4942] [cursor=pointer]
+                          - generic [ref=e4944]:
+                            - text: integer
+                            - paragraph [ref=e4946]: seat row where the deck is starting
+                    - row "endSeatRow integer seat row where the deck is ending" [ref=e4947]:
+                      - cell "endSeatRow" [ref=e4948]
+                      - cell "integer seat row where the deck is ending" [ref=e4949]:
+                        - generic [ref=e4951]:
+                          - button [expanded] [ref=e4952] [cursor=pointer]
+                          - generic [ref=e4954]:
+                            - text: integer
+                            - paragraph [ref=e4956]: seat row where the deck is ending
+                    - row "startWingsX integer Start x coordinate of the wings.The wings display starts relatively to the length." [ref=e4957]:
+                      - cell "startWingsX" [ref=e4958]
+                      - cell "integer Start x coordinate of the wings.The wings display starts relatively to the length." [ref=e4959]:
+                        - generic [ref=e4961]:
+                          - button [expanded] [ref=e4962] [cursor=pointer]
+                          - generic [ref=e4964]:
+                            - text: integer
+                            - paragraph [ref=e4966]: Start x coordinate of the wings.The wings display starts relatively to the length.
+                    - row "endWingsX integer End x coordinate of the wings.The wings display ends relatively to the length." [ref=e4967]:
+                      - cell "endWingsX" [ref=e4968]
+                      - cell "integer End x coordinate of the wings.The wings display ends relatively to the length." [ref=e4969]:
+                        - generic [ref=e4971]:
+                          - button [expanded] [ref=e4972] [cursor=pointer]
+                          - generic [ref=e4974]:
+                            - text: integer
+                            - paragraph [ref=e4976]: End x coordinate of the wings.The wings display ends relatively to the length.
+                    - row "startWingsRow integer seat row where the wing is starting" [ref=e4977]:
+                      - cell "startWingsRow" [ref=e4978]
+                      - cell "integer seat row where the wing is starting" [ref=e4979]:
+                        - generic [ref=e4981]:
+                          - button [expanded] [ref=e4982] [cursor=pointer]
+                          - generic [ref=e4984]:
+                            - text: integer
+                            - paragraph [ref=e4986]: seat row where the wing is starting
+                    - row "endWingsRow integer seat row where the wing is ending" [ref=e4987]:
+                      - cell "endWingsRow" [ref=e4988]
+                      - cell "integer seat row where the wing is ending" [ref=e4989]:
+                        - generic [ref=e4991]:
+                          - button [expanded] [ref=e4992] [cursor=pointer]
+                          - generic [ref=e4994]:
+                            - text: integer
+                            - paragraph [ref=e4996]: seat row where the wing is ending
+                    - row "exitRowsX [ X coordinate of the exit rows.The exit rows are displayed relatively to the length. [...]]" [ref=e4997]:
+                      - cell "exitRowsX" [ref=e4998]
+                      - cell "[ X coordinate of the exit rows.The exit rows are displayed relatively to the length. [...]]" [ref=e4999]:
+                        - generic [ref=e5001]:
+                          - button [expanded] [ref=e5002] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e5005]: X coordinate of the exit rows.The exit rows are displayed relatively to the length.
+                          - button "[...]" [ref=e5009] [cursor=pointer]: "[...]"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e5015]:
+                - button "Facility" [expanded] [ref=e5016] [cursor=pointer]:
+                  - generic [ref=e5018]: Facility
+                - text: "{"
+                - table [ref=e5021]:
+                  - rowgroup [ref=e5022]:
+                    - row "code string Facility code, as described in the facility dictionary" [ref=e5023]:
+                      - cell "code" [ref=e5024]
+                      - cell "string Facility code, as described in the facility dictionary" [ref=e5025]:
+                        - generic [ref=e5027]:
+                          - button [expanded] [ref=e5028] [cursor=pointer]
+                          - generic [ref=e5030]:
+                            - text: string
+                            - paragraph [ref=e5032]: Facility code, as described in the facility dictionary
+                    - row "column string" [ref=e5033]:
+                      - cell "column" [ref=e5034]
+                      - cell "string" [ref=e5035]:
+                        - generic [ref=e5037]:
+                          - button [expanded] [ref=e5038] [cursor=pointer]
+                          - generic [ref=e5040]: string
+                    - row "row string" [ref=e5041]:
+                      - cell "row" [ref=e5042]
+                      - cell "string" [ref=e5043]:
+                        - generic [ref=e5045]:
+                          - button [expanded] [ref=e5046] [cursor=pointer]
+                          - generic [ref=e5048]: string
+                    - 'row "position string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ]" [ref=e5049]':
+                      - cell "position" [ref=e5050]
+                      - 'cell "string Position is either front, rear or seat (in case the facility takes the place of a seat) Enum: [ FRONT, REAR, SEAT ]" [ref=e5051]':
+                        - generic [ref=e5053]:
+                          - button [expanded] [ref=e5054] [cursor=pointer]
+                          - generic [ref=e5056]:
+                            - text: string
+                            - paragraph [ref=e5058]: Position is either front, rear or seat (in case the facility takes the place of a seat)
+                            - generic [ref=e5059]:
+                              - text: "Enum:"
+                              - generic [ref=e5060]:
+                                - button [expanded] [ref=e5061] [cursor=pointer]
+                                - text: "[ FRONT, REAR, SEAT ]"
+                    - 'row "coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e5063]':
+                      - cell "coordinates" [ref=e5064]
+                      - 'cell "Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e5065]':
+                        - generic [ref=e5067]:
+                          - button "Coordinates" [expanded] [ref=e5068] [cursor=pointer]:
+                            - generic [ref=e5070]: Coordinates
+                          - text: "{"
+                          - table [ref=e5073]:
+                            - rowgroup [ref=e5074]:
+                              - row "x integer coordinate for the Length" [ref=e5075]:
+                                - cell "x" [ref=e5076]
+                                - cell "integer coordinate for the Length" [ref=e5077]:
+                                  - generic [ref=e5079]:
+                                    - button [expanded] [ref=e5080] [cursor=pointer]
+                                    - generic [ref=e5082]:
+                                      - text: integer
+                                      - paragraph [ref=e5084]: coordinate for the Length
+                              - row "y integer coordinate for the Width" [ref=e5085]:
+                                - cell "y" [ref=e5086]
+                                - cell "integer coordinate for the Width" [ref=e5087]:
+                                  - generic [ref=e5089]:
+                                    - button [expanded] [ref=e5090] [cursor=pointer]
+                                    - generic [ref=e5092]:
+                                      - text: integer
+                                      - paragraph [ref=e5094]: coordinate for the Width
+                          - text: "}"
+                - text: "}"
+              - generic [ref=e5099]:
+                - button "Seat" [expanded] [ref=e5100] [cursor=pointer]:
+                  - generic [ref=e5102]: Seat
+                - text: "{"
+                - table [ref=e5105]:
+                  - rowgroup [ref=e5106]:
+                    - 'row "cabin string example: ECO Cabin of the seat." [ref=e5107]':
+                      - cell "cabin" [ref=e5108]
+                      - 'cell "string example: ECO Cabin of the seat." [ref=e5109]':
+                        - generic [ref=e5111]:
+                          - button [expanded] [ref=e5112] [cursor=pointer]
+                          - generic [ref=e5114]:
+                            - text: string
+                            - generic [ref=e5115]: "example: ECO"
+                            - paragraph [ref=e5117]: Cabin of the seat.
+                    - 'row "number string example: 12B Concatenation of the row id and the column id, for example 12B" [ref=e5118]':
+                      - cell "number" [ref=e5119]
+                      - 'cell "string example: 12B Concatenation of the row id and the column id, for example 12B" [ref=e5120]':
+                        - generic [ref=e5122]:
+                          - button [expanded] [ref=e5123] [cursor=pointer]
+                          - generic [ref=e5125]:
+                            - text: string
+                            - generic [ref=e5126]: "example: 12B"
+                            - paragraph [ref=e5128]: Concatenation of the row id and the column id, for example 12B
+                    - 'row "characteristicsCodes [ List of seat characteristics (the characteristic''s names can be retrieved in the seat characteristic dictionary) Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825 Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat string]" [ref=e5129]':
+                      - cell "characteristicsCodes" [ref=e5130]
+                      - 'cell "[ List of seat characteristics (the characteristic''s names can be retrieved in the seat characteristic dictionary) Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825 Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat string]" [ref=e5131]':
+                        - generic [ref=e5133]:
+                          - button [expanded] [ref=e5134] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e5136]:
+                            - paragraph [ref=e5137]: "List of seat characteristics (the characteristic's names can be retrieved in the seat characteristic dictionary) Possible values are part of:"
+                            - paragraph [ref=e5138]: "IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825"
+                            - paragraph [ref=e5139]: "Amadeus Code: defined as extension, example MV=row with movie screen"
+                            - paragraph [ref=e5140]: "Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat"
+                          - generic [ref=e5143]:
+                            - button [expanded] [ref=e5144] [cursor=pointer]
+                            - generic [ref=e5146]: string
+                          - text: "]"
+                    - 'row "travelerPricing [ Traveler''s information and price SeatmapTravelerPricing { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ] price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] } }]" [ref=e5147]':
+                      - cell "travelerPricing" [ref=e5148]
+                      - 'cell "[ Traveler''s information and price SeatmapTravelerPricing { travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ] price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] } }]" [ref=e5149]':
+                        - generic [ref=e5151]:
+                          - button [expanded] [ref=e5152] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e5155]: Traveler's information and price
+                          - generic [ref=e5158]:
+                            - button "SeatmapTravelerPricing" [expanded] [ref=e5159] [cursor=pointer]:
+                              - generic [ref=e5161]: SeatmapTravelerPricing
+                            - text: "{"
+                            - table [ref=e5164]:
+                              - rowgroup [ref=e5165]:
+                                - 'row "travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e5166]':
+                                  - cell "travelerId" [ref=e5167]
+                                  - 'cell "string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e5168]':
+                                    - generic [ref=e5170]:
+                                      - button [expanded] [ref=e5171] [cursor=pointer]
+                                      - generic [ref=e5173]:
+                                        - text: string
+                                        - generic [ref=e5174]: "pattern: [a-zA-Z0-9-]{1,20}"
+                                        - paragraph [ref=e5176]: Traveler id
+                                - 'row "seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ]" [ref=e5177]':
+                                  - cell "seatAvailabilityStatus" [ref=e5178]
+                                  - 'cell "string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ]" [ref=e5179]':
+                                    - generic [ref=e5181]:
+                                      - button [expanded] [ref=e5182] [cursor=pointer]
+                                      - generic [ref=e5184]:
+                                        - text: string
+                                        - paragraph [ref=e5186]: Seat availability for this specific traveler. Allows better seat choice per traveler
+                                        - generic [ref=e5187]:
+                                          - text: "Enum:"
+                                          - generic [ref=e5188]:
+                                            - button [expanded] [ref=e5189] [cursor=pointer]
+                                            - text: "[ AVAILABLE, BLOCKED, OCCUPIED ]"
+                                - 'row "price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e5191]':
+                                  - cell "price" [ref=e5192]
+                                  - 'cell "Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e5193]':
+                                    - generic [ref=e5195]:
+                                      - button "Price" [expanded] [ref=e5196] [cursor=pointer]:
+                                        - generic [ref=e5198]: Price
+                                      - text: "{"
+                                      - table [ref=e5201]:
+                                        - rowgroup [ref=e5202]:
+                                          - 'row "currency string example: USD" [ref=e5203]':
+                                            - cell "currency" [ref=e5204]
+                                            - 'cell "string example: USD" [ref=e5205]':
+                                              - generic [ref=e5207]:
+                                                - button [expanded] [ref=e5208] [cursor=pointer]
+                                                - generic [ref=e5210]:
+                                                  - text: string
+                                                  - generic [ref=e5211]: "example: USD"
+                                          - 'row "total string example: 932.70 Total amount paid by the user" [ref=e5212]':
+                                            - cell "total" [ref=e5213]
+                                            - 'cell "string example: 932.70 Total amount paid by the user" [ref=e5214]':
+                                              - generic [ref=e5216]:
+                                                - button [expanded] [ref=e5217] [cursor=pointer]
+                                                - generic [ref=e5219]:
+                                                  - text: string
+                                                  - generic [ref=e5220]: "example: 932.70"
+                                                  - paragraph [ref=e5222]: Total amount paid by the user
+                                          - 'row "base string example: 632.70 Amount without taxes" [ref=e5223]':
+                                            - cell "base" [ref=e5224]
+                                            - 'cell "string example: 632.70 Amount without taxes" [ref=e5225]':
+                                              - generic [ref=e5227]:
+                                                - button [expanded] [ref=e5228] [cursor=pointer]
+                                                - generic [ref=e5230]:
+                                                  - text: string
+                                                  - generic [ref=e5231]: "example: 632.70"
+                                                  - paragraph [ref=e5233]: Amount without taxes
+                                          - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e5234]':
+                                            - cell "fees" [ref=e5235]
+                                            - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e5236]':
+                                              - generic [ref=e5238]:
+                                                - button [expanded] [ref=e5239] [cursor=pointer]
+                                                - text: "["
+                                                - paragraph [ref=e5242]: List of applicable fees
+                                                - generic [ref=e5245]:
+                                                  - button "Fee" [expanded] [ref=e5246] [cursor=pointer]:
+                                                    - generic [ref=e5248]: Fee
+                                                  - text: "{"
+                                                  - table [ref=e5251]:
+                                                    - rowgroup [ref=e5252]:
+                                                      - 'row "description: a fee" [ref=e5253]':
+                                                        - cell "description:" [ref=e5254]
+                                                        - cell "a fee" [ref=e5255]:
+                                                          - paragraph [ref=e5257]: a fee
+                                                      - 'row "amount string example: 332.70" [ref=e5258]':
+                                                        - cell "amount" [ref=e5259]
+                                                        - 'cell "string example: 332.70" [ref=e5260]':
+                                                          - generic [ref=e5262]:
+                                                            - button [expanded] [ref=e5263] [cursor=pointer]
+                                                            - generic [ref=e5265]:
+                                                              - text: string
+                                                              - generic [ref=e5266]: "example: 332.70"
+                                                      - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e5267]':
+                                                        - cell "type" [ref=e5268]
+                                                        - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e5269]':
+                                                          - generic [ref=e5271]:
+                                                            - button "FeeType" [expanded] [ref=e5272] [cursor=pointer]:
+                                                              - generic [ref=e5274]: FeeType
+                                                            - generic [ref=e5276]:
+                                                              - generic [ref=e5277]: FeeType
+                                                              - text: string
+                                                              - generic [ref=e5278]: "example: TICKETING"
+                                                              - paragraph [ref=e5280]: type of fee
+                                                              - generic [ref=e5281]:
+                                                                - text: "Enum:"
+                                                                - generic [ref=e5282]:
+                                                                  - button [expanded] [ref=e5283] [cursor=pointer]
+                                                                  - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                                                  - text: "}"
+                                                - text: "]"
+                                          - 'row "taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e5285]':
+                                            - cell "taxes" [ref=e5286]
+                                            - 'cell "[ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e5287]':
+                                              - generic [ref=e5289]:
+                                                - button [expanded] [ref=e5290] [cursor=pointer]
+                                                - text: "["
+                                                - generic [ref=e5294]:
+                                                  - button "Tax" [expanded] [ref=e5295] [cursor=pointer]:
+                                                    - generic [ref=e5297]: Tax
+                                                  - text: "{"
+                                                  - table [ref=e5300]:
+                                                    - rowgroup [ref=e5301]:
+                                                      - 'row "description: a tax" [ref=e5302]':
+                                                        - cell "description:" [ref=e5303]
+                                                        - cell "a tax" [ref=e5304]:
+                                                          - paragraph [ref=e5306]: a tax
+                                                      - 'row "amount string example: 332.70" [ref=e5307]':
+                                                        - cell "amount" [ref=e5308]
+                                                        - 'cell "string example: 332.70" [ref=e5309]':
+                                                          - generic [ref=e5311]:
+                                                            - button [expanded] [ref=e5312] [cursor=pointer]
+                                                            - generic [ref=e5314]:
+                                                              - text: string
+                                                              - generic [ref=e5315]: "example: 332.70"
+                                                      - 'row "code string example: MX" [ref=e5316]':
+                                                        - cell "code" [ref=e5317]
+                                                        - 'cell "string example: MX" [ref=e5318]':
+                                                          - generic [ref=e5320]:
+                                                            - button [expanded] [ref=e5321] [cursor=pointer]
+                                                            - generic [ref=e5323]:
+                                                              - text: string
+                                                              - generic [ref=e5324]: "example: MX"
+                                                  - text: "}"
+                                                - text: "]"
+                                      - text: "}"
+                            - text: "}"
+                          - text: "]"
+                    - 'row "coordinates Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e5325]':
+                      - cell "coordinates" [ref=e5326]
+                      - 'cell "Coordinates { x integer coordinate for the Length y integer coordinate for the Width }" [ref=e5327]':
+                        - generic [ref=e5329]:
+                          - button "Coordinates" [expanded] [ref=e5330] [cursor=pointer]:
+                            - generic [ref=e5332]: Coordinates
+                          - text: "{"
+                          - table [ref=e5335]:
+                            - rowgroup [ref=e5336]:
+                              - row "x integer coordinate for the Length" [ref=e5337]:
+                                - cell "x" [ref=e5338]
+                                - cell "integer coordinate for the Length" [ref=e5339]:
+                                  - generic [ref=e5341]:
+                                    - button [expanded] [ref=e5342] [cursor=pointer]
+                                    - generic [ref=e5344]:
+                                      - text: integer
+                                      - paragraph [ref=e5346]: coordinate for the Length
+                              - row "y integer coordinate for the Width" [ref=e5347]:
+                                - cell "y" [ref=e5348]
+                                - cell "integer coordinate for the Width" [ref=e5349]:
+                                  - generic [ref=e5351]:
+                                    - button [expanded] [ref=e5352] [cursor=pointer]
+                                    - generic [ref=e5354]:
+                                      - text: integer
+                                      - paragraph [ref=e5356]: coordinate for the Width
+                          - text: "}"
+                - text: "}"
+              - generic [ref=e5361]:
+                - button "Coordinates" [expanded] [ref=e5362] [cursor=pointer]:
+                  - generic [ref=e5364]: Coordinates
+                - text: "{"
+                - table [ref=e5367]:
+                  - rowgroup [ref=e5368]:
+                    - row "x integer coordinate for the Length" [ref=e5369]:
+                      - cell "x" [ref=e5370]
+                      - cell "integer coordinate for the Length" [ref=e5371]:
+                        - generic [ref=e5373]:
+                          - button [expanded] [ref=e5374] [cursor=pointer]
+                          - generic [ref=e5376]:
+                            - text: integer
+                            - paragraph [ref=e5378]: coordinate for the Length
+                    - row "y integer coordinate for the Width" [ref=e5379]:
+                      - cell "y" [ref=e5380]
+                      - cell "integer coordinate for the Width" [ref=e5381]:
+                        - generic [ref=e5383]:
+                          - button [expanded] [ref=e5384] [cursor=pointer]
+                          - generic [ref=e5386]:
+                            - text: integer
+                            - paragraph [ref=e5388]: coordinate for the Width
+                - text: "}"
+              - generic [ref=e5393]:
+                - button "AvailableSeatsCounter" [expanded] [ref=e5394] [cursor=pointer]:
+                  - generic [ref=e5396]: AvailableSeatsCounter
+                - text: "{"
+                - table [ref=e5399]:
+                  - rowgroup [ref=e5400]:
+                    - 'row "travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e5401]':
+                      - cell "travelerId" [ref=e5402]
+                      - 'cell "string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e5403]':
+                        - generic [ref=e5405]:
+                          - button [expanded] [ref=e5406] [cursor=pointer]
+                          - generic [ref=e5408]:
+                            - text: string
+                            - generic [ref=e5409]: "pattern: [a-zA-Z0-9-]{1,20}"
+                            - paragraph [ref=e5411]: Traveler id
+                    - 'row "value integer example: 5 Number of Seats with status AVAILABLE" [ref=e5412]':
+                      - cell "value" [ref=e5413]
+                      - 'cell "integer example: 5 Number of Seats with status AVAILABLE" [ref=e5414]':
+                        - generic [ref=e5416]:
+                          - button [expanded] [ref=e5417] [cursor=pointer]
+                          - generic [ref=e5419]:
+                            - text: integer
+                            - generic [ref=e5420]: "example: 5"
+                            - paragraph [ref=e5422]: Number of Seats with status AVAILABLE
+                - text: "}"
+              - generic [ref=e5427]:
+                - button "SeatmapTravelerPricing" [expanded] [ref=e5428] [cursor=pointer]:
+                  - generic [ref=e5430]: SeatmapTravelerPricing
+                - text: "{"
+                - table [ref=e5433]:
+                  - rowgroup [ref=e5434]:
+                    - 'row "travelerId string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e5435]':
+                      - cell "travelerId" [ref=e5436]
+                      - 'cell "string pattern: [a-zA-Z0-9-]{1,20} Traveler id" [ref=e5437]':
+                        - generic [ref=e5439]:
+                          - button [expanded] [ref=e5440] [cursor=pointer]
+                          - generic [ref=e5442]:
+                            - text: string
+                            - generic [ref=e5443]: "pattern: [a-zA-Z0-9-]{1,20}"
+                            - paragraph [ref=e5445]: Traveler id
+                    - 'row "seatAvailabilityStatus string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ]" [ref=e5446]':
+                      - cell "seatAvailabilityStatus" [ref=e5447]
+                      - 'cell "string Seat availability for this specific traveler. Allows better seat choice per traveler Enum: [ AVAILABLE, BLOCKED, OCCUPIED ]" [ref=e5448]':
+                        - generic [ref=e5450]:
+                          - button [expanded] [ref=e5451] [cursor=pointer]
+                          - generic [ref=e5453]:
+                            - text: string
+                            - paragraph [ref=e5455]: Seat availability for this specific traveler. Allows better seat choice per traveler
+                            - generic [ref=e5456]:
+                              - text: "Enum:"
+                              - generic [ref=e5457]:
+                                - button [expanded] [ref=e5458] [cursor=pointer]
+                                - text: "[ AVAILABLE, BLOCKED, OCCUPIED ]"
+                    - 'row "price Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e5460]':
+                      - cell "price" [ref=e5461]
+                      - 'cell "Price { currency string example: USD total string example: 932.70 Total amount paid by the user base string example: 632.70 Amount without taxes fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }] taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }] }" [ref=e5462]':
+                        - generic [ref=e5464]:
+                          - button "Price" [expanded] [ref=e5465] [cursor=pointer]:
+                            - generic [ref=e5467]: Price
+                          - text: "{"
+                          - table [ref=e5470]:
+                            - rowgroup [ref=e5471]:
+                              - 'row "currency string example: USD" [ref=e5472]':
+                                - cell "currency" [ref=e5473]
+                                - 'cell "string example: USD" [ref=e5474]':
+                                  - generic [ref=e5476]:
+                                    - button [expanded] [ref=e5477] [cursor=pointer]
+                                    - generic [ref=e5479]:
+                                      - text: string
+                                      - generic [ref=e5480]: "example: USD"
+                              - 'row "total string example: 932.70 Total amount paid by the user" [ref=e5481]':
+                                - cell "total" [ref=e5482]
+                                - 'cell "string example: 932.70 Total amount paid by the user" [ref=e5483]':
+                                  - generic [ref=e5485]:
+                                    - button [expanded] [ref=e5486] [cursor=pointer]
+                                    - generic [ref=e5488]:
+                                      - text: string
+                                      - generic [ref=e5489]: "example: 932.70"
+                                      - paragraph [ref=e5491]: Total amount paid by the user
+                              - 'row "base string example: 632.70 Amount without taxes" [ref=e5492]':
+                                - cell "base" [ref=e5493]
+                                - 'cell "string example: 632.70 Amount without taxes" [ref=e5494]':
+                                  - generic [ref=e5496]:
+                                    - button [expanded] [ref=e5497] [cursor=pointer]
+                                    - generic [ref=e5499]:
+                                      - text: string
+                                      - generic [ref=e5500]: "example: 632.70"
+                                      - paragraph [ref=e5502]: Amount without taxes
+                              - 'row "fees [ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e5503]':
+                                - cell "fees" [ref=e5504]
+                                - 'cell "[ List of applicable fees Fee { description: a fee amount string example: 332.70 type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ] }]" [ref=e5505]':
+                                  - generic [ref=e5507]:
+                                    - button [expanded] [ref=e5508] [cursor=pointer]
+                                    - text: "["
+                                    - paragraph [ref=e5511]: List of applicable fees
+                                    - generic [ref=e5514]:
+                                      - button "Fee" [expanded] [ref=e5515] [cursor=pointer]:
+                                        - generic [ref=e5517]: Fee
+                                      - text: "{"
+                                      - table [ref=e5520]:
+                                        - rowgroup [ref=e5521]:
+                                          - 'row "description: a fee" [ref=e5522]':
+                                            - cell "description:" [ref=e5523]
+                                            - cell "a fee" [ref=e5524]:
+                                              - paragraph [ref=e5526]: a fee
+                                          - 'row "amount string example: 332.70" [ref=e5527]':
+                                            - cell "amount" [ref=e5528]
+                                            - 'cell "string example: 332.70" [ref=e5529]':
+                                              - generic [ref=e5531]:
+                                                - button [expanded] [ref=e5532] [cursor=pointer]
+                                                - generic [ref=e5534]:
+                                                  - text: string
+                                                  - generic [ref=e5535]: "example: 332.70"
+                                          - 'row "type FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e5536]':
+                                            - cell "type" [ref=e5537]
+                                            - 'cell "FeeType FeeType string example: TICKETING type of fee Enum: [ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]" [ref=e5538]':
+                                              - generic [ref=e5540]:
+                                                - button "FeeType" [expanded] [ref=e5541] [cursor=pointer]:
+                                                  - generic [ref=e5543]: FeeType
+                                                - generic [ref=e5545]:
+                                                  - generic [ref=e5546]: FeeType
+                                                  - text: string
+                                                  - generic [ref=e5547]: "example: TICKETING"
+                                                  - paragraph [ref=e5549]: type of fee
+                                                  - generic [ref=e5550]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e5551]:
+                                                      - button [expanded] [ref=e5552] [cursor=pointer]
+                                                      - text: "[ TICKETING, FORM_OF_PAYMENT, SUPPLIER ]"
+                                      - text: "}"
+                                    - text: "]"
+                              - 'row "taxes [ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e5554]':
+                                - cell "taxes" [ref=e5555]
+                                - 'cell "[ Tax { description: a tax amount string example: 332.70 code string example: MX }]" [ref=e5556]':
+                                  - generic [ref=e5558]:
+                                    - button [expanded] [ref=e5559] [cursor=pointer]
+                                    - text: "["
+                                    - generic [ref=e5563]:
+                                      - button "Tax" [expanded] [ref=e5564] [cursor=pointer]:
+                                        - generic [ref=e5566]: Tax
+                                      - text: "{"
+                                      - table [ref=e5569]:
+                                        - rowgroup [ref=e5570]:
+                                          - 'row "description: a tax" [ref=e5571]':
+                                            - cell "description:" [ref=e5572]
+                                            - cell "a tax" [ref=e5573]:
+                                              - paragraph [ref=e5575]: a tax
+                                          - 'row "amount string example: 332.70" [ref=e5576]':
+                                            - cell "amount" [ref=e5577]
+                                            - 'cell "string example: 332.70" [ref=e5578]':
+                                              - generic [ref=e5580]:
+                                                - button [expanded] [ref=e5581] [cursor=pointer]
+                                                - generic [ref=e5583]:
+                                                  - text: string
+                                                  - generic [ref=e5584]: "example: 332.70"
+                                          - 'row "code string example: MX" [ref=e5585]':
+                                            - cell "code" [ref=e5586]
+                                            - 'cell "string example: MX" [ref=e5587]':
+                                              - generic [ref=e5589]:
+                                                - button [expanded] [ref=e5590] [cursor=pointer]
+                                                - generic [ref=e5592]:
+                                                  - text: string
+                                                  - generic [ref=e5593]: "example: MX"
+                                      - text: "}"
+                                    - text: "]"
+                          - text: "}"
+                - text: "}"
+              - generic [ref=e5598]:
+                - button "AircraftCabinAmenities" [expanded] [ref=e5599] [cursor=pointer]:
+                  - generic [ref=e5601]: AircraftCabinAmenities
+                - text: "{"
+                - table [ref=e5604]:
+                  - rowgroup [ref=e5605]:
+                    - 'row "description: Type of available amenities for a given flight" [ref=e5606]':
+                      - cell "description:" [ref=e5607]
+                      - cell "Type of available amenities for a given flight" [ref=e5608]:
+                        - paragraph [ref=e5610]: Type of available amenities for a given flight
+                    - 'row "power Amenity { description: Type of power outlet for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity powerType string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ] usbType string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ] }" [ref=e5611]':
+                      - cell "power" [ref=e5612]
+                      - 'cell "Amenity { description: Type of power outlet for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity powerType string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ] usbType string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ] }" [ref=e5613]':
+                        - generic [ref=e5615]:
+                          - button "Amenity" [expanded] [ref=e5616] [cursor=pointer]:
+                            - generic [ref=e5618]: Amenity
+                          - text: "{"
+                          - table [ref=e5621]:
+                            - rowgroup [ref=e5622]:
+                              - 'row "description: Type of power outlet for a given flight" [ref=e5623]':
+                                - cell "description:" [ref=e5624]
+                                - cell "Type of power outlet for a given flight" [ref=e5625]:
+                                  - paragraph [ref=e5627]: Type of power outlet for a given flight
+                              - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5628]:
+                                - cell "isChargeable" [ref=e5629]
+                                - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5630]:
+                                  - generic [ref=e5632]:
+                                    - button [expanded] [ref=e5633] [cursor=pointer]
+                                    - generic [ref=e5635]:
+                                      - text: boolean
+                                      - paragraph [ref=e5637]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                              - 'row "powerType string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]" [ref=e5638]':
+                                - cell "powerType" [ref=e5639]
+                                - 'cell "string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]" [ref=e5640]':
+                                  - generic [ref=e5642]:
+                                    - button [expanded] [ref=e5643] [cursor=pointer]
+                                    - generic [ref=e5645]:
+                                      - text: string
+                                      - generic [ref=e5646]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5647]:
+                                          - button [expanded] [ref=e5648] [cursor=pointer]
+                                          - text: "[ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]"
+                              - 'row "usbType string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ]" [ref=e5650]':
+                                - cell "usbType" [ref=e5651]
+                                - 'cell "string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ]" [ref=e5652]':
+                                  - generic [ref=e5654]:
+                                    - button [expanded] [ref=e5655] [cursor=pointer]
+                                    - generic [ref=e5657]:
+                                      - text: string
+                                      - generic [ref=e5658]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5659]:
+                                          - button [expanded] [ref=e5660] [cursor=pointer]
+                                          - text: "[ USB_A, USB_C, USB_A_AND_USB_C ]"
+                          - text: "}"
+                    - row [ref=e5662]:
+                      - cell "seat" [ref=e5663]
+                      - cell [ref=e5664]:
+                        - generic [ref=e5666]:
+                          - button "Amenity_Seat" [expanded] [ref=e5667] [cursor=pointer]:
+                            - generic [ref=e5669]: Amenity_Seat
+                          - text: "{"
+                          - table [ref=e5672]:
+                            - rowgroup [ref=e5673]:
+                              - 'row "description: Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space" [ref=e5674]':
+                                - cell "description:" [ref=e5675]
+                                - cell "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space" [ref=e5676]:
+                                  - paragraph [ref=e5678]: Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space
+                              - 'row "legSpace integer example: 33 Space between 2 seats" [ref=e5679]':
+                                - cell "legSpace" [ref=e5680]
+                                - 'cell "integer example: 33 Space between 2 seats" [ref=e5681]':
+                                  - generic [ref=e5683]:
+                                    - button [expanded] [ref=e5684] [cursor=pointer]
+                                    - generic [ref=e5686]:
+                                      - text: integer
+                                      - generic [ref=e5687]: "example: 33"
+                                      - paragraph [ref=e5689]: Space between 2 seats
+                              - 'row "spaceUnit string Enum: [ INCHES, CENTIMENTERS ]" [ref=e5690]':
+                                - cell "spaceUnit" [ref=e5691]
+                                - 'cell "string Enum: [ INCHES, CENTIMENTERS ]" [ref=e5692]':
+                                  - generic [ref=e5694]:
+                                    - button [expanded] [ref=e5695] [cursor=pointer]
+                                    - generic [ref=e5697]:
+                                      - text: string
+                                      - generic [ref=e5698]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5699]:
+                                          - button [expanded] [ref=e5700] [cursor=pointer]
+                                          - text: "[ INCHES, CENTIMENTERS ]"
+                              - 'row "tilt string Flatness of a seat Enum: [ FULL_FLAT, ANGLE_FLAT, NORMAL ]" [ref=e5702]':
+                                - cell "tilt" [ref=e5703]
+                                - 'cell "string Flatness of a seat Enum: [ FULL_FLAT, ANGLE_FLAT, NORMAL ]" [ref=e5704]':
+                                  - generic [ref=e5706]:
+                                    - button [expanded] [ref=e5707] [cursor=pointer]
+                                    - generic [ref=e5709]:
+                                      - text: string
+                                      - paragraph [ref=e5711]: Flatness of a seat
+                                      - generic [ref=e5712]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5713]:
+                                          - button [expanded] [ref=e5714] [cursor=pointer]
+                                          - text: "[ FULL_FLAT, ANGLE_FLAT, NORMAL ]"
+                              - 'row "amenityType string Enum: [ SEAT ]" [ref=e5716]':
+                                - cell "amenityType" [ref=e5717]
+                                - 'cell "string Enum: [ SEAT ]" [ref=e5718]':
+                                  - generic [ref=e5720]:
+                                    - button [expanded] [ref=e5721] [cursor=pointer]
+                                    - generic [ref=e5723]:
+                                      - text: string
+                                      - generic [ref=e5724]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5725]:
+                                          - button [expanded] [ref=e5726] [cursor=pointer]
+                                          - text: "[ SEAT ]"
+                              - row [ref=e5728]:
+                                - cell "medias" [ref=e5729]
+                                - cell [ref=e5730]:
+                                  - generic [ref=e5732]:
+                                    - button [expanded] [ref=e5733] [cursor=pointer]
+                                    - text: "["
+                                    - paragraph [ref=e5736]: list of media associated to the seat (rich content)
+                                    - generic [ref=e5739]:
+                                      - button "Media" [expanded] [ref=e5740] [cursor=pointer]:
+                                        - generic [ref=e5742]: Media
+                                      - text: "{"
+                                      - table [ref=e5745]:
+                                        - rowgroup [ref=e5746]:
+                                          - 'row "description: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e5747]':
+                                            - cell "description:" [ref=e5748]
+                                            - cell "Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e5749]:
+                                              - paragraph [ref=e5751]: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also.
+                                          - 'row "title string example: My image title media title" [ref=e5752]':
+                                            - cell "title" [ref=e5753]
+                                            - 'cell "string example: My image title media title" [ref=e5754]':
+                                              - generic [ref=e5756]:
+                                                - button [expanded] [ref=e5757] [cursor=pointer]
+                                                - generic [ref=e5759]:
+                                                  - text: string
+                                                  - generic [ref=e5760]: "example: My image title"
+                                                  - paragraph [ref=e5762]: media title
+                                          - 'row "href string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e5763]':
+                                            - cell "href" [ref=e5764]
+                                            - 'cell "string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e5765]':
+                                              - generic [ref=e5767]:
+                                                - button [expanded] [ref=e5768] [cursor=pointer]
+                                                - generic [ref=e5770]:
+                                                  - text: string
+                                                  - generic [ref=e5771]: ($uri)
+                                                  - generic [ref=e5772]: "example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6"
+                                                  - paragraph [ref=e5774]: href to display the original media.
+                                          - 'row "description QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e5775]':
+                                            - cell "description" [ref=e5776]
+                                            - 'cell "QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e5777]':
+                                              - generic [ref=e5779]:
+                                                - button "QualifiedFreeText" [expanded] [ref=e5780] [cursor=pointer]:
+                                                  - generic [ref=e5782]: QualifiedFreeText
+                                                - text: "{"
+                                                - table [ref=e5785]:
+                                                  - rowgroup [ref=e5786]:
+                                                    - 'row "description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e5787]':
+                                                      - cell "description:" [ref=e5788]
+                                                      - cell "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e5789]:
+                                                        - paragraph [ref=e5791]: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language
+                                                    - 'row "text string example: Do you need and example ? Free Text" [ref=e5792]':
+                                                      - cell "text" [ref=e5793]
+                                                      - 'cell "string example: Do you need and example ? Free Text" [ref=e5794]':
+                                                        - generic [ref=e5796]:
+                                                          - button [expanded] [ref=e5797] [cursor=pointer]
+                                                          - generic [ref=e5799]:
+                                                            - text: string
+                                                            - generic [ref=e5800]: "example: Do you need and example ?"
+                                                            - paragraph [ref=e5802]: Free Text
+                                                    - 'row "lang string example: fr-FR see RFC 5646" [ref=e5803]':
+                                                      - cell "lang" [ref=e5804]
+                                                      - 'cell "string example: fr-FR see RFC 5646" [ref=e5805]':
+                                                        - generic [ref=e5807]:
+                                                          - button [expanded] [ref=e5808] [cursor=pointer]
+                                                          - generic [ref=e5810]:
+                                                            - text: string
+                                                            - generic [ref=e5811]: "example: fr-FR"
+                                                            - paragraph [ref=e5813]: see RFC 5646
+                                                - text: "}"
+                                          - 'row "mediaType string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e5814]':
+                                            - cell "mediaType" [ref=e5815]
+                                            - 'cell "string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e5816]':
+                                              - generic [ref=e5818]:
+                                                - button [expanded] [ref=e5819] [cursor=pointer]
+                                                - generic [ref=e5821]:
+                                                  - text: string
+                                                  - generic [ref=e5822]: "example: image"
+                                                  - paragraph [ref=e5824]:
+                                                    - text: media type as per IANA (
+                                                    - link "https://www.iana.org/assignments/media-types/media-types.xhtml" [ref=e5825] [cursor=pointer]:
+                                                      - /url: https://www.iana.org/assignments/media-types/media-types.xhtml
+                                                    - text: )
+                                                  - generic [ref=e5826]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e5827]:
+                                                      - button [expanded] [ref=e5828] [cursor=pointer]
+                                                      - text: "[ application, audio, font, example, image, message, model, multipart, text, video ]"
+                                      - text: "}"
+                                    - text: "]"
+                          - text: "}"
+                    - 'row "wifi Amenity { description: Level of area coverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity wifiCoverage string Enum: [ FULL, PARTIAL ] }" [ref=e5830]':
+                      - cell "wifi" [ref=e5831]
+                      - 'cell "Amenity { description: Level of area coverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity wifiCoverage string Enum: [ FULL, PARTIAL ] }" [ref=e5832]':
+                        - generic [ref=e5834]:
+                          - button "Amenity" [expanded] [ref=e5835] [cursor=pointer]:
+                            - generic [ref=e5837]: Amenity
+                          - text: "{"
+                          - table [ref=e5840]:
+                            - rowgroup [ref=e5841]:
+                              - 'row "description: Level of area coverage for a given flight" [ref=e5842]':
+                                - cell "description:" [ref=e5843]
+                                - cell "Level of area coverage for a given flight" [ref=e5844]:
+                                  - paragraph [ref=e5846]: Level of area coverage for a given flight
+                              - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5847]:
+                                - cell "isChargeable" [ref=e5848]
+                                - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5849]:
+                                  - generic [ref=e5851]:
+                                    - button [expanded] [ref=e5852] [cursor=pointer]
+                                    - generic [ref=e5854]:
+                                      - text: boolean
+                                      - paragraph [ref=e5856]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                              - 'row "wifiCoverage string Enum: [ FULL, PARTIAL ]" [ref=e5857]':
+                                - cell "wifiCoverage" [ref=e5858]
+                                - 'cell "string Enum: [ FULL, PARTIAL ]" [ref=e5859]':
+                                  - generic [ref=e5861]:
+                                    - button [expanded] [ref=e5862] [cursor=pointer]
+                                    - generic [ref=e5864]:
+                                      - text: string
+                                      - generic [ref=e5865]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5866]:
+                                          - button [expanded] [ref=e5867] [cursor=pointer]
+                                          - text: "[ FULL, PARTIAL ]"
+                          - text: "}"
+                    - 'row "entertainment [ Amenity { description: Type of entertainment contents for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity entertainmentType string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ] }]" [ref=e5869]':
+                      - cell "entertainment" [ref=e5870]
+                      - 'cell "[ Amenity { description: Type of entertainment contents for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity entertainmentType string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ] }]" [ref=e5871]':
+                        - generic [ref=e5873]:
+                          - button [expanded] [ref=e5874] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e5878]:
+                            - button "Amenity" [expanded] [ref=e5879] [cursor=pointer]:
+                              - generic [ref=e5881]: Amenity
+                            - text: "{"
+                            - table [ref=e5884]:
+                              - rowgroup [ref=e5885]:
+                                - 'row "description: Type of entertainment contents for a given flight" [ref=e5886]':
+                                  - cell "description:" [ref=e5887]
+                                  - cell "Type of entertainment contents for a given flight" [ref=e5888]:
+                                    - paragraph [ref=e5890]: Type of entertainment contents for a given flight
+                                - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5891]:
+                                  - cell "isChargeable" [ref=e5892]
+                                  - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5893]:
+                                    - generic [ref=e5895]:
+                                      - button [expanded] [ref=e5896] [cursor=pointer]
+                                      - generic [ref=e5898]:
+                                        - text: boolean
+                                        - paragraph [ref=e5900]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                                - 'row "entertainmentType string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]" [ref=e5901]':
+                                  - cell "entertainmentType" [ref=e5902]
+                                  - 'cell "string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]" [ref=e5903]':
+                                    - generic [ref=e5905]:
+                                      - button [expanded] [ref=e5906] [cursor=pointer]
+                                      - generic [ref=e5908]:
+                                        - text: string
+                                        - generic [ref=e5909]:
+                                          - text: "Enum:"
+                                          - generic [ref=e5910]:
+                                            - button [expanded] [ref=e5911] [cursor=pointer]
+                                            - text: "[ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]"
+                            - text: "}"
+                          - text: "]"
+                    - 'row "food Amenity { description: Type of food for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity foodType string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ] }" [ref=e5913]':
+                      - cell "food" [ref=e5914]
+                      - 'cell "Amenity { description: Type of food for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity foodType string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ] }" [ref=e5915]':
+                        - generic [ref=e5917]:
+                          - button "Amenity" [expanded] [ref=e5918] [cursor=pointer]:
+                            - generic [ref=e5920]: Amenity
+                          - text: "{"
+                          - table [ref=e5923]:
+                            - rowgroup [ref=e5924]:
+                              - 'row "description: Type of food for a given flight" [ref=e5925]':
+                                - cell "description:" [ref=e5926]
+                                - cell "Type of food for a given flight" [ref=e5927]:
+                                  - paragraph [ref=e5929]: Type of food for a given flight
+                              - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5930]:
+                                - cell "isChargeable" [ref=e5931]
+                                - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5932]:
+                                  - generic [ref=e5934]:
+                                    - button [expanded] [ref=e5935] [cursor=pointer]
+                                    - generic [ref=e5937]:
+                                      - text: boolean
+                                      - paragraph [ref=e5939]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                              - 'row "foodType string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]" [ref=e5940]':
+                                - cell "foodType" [ref=e5941]
+                                - 'cell "string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]" [ref=e5942]':
+                                  - generic [ref=e5944]:
+                                    - button [expanded] [ref=e5945] [cursor=pointer]
+                                    - generic [ref=e5947]:
+                                      - text: string
+                                      - generic [ref=e5948]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5949]:
+                                          - button [expanded] [ref=e5950] [cursor=pointer]
+                                          - text: "[ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]"
+                          - text: "}"
+                    - 'row "beverage Amenity { description: Type of beverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity beverageType string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ] }" [ref=e5952]':
+                      - cell "beverage" [ref=e5953]
+                      - 'cell "Amenity { description: Type of beverage for a given flight isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity beverageType string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ] }" [ref=e5954]':
+                        - generic [ref=e5956]:
+                          - button "Amenity" [expanded] [ref=e5957] [cursor=pointer]:
+                            - generic [ref=e5959]: Amenity
+                          - text: "{"
+                          - table [ref=e5962]:
+                            - rowgroup [ref=e5963]:
+                              - 'row "description: Type of beverage for a given flight" [ref=e5964]':
+                                - cell "description:" [ref=e5965]
+                                - cell "Type of beverage for a given flight" [ref=e5966]:
+                                  - paragraph [ref=e5968]: Type of beverage for a given flight
+                              - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5969]:
+                                - cell "isChargeable" [ref=e5970]
+                                - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e5971]:
+                                  - generic [ref=e5973]:
+                                    - button [expanded] [ref=e5974] [cursor=pointer]
+                                    - generic [ref=e5976]:
+                                      - text: boolean
+                                      - paragraph [ref=e5978]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                              - 'row "beverageType string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]" [ref=e5979]':
+                                - cell "beverageType" [ref=e5980]
+                                - 'cell "string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]" [ref=e5981]':
+                                  - generic [ref=e5983]:
+                                    - button [expanded] [ref=e5984] [cursor=pointer]
+                                    - generic [ref=e5986]:
+                                      - text: string
+                                      - generic [ref=e5987]:
+                                        - text: "Enum:"
+                                        - generic [ref=e5988]:
+                                          - button [expanded] [ref=e5989] [cursor=pointer]
+                                          - text: "[ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]"
+                          - text: "}"
+                - text: "}"
+              - generic [ref=e5995]:
+                - button "Amenity" [expanded] [ref=e5996] [cursor=pointer]:
+                  - generic [ref=e5998]: Amenity
+                - text: "{"
+                - table [ref=e6001]:
+                  - rowgroup [ref=e6002]:
+                    - 'row "description: Type of beverage for a given flight" [ref=e6003]':
+                      - cell "description:" [ref=e6004]
+                      - cell "Type of beverage for a given flight" [ref=e6005]:
+                        - paragraph [ref=e6007]: Type of beverage for a given flight
+                    - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6008]:
+                      - cell "isChargeable" [ref=e6009]
+                      - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6010]:
+                        - generic [ref=e6012]:
+                          - button [expanded] [ref=e6013] [cursor=pointer]
+                          - generic [ref=e6015]:
+                            - text: boolean
+                            - paragraph [ref=e6017]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                    - 'row "beverageType string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]" [ref=e6018]':
+                      - cell "beverageType" [ref=e6019]
+                      - 'cell "string Enum: [ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]" [ref=e6020]':
+                        - generic [ref=e6022]:
+                          - button [expanded] [ref=e6023] [cursor=pointer]
+                          - generic [ref=e6025]:
+                            - text: string
+                            - generic [ref=e6026]:
+                              - text: "Enum:"
+                              - generic [ref=e6027]:
+                                - button [expanded] [ref=e6028] [cursor=pointer]
+                                - text: "[ ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC ]"
+                - text: "}"
+              - generic [ref=e6034]:
+                - button "Amenity" [expanded] [ref=e6035] [cursor=pointer]:
+                  - generic [ref=e6037]: Amenity
+                - text: "{"
+                - table [ref=e6040]:
+                  - rowgroup [ref=e6041]:
+                    - 'row "description: Type of power outlet for a given flight" [ref=e6042]':
+                      - cell "description:" [ref=e6043]
+                      - cell "Type of power outlet for a given flight" [ref=e6044]:
+                        - paragraph [ref=e6046]: Type of power outlet for a given flight
+                    - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6047]:
+                      - cell "isChargeable" [ref=e6048]
+                      - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6049]:
+                        - generic [ref=e6051]:
+                          - button [expanded] [ref=e6052] [cursor=pointer]
+                          - generic [ref=e6054]:
+                            - text: boolean
+                            - paragraph [ref=e6056]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                    - 'row "powerType string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]" [ref=e6057]':
+                      - cell "powerType" [ref=e6058]
+                      - 'cell "string Enum: [ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]" [ref=e6059]':
+                        - generic [ref=e6061]:
+                          - button [expanded] [ref=e6062] [cursor=pointer]
+                          - generic [ref=e6064]:
+                            - text: string
+                            - generic [ref=e6065]:
+                              - text: "Enum:"
+                              - generic [ref=e6066]:
+                                - button [expanded] [ref=e6067] [cursor=pointer]
+                                - text: "[ PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT ]"
+                    - 'row "usbType string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ]" [ref=e6069]':
+                      - cell "usbType" [ref=e6070]
+                      - 'cell "string Enum: [ USB_A, USB_C, USB_A_AND_USB_C ]" [ref=e6071]':
+                        - generic [ref=e6073]:
+                          - button [expanded] [ref=e6074] [cursor=pointer]
+                          - generic [ref=e6076]:
+                            - text: string
+                            - generic [ref=e6077]:
+                              - text: "Enum:"
+                              - generic [ref=e6078]:
+                                - button [expanded] [ref=e6079] [cursor=pointer]
+                                - text: "[ USB_A, USB_C, USB_A_AND_USB_C ]"
+                - text: "}"
+              - generic [ref=e6085]:
+                - button "Amenity" [expanded] [ref=e6086] [cursor=pointer]:
+                  - generic [ref=e6088]: Amenity
+                - text: "{"
+                - table [ref=e6091]:
+                  - rowgroup [ref=e6092]:
+                    - 'row "description: Type of food for a given flight" [ref=e6093]':
+                      - cell "description:" [ref=e6094]
+                      - cell "Type of food for a given flight" [ref=e6095]:
+                        - paragraph [ref=e6097]: Type of food for a given flight
+                    - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6098]:
+                      - cell "isChargeable" [ref=e6099]
+                      - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6100]:
+                        - generic [ref=e6102]:
+                          - button [expanded] [ref=e6103] [cursor=pointer]
+                          - generic [ref=e6105]:
+                            - text: boolean
+                            - paragraph [ref=e6107]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                    - 'row "foodType string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]" [ref=e6108]':
+                      - cell "foodType" [ref=e6109]
+                      - 'cell "string Enum: [ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]" [ref=e6110]':
+                        - generic [ref=e6112]:
+                          - button [expanded] [ref=e6113] [cursor=pointer]
+                          - generic [ref=e6115]:
+                            - text: string
+                            - generic [ref=e6116]:
+                              - text: "Enum:"
+                              - generic [ref=e6117]:
+                                - button [expanded] [ref=e6118] [cursor=pointer]
+                                - text: "[ MEAL, FRESH_MEAL, SNACK, FRESH_SNACK ]"
+                - text: "}"
+              - generic [ref=e6124]:
+                - button "Amenity" [expanded] [ref=e6125] [cursor=pointer]:
+                  - generic [ref=e6127]: Amenity
+                - text: "{"
+                - table [ref=e6130]:
+                  - rowgroup [ref=e6131]:
+                    - 'row "description: Type of entertainment contents for a given flight" [ref=e6132]':
+                      - cell "description:" [ref=e6133]
+                      - cell "Type of entertainment contents for a given flight" [ref=e6134]:
+                        - paragraph [ref=e6136]: Type of entertainment contents for a given flight
+                    - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6137]:
+                      - cell "isChargeable" [ref=e6138]
+                      - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6139]:
+                        - generic [ref=e6141]:
+                          - button [expanded] [ref=e6142] [cursor=pointer]
+                          - generic [ref=e6144]:
+                            - text: boolean
+                            - paragraph [ref=e6146]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                    - 'row "entertainmentType string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]" [ref=e6147]':
+                      - cell "entertainmentType" [ref=e6148]
+                      - 'cell "string Enum: [ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]" [ref=e6149]':
+                        - generic [ref=e6151]:
+                          - button [expanded] [ref=e6152] [cursor=pointer]
+                          - generic [ref=e6154]:
+                            - text: string
+                            - generic [ref=e6155]:
+                              - text: "Enum:"
+                              - generic [ref=e6156]:
+                                - button [expanded] [ref=e6157] [cursor=pointer]
+                                - text: "[ LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV ]"
+                - text: "}"
+              - generic [ref=e6163]:
+                - button "Amenity" [expanded] [ref=e6164] [cursor=pointer]:
+                  - generic [ref=e6166]: Amenity
+                - text: "{"
+                - table [ref=e6169]:
+                  - rowgroup [ref=e6170]:
+                    - 'row "description: Level of area coverage for a given flight" [ref=e6171]':
+                      - cell "description:" [ref=e6172]
+                      - cell "Level of area coverage for a given flight" [ref=e6173]:
+                        - paragraph [ref=e6175]: Level of area coverage for a given flight
+                    - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6176]:
+                      - cell "isChargeable" [ref=e6177]
+                      - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6178]:
+                        - generic [ref=e6180]:
+                          - button [expanded] [ref=e6181] [cursor=pointer]
+                          - generic [ref=e6183]:
+                            - text: boolean
+                            - paragraph [ref=e6185]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                    - 'row "wifiCoverage string Enum: [ FULL, PARTIAL ]" [ref=e6186]':
+                      - cell "wifiCoverage" [ref=e6187]
+                      - 'cell "string Enum: [ FULL, PARTIAL ]" [ref=e6188]':
+                        - generic [ref=e6190]:
+                          - button [expanded] [ref=e6191] [cursor=pointer]
+                          - generic [ref=e6193]:
+                            - text: string
+                            - generic [ref=e6194]:
+                              - text: "Enum:"
+                              - generic [ref=e6195]:
+                                - button [expanded] [ref=e6196] [cursor=pointer]
+                                - text: "[ FULL, PARTIAL ]"
+                - text: "}"
+              - generic [ref=e6202]:
+                - button "Amenity" [expanded] [ref=e6203] [cursor=pointer]:
+                  - generic [ref=e6205]: Amenity
+                - text: "{"
+                - table [ref=e6208]:
+                  - rowgroup [ref=e6209]:
+                    - 'row "description: Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType" [ref=e6210]':
+                      - cell "description:" [ref=e6211]
+                      - 'cell "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType" [ref=e6212]':
+                        - paragraph [ref=e6214]: "Base data model related to Amenity, inherited amenities can be created using this baseline for extension ( using type for polymorphism ) amenityType : Enum related to generic Amenity model to identify which amenityType"
+                    - row "isChargeable boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6215]:
+                      - cell "isChargeable" [ref=e6216]
+                      - cell "boolean Specify if the traveler will need to pay extra in-flight to get the amenity" [ref=e6217]:
+                        - generic [ref=e6219]:
+                          - button [expanded] [ref=e6220] [cursor=pointer]
+                          - generic [ref=e6222]:
+                            - text: boolean
+                            - paragraph [ref=e6224]: Specify if the traveler will need to pay extra in-flight to get the amenity
+                - text: "}"
+              - generic [ref=e6229]:
+                - button "Amenity_Seat" [expanded] [ref=e6230] [cursor=pointer]:
+                  - generic [ref=e6232]: Amenity_Seat
+                - text: "{"
+                - table [ref=e6235]:
+                  - rowgroup [ref=e6236]:
+                    - 'row "description: Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space" [ref=e6237]':
+                      - cell "description:" [ref=e6238]
+                      - cell "Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space" [ref=e6239]:
+                        - paragraph [ref=e6241]: Characteristics for a group of seat, such as Distance from one seat to the another in front or behind it or width space
+                    - 'row "legSpace integer example: 33 Space between 2 seats" [ref=e6242]':
+                      - cell "legSpace" [ref=e6243]
+                      - 'cell "integer example: 33 Space between 2 seats" [ref=e6244]':
+                        - generic [ref=e6246]:
+                          - button [expanded] [ref=e6247] [cursor=pointer]
+                          - generic [ref=e6249]:
+                            - text: integer
+                            - generic [ref=e6250]: "example: 33"
+                            - paragraph [ref=e6252]: Space between 2 seats
+                    - 'row "spaceUnit string Enum: [ INCHES, CENTIMENTERS ]" [ref=e6253]':
+                      - cell "spaceUnit" [ref=e6254]
+                      - 'cell "string Enum: [ INCHES, CENTIMENTERS ]" [ref=e6255]':
+                        - generic [ref=e6257]:
+                          - button [expanded] [ref=e6258] [cursor=pointer]
+                          - generic [ref=e6260]:
+                            - text: string
+                            - generic [ref=e6261]:
+                              - text: "Enum:"
+                              - generic [ref=e6262]:
+                                - button [expanded] [ref=e6263] [cursor=pointer]
+                                - text: "[ INCHES, CENTIMENTERS ]"
+                    - 'row "tilt string Flatness of a seat Enum: [ FULL_FLAT, ANGLE_FLAT, NORMAL ]" [ref=e6265]':
+                      - cell "tilt" [ref=e6266]
+                      - 'cell "string Flatness of a seat Enum: [ FULL_FLAT, ANGLE_FLAT, NORMAL ]" [ref=e6267]':
+                        - generic [ref=e6269]:
+                          - button [expanded] [ref=e6270] [cursor=pointer]
+                          - generic [ref=e6272]:
+                            - text: string
+                            - paragraph [ref=e6274]: Flatness of a seat
+                            - generic [ref=e6275]:
+                              - text: "Enum:"
+                              - generic [ref=e6276]:
+                                - button [expanded] [ref=e6277] [cursor=pointer]
+                                - text: "[ FULL_FLAT, ANGLE_FLAT, NORMAL ]"
+                    - 'row "amenityType string Enum: [ SEAT ]" [ref=e6279]':
+                      - cell "amenityType" [ref=e6280]
+                      - 'cell "string Enum: [ SEAT ]" [ref=e6281]':
+                        - generic [ref=e6283]:
+                          - button [expanded] [ref=e6284] [cursor=pointer]
+                          - generic [ref=e6286]:
+                            - text: string
+                            - generic [ref=e6287]:
+                              - text: "Enum:"
+                              - generic [ref=e6288]:
+                                - button [expanded] [ref=e6289] [cursor=pointer]
+                                - text: "[ SEAT ]"
+                    - row [ref=e6291]:
+                      - cell "medias" [ref=e6292]
+                      - cell [ref=e6293]:
+                        - generic [ref=e6295]:
+                          - button [expanded] [ref=e6296] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e6299]: list of media associated to the seat (rich content)
+                          - generic [ref=e6302]:
+                            - button "Media" [expanded] [ref=e6303] [cursor=pointer]:
+                              - generic [ref=e6305]: Media
+                            - text: "{"
+                            - table [ref=e6308]:
+                              - rowgroup [ref=e6309]:
+                                - 'row "description: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e6310]':
+                                  - cell "description:" [ref=e6311]
+                                  - cell "Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e6312]:
+                                    - paragraph [ref=e6314]: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also.
+                                - 'row "title string example: My image title media title" [ref=e6315]':
+                                  - cell "title" [ref=e6316]
+                                  - 'cell "string example: My image title media title" [ref=e6317]':
+                                    - generic [ref=e6319]:
+                                      - button [expanded] [ref=e6320] [cursor=pointer]
+                                      - generic [ref=e6322]:
+                                        - text: string
+                                        - generic [ref=e6323]: "example: My image title"
+                                        - paragraph [ref=e6325]: media title
+                                - 'row "href string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e6326]':
+                                  - cell "href" [ref=e6327]
+                                  - 'cell "string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e6328]':
+                                    - generic [ref=e6330]:
+                                      - button [expanded] [ref=e6331] [cursor=pointer]
+                                      - generic [ref=e6333]:
+                                        - text: string
+                                        - generic [ref=e6334]: ($uri)
+                                        - generic [ref=e6335]: "example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6"
+                                        - paragraph [ref=e6337]: href to display the original media.
+                                - 'row "description QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e6338]':
+                                  - cell "description" [ref=e6339]
+                                  - 'cell "QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e6340]':
+                                    - generic [ref=e6342]:
+                                      - button "QualifiedFreeText" [expanded] [ref=e6343] [cursor=pointer]:
+                                        - generic [ref=e6345]: QualifiedFreeText
+                                      - text: "{"
+                                      - table [ref=e6348]:
+                                        - rowgroup [ref=e6349]:
+                                          - 'row "description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e6350]':
+                                            - cell "description:" [ref=e6351]
+                                            - cell "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e6352]:
+                                              - paragraph [ref=e6354]: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language
+                                          - 'row "text string example: Do you need and example ? Free Text" [ref=e6355]':
+                                            - cell "text" [ref=e6356]
+                                            - 'cell "string example: Do you need and example ? Free Text" [ref=e6357]':
+                                              - generic [ref=e6359]:
+                                                - button [expanded] [ref=e6360] [cursor=pointer]
+                                                - generic [ref=e6362]:
+                                                  - text: string
+                                                  - generic [ref=e6363]: "example: Do you need and example ?"
+                                                  - paragraph [ref=e6365]: Free Text
+                                          - 'row "lang string example: fr-FR see RFC 5646" [ref=e6366]':
+                                            - cell "lang" [ref=e6367]
+                                            - 'cell "string example: fr-FR see RFC 5646" [ref=e6368]':
+                                              - generic [ref=e6370]:
+                                                - button [expanded] [ref=e6371] [cursor=pointer]
+                                                - generic [ref=e6373]:
+                                                  - text: string
+                                                  - generic [ref=e6374]: "example: fr-FR"
+                                                  - paragraph [ref=e6376]: see RFC 5646
+                                      - text: "}"
+                                - 'row "mediaType string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e6377]':
+                                  - cell "mediaType" [ref=e6378]
+                                  - 'cell "string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e6379]':
+                                    - generic [ref=e6381]:
+                                      - button [expanded] [ref=e6382] [cursor=pointer]
+                                      - generic [ref=e6384]:
+                                        - text: string
+                                        - generic [ref=e6385]: "example: image"
+                                        - paragraph [ref=e6387]:
+                                          - text: media type as per IANA (
+                                          - link "https://www.iana.org/assignments/media-types/media-types.xhtml" [ref=e6388] [cursor=pointer]:
+                                            - /url: https://www.iana.org/assignments/media-types/media-types.xhtml
+                                          - text: )
+                                        - generic [ref=e6389]:
+                                          - text: "Enum:"
+                                          - generic [ref=e6390]:
+                                            - button [expanded] [ref=e6391] [cursor=pointer]
+                                            - text: "[ application, audio, font, example, image, message, model, multipart, text, video ]"
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e6397]:
+                - button "Media" [expanded] [ref=e6398] [cursor=pointer]:
+                  - generic [ref=e6400]: Media
+                - text: "{"
+                - table [ref=e6403]:
+                  - rowgroup [ref=e6404]:
+                    - 'row "description: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e6405]':
+                      - cell "description:" [ref=e6406]
+                      - cell "Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also." [ref=e6407]:
+                        - paragraph [ref=e6409]: Media is a digital content like image, video with associated text and description, several scales and some metadata can be provided also.
+                    - 'row "title string example: My image title media title" [ref=e6410]':
+                      - cell "title" [ref=e6411]
+                      - 'cell "string example: My image title media title" [ref=e6412]':
+                        - generic [ref=e6414]:
+                          - button [expanded] [ref=e6415] [cursor=pointer]
+                          - generic [ref=e6417]:
+                            - text: string
+                            - generic [ref=e6418]: "example: My image title"
+                            - paragraph [ref=e6420]: media title
+                    - 'row "href string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e6421]':
+                      - cell "href" [ref=e6422]
+                      - 'cell "string($uri) example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6 href to display the original media." [ref=e6423]':
+                        - generic [ref=e6425]:
+                          - button [expanded] [ref=e6426] [cursor=pointer]
+                          - generic [ref=e6428]:
+                            - text: string
+                            - generic [ref=e6429]: ($uri)
+                            - generic [ref=e6430]: "example: http://pdt.multimediarepository.testing.amadeus.com/cmr/retrieve/hotel/69810B23CB8644A18AF760DC66BE41A6"
+                            - paragraph [ref=e6432]: href to display the original media.
+                    - 'row "description QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e6433]':
+                      - cell "description" [ref=e6434]
+                      - 'cell "QualifiedFreeText { description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language text string example: Do you need and example ? Free Text lang string example: fr-FR see RFC 5646 }" [ref=e6435]':
+                        - generic [ref=e6437]:
+                          - button "QualifiedFreeText" [expanded] [ref=e6438] [cursor=pointer]:
+                            - generic [ref=e6440]: QualifiedFreeText
+                          - text: "{"
+                          - table [ref=e6443]:
+                            - rowgroup [ref=e6444]:
+                              - 'row "description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e6445]':
+                                - cell "description:" [ref=e6446]
+                                - cell "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e6447]:
+                                  - paragraph [ref=e6449]: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language
+                              - 'row "text string example: Do you need and example ? Free Text" [ref=e6450]':
+                                - cell "text" [ref=e6451]
+                                - 'cell "string example: Do you need and example ? Free Text" [ref=e6452]':
+                                  - generic [ref=e6454]:
+                                    - button [expanded] [ref=e6455] [cursor=pointer]
+                                    - generic [ref=e6457]:
+                                      - text: string
+                                      - generic [ref=e6458]: "example: Do you need and example ?"
+                                      - paragraph [ref=e6460]: Free Text
+                              - 'row "lang string example: fr-FR see RFC 5646" [ref=e6461]':
+                                - cell "lang" [ref=e6462]
+                                - 'cell "string example: fr-FR see RFC 5646" [ref=e6463]':
+                                  - generic [ref=e6465]:
+                                    - button [expanded] [ref=e6466] [cursor=pointer]
+                                    - generic [ref=e6468]:
+                                      - text: string
+                                      - generic [ref=e6469]: "example: fr-FR"
+                                      - paragraph [ref=e6471]: see RFC 5646
+                          - text: "}"
+                    - 'row "mediaType string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e6472]':
+                      - cell "mediaType" [ref=e6473]
+                      - 'cell "string example: image media type as per IANA ( https://www.iana.org/assignments/media-types/media-types.xhtml ) Enum: [ application, audio, font, example, image, message, model, multipart, text, video ]" [ref=e6474]':
+                        - generic [ref=e6476]:
+                          - button [expanded] [ref=e6477] [cursor=pointer]
+                          - generic [ref=e6479]:
+                            - text: string
+                            - generic [ref=e6480]: "example: image"
+                            - paragraph [ref=e6482]:
+                              - text: media type as per IANA (
+                              - link "https://www.iana.org/assignments/media-types/media-types.xhtml" [ref=e6483] [cursor=pointer]:
+                                - /url: https://www.iana.org/assignments/media-types/media-types.xhtml
+                              - text: )
+                            - generic [ref=e6484]:
+                              - text: "Enum:"
+                              - generic [ref=e6485]:
+                                - button [expanded] [ref=e6486] [cursor=pointer]
+                                - text: "[ application, audio, font, example, image, message, model, multipart, text, video ]"
+                - text: "}"
+              - generic [ref=e6492]:
+                - button "LocationEntry" [expanded] [ref=e6493] [cursor=pointer]:
+                  - generic [ref=e6495]: LocationEntry
+                - text: "{"
+                - table [ref=e6498]:
+                  - rowgroup [ref=e6499]:
+                    - 'row "< * >: LocationValue { cityCode string example: PAR City code associated to the airport countryCode string example: FR Country code of the airport }" [ref=e6500]':
+                      - cell "< * >:" [ref=e6501]
+                      - 'cell "LocationValue { cityCode string example: PAR City code associated to the airport countryCode string example: FR Country code of the airport }" [ref=e6502]':
+                        - generic [ref=e6504]:
+                          - button "LocationValue" [expanded] [ref=e6505] [cursor=pointer]:
+                            - generic [ref=e6507]: LocationValue
+                          - text: "{"
+                          - table [ref=e6510]:
+                            - rowgroup [ref=e6511]:
+                              - 'row "cityCode string example: PAR City code associated to the airport" [ref=e6512]':
+                                - cell "cityCode" [ref=e6513]
+                                - 'cell "string example: PAR City code associated to the airport" [ref=e6514]':
+                                  - generic [ref=e6516]:
+                                    - button [expanded] [ref=e6517] [cursor=pointer]
+                                    - generic [ref=e6519]:
+                                      - text: string
+                                      - generic [ref=e6520]: "example: PAR"
+                                      - paragraph [ref=e6522]: City code associated to the airport
+                              - 'row "countryCode string example: FR Country code of the airport" [ref=e6523]':
+                                - cell "countryCode" [ref=e6524]
+                                - 'cell "string example: FR Country code of the airport" [ref=e6525]':
+                                  - generic [ref=e6527]:
+                                    - button [expanded] [ref=e6528] [cursor=pointer]
+                                    - generic [ref=e6530]:
+                                      - text: string
+                                      - generic [ref=e6531]: "example: FR"
+                                      - paragraph [ref=e6533]: Country code of the airport
+                          - text: "}"
+                - text: "}"
+              - generic [ref=e6538]:
+                - button "LocationValue" [expanded] [ref=e6539] [cursor=pointer]:
+                  - generic [ref=e6541]: LocationValue
+                - text: "{"
+                - table [ref=e6544]:
+                  - rowgroup [ref=e6545]:
+                    - 'row "cityCode string example: PAR City code associated to the airport" [ref=e6546]':
+                      - cell "cityCode" [ref=e6547]
+                      - 'cell "string example: PAR City code associated to the airport" [ref=e6548]':
+                        - generic [ref=e6550]:
+                          - button [expanded] [ref=e6551] [cursor=pointer]
+                          - generic [ref=e6553]:
+                            - text: string
+                            - generic [ref=e6554]: "example: PAR"
+                            - paragraph [ref=e6556]: City code associated to the airport
+                    - 'row "countryCode string example: FR Country code of the airport" [ref=e6557]':
+                      - cell "countryCode" [ref=e6558]
+                      - 'cell "string example: FR Country code of the airport" [ref=e6559]':
+                        - generic [ref=e6561]:
+                          - button [expanded] [ref=e6562] [cursor=pointer]
+                          - generic [ref=e6564]:
+                            - text: string
+                            - generic [ref=e6565]: "example: FR"
+                            - paragraph [ref=e6567]: Country code of the airport
+                - text: "}"
+              - generic [ref=e6572]:
+                - button "FacilityDictionary" [expanded] [ref=e6573] [cursor=pointer]:
+                  - generic [ref=e6575]: FacilityDictionary
+                - text: "{"
+                - table [ref=e6578]:
+                  - rowgroup [ref=e6579]:
+                    - 'row "description: on board facilities map. E.g: bulkhead, closet, exit door, galley, lavatory" [ref=e6580]':
+                      - cell "description:" [ref=e6581]
+                      - 'cell "on board facilities map. E.g: bulkhead, closet, exit door, galley, lavatory" [ref=e6582]':
+                        - paragraph [ref=e6584]: "on board facilities map. E.g: bulkhead, closet, exit door, galley, lavatory"
+                    - 'row "< * >: string" [ref=e6585]':
+                      - cell "< * >:" [ref=e6586]
+                      - cell "string" [ref=e6587]:
+                        - generic [ref=e6589]:
+                          - button [expanded] [ref=e6590] [cursor=pointer]
+                          - generic [ref=e6592]: string
+                - text: "}"
+              - generic [ref=e6597]:
+                - button "SeatCharacteristicDictionary" [expanded] [ref=e6598] [cursor=pointer]:
+                  - generic [ref=e6600]: SeatCharacteristicDictionary
+                - text: "{"
+                - table [ref=e6603]:
+                  - rowgroup [ref=e6604]:
+                    - 'row "description: seat characteristics dictionary allows mapping a service characteristic to its name. Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825, Example: CH = Chargeable Seat, W = Window Seat, A = Aisle Seat, Q = Seat in a quiet zone, E = Exit Row Seat Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat" [ref=e6605]':
+                      - cell "description:" [ref=e6606]
+                      - 'cell "seat characteristics dictionary allows mapping a service characteristic to its name. Possible values are part of: IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825, Example: CH = Chargeable Seat, W = Window Seat, A = Aisle Seat, Q = Seat in a quiet zone, E = Exit Row Seat Amadeus Code: defined as extension, example MV=row with movie screen Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat" [ref=e6607]':
+                        - paragraph [ref=e6609]:
+                          - text: "seat characteristics dictionary allows mapping a service characteristic to its name. Possible values are part of:"
+                          - text: "IATA code: Most of the codes are defined by IATA Standard/IATA Code list 9825, Example: CH = Chargeable Seat, W = Window Seat, A = Aisle"
+                          - text: Seat, Q = Seat in a quiet zone, E = Exit Row Seat
+                          - text: "Amadeus Code: defined as extension, example MV=row with movie screen"
+                          - text: "Seat map display Code: API specific codes, example 1A_AQC_PREMIUM_SEAT=premium seat"
+                    - 'row "< * >: string" [ref=e6610]':
+                      - cell "< * >:" [ref=e6611]
+                      - cell "string" [ref=e6612]:
+                        - generic [ref=e6614]:
+                          - button [expanded] [ref=e6615] [cursor=pointer]
+                          - generic [ref=e6617]: string
+                - text: "}"
+              - generic [ref=e6622]:
+                - button "traveler element" [expanded] [ref=e6623] [cursor=pointer]:
+                  - generic [ref=e6625]: traveler element
+                - text: "{"
+                - table [ref=e6628]:
+                  - rowgroup [ref=e6629]:
+                    - 'row "description: the traveler of the trip" [ref=e6630]':
+                      - cell "description:" [ref=e6631]
+                      - cell "the traveler of the trip" [ref=e6632]:
+                        - paragraph [ref=e6634]: the traveler of the trip
+                    - row "id string item identifier" [ref=e6635]:
+                      - cell "id" [ref=e6636]
+                      - cell "string item identifier" [ref=e6637]:
+                        - generic [ref=e6639]:
+                          - button [expanded] [ref=e6640] [cursor=pointer]
+                          - generic [ref=e6642]:
+                            - text: string
+                            - paragraph [ref=e6644]: item identifier
+                    - row "dateOfBirth string($date) The date of birth in ISO 8601 format (yyyy-mm-dd)" [ref=e6645]:
+                      - cell "dateOfBirth" [ref=e6646]
+                      - cell "string($date) The date of birth in ISO 8601 format (yyyy-mm-dd)" [ref=e6647]:
+                        - generic [ref=e6649]:
+                          - button [expanded] [ref=e6650] [cursor=pointer]
+                          - generic [ref=e6652]:
+                            - text: string
+                            - generic [ref=e6653]: ($date)
+                            - paragraph [ref=e6655]: The date of birth in ISO 8601 format (yyyy-mm-dd)
+                    - 'row "gender StakeholderGender StakeholderGender string example: FEMALE The gender Enum: [ MALE, FEMALE ]" [ref=e6656]':
+                      - cell "gender" [ref=e6657]
+                      - 'cell "StakeholderGender StakeholderGender string example: FEMALE The gender Enum: [ MALE, FEMALE ]" [ref=e6658]':
+                        - generic [ref=e6660]:
+                          - button "StakeholderGender" [expanded] [ref=e6661] [cursor=pointer]:
+                            - generic [ref=e6663]: StakeholderGender
+                          - generic [ref=e6665]:
+                            - generic [ref=e6666]: StakeholderGender
+                            - text: string
+                            - generic [ref=e6667]: "example: FEMALE"
+                            - paragraph [ref=e6669]: The gender
+                            - generic [ref=e6670]:
+                              - text: "Enum:"
+                              - generic [ref=e6671]:
+                                - button [expanded] [ref=e6672] [cursor=pointer]
+                                - text: "[ MALE, FEMALE ]"
+                    - 'row "name name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e6674]':
+                      - cell "name" [ref=e6675]
+                      - 'cell "name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e6676]':
+                        - generic [ref=e6678]:
+                          - button "name" [expanded] [ref=e6679] [cursor=pointer]:
+                            - generic [ref=e6681]: name
+                          - text: "{"
+                          - table [ref=e6684]:
+                            - rowgroup [ref=e6685]:
+                              - 'row "description: name" [ref=e6686]':
+                                - cell "description:" [ref=e6687]
+                                - cell "name" [ref=e6688]:
+                                  - paragraph [ref=e6690]: name
+                              - row "firstName string First name." [ref=e6691]:
+                                - cell "firstName" [ref=e6692]
+                                - cell "string First name." [ref=e6693]:
+                                  - generic [ref=e6695]:
+                                    - button [expanded] [ref=e6696] [cursor=pointer]
+                                    - generic [ref=e6698]:
+                                      - text: string
+                                      - paragraph [ref=e6700]: First name.
+                              - row "lastName string Last name." [ref=e6701]:
+                                - cell "lastName" [ref=e6702]
+                                - cell "string Last name." [ref=e6703]:
+                                  - generic [ref=e6705]:
+                                    - button [expanded] [ref=e6706] [cursor=pointer]
+                                    - generic [ref=e6708]:
+                                      - text: string
+                                      - paragraph [ref=e6710]: Last name.
+                              - row "middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e6711]:
+                                - cell "middleName" [ref=e6712]
+                                - cell "string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e6713]:
+                                  - generic [ref=e6715]:
+                                    - button [expanded] [ref=e6716] [cursor=pointer]
+                                    - generic [ref=e6718]:
+                                      - text: string
+                                      - paragraph [ref=e6720]: Middle name(s), for example "Lee" in "John Lee Smith".
+                              - row "secondLastName string second last name" [ref=e6721]:
+                                - cell "secondLastName" [ref=e6722]
+                                - cell "string second last name" [ref=e6723]:
+                                  - generic [ref=e6725]:
+                                    - button [expanded] [ref=e6726] [cursor=pointer]
+                                    - generic [ref=e6728]:
+                                      - text: string
+                                      - paragraph [ref=e6730]: second last name
+                          - text: "}"
+                    - row [ref=e6731]:
+                      - cell "documents" [ref=e6732]
+                      - cell [ref=e6733]:
+                        - generic [ref=e6735]:
+                          - button [expanded] [ref=e6736] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e6739]: Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements
+                          - generic [ref=e6742]:
+                            - button "traveler documents" [expanded] [ref=e6743] [cursor=pointer]:
+                              - generic [ref=e6745]: traveler documents
+                            - text: "{"
+                            - table [ref=e6748]:
+                              - rowgroup [ref=e6749]:
+                                - 'row "description: documents of the traveler" [ref=e6750]':
+                                  - cell "description:" [ref=e6751]
+                                  - cell "documents of the traveler" [ref=e6752]:
+                                    - paragraph [ref=e6754]: documents of the traveler
+                                - row "number string The document number (shown on the document) . E.g. QFU514563221J" [ref=e6755]:
+                                  - cell "number" [ref=e6756]
+                                  - cell "string The document number (shown on the document) . E.g. QFU514563221J" [ref=e6757]:
+                                    - generic [ref=e6759]:
+                                      - button [expanded] [ref=e6760] [cursor=pointer]
+                                      - generic [ref=e6762]:
+                                        - text: string
+                                        - paragraph [ref=e6764]: The document number (shown on the document) . E.g. QFU514563221J
+                                - row "issuanceDate string($date) Date at which the document has been issued." [ref=e6765]:
+                                  - cell "issuanceDate" [ref=e6766]
+                                  - cell "string($date) Date at which the document has been issued." [ref=e6767]:
+                                    - generic [ref=e6769]:
+                                      - button [expanded] [ref=e6770] [cursor=pointer]
+                                      - generic [ref=e6772]:
+                                        - text: string
+                                        - generic [ref=e6773]: ($date)
+                                        - paragraph [ref=e6775]: Date at which the document has been issued.
+                                - row "expiryDate string($date) Date after which the document is not valid anymore." [ref=e6776]:
+                                  - cell "expiryDate" [ref=e6777]
+                                  - cell "string($date) Date after which the document is not valid anymore." [ref=e6778]:
+                                    - generic [ref=e6780]:
+                                      - button [expanded] [ref=e6781] [cursor=pointer]
+                                      - generic [ref=e6783]:
+                                        - text: string
+                                        - generic [ref=e6784]: ($date)
+                                        - paragraph [ref=e6786]: Date after which the document is not valid anymore.
+                                - 'row "issuanceCountry string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e6787]':
+                                  - cell "issuanceCountry" [ref=e6788]
+                                  - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e6789]':
+                                    - generic [ref=e6791]:
+                                      - button [expanded] [ref=e6792] [cursor=pointer]
+                                      - generic [ref=e6794]:
+                                        - text: string
+                                        - generic [ref=e6795]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e6797]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e6798] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the country that issued the document
+                                - row "issuanceLocation string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e6799]:
+                                  - cell "issuanceLocation" [ref=e6800]
+                                  - cell "string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e6801]:
+                                    - generic [ref=e6803]:
+                                      - button [expanded] [ref=e6804] [cursor=pointer]
+                                      - generic [ref=e6806]:
+                                        - text: string
+                                        - paragraph [ref=e6808]: A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York
+                                - 'row "nationality string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e6809]':
+                                  - cell "nationality" [ref=e6810]
+                                  - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e6811]':
+                                    - generic [ref=e6813]:
+                                      - button [expanded] [ref=e6814] [cursor=pointer]
+                                      - generic [ref=e6816]:
+                                        - text: string
+                                        - generic [ref=e6817]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e6819]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e6820] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the nationality appearing on the document
+                                - row "birthPlace string Birth place as indicated on the document" [ref=e6821]:
+                                  - cell "birthPlace" [ref=e6822]
+                                  - cell "string Birth place as indicated on the document" [ref=e6823]:
+                                    - generic [ref=e6825]:
+                                      - button [expanded] [ref=e6826] [cursor=pointer]
+                                      - generic [ref=e6828]:
+                                        - text: string
+                                        - paragraph [ref=e6830]: Birth place as indicated on the document
+                                - 'row "documentType DocumentType DocumentType string example: VISA the nature/type of the document Enum: [ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]" [ref=e6831]':
+                                  - cell "documentType" [ref=e6832]
+                                  - 'cell "DocumentType DocumentType string example: VISA the nature/type of the document Enum: [ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]" [ref=e6833]':
+                                    - generic [ref=e6835]:
+                                      - button "DocumentType" [expanded] [ref=e6836] [cursor=pointer]:
+                                        - generic [ref=e6838]: DocumentType
+                                      - generic [ref=e6840]:
+                                        - generic [ref=e6841]: DocumentType
+                                        - text: string
+                                        - generic [ref=e6842]: "example: VISA"
+                                        - paragraph [ref=e6844]: the nature/type of the document
+                                        - generic [ref=e6845]:
+                                          - text: "Enum:"
+                                          - generic [ref=e6846]:
+                                            - button [expanded] [ref=e6847] [cursor=pointer]
+                                            - text: "[ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]"
+                                - 'row "validityCountry string example: IN pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country where the document is valid" [ref=e6849]':
+                                  - cell "validityCountry" [ref=e6850]
+                                  - 'cell "string example: IN pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country where the document is valid" [ref=e6851]':
+                                    - generic [ref=e6853]:
+                                      - button [expanded] [ref=e6854] [cursor=pointer]
+                                      - generic [ref=e6856]:
+                                        - text: string
+                                        - generic [ref=e6857]: "example: IN"
+                                        - generic [ref=e6858]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e6860]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e6861] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the country where the document is valid
+                                - 'row "birthCountry string example: FR pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country of birth" [ref=e6862]':
+                                  - cell "birthCountry" [ref=e6863]
+                                  - 'cell "string example: FR pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country of birth" [ref=e6864]':
+                                    - generic [ref=e6866]:
+                                      - button [expanded] [ref=e6867] [cursor=pointer]
+                                      - generic [ref=e6869]:
+                                        - text: string
+                                        - generic [ref=e6870]: "example: FR"
+                                        - generic [ref=e6871]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e6873]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e6874] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the country of birth
+                                - 'row "holder boolean example: true boolean to specify if the traveler is the holder of the document" [ref=e6875]':
+                                  - cell "holder" [ref=e6876]
+                                  - 'cell "boolean example: true boolean to specify if the traveler is the holder of the document" [ref=e6877]':
+                                    - generic [ref=e6879]:
+                                      - button [expanded] [ref=e6880] [cursor=pointer]
+                                      - generic [ref=e6882]:
+                                        - text: boolean
+                                        - generic [ref=e6883]: "example: true"
+                                        - paragraph [ref=e6885]: boolean to specify if the traveler is the holder of the document
+                            - text: "}"
+                          - text: "]"
+                    - 'row "emergencyContact EmergencyContact { description: emergency contact number addresseeName string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted). countryCode string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States number string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country. text string additional details }" [ref=e6886]':
+                      - cell "emergencyContact" [ref=e6887]
+                      - 'cell "EmergencyContact { description: emergency contact number addresseeName string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted). countryCode string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States number string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country. text string additional details }" [ref=e6888]':
+                        - generic [ref=e6890]:
+                          - button "EmergencyContact" [expanded] [ref=e6891] [cursor=pointer]:
+                            - generic [ref=e6893]: EmergencyContact
+                          - text: "{"
+                          - table [ref=e6896]:
+                            - rowgroup [ref=e6897]:
+                              - 'row "description: emergency contact number" [ref=e6898]':
+                                - cell "description:" [ref=e6899]
+                                - cell "emergency contact number" [ref=e6900]:
+                                  - paragraph [ref=e6902]: emergency contact number
+                              - 'row "addresseeName string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e6903]':
+                                - cell "addresseeName" [ref=e6904]
+                                - 'cell "string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e6905]':
+                                  - generic [ref=e6907]:
+                                    - button [expanded] [ref=e6908] [cursor=pointer]
+                                    - generic [ref=e6910]:
+                                      - text: string
+                                      - generic [ref=e6911]: "pattern: [a-zA-Z -]"
+                                      - paragraph [ref=e6913]: Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted).
+                              - 'row "countryCode string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e6914]':
+                                - cell "countryCode" [ref=e6915]
+                                - 'cell "string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e6916]':
+                                  - generic [ref=e6918]:
+                                    - button [expanded] [ref=e6919] [cursor=pointer]
+                                    - generic [ref=e6921]:
+                                      - text: string
+                                      - generic [ref=e6922]: "pattern: [A-Z]{2}"
+                                      - paragraph [ref=e6924]: Country code of the country (ISO3166-1). E.g. "US" for the United States
+                              - 'row "number string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e6925]':
+                                - cell "number" [ref=e6926]
+                                - 'cell "string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e6927]':
+                                  - generic [ref=e6929]:
+                                    - button [expanded] [ref=e6930] [cursor=pointer]
+                                    - generic [ref=e6932]:
+                                      - text: string
+                                      - generic [ref=e6933]: "pattern: [0-9]{1,15}"
+                                      - paragraph [ref=e6935]: Phone number. Composed of digits only. The number of digits depends on the country.
+                              - row "text string additional details" [ref=e6936]:
+                                - cell "text" [ref=e6937]
+                                - cell "string additional details" [ref=e6938]:
+                                  - generic [ref=e6940]:
+                                    - button [expanded] [ref=e6941] [cursor=pointer]
+                                    - generic [ref=e6943]:
+                                      - text: string
+                                      - paragraph [ref=e6945]: additional details
+                          - text: "}"
+                    - 'row "loyaltyPrograms [ minItems: 0 maxItems: 10 list of loyalty program followed by the traveler LoyaltyProgram { description: loyalty program information programOwner string example: AF loyalty program airline code id string example: 12357466574 loyalty program number }]" [ref=e6946]':
+                      - cell "loyaltyPrograms" [ref=e6947]
+                      - 'cell "[ minItems: 0 maxItems: 10 list of loyalty program followed by the traveler LoyaltyProgram { description: loyalty program information programOwner string example: AF loyalty program airline code id string example: 12357466574 loyalty program number }]" [ref=e6948]':
+                        - generic [ref=e6950]:
+                          - button [expanded] [ref=e6951] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e6953]: "minItems: 0"
+                          - generic [ref=e6954]: "maxItems: 10"
+                          - paragraph [ref=e6956]: list of loyalty program followed by the traveler
+                          - generic [ref=e6959]:
+                            - button "LoyaltyProgram" [expanded] [ref=e6960] [cursor=pointer]:
+                              - generic [ref=e6962]: LoyaltyProgram
+                            - text: "{"
+                            - table [ref=e6965]:
+                              - rowgroup [ref=e6966]:
+                                - 'row "description: loyalty program information" [ref=e6967]':
+                                  - cell "description:" [ref=e6968]
+                                  - cell "loyalty program information" [ref=e6969]:
+                                    - paragraph [ref=e6971]: loyalty program information
+                                - 'row "programOwner string example: AF loyalty program airline code" [ref=e6972]':
+                                  - cell "programOwner" [ref=e6973]
+                                  - 'cell "string example: AF loyalty program airline code" [ref=e6974]':
+                                    - generic [ref=e6976]:
+                                      - button [expanded] [ref=e6977] [cursor=pointer]
+                                      - generic [ref=e6979]:
+                                        - text: string
+                                        - generic [ref=e6980]: "example: AF"
+                                        - paragraph [ref=e6982]: loyalty program airline code
+                                - 'row "id string example: 12357466574 loyalty program number" [ref=e6983]':
+                                  - cell "id" [ref=e6984]
+                                  - 'cell "string example: 12357466574 loyalty program number" [ref=e6985]':
+                                    - generic [ref=e6987]:
+                                      - button [expanded] [ref=e6988] [cursor=pointer]
+                                      - generic [ref=e6990]:
+                                        - text: string
+                                        - generic [ref=e6991]: "example: 12357466574"
+                                        - paragraph [ref=e6993]: loyalty program number
+                            - text: "}"
+                          - text: "]"
+                    - 'row "discountEligibility [ minItems: 0 maxItems: 10 list of element that allow a discount. Discount { description: traveler discount subType DiscountType DiscountType string example: SPANISH_RESIDENT type of discount applied Enum: [ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ] cityName string example: MADRID city of residence travelerType DiscountTravelerType DiscountTravelerType string example: SPANISH_CITIZEN type of discount applied Enum: [ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ] cardNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident card number certificateNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident certificate number }]" [ref=e6994]':
+                      - cell "discountEligibility" [ref=e6995]
+                      - 'cell "[ minItems: 0 maxItems: 10 list of element that allow a discount. Discount { description: traveler discount subType DiscountType DiscountType string example: SPANISH_RESIDENT type of discount applied Enum: [ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ] cityName string example: MADRID city of residence travelerType DiscountTravelerType DiscountTravelerType string example: SPANISH_CITIZEN type of discount applied Enum: [ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ] cardNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident card number certificateNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident certificate number }]" [ref=e6996]':
+                        - generic [ref=e6998]:
+                          - button [expanded] [ref=e6999] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e7001]: "minItems: 0"
+                          - generic [ref=e7002]: "maxItems: 10"
+                          - paragraph [ref=e7004]: list of element that allow a discount.
+                          - generic [ref=e7007]:
+                            - button "Discount" [expanded] [ref=e7008] [cursor=pointer]:
+                              - generic [ref=e7010]: Discount
+                            - text: "{"
+                            - table [ref=e7013]:
+                              - rowgroup [ref=e7014]:
+                                - 'row "description: traveler discount" [ref=e7015]':
+                                  - cell "description:" [ref=e7016]
+                                  - cell "traveler discount" [ref=e7017]:
+                                    - paragraph [ref=e7019]: traveler discount
+                                - 'row "subType DiscountType DiscountType string example: SPANISH_RESIDENT type of discount applied Enum: [ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ]" [ref=e7020]':
+                                  - cell "subType" [ref=e7021]
+                                  - 'cell "DiscountType DiscountType string example: SPANISH_RESIDENT type of discount applied Enum: [ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ]" [ref=e7022]':
+                                    - generic [ref=e7024]:
+                                      - button "DiscountType" [expanded] [ref=e7025] [cursor=pointer]:
+                                        - generic [ref=e7027]: DiscountType
+                                      - generic [ref=e7029]:
+                                        - generic [ref=e7030]: DiscountType
+                                        - text: string
+                                        - generic [ref=e7031]: "example: SPANISH_RESIDENT"
+                                        - paragraph [ref=e7033]: type of discount applied
+                                        - generic [ref=e7034]:
+                                          - text: "Enum:"
+                                          - generic [ref=e7035]:
+                                            - button [expanded] [ref=e7036] [cursor=pointer]
+                                            - text: "[ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ]"
+                                - 'row "cityName string example: MADRID city of residence" [ref=e7038]':
+                                  - cell "cityName" [ref=e7039]
+                                  - 'cell "string example: MADRID city of residence" [ref=e7040]':
+                                    - generic [ref=e7042]:
+                                      - button [expanded] [ref=e7043] [cursor=pointer]
+                                      - generic [ref=e7045]:
+                                        - text: string
+                                        - generic [ref=e7046]: "example: MADRID"
+                                        - paragraph [ref=e7048]: city of residence
+                                - 'row "travelerType DiscountTravelerType DiscountTravelerType string example: SPANISH_CITIZEN type of discount applied Enum: [ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ]" [ref=e7049]':
+                                  - cell "travelerType" [ref=e7050]
+                                  - 'cell "DiscountTravelerType DiscountTravelerType string example: SPANISH_CITIZEN type of discount applied Enum: [ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ]" [ref=e7051]':
+                                    - generic [ref=e7053]:
+                                      - button "DiscountTravelerType" [expanded] [ref=e7054] [cursor=pointer]:
+                                        - generic [ref=e7056]: DiscountTravelerType
+                                      - generic [ref=e7058]:
+                                        - generic [ref=e7059]: DiscountTravelerType
+                                        - text: string
+                                        - generic [ref=e7060]: "example: SPANISH_CITIZEN"
+                                        - paragraph [ref=e7062]: type of discount applied
+                                        - generic [ref=e7063]:
+                                          - text: "Enum:"
+                                          - generic [ref=e7064]:
+                                            - button [expanded] [ref=e7065] [cursor=pointer]
+                                            - text: "[ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ]"
+                                - 'row "cardNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident card number" [ref=e7067]':
+                                  - cell "cardNumber" [ref=e7068]
+                                  - 'cell "string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident card number" [ref=e7069]':
+                                    - generic [ref=e7071]:
+                                      - button [expanded] [ref=e7072] [cursor=pointer]
+                                      - generic [ref=e7074]:
+                                        - text: string
+                                        - generic [ref=e7075]: "example: 12568215Z"
+                                        - generic [ref=e7076]: "pattern: [0-9A-Z][0-9]{0,12}[A-Z]"
+                                        - paragraph [ref=e7078]: resident card number
+                                - 'row "certificateNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident certificate number" [ref=e7079]':
+                                  - cell "certificateNumber" [ref=e7080]
+                                  - 'cell "string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident certificate number" [ref=e7081]':
+                                    - generic [ref=e7083]:
+                                      - button [expanded] [ref=e7084] [cursor=pointer]
+                                      - generic [ref=e7086]:
+                                        - text: string
+                                        - generic [ref=e7087]: "example: 12568215Z"
+                                        - generic [ref=e7088]: "pattern: [0-9A-Z][0-9]{0,12}[A-Z]"
+                                        - paragraph [ref=e7090]: resident certificate number
+                            - text: "}"
+                          - text: "]"
+                    - row [ref=e7091]:
+                      - cell "contact" [ref=e7092]
+                      - cell [ref=e7093]:
+                        - generic [ref=e7095]:
+                          - button "Contact" [expanded] [ref=e7096] [cursor=pointer]:
+                            - generic [ref=e7098]: Contact
+                          - text: "{"
+                          - table [ref=e7101]:
+                            - rowgroup [ref=e7102]:
+                              - 'row "description: contact information" [ref=e7103]':
+                                - cell "description:" [ref=e7104]
+                                - cell "contact information" [ref=e7105]:
+                                  - paragraph [ref=e7107]: contact information
+                              - 'row "addresseeName name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e7108]':
+                                - cell "addresseeName" [ref=e7109]
+                                - 'cell "name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e7110]':
+                                  - generic [ref=e7112]:
+                                    - button "name" [expanded] [ref=e7113] [cursor=pointer]:
+                                      - generic [ref=e7115]: name
+                                    - text: "{"
+                                    - table [ref=e7118]:
+                                      - rowgroup [ref=e7119]:
+                                        - 'row "description: name" [ref=e7120]':
+                                          - cell "description:" [ref=e7121]
+                                          - cell "name" [ref=e7122]:
+                                            - paragraph [ref=e7124]: name
+                                        - row "firstName string First name." [ref=e7125]:
+                                          - cell "firstName" [ref=e7126]
+                                          - cell "string First name." [ref=e7127]:
+                                            - generic [ref=e7129]:
+                                              - button [expanded] [ref=e7130] [cursor=pointer]
+                                              - generic [ref=e7132]:
+                                                - text: string
+                                                - paragraph [ref=e7134]: First name.
+                                        - row "lastName string Last name." [ref=e7135]:
+                                          - cell "lastName" [ref=e7136]
+                                          - cell "string Last name." [ref=e7137]:
+                                            - generic [ref=e7139]:
+                                              - button [expanded] [ref=e7140] [cursor=pointer]
+                                              - generic [ref=e7142]:
+                                                - text: string
+                                                - paragraph [ref=e7144]: Last name.
+                                        - row "middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e7145]:
+                                          - cell "middleName" [ref=e7146]
+                                          - cell "string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e7147]:
+                                            - generic [ref=e7149]:
+                                              - button [expanded] [ref=e7150] [cursor=pointer]
+                                              - generic [ref=e7152]:
+                                                - text: string
+                                                - paragraph [ref=e7154]: Middle name(s), for example "Lee" in "John Lee Smith".
+                                        - row "secondLastName string second last name" [ref=e7155]:
+                                          - cell "secondLastName" [ref=e7156]
+                                          - cell "string second last name" [ref=e7157]:
+                                            - generic [ref=e7159]:
+                                              - button [expanded] [ref=e7160] [cursor=pointer]
+                                              - generic [ref=e7162]:
+                                                - text: string
+                                                - paragraph [ref=e7164]: second last name
+                                    - text: "}"
+                              - 'row "address Address { description: address information category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ] lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string] postalCode string Example: 74130 countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code stateName string Full state name postalBox string E.g. BP 220 text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled. }" [ref=e7165]':
+                                - cell "address" [ref=e7166]
+                                - 'cell "Address { description: address information category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ] lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string] postalCode string Example: 74130 countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code stateName string Full state name postalBox string E.g. BP 220 text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled. }" [ref=e7167]':
+                                  - generic [ref=e7169]:
+                                    - button "Address" [expanded] [ref=e7170] [cursor=pointer]:
+                                      - generic [ref=e7172]: Address
+                                    - text: "{"
+                                    - table [ref=e7175]:
+                                      - rowgroup [ref=e7176]:
+                                        - 'row "description: address information" [ref=e7177]':
+                                          - cell "description:" [ref=e7178]
+                                          - cell "address information" [ref=e7179]:
+                                            - paragraph [ref=e7181]: address information
+                                        - 'row "category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e7182]':
+                                          - cell "category" [ref=e7183]
+                                          - 'cell "string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e7184]':
+                                            - generic [ref=e7186]:
+                                              - button [expanded] [ref=e7187] [cursor=pointer]
+                                              - generic [ref=e7189]:
+                                                - text: string
+                                                - paragraph [ref=e7191]: Category of the contact element
+                                                - generic [ref=e7192]:
+                                                  - text: "Enum:"
+                                                  - generic [ref=e7193]:
+                                                    - button [expanded] [ref=e7194] [cursor=pointer]
+                                                    - text: "[ BUSINESS, PERSONAL, OTHER ]"
+                                        - row "lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e7196]:
+                                          - cell "lines" [ref=e7197]
+                                          - cell "[ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e7198]:
+                                            - generic [ref=e7200]:
+                                              - button [expanded] [ref=e7201] [cursor=pointer]
+                                              - text: "["
+                                              - paragraph [ref=e7204]: Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc
+                                              - generic [ref=e7207]:
+                                                - button [expanded] [ref=e7208] [cursor=pointer]
+                                                - generic [ref=e7210]: string
+                                              - text: "]"
+                                        - 'row "postalCode string Example: 74130" [ref=e7211]':
+                                          - cell "postalCode" [ref=e7212]
+                                          - 'cell "string Example: 74130" [ref=e7213]':
+                                            - generic [ref=e7215]:
+                                              - button [expanded] [ref=e7216] [cursor=pointer]
+                                              - generic [ref=e7218]:
+                                                - text: string
+                                                - paragraph [ref=e7220]: "Example: 74130"
+                                        - 'row "countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e7221]':
+                                          - cell "countryCode" [ref=e7222]
+                                          - 'cell "string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e7223]':
+                                            - generic [ref=e7225]:
+                                              - button [expanded] [ref=e7226] [cursor=pointer]
+                                              - generic [ref=e7228]:
+                                                - text: string
+                                                - generic [ref=e7229]: "pattern: [a-zA-Z]{2}"
+                                                - paragraph [ref=e7231]:
+                                                  - text: country code
+                                                  - link "ISO 3166-1 country code" [ref=e7232] [cursor=pointer]:
+                                                    - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                        - 'row "cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e7233]':
+                                          - cell "cityName" [ref=e7234]
+                                          - 'cell "string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e7235]':
+                                            - generic [ref=e7237]:
+                                              - button [expanded] [ref=e7238] [cursor=pointer]
+                                              - generic [ref=e7240]:
+                                                - text: string
+                                                - generic [ref=e7241]: "pattern: [a-zA-Z -]{1,35}"
+                                                - paragraph [ref=e7243]: "Full city name. Example: Dublin"
+                                        - 'row "stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e7244]':
+                                          - cell "stateCode" [ref=e7245]
+                                          - 'cell "string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e7246]':
+                                            - generic [ref=e7248]:
+                                              - button [expanded] [ref=e7249] [cursor=pointer]
+                                              - generic [ref=e7251]:
+                                                - text: string
+                                                - generic [ref=e7252]: "pattern: [a-zA-Z0-9]{1,2}"
+                                                - paragraph [ref=e7254]:
+                                                  - text: State code - two character standard
+                                                  - link "ISO 3166-2 state code" [ref=e7255] [cursor=pointer]:
+                                                    - /url: https://en.wikipedia.org/wiki/ISO_3166-2
+                                        - row "stateName string Full state name" [ref=e7256]:
+                                          - cell "stateName" [ref=e7257]
+                                          - cell "string Full state name" [ref=e7258]:
+                                            - generic [ref=e7260]:
+                                              - button [expanded] [ref=e7261] [cursor=pointer]
+                                              - generic [ref=e7263]:
+                                                - text: string
+                                                - paragraph [ref=e7265]: Full state name
+                                        - row "postalBox string E.g. BP 220" [ref=e7266]:
+                                          - cell "postalBox" [ref=e7267]
+                                          - cell "string E.g. BP 220" [ref=e7268]:
+                                            - generic [ref=e7270]:
+                                              - button [expanded] [ref=e7271] [cursor=pointer]
+                                              - generic [ref=e7273]:
+                                                - text: string
+                                                - paragraph [ref=e7275]: E.g. BP 220
+                                        - row "text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e7276]:
+                                          - cell "text" [ref=e7277]
+                                          - cell "string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e7278]:
+                                            - generic [ref=e7280]:
+                                              - button [expanded] [ref=e7281] [cursor=pointer]
+                                              - generic [ref=e7283]:
+                                                - text: string
+                                                - paragraph [ref=e7285]: Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled.
+                                    - text: "}"
+                              - 'row "purpose ContactPurpose ContactPurpose string the purpose for which this contact is to be used Enum: [ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]" [ref=e7286]':
+                                - cell "purpose" [ref=e7287]
+                                - 'cell "ContactPurpose ContactPurpose string the purpose for which this contact is to be used Enum: [ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]" [ref=e7288]':
+                                  - generic [ref=e7290]:
+                                    - button "ContactPurpose" [expanded] [ref=e7291] [cursor=pointer]:
+                                      - generic [ref=e7293]: ContactPurpose
+                                    - generic [ref=e7295]:
+                                      - generic [ref=e7296]: ContactPurpose
+                                      - text: string
+                                      - paragraph [ref=e7298]: the purpose for which this contact is to be used
+                                      - generic [ref=e7299]:
+                                        - text: "Enum:"
+                                        - generic [ref=e7300]:
+                                          - button [expanded] [ref=e7301] [cursor=pointer]
+                                          - text: "[ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]"
+                              - row [ref=e7303]:
+                                - cell "phones" [ref=e7304]
+                                - cell [ref=e7305]:
+                                  - generic [ref=e7307]:
+                                    - button [expanded] [ref=e7308] [cursor=pointer]
+                                    - text: "["
+                                    - generic [ref=e7310]: "maxItems: 3"
+                                    - paragraph [ref=e7312]: Phone numbers
+                                    - generic [ref=e7315]:
+                                      - button "Phone" [expanded] [ref=e7316] [cursor=pointer]:
+                                        - generic [ref=e7318]: Phone
+                                      - text: "{"
+                                      - table [ref=e7321]:
+                                        - rowgroup [ref=e7322]:
+                                          - 'row "description: phone information" [ref=e7323]':
+                                            - cell "description:" [ref=e7324]
+                                            - cell "phone information" [ref=e7325]:
+                                              - paragraph [ref=e7327]: phone information
+                                          - 'row "category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e7328]':
+                                            - cell "category" [ref=e7329]
+                                            - 'cell "string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e7330]':
+                                              - generic [ref=e7332]:
+                                                - button [expanded] [ref=e7333] [cursor=pointer]
+                                                - generic [ref=e7335]:
+                                                  - text: string
+                                                  - paragraph [ref=e7337]: Category of the contact element
+                                                  - generic [ref=e7338]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e7339]:
+                                                      - button [expanded] [ref=e7340] [cursor=pointer]
+                                                      - text: "[ BUSINESS, PERSONAL, OTHER ]"
+                                          - 'row "addresseeName string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e7342]':
+                                            - cell "addresseeName" [ref=e7343]
+                                            - 'cell "string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e7344]':
+                                              - generic [ref=e7346]:
+                                                - button [expanded] [ref=e7347] [cursor=pointer]
+                                                - generic [ref=e7349]:
+                                                  - text: string
+                                                  - generic [ref=e7350]: "pattern: [a-zA-Z -]"
+                                                  - paragraph [ref=e7352]: Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted).
+                                          - 'row "deviceType PhoneDeviceType PhoneDeviceType string Type of the device (Landline, Mobile or Fax) Enum: [ MOBILE, LANDLINE, FAX ]" [ref=e7353]':
+                                            - cell "deviceType" [ref=e7354]
+                                            - 'cell "PhoneDeviceType PhoneDeviceType string Type of the device (Landline, Mobile or Fax) Enum: [ MOBILE, LANDLINE, FAX ]" [ref=e7355]':
+                                              - generic [ref=e7357]:
+                                                - button "PhoneDeviceType" [expanded] [ref=e7358] [cursor=pointer]:
+                                                  - generic [ref=e7360]: PhoneDeviceType
+                                                - generic [ref=e7362]:
+                                                  - generic [ref=e7363]: PhoneDeviceType
+                                                  - text: string
+                                                  - paragraph [ref=e7365]: Type of the device (Landline, Mobile or Fax)
+                                                  - generic [ref=e7366]:
+                                                    - text: "Enum:"
+                                                    - generic [ref=e7367]:
+                                                      - button [expanded] [ref=e7368] [cursor=pointer]
+                                                      - text: "[ MOBILE, LANDLINE, FAX ]"
+                                          - 'row "countryCode string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e7370]':
+                                            - cell "countryCode" [ref=e7371]
+                                            - 'cell "string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e7372]':
+                                              - generic [ref=e7374]:
+                                                - button [expanded] [ref=e7375] [cursor=pointer]
+                                                - generic [ref=e7377]:
+                                                  - text: string
+                                                  - generic [ref=e7378]: "pattern: [A-Z]{2}"
+                                                  - paragraph [ref=e7380]: Country code of the country (ISO3166-1). E.g. "US" for the United States
+                                          - 'row "countryCallingCode string pattern: [0-9+]{2,5} Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia." [ref=e7381]':
+                                            - cell "countryCallingCode" [ref=e7382]
+                                            - 'cell "string pattern: [0-9+]{2,5} Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia." [ref=e7383]':
+                                              - generic [ref=e7385]:
+                                                - button [expanded] [ref=e7386] [cursor=pointer]
+                                                - generic [ref=e7388]:
+                                                  - text: string
+                                                  - generic [ref=e7389]: "pattern: [0-9+]{2,5}"
+                                                  - paragraph [ref=e7391]: Country calling code of the phone number, as defined by the International Communication Union. Examples - "1" for US, "371" for Latvia.
+                                          - 'row "areaCode string pattern: [0-9]{1,4} Corresponds to a regional code or a city code. The length of the field varies depending on the area." [ref=e7392]':
+                                            - cell "areaCode" [ref=e7393]
+                                            - 'cell "string pattern: [0-9]{1,4} Corresponds to a regional code or a city code. The length of the field varies depending on the area." [ref=e7394]':
+                                              - generic [ref=e7396]:
+                                                - button [expanded] [ref=e7397] [cursor=pointer]
+                                                - generic [ref=e7399]:
+                                                  - text: string
+                                                  - generic [ref=e7400]: "pattern: [0-9]{1,4}"
+                                                  - paragraph [ref=e7402]: Corresponds to a regional code or a city code. The length of the field varies depending on the area.
+                                          - 'row "number string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e7403]':
+                                            - cell "number" [ref=e7404]
+                                            - 'cell "string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e7405]':
+                                              - generic [ref=e7407]:
+                                                - button [expanded] [ref=e7408] [cursor=pointer]
+                                                - generic [ref=e7410]:
+                                                  - text: string
+                                                  - generic [ref=e7411]: "pattern: [0-9]{1,15}"
+                                                  - paragraph [ref=e7413]: Phone number. Composed of digits only. The number of digits depends on the country.
+                                          - row "extension string Extension of the phone" [ref=e7414]:
+                                            - cell "extension" [ref=e7415]
+                                            - cell "string Extension of the phone" [ref=e7416]:
+                                              - generic [ref=e7418]:
+                                                - button [expanded] [ref=e7419] [cursor=pointer]
+                                                - generic [ref=e7421]:
+                                                  - text: string
+                                                  - paragraph [ref=e7423]: Extension of the phone
+                                          - row "text string String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided" [ref=e7424]:
+                                            - cell "text" [ref=e7425]
+                                            - cell "string String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided" [ref=e7426]:
+                                              - generic [ref=e7428]:
+                                                - button [expanded] [ref=e7429] [cursor=pointer]
+                                                - generic [ref=e7431]:
+                                                  - text: string
+                                                  - paragraph [ref=e7433]: String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided
+                                      - text: "}"
+                                    - text: "]"
+                              - 'row "companyName string example: AMADEUS Name of the company" [ref=e7434]':
+                                - cell "companyName" [ref=e7435]
+                                - 'cell "string example: AMADEUS Name of the company" [ref=e7436]':
+                                  - generic [ref=e7438]:
+                                    - button [expanded] [ref=e7439] [cursor=pointer]
+                                    - generic [ref=e7441]:
+                                      - text: string
+                                      - generic [ref=e7442]: "example: AMADEUS"
+                                      - paragraph [ref=e7444]: Name of the company
+                              - 'row "emailAddress string example: support@mail.com Email address (e.g. john@smith.com )" [ref=e7445]':
+                                - cell "emailAddress" [ref=e7446]
+                                - 'cell "string example: support@mail.com Email address (e.g. john@smith.com )" [ref=e7447]':
+                                  - generic [ref=e7449]:
+                                    - button [expanded] [ref=e7450] [cursor=pointer]
+                                    - generic [ref=e7452]:
+                                      - text: string
+                                      - generic [ref=e7453]: "example: support@mail.com"
+                                      - paragraph [ref=e7455]:
+                                        - text: Email address (e.g.
+                                        - link "john@smith.com" [ref=e7456] [cursor=pointer]:
+                                          - /url: mailto:john@smith.com
+                                        - text: )
+                          - text: "}"
+                - text: "}"
+              - generic [ref=e7461]:
+                - button "Stakeholder" [expanded] [ref=e7462] [cursor=pointer]:
+                  - generic [ref=e7464]: Stakeholder
+                - text: "{"
+                - table [ref=e7467]:
+                  - rowgroup [ref=e7468]:
+                    - 'row "description: stakeholder definition" [ref=e7469]':
+                      - cell "description:" [ref=e7470]
+                      - cell "stakeholder definition" [ref=e7471]:
+                        - paragraph [ref=e7473]: stakeholder definition
+                    - row "id string item identifier" [ref=e7474]:
+                      - cell "id" [ref=e7475]
+                      - cell "string item identifier" [ref=e7476]:
+                        - generic [ref=e7478]:
+                          - button [expanded] [ref=e7479] [cursor=pointer]
+                          - generic [ref=e7481]:
+                            - text: string
+                            - paragraph [ref=e7483]: item identifier
+                    - row "dateOfBirth string($date) The date of birth in ISO 8601 format (yyyy-mm-dd)" [ref=e7484]:
+                      - cell "dateOfBirth" [ref=e7485]
+                      - cell "string($date) The date of birth in ISO 8601 format (yyyy-mm-dd)" [ref=e7486]:
+                        - generic [ref=e7488]:
+                          - button [expanded] [ref=e7489] [cursor=pointer]
+                          - generic [ref=e7491]:
+                            - text: string
+                            - generic [ref=e7492]: ($date)
+                            - paragraph [ref=e7494]: The date of birth in ISO 8601 format (yyyy-mm-dd)
+                    - 'row "gender StakeholderGender StakeholderGender string example: FEMALE The gender Enum: [ MALE, FEMALE ]" [ref=e7495]':
+                      - cell "gender" [ref=e7496]
+                      - 'cell "StakeholderGender StakeholderGender string example: FEMALE The gender Enum: [ MALE, FEMALE ]" [ref=e7497]':
+                        - generic [ref=e7499]:
+                          - button "StakeholderGender" [expanded] [ref=e7500] [cursor=pointer]:
+                            - generic [ref=e7502]: StakeholderGender
+                          - generic [ref=e7504]:
+                            - generic [ref=e7505]: StakeholderGender
+                            - text: string
+                            - generic [ref=e7506]: "example: FEMALE"
+                            - paragraph [ref=e7508]: The gender
+                            - generic [ref=e7509]:
+                              - text: "Enum:"
+                              - generic [ref=e7510]:
+                                - button [expanded] [ref=e7511] [cursor=pointer]
+                                - text: "[ MALE, FEMALE ]"
+                    - 'row "name name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e7513]':
+                      - cell "name" [ref=e7514]
+                      - 'cell "name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e7515]':
+                        - generic [ref=e7517]:
+                          - button "name" [expanded] [ref=e7518] [cursor=pointer]:
+                            - generic [ref=e7520]: name
+                          - text: "{"
+                          - table [ref=e7523]:
+                            - rowgroup [ref=e7524]:
+                              - 'row "description: name" [ref=e7525]':
+                                - cell "description:" [ref=e7526]
+                                - cell "name" [ref=e7527]:
+                                  - paragraph [ref=e7529]: name
+                              - row "firstName string First name." [ref=e7530]:
+                                - cell "firstName" [ref=e7531]
+                                - cell "string First name." [ref=e7532]:
+                                  - generic [ref=e7534]:
+                                    - button [expanded] [ref=e7535] [cursor=pointer]
+                                    - generic [ref=e7537]:
+                                      - text: string
+                                      - paragraph [ref=e7539]: First name.
+                              - row "lastName string Last name." [ref=e7540]:
+                                - cell "lastName" [ref=e7541]
+                                - cell "string Last name." [ref=e7542]:
+                                  - generic [ref=e7544]:
+                                    - button [expanded] [ref=e7545] [cursor=pointer]
+                                    - generic [ref=e7547]:
+                                      - text: string
+                                      - paragraph [ref=e7549]: Last name.
+                              - row "middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e7550]:
+                                - cell "middleName" [ref=e7551]
+                                - cell "string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e7552]:
+                                  - generic [ref=e7554]:
+                                    - button [expanded] [ref=e7555] [cursor=pointer]
+                                    - generic [ref=e7557]:
+                                      - text: string
+                                      - paragraph [ref=e7559]: Middle name(s), for example "Lee" in "John Lee Smith".
+                              - row "secondLastName string second last name" [ref=e7560]:
+                                - cell "secondLastName" [ref=e7561]
+                                - cell "string second last name" [ref=e7562]:
+                                  - generic [ref=e7564]:
+                                    - button [expanded] [ref=e7565] [cursor=pointer]
+                                    - generic [ref=e7567]:
+                                      - text: string
+                                      - paragraph [ref=e7569]: second last name
+                          - text: "}"
+                    - row [ref=e7570]:
+                      - cell "documents" [ref=e7571]
+                      - cell [ref=e7572]:
+                        - generic [ref=e7574]:
+                          - button [expanded] [ref=e7575] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e7578]: Advanced Passenger Information - regulatory identity documents - SSR DOCS & DOCO elements
+                          - generic [ref=e7581]:
+                            - button "traveler documents" [expanded] [ref=e7582] [cursor=pointer]:
+                              - generic [ref=e7584]: traveler documents
+                            - text: "{"
+                            - table [ref=e7587]:
+                              - rowgroup [ref=e7588]:
+                                - 'row "description: documents of the traveler" [ref=e7589]':
+                                  - cell "description:" [ref=e7590]
+                                  - cell "documents of the traveler" [ref=e7591]:
+                                    - paragraph [ref=e7593]: documents of the traveler
+                                - row "number string The document number (shown on the document) . E.g. QFU514563221J" [ref=e7594]:
+                                  - cell "number" [ref=e7595]
+                                  - cell "string The document number (shown on the document) . E.g. QFU514563221J" [ref=e7596]:
+                                    - generic [ref=e7598]:
+                                      - button [expanded] [ref=e7599] [cursor=pointer]
+                                      - generic [ref=e7601]:
+                                        - text: string
+                                        - paragraph [ref=e7603]: The document number (shown on the document) . E.g. QFU514563221J
+                                - row "issuanceDate string($date) Date at which the document has been issued." [ref=e7604]:
+                                  - cell "issuanceDate" [ref=e7605]
+                                  - cell "string($date) Date at which the document has been issued." [ref=e7606]:
+                                    - generic [ref=e7608]:
+                                      - button [expanded] [ref=e7609] [cursor=pointer]
+                                      - generic [ref=e7611]:
+                                        - text: string
+                                        - generic [ref=e7612]: ($date)
+                                        - paragraph [ref=e7614]: Date at which the document has been issued.
+                                - row "expiryDate string($date) Date after which the document is not valid anymore." [ref=e7615]:
+                                  - cell "expiryDate" [ref=e7616]
+                                  - cell "string($date) Date after which the document is not valid anymore." [ref=e7617]:
+                                    - generic [ref=e7619]:
+                                      - button [expanded] [ref=e7620] [cursor=pointer]
+                                      - generic [ref=e7622]:
+                                        - text: string
+                                        - generic [ref=e7623]: ($date)
+                                        - paragraph [ref=e7625]: Date after which the document is not valid anymore.
+                                - 'row "issuanceCountry string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e7626]':
+                                  - cell "issuanceCountry" [ref=e7627]
+                                  - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e7628]':
+                                    - generic [ref=e7630]:
+                                      - button [expanded] [ref=e7631] [cursor=pointer]
+                                      - generic [ref=e7633]:
+                                        - text: string
+                                        - generic [ref=e7634]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e7636]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e7637] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the country that issued the document
+                                - row "issuanceLocation string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e7638]:
+                                  - cell "issuanceLocation" [ref=e7639]
+                                  - cell "string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e7640]:
+                                    - generic [ref=e7642]:
+                                      - button [expanded] [ref=e7643] [cursor=pointer]
+                                      - generic [ref=e7645]:
+                                        - text: string
+                                        - paragraph [ref=e7647]: A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York
+                                - 'row "nationality string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e7648]':
+                                  - cell "nationality" [ref=e7649]
+                                  - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e7650]':
+                                    - generic [ref=e7652]:
+                                      - button [expanded] [ref=e7653] [cursor=pointer]
+                                      - generic [ref=e7655]:
+                                        - text: string
+                                        - generic [ref=e7656]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e7658]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e7659] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the nationality appearing on the document
+                                - row "birthPlace string Birth place as indicated on the document" [ref=e7660]:
+                                  - cell "birthPlace" [ref=e7661]
+                                  - cell "string Birth place as indicated on the document" [ref=e7662]:
+                                    - generic [ref=e7664]:
+                                      - button [expanded] [ref=e7665] [cursor=pointer]
+                                      - generic [ref=e7667]:
+                                        - text: string
+                                        - paragraph [ref=e7669]: Birth place as indicated on the document
+                                - 'row "documentType DocumentType DocumentType string example: VISA the nature/type of the document Enum: [ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]" [ref=e7670]':
+                                  - cell "documentType" [ref=e7671]
+                                  - 'cell "DocumentType DocumentType string example: VISA the nature/type of the document Enum: [ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]" [ref=e7672]':
+                                    - generic [ref=e7674]:
+                                      - button "DocumentType" [expanded] [ref=e7675] [cursor=pointer]:
+                                        - generic [ref=e7677]: DocumentType
+                                      - generic [ref=e7679]:
+                                        - generic [ref=e7680]: DocumentType
+                                        - text: string
+                                        - generic [ref=e7681]: "example: VISA"
+                                        - paragraph [ref=e7683]: the nature/type of the document
+                                        - generic [ref=e7684]:
+                                          - text: "Enum:"
+                                          - generic [ref=e7685]:
+                                            - button [expanded] [ref=e7686] [cursor=pointer]
+                                            - text: "[ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]"
+                                - 'row "validityCountry string example: IN pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country where the document is valid" [ref=e7688]':
+                                  - cell "validityCountry" [ref=e7689]
+                                  - 'cell "string example: IN pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country where the document is valid" [ref=e7690]':
+                                    - generic [ref=e7692]:
+                                      - button [expanded] [ref=e7693] [cursor=pointer]
+                                      - generic [ref=e7695]:
+                                        - text: string
+                                        - generic [ref=e7696]: "example: IN"
+                                        - generic [ref=e7697]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e7699]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e7700] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the country where the document is valid
+                                - 'row "birthCountry string example: FR pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country of birth" [ref=e7701]':
+                                  - cell "birthCountry" [ref=e7702]
+                                  - 'cell "string example: FR pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country of birth" [ref=e7703]':
+                                    - generic [ref=e7705]:
+                                      - button [expanded] [ref=e7706] [cursor=pointer]
+                                      - generic [ref=e7708]:
+                                        - text: string
+                                        - generic [ref=e7709]: "example: FR"
+                                        - generic [ref=e7710]: "pattern: [a-zA-Z]{2}"
+                                        - paragraph [ref=e7712]:
+                                          - link "ISO 3166-1 alpha-2" [ref=e7713] [cursor=pointer]:
+                                            - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                                          - text: of the country of birth
+                                - 'row "holder boolean example: true boolean to specify if the traveler is the holder of the document" [ref=e7714]':
+                                  - cell "holder" [ref=e7715]
+                                  - 'cell "boolean example: true boolean to specify if the traveler is the holder of the document" [ref=e7716]':
+                                    - generic [ref=e7718]:
+                                      - button [expanded] [ref=e7719] [cursor=pointer]
+                                      - generic [ref=e7721]:
+                                        - text: boolean
+                                        - generic [ref=e7722]: "example: true"
+                                        - paragraph [ref=e7724]: boolean to specify if the traveler is the holder of the document
+                            - text: "}"
+                          - text: "]"
+                - text: "}"
+              - generic [ref=e7729]:
+                - button "StakeholderGender" [expanded] [ref=e7730] [cursor=pointer]:
+                  - generic [ref=e7732]: StakeholderGender
+                - generic [ref=e7734]:
+                  - text: string
+                  - generic [ref=e7735]: "example: FEMALE"
+                  - paragraph [ref=e7737]: The gender
+                  - generic [ref=e7738]:
+                    - text: "Enum:"
+                    - generic [ref=e7739]:
+                      - button [expanded] [ref=e7740] [cursor=pointer]
+                      - text: "[ MALE, FEMALE ]"
+              - generic [ref=e7746]:
+                - button "traveler documents" [expanded] [ref=e7747] [cursor=pointer]:
+                  - generic [ref=e7749]: traveler documents
+                - text: "{"
+                - table [ref=e7752]:
+                  - rowgroup [ref=e7753]:
+                    - 'row "description: documents of the traveler" [ref=e7754]':
+                      - cell "description:" [ref=e7755]
+                      - cell "documents of the traveler" [ref=e7756]:
+                        - paragraph [ref=e7758]: documents of the traveler
+                    - row "number string The document number (shown on the document) . E.g. QFU514563221J" [ref=e7759]:
+                      - cell "number" [ref=e7760]
+                      - cell "string The document number (shown on the document) . E.g. QFU514563221J" [ref=e7761]:
+                        - generic [ref=e7763]:
+                          - button [expanded] [ref=e7764] [cursor=pointer]
+                          - generic [ref=e7766]:
+                            - text: string
+                            - paragraph [ref=e7768]: The document number (shown on the document) . E.g. QFU514563221J
+                    - row "issuanceDate string($date) Date at which the document has been issued." [ref=e7769]:
+                      - cell "issuanceDate" [ref=e7770]
+                      - cell "string($date) Date at which the document has been issued." [ref=e7771]:
+                        - generic [ref=e7773]:
+                          - button [expanded] [ref=e7774] [cursor=pointer]
+                          - generic [ref=e7776]:
+                            - text: string
+                            - generic [ref=e7777]: ($date)
+                            - paragraph [ref=e7779]: Date at which the document has been issued.
+                    - row "expiryDate string($date) Date after which the document is not valid anymore." [ref=e7780]:
+                      - cell "expiryDate" [ref=e7781]
+                      - cell "string($date) Date after which the document is not valid anymore." [ref=e7782]:
+                        - generic [ref=e7784]:
+                          - button [expanded] [ref=e7785] [cursor=pointer]
+                          - generic [ref=e7787]:
+                            - text: string
+                            - generic [ref=e7788]: ($date)
+                            - paragraph [ref=e7790]: Date after which the document is not valid anymore.
+                    - 'row "issuanceCountry string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e7791]':
+                      - cell "issuanceCountry" [ref=e7792]
+                      - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e7793]':
+                        - generic [ref=e7795]:
+                          - button [expanded] [ref=e7796] [cursor=pointer]
+                          - generic [ref=e7798]:
+                            - text: string
+                            - generic [ref=e7799]: "pattern: [a-zA-Z]{2}"
+                            - paragraph [ref=e7801]:
+                              - link "ISO 3166-1 alpha-2" [ref=e7802] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - text: of the country that issued the document
+                    - row "issuanceLocation string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e7803]:
+                      - cell "issuanceLocation" [ref=e7804]
+                      - cell "string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e7805]:
+                        - generic [ref=e7807]:
+                          - button [expanded] [ref=e7808] [cursor=pointer]
+                          - generic [ref=e7810]:
+                            - text: string
+                            - paragraph [ref=e7812]: A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York
+                    - 'row "nationality string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e7813]':
+                      - cell "nationality" [ref=e7814]
+                      - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e7815]':
+                        - generic [ref=e7817]:
+                          - button [expanded] [ref=e7818] [cursor=pointer]
+                          - generic [ref=e7820]:
+                            - text: string
+                            - generic [ref=e7821]: "pattern: [a-zA-Z]{2}"
+                            - paragraph [ref=e7823]:
+                              - link "ISO 3166-1 alpha-2" [ref=e7824] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - text: of the nationality appearing on the document
+                    - row "birthPlace string Birth place as indicated on the document" [ref=e7825]:
+                      - cell "birthPlace" [ref=e7826]
+                      - cell "string Birth place as indicated on the document" [ref=e7827]:
+                        - generic [ref=e7829]:
+                          - button [expanded] [ref=e7830] [cursor=pointer]
+                          - generic [ref=e7832]:
+                            - text: string
+                            - paragraph [ref=e7834]: Birth place as indicated on the document
+                    - 'row "documentType DocumentType DocumentType string example: VISA the nature/type of the document Enum: [ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]" [ref=e7835]':
+                      - cell "documentType" [ref=e7836]
+                      - 'cell "DocumentType DocumentType string example: VISA the nature/type of the document Enum: [ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]" [ref=e7837]':
+                        - generic [ref=e7839]:
+                          - button "DocumentType" [expanded] [ref=e7840] [cursor=pointer]:
+                            - generic [ref=e7842]: DocumentType
+                          - generic [ref=e7844]:
+                            - generic [ref=e7845]: DocumentType
+                            - text: string
+                            - generic [ref=e7846]: "example: VISA"
+                            - paragraph [ref=e7848]: the nature/type of the document
+                            - generic [ref=e7849]:
+                              - text: "Enum:"
+                              - generic [ref=e7850]:
+                                - button [expanded] [ref=e7851] [cursor=pointer]
+                                - text: "[ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]"
+                    - 'row "validityCountry string example: IN pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country where the document is valid" [ref=e7853]':
+                      - cell "validityCountry" [ref=e7854]
+                      - 'cell "string example: IN pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country where the document is valid" [ref=e7855]':
+                        - generic [ref=e7857]:
+                          - button [expanded] [ref=e7858] [cursor=pointer]
+                          - generic [ref=e7860]:
+                            - text: string
+                            - generic [ref=e7861]: "example: IN"
+                            - generic [ref=e7862]: "pattern: [a-zA-Z]{2}"
+                            - paragraph [ref=e7864]:
+                              - link "ISO 3166-1 alpha-2" [ref=e7865] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - text: of the country where the document is valid
+                    - 'row "birthCountry string example: FR pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country of birth" [ref=e7866]':
+                      - cell "birthCountry" [ref=e7867]
+                      - 'cell "string example: FR pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country of birth" [ref=e7868]':
+                        - generic [ref=e7870]:
+                          - button [expanded] [ref=e7871] [cursor=pointer]
+                          - generic [ref=e7873]:
+                            - text: string
+                            - generic [ref=e7874]: "example: FR"
+                            - generic [ref=e7875]: "pattern: [a-zA-Z]{2}"
+                            - paragraph [ref=e7877]:
+                              - link "ISO 3166-1 alpha-2" [ref=e7878] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - text: of the country of birth
+                    - 'row "holder boolean example: true boolean to specify if the traveler is the holder of the document" [ref=e7879]':
+                      - cell "holder" [ref=e7880]
+                      - 'cell "boolean example: true boolean to specify if the traveler is the holder of the document" [ref=e7881]':
+                        - generic [ref=e7883]:
+                          - button [expanded] [ref=e7884] [cursor=pointer]
+                          - generic [ref=e7886]:
+                            - text: boolean
+                            - generic [ref=e7887]: "example: true"
+                            - paragraph [ref=e7889]: boolean to specify if the traveler is the holder of the document
+                - text: "}"
+              - generic [ref=e7894]:
+                - button "Document" [expanded] [ref=e7895] [cursor=pointer]:
+                  - generic [ref=e7897]: Document
+                - text: "{"
+                - table [ref=e7900]:
+                  - rowgroup [ref=e7901]:
+                    - 'row "description: the information that are found on an ID document" [ref=e7902]':
+                      - cell "description:" [ref=e7903]
+                      - cell "the information that are found on an ID document" [ref=e7904]:
+                        - paragraph [ref=e7906]: the information that are found on an ID document
+                    - row "number string The document number (shown on the document) . E.g. QFU514563221J" [ref=e7907]:
+                      - cell "number" [ref=e7908]
+                      - cell "string The document number (shown on the document) . E.g. QFU514563221J" [ref=e7909]:
+                        - generic [ref=e7911]:
+                          - button [expanded] [ref=e7912] [cursor=pointer]
+                          - generic [ref=e7914]:
+                            - text: string
+                            - paragraph [ref=e7916]: The document number (shown on the document) . E.g. QFU514563221J
+                    - row "issuanceDate string($date) Date at which the document has been issued." [ref=e7917]:
+                      - cell "issuanceDate" [ref=e7918]
+                      - cell "string($date) Date at which the document has been issued." [ref=e7919]:
+                        - generic [ref=e7921]:
+                          - button [expanded] [ref=e7922] [cursor=pointer]
+                          - generic [ref=e7924]:
+                            - text: string
+                            - generic [ref=e7925]: ($date)
+                            - paragraph [ref=e7927]: Date at which the document has been issued.
+                    - row "expiryDate string($date) Date after which the document is not valid anymore." [ref=e7928]:
+                      - cell "expiryDate" [ref=e7929]
+                      - cell "string($date) Date after which the document is not valid anymore." [ref=e7930]:
+                        - generic [ref=e7932]:
+                          - button [expanded] [ref=e7933] [cursor=pointer]
+                          - generic [ref=e7935]:
+                            - text: string
+                            - generic [ref=e7936]: ($date)
+                            - paragraph [ref=e7938]: Date after which the document is not valid anymore.
+                    - 'row "issuanceCountry string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e7939]':
+                      - cell "issuanceCountry" [ref=e7940]
+                      - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the country that issued the document" [ref=e7941]':
+                        - generic [ref=e7943]:
+                          - button [expanded] [ref=e7944] [cursor=pointer]
+                          - generic [ref=e7946]:
+                            - text: string
+                            - generic [ref=e7947]: "pattern: [a-zA-Z]{2}"
+                            - paragraph [ref=e7949]:
+                              - link "ISO 3166-1 alpha-2" [ref=e7950] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - text: of the country that issued the document
+                    - row "issuanceLocation string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e7951]:
+                      - cell "issuanceLocation" [ref=e7952]
+                      - cell "string A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York" [ref=e7953]:
+                        - generic [ref=e7955]:
+                          - button [expanded] [ref=e7956] [cursor=pointer]
+                          - generic [ref=e7958]:
+                            - text: string
+                            - paragraph [ref=e7960]: A more precise information concerning the place where the document has been issued, when available. It may be a country, a state, a city or any other type of location. e.g. New-York
+                    - 'row "nationality string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e7961]':
+                      - cell "nationality" [ref=e7962]
+                      - 'cell "string pattern: [a-zA-Z]{2} ISO 3166-1 alpha-2 of the nationality appearing on the document" [ref=e7963]':
+                        - generic [ref=e7965]:
+                          - button [expanded] [ref=e7966] [cursor=pointer]
+                          - generic [ref=e7968]:
+                            - text: string
+                            - generic [ref=e7969]: "pattern: [a-zA-Z]{2}"
+                            - paragraph [ref=e7971]:
+                              - link "ISO 3166-1 alpha-2" [ref=e7972] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - text: of the nationality appearing on the document
+                    - row "birthPlace string Birth place as indicated on the document" [ref=e7973]:
+                      - cell "birthPlace" [ref=e7974]
+                      - cell "string Birth place as indicated on the document" [ref=e7975]:
+                        - generic [ref=e7977]:
+                          - button [expanded] [ref=e7978] [cursor=pointer]
+                          - generic [ref=e7980]:
+                            - text: string
+                            - paragraph [ref=e7982]: Birth place as indicated on the document
+                - text: "}"
+              - generic [ref=e7987]:
+                - button "DocumentType" [expanded] [ref=e7988] [cursor=pointer]:
+                  - generic [ref=e7990]: DocumentType
+                - generic [ref=e7992]:
+                  - text: string
+                  - generic [ref=e7993]: "example: VISA"
+                  - paragraph [ref=e7995]: the nature/type of the document
+                  - generic [ref=e7996]:
+                    - text: "Enum:"
+                    - generic [ref=e7997]:
+                      - button [expanded] [ref=e7998] [cursor=pointer]
+                      - text: "[ VISA, PASSPORT, IDENTITY_CARD, KNOWN_TRAVELER, REDRESS ]"
+              - generic [ref=e8004]:
+                - button "EmergencyContact" [expanded] [ref=e8005] [cursor=pointer]:
+                  - generic [ref=e8007]: EmergencyContact
+                - text: "{"
+                - table [ref=e8010]:
+                  - rowgroup [ref=e8011]:
+                    - 'row "description: emergency contact number" [ref=e8012]':
+                      - cell "description:" [ref=e8013]
+                      - cell "emergency contact number" [ref=e8014]:
+                        - paragraph [ref=e8016]: emergency contact number
+                    - 'row "addresseeName string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e8017]':
+                      - cell "addresseeName" [ref=e8018]
+                      - 'cell "string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e8019]':
+                        - generic [ref=e8021]:
+                          - button [expanded] [ref=e8022] [cursor=pointer]
+                          - generic [ref=e8024]:
+                            - text: string
+                            - generic [ref=e8025]: "pattern: [a-zA-Z -]"
+                            - paragraph [ref=e8027]: Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted).
+                    - 'row "countryCode string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e8028]':
+                      - cell "countryCode" [ref=e8029]
+                      - 'cell "string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e8030]':
+                        - generic [ref=e8032]:
+                          - button [expanded] [ref=e8033] [cursor=pointer]
+                          - generic [ref=e8035]:
+                            - text: string
+                            - generic [ref=e8036]: "pattern: [A-Z]{2}"
+                            - paragraph [ref=e8038]: Country code of the country (ISO3166-1). E.g. "US" for the United States
+                    - 'row "number string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e8039]':
+                      - cell "number" [ref=e8040]
+                      - 'cell "string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e8041]':
+                        - generic [ref=e8043]:
+                          - button [expanded] [ref=e8044] [cursor=pointer]
+                          - generic [ref=e8046]:
+                            - text: string
+                            - generic [ref=e8047]: "pattern: [0-9]{1,15}"
+                            - paragraph [ref=e8049]: Phone number. Composed of digits only. The number of digits depends on the country.
+                    - row "text string additional details" [ref=e8050]:
+                      - cell "text" [ref=e8051]
+                      - cell "string additional details" [ref=e8052]:
+                        - generic [ref=e8054]:
+                          - button [expanded] [ref=e8055] [cursor=pointer]
+                          - generic [ref=e8057]:
+                            - text: string
+                            - paragraph [ref=e8059]: additional details
+                - text: "}"
+              - generic [ref=e8064]:
+                - button "LoyaltyProgram" [expanded] [ref=e8065] [cursor=pointer]:
+                  - generic [ref=e8067]: LoyaltyProgram
+                - text: "{"
+                - table [ref=e8070]:
+                  - rowgroup [ref=e8071]:
+                    - 'row "description: loyalty program information" [ref=e8072]':
+                      - cell "description:" [ref=e8073]
+                      - cell "loyalty program information" [ref=e8074]:
+                        - paragraph [ref=e8076]: loyalty program information
+                    - 'row "programOwner string example: AF loyalty program airline code" [ref=e8077]':
+                      - cell "programOwner" [ref=e8078]
+                      - 'cell "string example: AF loyalty program airline code" [ref=e8079]':
+                        - generic [ref=e8081]:
+                          - button [expanded] [ref=e8082] [cursor=pointer]
+                          - generic [ref=e8084]:
+                            - text: string
+                            - generic [ref=e8085]: "example: AF"
+                            - paragraph [ref=e8087]: loyalty program airline code
+                    - 'row "id string example: 12357466574 loyalty program number" [ref=e8088]':
+                      - cell "id" [ref=e8089]
+                      - 'cell "string example: 12357466574 loyalty program number" [ref=e8090]':
+                        - generic [ref=e8092]:
+                          - button [expanded] [ref=e8093] [cursor=pointer]
+                          - generic [ref=e8095]:
+                            - text: string
+                            - generic [ref=e8096]: "example: 12357466574"
+                            - paragraph [ref=e8098]: loyalty program number
+                - text: "}"
+              - generic [ref=e8103]:
+                - button "Discount" [expanded] [ref=e8104] [cursor=pointer]:
+                  - generic [ref=e8106]: Discount
+                - text: "{"
+                - table [ref=e8109]:
+                  - rowgroup [ref=e8110]:
+                    - 'row "description: traveler discount" [ref=e8111]':
+                      - cell "description:" [ref=e8112]
+                      - cell "traveler discount" [ref=e8113]:
+                        - paragraph [ref=e8115]: traveler discount
+                    - 'row "subType DiscountType DiscountType string example: SPANISH_RESIDENT type of discount applied Enum: [ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ]" [ref=e8116]':
+                      - cell "subType" [ref=e8117]
+                      - 'cell "DiscountType DiscountType string example: SPANISH_RESIDENT type of discount applied Enum: [ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ]" [ref=e8118]':
+                        - generic [ref=e8120]:
+                          - button "DiscountType" [expanded] [ref=e8121] [cursor=pointer]:
+                            - generic [ref=e8123]: DiscountType
+                          - generic [ref=e8125]:
+                            - generic [ref=e8126]: DiscountType
+                            - text: string
+                            - generic [ref=e8127]: "example: SPANISH_RESIDENT"
+                            - paragraph [ref=e8129]: type of discount applied
+                            - generic [ref=e8130]:
+                              - text: "Enum:"
+                              - generic [ref=e8131]:
+                                - button [expanded] [ref=e8132] [cursor=pointer]
+                                - text: "[ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ]"
+                    - 'row "cityName string example: MADRID city of residence" [ref=e8134]':
+                      - cell "cityName" [ref=e8135]
+                      - 'cell "string example: MADRID city of residence" [ref=e8136]':
+                        - generic [ref=e8138]:
+                          - button [expanded] [ref=e8139] [cursor=pointer]
+                          - generic [ref=e8141]:
+                            - text: string
+                            - generic [ref=e8142]: "example: MADRID"
+                            - paragraph [ref=e8144]: city of residence
+                    - 'row "travelerType DiscountTravelerType DiscountTravelerType string example: SPANISH_CITIZEN type of discount applied Enum: [ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ]" [ref=e8145]':
+                      - cell "travelerType" [ref=e8146]
+                      - 'cell "DiscountTravelerType DiscountTravelerType string example: SPANISH_CITIZEN type of discount applied Enum: [ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ]" [ref=e8147]':
+                        - generic [ref=e8149]:
+                          - button "DiscountTravelerType" [expanded] [ref=e8150] [cursor=pointer]:
+                            - generic [ref=e8152]: DiscountTravelerType
+                          - generic [ref=e8154]:
+                            - generic [ref=e8155]: DiscountTravelerType
+                            - text: string
+                            - generic [ref=e8156]: "example: SPANISH_CITIZEN"
+                            - paragraph [ref=e8158]: type of discount applied
+                            - generic [ref=e8159]:
+                              - text: "Enum:"
+                              - generic [ref=e8160]:
+                                - button [expanded] [ref=e8161] [cursor=pointer]
+                                - text: "[ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ]"
+                    - 'row "cardNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident card number" [ref=e8163]':
+                      - cell "cardNumber" [ref=e8164]
+                      - 'cell "string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident card number" [ref=e8165]':
+                        - generic [ref=e8167]:
+                          - button [expanded] [ref=e8168] [cursor=pointer]
+                          - generic [ref=e8170]:
+                            - text: string
+                            - generic [ref=e8171]: "example: 12568215Z"
+                            - generic [ref=e8172]: "pattern: [0-9A-Z][0-9]{0,12}[A-Z]"
+                            - paragraph [ref=e8174]: resident card number
+                    - 'row "certificateNumber string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident certificate number" [ref=e8175]':
+                      - cell "certificateNumber" [ref=e8176]
+                      - 'cell "string example: 12568215Z pattern: [0-9A-Z][0-9]{0,12}[A-Z] resident certificate number" [ref=e8177]':
+                        - generic [ref=e8179]:
+                          - button [expanded] [ref=e8180] [cursor=pointer]
+                          - generic [ref=e8182]:
+                            - text: string
+                            - generic [ref=e8183]: "example: 12568215Z"
+                            - generic [ref=e8184]: "pattern: [0-9A-Z][0-9]{0,12}[A-Z]"
+                            - paragraph [ref=e8186]: resident certificate number
+                - text: "}"
+              - generic [ref=e8191]:
+                - button "DiscountType" [expanded] [ref=e8192] [cursor=pointer]:
+                  - generic [ref=e8194]: DiscountType
+                - generic [ref=e8196]:
+                  - text: string
+                  - generic [ref=e8197]: "example: SPANISH_RESIDENT"
+                  - paragraph [ref=e8199]: type of discount applied
+                  - generic [ref=e8200]:
+                    - text: "Enum:"
+                    - generic [ref=e8201]:
+                      - button [expanded] [ref=e8202] [cursor=pointer]
+                      - text: "[ SPANISH_RESIDENT, AIR_FRANCE_DOMESTIC, AIR_FRANCE_COMBINED, AIR_FRANCE_METROPOLITAN ]"
+              - generic [ref=e8208]:
+                - button "DiscountTravelerType" [expanded] [ref=e8209] [cursor=pointer]:
+                  - generic [ref=e8211]: DiscountTravelerType
+                - generic [ref=e8213]:
+                  - text: string
+                  - generic [ref=e8214]: "example: SPANISH_CITIZEN"
+                  - paragraph [ref=e8216]: type of discount applied
+                  - generic [ref=e8217]:
+                    - text: "Enum:"
+                    - generic [ref=e8218]:
+                      - button [expanded] [ref=e8219] [cursor=pointer]
+                      - text: "[ SPANISH_CITIZEN, EUROPEAN_CITIZEN, GOVERNMENT_WORKER, MILITARY, MINOR_WITHOUT_ID ]"
+              - generic [ref=e8225]:
+                - button "Contact" [expanded] [ref=e8226] [cursor=pointer]:
+                  - generic [ref=e8228]: Contact
+                - text: "{"
+                - table [ref=e8231]:
+                  - rowgroup [ref=e8232]:
+                    - 'row "description: contact information" [ref=e8233]':
+                      - cell "description:" [ref=e8234]
+                      - cell "contact information" [ref=e8235]:
+                        - paragraph [ref=e8237]: contact information
+                    - 'row "addresseeName name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e8238]':
+                      - cell "addresseeName" [ref=e8239]
+                      - 'cell "name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e8240]':
+                        - generic [ref=e8242]:
+                          - button "name" [expanded] [ref=e8243] [cursor=pointer]:
+                            - generic [ref=e8245]: name
+                          - text: "{"
+                          - table [ref=e8248]:
+                            - rowgroup [ref=e8249]:
+                              - 'row "description: name" [ref=e8250]':
+                                - cell "description:" [ref=e8251]
+                                - cell "name" [ref=e8252]:
+                                  - paragraph [ref=e8254]: name
+                              - row "firstName string First name." [ref=e8255]:
+                                - cell "firstName" [ref=e8256]
+                                - cell "string First name." [ref=e8257]:
+                                  - generic [ref=e8259]:
+                                    - button [expanded] [ref=e8260] [cursor=pointer]
+                                    - generic [ref=e8262]:
+                                      - text: string
+                                      - paragraph [ref=e8264]: First name.
+                              - row "lastName string Last name." [ref=e8265]:
+                                - cell "lastName" [ref=e8266]
+                                - cell "string Last name." [ref=e8267]:
+                                  - generic [ref=e8269]:
+                                    - button [expanded] [ref=e8270] [cursor=pointer]
+                                    - generic [ref=e8272]:
+                                      - text: string
+                                      - paragraph [ref=e8274]: Last name.
+                              - row "middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8275]:
+                                - cell "middleName" [ref=e8276]
+                                - cell "string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8277]:
+                                  - generic [ref=e8279]:
+                                    - button [expanded] [ref=e8280] [cursor=pointer]
+                                    - generic [ref=e8282]:
+                                      - text: string
+                                      - paragraph [ref=e8284]: Middle name(s), for example "Lee" in "John Lee Smith".
+                              - row "secondLastName string second last name" [ref=e8285]:
+                                - cell "secondLastName" [ref=e8286]
+                                - cell "string second last name" [ref=e8287]:
+                                  - generic [ref=e8289]:
+                                    - button [expanded] [ref=e8290] [cursor=pointer]
+                                    - generic [ref=e8292]:
+                                      - text: string
+                                      - paragraph [ref=e8294]: second last name
+                          - text: "}"
+                    - 'row "address Address { description: address information category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ] lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string] postalCode string Example: 74130 countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code stateName string Full state name postalBox string E.g. BP 220 text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled. }" [ref=e8295]':
+                      - cell "address" [ref=e8296]
+                      - 'cell "Address { description: address information category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ] lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string] postalCode string Example: 74130 countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code stateName string Full state name postalBox string E.g. BP 220 text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled. }" [ref=e8297]':
+                        - generic [ref=e8299]:
+                          - button "Address" [expanded] [ref=e8300] [cursor=pointer]:
+                            - generic [ref=e8302]: Address
+                          - text: "{"
+                          - table [ref=e8305]:
+                            - rowgroup [ref=e8306]:
+                              - 'row "description: address information" [ref=e8307]':
+                                - cell "description:" [ref=e8308]
+                                - cell "address information" [ref=e8309]:
+                                  - paragraph [ref=e8311]: address information
+                              - 'row "category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8312]':
+                                - cell "category" [ref=e8313]
+                                - 'cell "string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8314]':
+                                  - generic [ref=e8316]:
+                                    - button [expanded] [ref=e8317] [cursor=pointer]
+                                    - generic [ref=e8319]:
+                                      - text: string
+                                      - paragraph [ref=e8321]: Category of the contact element
+                                      - generic [ref=e8322]:
+                                        - text: "Enum:"
+                                        - generic [ref=e8323]:
+                                          - button [expanded] [ref=e8324] [cursor=pointer]
+                                          - text: "[ BUSINESS, PERSONAL, OTHER ]"
+                              - row "lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e8326]:
+                                - cell "lines" [ref=e8327]
+                                - cell "[ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e8328]:
+                                  - generic [ref=e8330]:
+                                    - button [expanded] [ref=e8331] [cursor=pointer]
+                                    - text: "["
+                                    - paragraph [ref=e8334]: Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc
+                                    - generic [ref=e8337]:
+                                      - button [expanded] [ref=e8338] [cursor=pointer]
+                                      - generic [ref=e8340]: string
+                                    - text: "]"
+                              - 'row "postalCode string Example: 74130" [ref=e8341]':
+                                - cell "postalCode" [ref=e8342]
+                                - 'cell "string Example: 74130" [ref=e8343]':
+                                  - generic [ref=e8345]:
+                                    - button [expanded] [ref=e8346] [cursor=pointer]
+                                    - generic [ref=e8348]:
+                                      - text: string
+                                      - paragraph [ref=e8350]: "Example: 74130"
+                              - 'row "countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e8351]':
+                                - cell "countryCode" [ref=e8352]
+                                - 'cell "string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e8353]':
+                                  - generic [ref=e8355]:
+                                    - button [expanded] [ref=e8356] [cursor=pointer]
+                                    - generic [ref=e8358]:
+                                      - text: string
+                                      - generic [ref=e8359]: "pattern: [a-zA-Z]{2}"
+                                      - paragraph [ref=e8361]:
+                                        - text: country code
+                                        - link "ISO 3166-1 country code" [ref=e8362] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - 'row "cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e8363]':
+                                - cell "cityName" [ref=e8364]
+                                - 'cell "string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e8365]':
+                                  - generic [ref=e8367]:
+                                    - button [expanded] [ref=e8368] [cursor=pointer]
+                                    - generic [ref=e8370]:
+                                      - text: string
+                                      - generic [ref=e8371]: "pattern: [a-zA-Z -]{1,35}"
+                                      - paragraph [ref=e8373]: "Full city name. Example: Dublin"
+                              - 'row "stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e8374]':
+                                - cell "stateCode" [ref=e8375]
+                                - 'cell "string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e8376]':
+                                  - generic [ref=e8378]:
+                                    - button [expanded] [ref=e8379] [cursor=pointer]
+                                    - generic [ref=e8381]:
+                                      - text: string
+                                      - generic [ref=e8382]: "pattern: [a-zA-Z0-9]{1,2}"
+                                      - paragraph [ref=e8384]:
+                                        - text: State code - two character standard
+                                        - link "ISO 3166-2 state code" [ref=e8385] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_3166-2
+                              - row "stateName string Full state name" [ref=e8386]:
+                                - cell "stateName" [ref=e8387]
+                                - cell "string Full state name" [ref=e8388]:
+                                  - generic [ref=e8390]:
+                                    - button [expanded] [ref=e8391] [cursor=pointer]
+                                    - generic [ref=e8393]:
+                                      - text: string
+                                      - paragraph [ref=e8395]: Full state name
+                              - row "postalBox string E.g. BP 220" [ref=e8396]:
+                                - cell "postalBox" [ref=e8397]
+                                - cell "string E.g. BP 220" [ref=e8398]:
+                                  - generic [ref=e8400]:
+                                    - button [expanded] [ref=e8401] [cursor=pointer]
+                                    - generic [ref=e8403]:
+                                      - text: string
+                                      - paragraph [ref=e8405]: E.g. BP 220
+                              - row "text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e8406]:
+                                - cell "text" [ref=e8407]
+                                - cell "string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e8408]:
+                                  - generic [ref=e8410]:
+                                    - button [expanded] [ref=e8411] [cursor=pointer]
+                                    - generic [ref=e8413]:
+                                      - text: string
+                                      - paragraph [ref=e8415]: Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled.
+                          - text: "}"
+                    - 'row "purpose ContactPurpose ContactPurpose string the purpose for which this contact is to be used Enum: [ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]" [ref=e8416]':
+                      - cell "purpose" [ref=e8417]
+                      - 'cell "ContactPurpose ContactPurpose string the purpose for which this contact is to be used Enum: [ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]" [ref=e8418]':
+                        - generic [ref=e8420]:
+                          - button "ContactPurpose" [expanded] [ref=e8421] [cursor=pointer]:
+                            - generic [ref=e8423]: ContactPurpose
+                          - generic [ref=e8425]:
+                            - generic [ref=e8426]: ContactPurpose
+                            - text: string
+                            - paragraph [ref=e8428]: the purpose for which this contact is to be used
+                            - generic [ref=e8429]:
+                              - text: "Enum:"
+                              - generic [ref=e8430]:
+                                - button [expanded] [ref=e8431] [cursor=pointer]
+                                - text: "[ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]"
+                    - row [ref=e8433]:
+                      - cell "phones" [ref=e8434]
+                      - cell [ref=e8435]:
+                        - generic [ref=e8437]:
+                          - button [expanded] [ref=e8438] [cursor=pointer]
+                          - text: "["
+                          - generic [ref=e8440]: "maxItems: 3"
+                          - paragraph [ref=e8442]: Phone numbers
+                          - generic [ref=e8445]:
+                            - button "Phone" [expanded] [ref=e8446] [cursor=pointer]:
+                              - generic [ref=e8448]: Phone
+                            - text: "{"
+                            - table [ref=e8451]:
+                              - rowgroup [ref=e8452]:
+                                - 'row "description: phone information" [ref=e8453]':
+                                  - cell "description:" [ref=e8454]
+                                  - cell "phone information" [ref=e8455]:
+                                    - paragraph [ref=e8457]: phone information
+                                - 'row "category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8458]':
+                                  - cell "category" [ref=e8459]
+                                  - 'cell "string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8460]':
+                                    - generic [ref=e8462]:
+                                      - button [expanded] [ref=e8463] [cursor=pointer]
+                                      - generic [ref=e8465]:
+                                        - text: string
+                                        - paragraph [ref=e8467]: Category of the contact element
+                                        - generic [ref=e8468]:
+                                          - text: "Enum:"
+                                          - generic [ref=e8469]:
+                                            - button [expanded] [ref=e8470] [cursor=pointer]
+                                            - text: "[ BUSINESS, PERSONAL, OTHER ]"
+                                - 'row "addresseeName string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e8472]':
+                                  - cell "addresseeName" [ref=e8473]
+                                  - 'cell "string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e8474]':
+                                    - generic [ref=e8476]:
+                                      - button [expanded] [ref=e8477] [cursor=pointer]
+                                      - generic [ref=e8479]:
+                                        - text: string
+                                        - generic [ref=e8480]: "pattern: [a-zA-Z -]"
+                                        - paragraph [ref=e8482]: Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted).
+                                - 'row "deviceType PhoneDeviceType PhoneDeviceType string Type of the device (Landline, Mobile or Fax) Enum: [ MOBILE, LANDLINE, FAX ]" [ref=e8483]':
+                                  - cell "deviceType" [ref=e8484]
+                                  - 'cell "PhoneDeviceType PhoneDeviceType string Type of the device (Landline, Mobile or Fax) Enum: [ MOBILE, LANDLINE, FAX ]" [ref=e8485]':
+                                    - generic [ref=e8487]:
+                                      - button "PhoneDeviceType" [expanded] [ref=e8488] [cursor=pointer]:
+                                        - generic [ref=e8490]: PhoneDeviceType
+                                      - generic [ref=e8492]:
+                                        - generic [ref=e8493]: PhoneDeviceType
+                                        - text: string
+                                        - paragraph [ref=e8495]: Type of the device (Landline, Mobile or Fax)
+                                        - generic [ref=e8496]:
+                                          - text: "Enum:"
+                                          - generic [ref=e8497]:
+                                            - button [expanded] [ref=e8498] [cursor=pointer]
+                                            - text: "[ MOBILE, LANDLINE, FAX ]"
+                                - 'row "countryCode string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e8500]':
+                                  - cell "countryCode" [ref=e8501]
+                                  - 'cell "string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e8502]':
+                                    - generic [ref=e8504]:
+                                      - button [expanded] [ref=e8505] [cursor=pointer]
+                                      - generic [ref=e8507]:
+                                        - text: string
+                                        - generic [ref=e8508]: "pattern: [A-Z]{2}"
+                                        - paragraph [ref=e8510]: Country code of the country (ISO3166-1). E.g. "US" for the United States
+                                - 'row "countryCallingCode string pattern: [0-9+]{2,5} Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia." [ref=e8511]':
+                                  - cell "countryCallingCode" [ref=e8512]
+                                  - 'cell "string pattern: [0-9+]{2,5} Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia." [ref=e8513]':
+                                    - generic [ref=e8515]:
+                                      - button [expanded] [ref=e8516] [cursor=pointer]
+                                      - generic [ref=e8518]:
+                                        - text: string
+                                        - generic [ref=e8519]: "pattern: [0-9+]{2,5}"
+                                        - paragraph [ref=e8521]: Country calling code of the phone number, as defined by the International Communication Union. Examples - "1" for US, "371" for Latvia.
+                                - 'row "areaCode string pattern: [0-9]{1,4} Corresponds to a regional code or a city code. The length of the field varies depending on the area." [ref=e8522]':
+                                  - cell "areaCode" [ref=e8523]
+                                  - 'cell "string pattern: [0-9]{1,4} Corresponds to a regional code or a city code. The length of the field varies depending on the area." [ref=e8524]':
+                                    - generic [ref=e8526]:
+                                      - button [expanded] [ref=e8527] [cursor=pointer]
+                                      - generic [ref=e8529]:
+                                        - text: string
+                                        - generic [ref=e8530]: "pattern: [0-9]{1,4}"
+                                        - paragraph [ref=e8532]: Corresponds to a regional code or a city code. The length of the field varies depending on the area.
+                                - 'row "number string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e8533]':
+                                  - cell "number" [ref=e8534]
+                                  - 'cell "string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e8535]':
+                                    - generic [ref=e8537]:
+                                      - button [expanded] [ref=e8538] [cursor=pointer]
+                                      - generic [ref=e8540]:
+                                        - text: string
+                                        - generic [ref=e8541]: "pattern: [0-9]{1,15}"
+                                        - paragraph [ref=e8543]: Phone number. Composed of digits only. The number of digits depends on the country.
+                                - row "extension string Extension of the phone" [ref=e8544]:
+                                  - cell "extension" [ref=e8545]
+                                  - cell "string Extension of the phone" [ref=e8546]:
+                                    - generic [ref=e8548]:
+                                      - button [expanded] [ref=e8549] [cursor=pointer]
+                                      - generic [ref=e8551]:
+                                        - text: string
+                                        - paragraph [ref=e8553]: Extension of the phone
+                                - row "text string String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided" [ref=e8554]:
+                                  - cell "text" [ref=e8555]
+                                  - cell "string String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided" [ref=e8556]:
+                                    - generic [ref=e8558]:
+                                      - button [expanded] [ref=e8559] [cursor=pointer]
+                                      - generic [ref=e8561]:
+                                        - text: string
+                                        - paragraph [ref=e8563]: String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided
+                            - text: "}"
+                          - text: "]"
+                    - 'row "companyName string example: AMADEUS Name of the company" [ref=e8564]':
+                      - cell "companyName" [ref=e8565]
+                      - 'cell "string example: AMADEUS Name of the company" [ref=e8566]':
+                        - generic [ref=e8568]:
+                          - button [expanded] [ref=e8569] [cursor=pointer]
+                          - generic [ref=e8571]:
+                            - text: string
+                            - generic [ref=e8572]: "example: AMADEUS"
+                            - paragraph [ref=e8574]: Name of the company
+                    - 'row "emailAddress string example: support@mail.com Email address (e.g. john@smith.com )" [ref=e8575]':
+                      - cell "emailAddress" [ref=e8576]
+                      - 'cell "string example: support@mail.com Email address (e.g. john@smith.com )" [ref=e8577]':
+                        - generic [ref=e8579]:
+                          - button [expanded] [ref=e8580] [cursor=pointer]
+                          - generic [ref=e8582]:
+                            - text: string
+                            - generic [ref=e8583]: "example: support@mail.com"
+                            - paragraph [ref=e8585]:
+                              - text: Email address (e.g.
+                              - link "john@smith.com" [ref=e8586] [cursor=pointer]:
+                                - /url: mailto:john@smith.com
+                              - text: )
+                - text: "}"
+              - generic [ref=e8591]:
+                - button "ContactPurpose" [expanded] [ref=e8592] [cursor=pointer]:
+                  - generic [ref=e8594]: ContactPurpose
+                - generic [ref=e8596]:
+                  - text: string
+                  - paragraph [ref=e8598]: the purpose for which this contact is to be used
+                  - generic [ref=e8599]:
+                    - text: "Enum:"
+                    - generic [ref=e8600]:
+                      - button [expanded] [ref=e8601] [cursor=pointer]
+                      - text: "[ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]"
+              - generic [ref=e8607]:
+                - button "ContactDictionary" [expanded] [ref=e8608] [cursor=pointer]:
+                  - generic [ref=e8610]: ContactDictionary
+                - text: "{"
+                - table [ref=e8613]:
+                  - rowgroup [ref=e8614]:
+                    - 'row "description: represents a contact" [ref=e8615]':
+                      - cell "description:" [ref=e8616]
+                      - cell "represents a contact" [ref=e8617]:
+                        - paragraph [ref=e8619]: represents a contact
+                    - 'row "addresseeName name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e8620]':
+                      - cell "addresseeName" [ref=e8621]
+                      - 'cell "name { description: name firstName string First name. lastName string Last name. middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\". secondLastName string second last name }" [ref=e8622]':
+                        - generic [ref=e8624]:
+                          - button "name" [expanded] [ref=e8625] [cursor=pointer]:
+                            - generic [ref=e8627]: name
+                          - text: "{"
+                          - table [ref=e8630]:
+                            - rowgroup [ref=e8631]:
+                              - 'row "description: name" [ref=e8632]':
+                                - cell "description:" [ref=e8633]
+                                - cell "name" [ref=e8634]:
+                                  - paragraph [ref=e8636]: name
+                              - row "firstName string First name." [ref=e8637]:
+                                - cell "firstName" [ref=e8638]
+                                - cell "string First name." [ref=e8639]:
+                                  - generic [ref=e8641]:
+                                    - button [expanded] [ref=e8642] [cursor=pointer]
+                                    - generic [ref=e8644]:
+                                      - text: string
+                                      - paragraph [ref=e8646]: First name.
+                              - row "lastName string Last name." [ref=e8647]:
+                                - cell "lastName" [ref=e8648]
+                                - cell "string Last name." [ref=e8649]:
+                                  - generic [ref=e8651]:
+                                    - button [expanded] [ref=e8652] [cursor=pointer]
+                                    - generic [ref=e8654]:
+                                      - text: string
+                                      - paragraph [ref=e8656]: Last name.
+                              - row "middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8657]:
+                                - cell "middleName" [ref=e8658]
+                                - cell "string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8659]:
+                                  - generic [ref=e8661]:
+                                    - button [expanded] [ref=e8662] [cursor=pointer]
+                                    - generic [ref=e8664]:
+                                      - text: string
+                                      - paragraph [ref=e8666]: Middle name(s), for example "Lee" in "John Lee Smith".
+                              - row "secondLastName string second last name" [ref=e8667]:
+                                - cell "secondLastName" [ref=e8668]
+                                - cell "string second last name" [ref=e8669]:
+                                  - generic [ref=e8671]:
+                                    - button [expanded] [ref=e8672] [cursor=pointer]
+                                    - generic [ref=e8674]:
+                                      - text: string
+                                      - paragraph [ref=e8676]: second last name
+                          - text: "}"
+                    - 'row "address Address { description: address information category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ] lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string] postalCode string Example: 74130 countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code stateName string Full state name postalBox string E.g. BP 220 text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled. }" [ref=e8677]':
+                      - cell "address" [ref=e8678]
+                      - 'cell "Address { description: address information category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ] lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string] postalCode string Example: 74130 countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code stateName string Full state name postalBox string E.g. BP 220 text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled. }" [ref=e8679]':
+                        - generic [ref=e8681]:
+                          - button "Address" [expanded] [ref=e8682] [cursor=pointer]:
+                            - generic [ref=e8684]: Address
+                          - text: "{"
+                          - table [ref=e8687]:
+                            - rowgroup [ref=e8688]:
+                              - 'row "description: address information" [ref=e8689]':
+                                - cell "description:" [ref=e8690]
+                                - cell "address information" [ref=e8691]:
+                                  - paragraph [ref=e8693]: address information
+                              - 'row "category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8694]':
+                                - cell "category" [ref=e8695]
+                                - 'cell "string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8696]':
+                                  - generic [ref=e8698]:
+                                    - button [expanded] [ref=e8699] [cursor=pointer]
+                                    - generic [ref=e8701]:
+                                      - text: string
+                                      - paragraph [ref=e8703]: Category of the contact element
+                                      - generic [ref=e8704]:
+                                        - text: "Enum:"
+                                        - generic [ref=e8705]:
+                                          - button [expanded] [ref=e8706] [cursor=pointer]
+                                          - text: "[ BUSINESS, PERSONAL, OTHER ]"
+                              - row "lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e8708]:
+                                - cell "lines" [ref=e8709]
+                                - cell "[ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e8710]:
+                                  - generic [ref=e8712]:
+                                    - button [expanded] [ref=e8713] [cursor=pointer]
+                                    - text: "["
+                                    - paragraph [ref=e8716]: Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc
+                                    - generic [ref=e8719]:
+                                      - button [expanded] [ref=e8720] [cursor=pointer]
+                                      - generic [ref=e8722]: string
+                                    - text: "]"
+                              - 'row "postalCode string Example: 74130" [ref=e8723]':
+                                - cell "postalCode" [ref=e8724]
+                                - 'cell "string Example: 74130" [ref=e8725]':
+                                  - generic [ref=e8727]:
+                                    - button [expanded] [ref=e8728] [cursor=pointer]
+                                    - generic [ref=e8730]:
+                                      - text: string
+                                      - paragraph [ref=e8732]: "Example: 74130"
+                              - 'row "countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e8733]':
+                                - cell "countryCode" [ref=e8734]
+                                - 'cell "string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e8735]':
+                                  - generic [ref=e8737]:
+                                    - button [expanded] [ref=e8738] [cursor=pointer]
+                                    - generic [ref=e8740]:
+                                      - text: string
+                                      - generic [ref=e8741]: "pattern: [a-zA-Z]{2}"
+                                      - paragraph [ref=e8743]:
+                                        - text: country code
+                                        - link "ISO 3166-1 country code" [ref=e8744] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                              - 'row "cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e8745]':
+                                - cell "cityName" [ref=e8746]
+                                - 'cell "string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e8747]':
+                                  - generic [ref=e8749]:
+                                    - button [expanded] [ref=e8750] [cursor=pointer]
+                                    - generic [ref=e8752]:
+                                      - text: string
+                                      - generic [ref=e8753]: "pattern: [a-zA-Z -]{1,35}"
+                                      - paragraph [ref=e8755]: "Full city name. Example: Dublin"
+                              - 'row "stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e8756]':
+                                - cell "stateCode" [ref=e8757]
+                                - 'cell "string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e8758]':
+                                  - generic [ref=e8760]:
+                                    - button [expanded] [ref=e8761] [cursor=pointer]
+                                    - generic [ref=e8763]:
+                                      - text: string
+                                      - generic [ref=e8764]: "pattern: [a-zA-Z0-9]{1,2}"
+                                      - paragraph [ref=e8766]:
+                                        - text: State code - two character standard
+                                        - link "ISO 3166-2 state code" [ref=e8767] [cursor=pointer]:
+                                          - /url: https://en.wikipedia.org/wiki/ISO_3166-2
+                              - row "stateName string Full state name" [ref=e8768]:
+                                - cell "stateName" [ref=e8769]
+                                - cell "string Full state name" [ref=e8770]:
+                                  - generic [ref=e8772]:
+                                    - button [expanded] [ref=e8773] [cursor=pointer]
+                                    - generic [ref=e8775]:
+                                      - text: string
+                                      - paragraph [ref=e8777]: Full state name
+                              - row "postalBox string E.g. BP 220" [ref=e8778]:
+                                - cell "postalBox" [ref=e8779]
+                                - cell "string E.g. BP 220" [ref=e8780]:
+                                  - generic [ref=e8782]:
+                                    - button [expanded] [ref=e8783] [cursor=pointer]
+                                    - generic [ref=e8785]:
+                                      - text: string
+                                      - paragraph [ref=e8787]: E.g. BP 220
+                              - row "text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e8788]:
+                                - cell "text" [ref=e8789]
+                                - cell "string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e8790]:
+                                  - generic [ref=e8792]:
+                                    - button [expanded] [ref=e8793] [cursor=pointer]
+                                    - generic [ref=e8795]:
+                                      - text: string
+                                      - paragraph [ref=e8797]: Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled.
+                          - text: "}"
+                    - 'row "purpose ContactPurpose ContactPurpose string the purpose for which this contact is to be used Enum: [ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]" [ref=e8798]':
+                      - cell "purpose" [ref=e8799]
+                      - 'cell "ContactPurpose ContactPurpose string the purpose for which this contact is to be used Enum: [ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]" [ref=e8800]':
+                        - generic [ref=e8802]:
+                          - button "ContactPurpose" [expanded] [ref=e8803] [cursor=pointer]:
+                            - generic [ref=e8805]: ContactPurpose
+                          - generic [ref=e8807]:
+                            - generic [ref=e8808]: ContactPurpose
+                            - text: string
+                            - paragraph [ref=e8810]: the purpose for which this contact is to be used
+                            - generic [ref=e8811]:
+                              - text: "Enum:"
+                              - generic [ref=e8812]:
+                                - button [expanded] [ref=e8813] [cursor=pointer]
+                                - text: "[ STANDARD, INVOICE, STANDARD_WITHOUT_TRANSMISSION ]"
+                - text: "}"
+              - generic [ref=e8819]:
+                - button "name" [expanded] [ref=e8820] [cursor=pointer]:
+                  - generic [ref=e8822]: name
+                - text: "{"
+                - table [ref=e8825]:
+                  - rowgroup [ref=e8826]:
+                    - 'row "description: name" [ref=e8827]':
+                      - cell "description:" [ref=e8828]
+                      - cell "name" [ref=e8829]:
+                        - paragraph [ref=e8831]: name
+                    - row "firstName string First name." [ref=e8832]:
+                      - cell "firstName" [ref=e8833]
+                      - cell "string First name." [ref=e8834]:
+                        - generic [ref=e8836]:
+                          - button [expanded] [ref=e8837] [cursor=pointer]
+                          - generic [ref=e8839]:
+                            - text: string
+                            - paragraph [ref=e8841]: First name.
+                    - row "lastName string Last name." [ref=e8842]:
+                      - cell "lastName" [ref=e8843]
+                      - cell "string Last name." [ref=e8844]:
+                        - generic [ref=e8846]:
+                          - button [expanded] [ref=e8847] [cursor=pointer]
+                          - generic [ref=e8849]:
+                            - text: string
+                            - paragraph [ref=e8851]: Last name.
+                    - row "middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8852]:
+                      - cell "middleName" [ref=e8853]
+                      - cell "string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8854]:
+                        - generic [ref=e8856]:
+                          - button [expanded] [ref=e8857] [cursor=pointer]
+                          - generic [ref=e8859]:
+                            - text: string
+                            - paragraph [ref=e8861]: Middle name(s), for example "Lee" in "John Lee Smith".
+                    - row "secondLastName string second last name" [ref=e8862]:
+                      - cell "secondLastName" [ref=e8863]
+                      - cell "string second last name" [ref=e8864]:
+                        - generic [ref=e8866]:
+                          - button [expanded] [ref=e8867] [cursor=pointer]
+                          - generic [ref=e8869]:
+                            - text: string
+                            - paragraph [ref=e8871]: second last name
+                - text: "}"
+              - generic [ref=e8876]:
+                - button "BaseName" [expanded] [ref=e8877] [cursor=pointer]:
+                  - generic [ref=e8879]: BaseName
+                - text: "{"
+                - table [ref=e8882]:
+                  - rowgroup [ref=e8883]:
+                    - 'row "description: description of the name of a physical person" [ref=e8884]':
+                      - cell "description:" [ref=e8885]
+                      - cell "description of the name of a physical person" [ref=e8886]:
+                        - paragraph [ref=e8888]: description of the name of a physical person
+                    - row "firstName string First name." [ref=e8889]:
+                      - cell "firstName" [ref=e8890]
+                      - cell "string First name." [ref=e8891]:
+                        - generic [ref=e8893]:
+                          - button [expanded] [ref=e8894] [cursor=pointer]
+                          - generic [ref=e8896]:
+                            - text: string
+                            - paragraph [ref=e8898]: First name.
+                    - row "lastName string Last name." [ref=e8899]:
+                      - cell "lastName" [ref=e8900]
+                      - cell "string Last name." [ref=e8901]:
+                        - generic [ref=e8903]:
+                          - button [expanded] [ref=e8904] [cursor=pointer]
+                          - generic [ref=e8906]:
+                            - text: string
+                            - paragraph [ref=e8908]: Last name.
+                    - row "middleName string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8909]:
+                      - cell "middleName" [ref=e8910]
+                      - cell "string Middle name(s), for example \"Lee\" in \"John Lee Smith\"." [ref=e8911]:
+                        - generic [ref=e8913]:
+                          - button [expanded] [ref=e8914] [cursor=pointer]
+                          - generic [ref=e8916]:
+                            - text: string
+                            - paragraph [ref=e8918]: Middle name(s), for example "Lee" in "John Lee Smith".
+                - text: "}"
+              - generic [ref=e8923]:
+                - button "Phone" [expanded] [ref=e8924] [cursor=pointer]:
+                  - generic [ref=e8926]: Phone
+                - text: "{"
+                - table [ref=e8929]:
+                  - rowgroup [ref=e8930]:
+                    - 'row "description: phone information" [ref=e8931]':
+                      - cell "description:" [ref=e8932]
+                      - cell "phone information" [ref=e8933]:
+                        - paragraph [ref=e8935]: phone information
+                    - 'row "category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8936]':
+                      - cell "category" [ref=e8937]
+                      - 'cell "string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e8938]':
+                        - generic [ref=e8940]:
+                          - button [expanded] [ref=e8941] [cursor=pointer]
+                          - generic [ref=e8943]:
+                            - text: string
+                            - paragraph [ref=e8945]: Category of the contact element
+                            - generic [ref=e8946]:
+                              - text: "Enum:"
+                              - generic [ref=e8947]:
+                                - button [expanded] [ref=e8948] [cursor=pointer]
+                                - text: "[ BUSINESS, PERSONAL, OTHER ]"
+                    - 'row "addresseeName string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e8950]':
+                      - cell "addresseeName" [ref=e8951]
+                      - 'cell "string pattern: [a-zA-Z -] Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted)." [ref=e8952]':
+                        - generic [ref=e8954]:
+                          - button [expanded] [ref=e8955] [cursor=pointer]
+                          - generic [ref=e8957]:
+                            - text: string
+                            - generic [ref=e8958]: "pattern: [a-zA-Z -]"
+                            - paragraph [ref=e8960]: Adressee name (e.g. in case of emergency purpose it corresponds to name of the person to be contacted).
+                    - 'row "deviceType PhoneDeviceType PhoneDeviceType string Type of the device (Landline, Mobile or Fax) Enum: [ MOBILE, LANDLINE, FAX ]" [ref=e8961]':
+                      - cell "deviceType" [ref=e8962]
+                      - 'cell "PhoneDeviceType PhoneDeviceType string Type of the device (Landline, Mobile or Fax) Enum: [ MOBILE, LANDLINE, FAX ]" [ref=e8963]':
+                        - generic [ref=e8965]:
+                          - button "PhoneDeviceType" [expanded] [ref=e8966] [cursor=pointer]:
+                            - generic [ref=e8968]: PhoneDeviceType
+                          - generic [ref=e8970]:
+                            - generic [ref=e8971]: PhoneDeviceType
+                            - text: string
+                            - paragraph [ref=e8973]: Type of the device (Landline, Mobile or Fax)
+                            - generic [ref=e8974]:
+                              - text: "Enum:"
+                              - generic [ref=e8975]:
+                                - button [expanded] [ref=e8976] [cursor=pointer]
+                                - text: "[ MOBILE, LANDLINE, FAX ]"
+                    - 'row "countryCode string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e8978]':
+                      - cell "countryCode" [ref=e8979]
+                      - 'cell "string pattern: [A-Z]{2} Country code of the country (ISO3166-1). E.g. \"US\" for the United States" [ref=e8980]':
+                        - generic [ref=e8982]:
+                          - button [expanded] [ref=e8983] [cursor=pointer]
+                          - generic [ref=e8985]:
+                            - text: string
+                            - generic [ref=e8986]: "pattern: [A-Z]{2}"
+                            - paragraph [ref=e8988]: Country code of the country (ISO3166-1). E.g. "US" for the United States
+                    - 'row "countryCallingCode string pattern: [0-9+]{2,5} Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia." [ref=e8989]':
+                      - cell "countryCallingCode" [ref=e8990]
+                      - 'cell "string pattern: [0-9+]{2,5} Country calling code of the phone number, as defined by the International Communication Union. Examples - \"1\" for US, \"371\" for Latvia." [ref=e8991]':
+                        - generic [ref=e8993]:
+                          - button [expanded] [ref=e8994] [cursor=pointer]
+                          - generic [ref=e8996]:
+                            - text: string
+                            - generic [ref=e8997]: "pattern: [0-9+]{2,5}"
+                            - paragraph [ref=e8999]: Country calling code of the phone number, as defined by the International Communication Union. Examples - "1" for US, "371" for Latvia.
+                    - 'row "areaCode string pattern: [0-9]{1,4} Corresponds to a regional code or a city code. The length of the field varies depending on the area." [ref=e9000]':
+                      - cell "areaCode" [ref=e9001]
+                      - 'cell "string pattern: [0-9]{1,4} Corresponds to a regional code or a city code. The length of the field varies depending on the area." [ref=e9002]':
+                        - generic [ref=e9004]:
+                          - button [expanded] [ref=e9005] [cursor=pointer]
+                          - generic [ref=e9007]:
+                            - text: string
+                            - generic [ref=e9008]: "pattern: [0-9]{1,4}"
+                            - paragraph [ref=e9010]: Corresponds to a regional code or a city code. The length of the field varies depending on the area.
+                    - 'row "number string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e9011]':
+                      - cell "number" [ref=e9012]
+                      - 'cell "string pattern: [0-9]{1,15} Phone number. Composed of digits only. The number of digits depends on the country." [ref=e9013]':
+                        - generic [ref=e9015]:
+                          - button [expanded] [ref=e9016] [cursor=pointer]
+                          - generic [ref=e9018]:
+                            - text: string
+                            - generic [ref=e9019]: "pattern: [0-9]{1,15}"
+                            - paragraph [ref=e9021]: Phone number. Composed of digits only. The number of digits depends on the country.
+                    - row "extension string Extension of the phone" [ref=e9022]:
+                      - cell "extension" [ref=e9023]
+                      - cell "string Extension of the phone" [ref=e9024]:
+                        - generic [ref=e9026]:
+                          - button [expanded] [ref=e9027] [cursor=pointer]
+                          - generic [ref=e9029]:
+                            - text: string
+                            - paragraph [ref=e9031]: Extension of the phone
+                    - row "text string String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided" [ref=e9032]:
+                      - cell "text" [ref=e9033]
+                      - cell "string String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided" [ref=e9034]:
+                        - generic [ref=e9036]:
+                          - button [expanded] [ref=e9037] [cursor=pointer]
+                          - generic [ref=e9039]:
+                            - text: string
+                            - paragraph [ref=e9041]: String containing the full phone number - applicable only when a structured phone (i.e. countryCallingCode + number) is not provided
+                - text: "}"
+              - generic [ref=e9046]:
+                - button "PhoneDeviceType" [expanded] [ref=e9047] [cursor=pointer]:
+                  - generic [ref=e9049]: PhoneDeviceType
+                - generic [ref=e9051]:
+                  - text: string
+                  - paragraph [ref=e9053]: Type of the device (Landline, Mobile or Fax)
+                  - generic [ref=e9054]:
+                    - text: "Enum:"
+                    - generic [ref=e9055]:
+                      - button [expanded] [ref=e9056] [cursor=pointer]
+                      - text: "[ MOBILE, LANDLINE, FAX ]"
+              - generic [ref=e9062]:
+                - button "Address" [expanded] [ref=e9063] [cursor=pointer]:
+                  - generic [ref=e9065]: Address
+                - text: "{"
+                - table [ref=e9068]:
+                  - rowgroup [ref=e9069]:
+                    - 'row "description: address information" [ref=e9070]':
+                      - cell "description:" [ref=e9071]
+                      - cell "address information" [ref=e9072]:
+                        - paragraph [ref=e9074]: address information
+                    - 'row "category string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e9075]':
+                      - cell "category" [ref=e9076]
+                      - 'cell "string Category of the contact element Enum: [ BUSINESS, PERSONAL, OTHER ]" [ref=e9077]':
+                        - generic [ref=e9079]:
+                          - button [expanded] [ref=e9080] [cursor=pointer]
+                          - generic [ref=e9082]:
+                            - text: string
+                            - paragraph [ref=e9084]: Category of the contact element
+                            - generic [ref=e9085]:
+                              - text: "Enum:"
+                              - generic [ref=e9086]:
+                                - button [expanded] [ref=e9087] [cursor=pointer]
+                                - text: "[ BUSINESS, PERSONAL, OTHER ]"
+                    - row "lines [ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e9089]:
+                      - cell "lines" [ref=e9090]
+                      - cell "[ Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc string]" [ref=e9091]:
+                        - generic [ref=e9093]:
+                          - button [expanded] [ref=e9094] [cursor=pointer]
+                          - text: "["
+                          - paragraph [ref=e9097]: Line 1 = Street address, Line 2 = Apartment, suite, unit, building, floor, etc
+                          - generic [ref=e9100]:
+                            - button [expanded] [ref=e9101] [cursor=pointer]
+                            - generic [ref=e9103]: string
+                          - text: "]"
+                    - 'row "postalCode string Example: 74130" [ref=e9104]':
+                      - cell "postalCode" [ref=e9105]
+                      - 'cell "string Example: 74130" [ref=e9106]':
+                        - generic [ref=e9108]:
+                          - button [expanded] [ref=e9109] [cursor=pointer]
+                          - generic [ref=e9111]:
+                            - text: string
+                            - paragraph [ref=e9113]: "Example: 74130"
+                    - 'row "countryCode string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e9114]':
+                      - cell "countryCode" [ref=e9115]
+                      - 'cell "string pattern: [a-zA-Z]{2} country code ISO 3166-1 country code" [ref=e9116]':
+                        - generic [ref=e9118]:
+                          - button [expanded] [ref=e9119] [cursor=pointer]
+                          - generic [ref=e9121]:
+                            - text: string
+                            - generic [ref=e9122]: "pattern: [a-zA-Z]{2}"
+                            - paragraph [ref=e9124]:
+                              - text: country code
+                              - link "ISO 3166-1 country code" [ref=e9125] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+                    - 'row "cityName string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e9126]':
+                      - cell "cityName" [ref=e9127]
+                      - 'cell "string pattern: [a-zA-Z -]{1,35} Full city name. Example: Dublin" [ref=e9128]':
+                        - generic [ref=e9130]:
+                          - button [expanded] [ref=e9131] [cursor=pointer]
+                          - generic [ref=e9133]:
+                            - text: string
+                            - generic [ref=e9134]: "pattern: [a-zA-Z -]{1,35}"
+                            - paragraph [ref=e9136]: "Full city name. Example: Dublin"
+                    - 'row "stateCode string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e9137]':
+                      - cell "stateCode" [ref=e9138]
+                      - 'cell "string pattern: [a-zA-Z0-9]{1,2} State code - two character standard ISO 3166-2 state code" [ref=e9139]':
+                        - generic [ref=e9141]:
+                          - button [expanded] [ref=e9142] [cursor=pointer]
+                          - generic [ref=e9144]:
+                            - text: string
+                            - generic [ref=e9145]: "pattern: [a-zA-Z0-9]{1,2}"
+                            - paragraph [ref=e9147]:
+                              - text: State code - two character standard
+                              - link "ISO 3166-2 state code" [ref=e9148] [cursor=pointer]:
+                                - /url: https://en.wikipedia.org/wiki/ISO_3166-2
+                    - row "stateName string Full state name" [ref=e9149]:
+                      - cell "stateName" [ref=e9150]
+                      - cell "string Full state name" [ref=e9151]:
+                        - generic [ref=e9153]:
+                          - button [expanded] [ref=e9154] [cursor=pointer]
+                          - generic [ref=e9156]:
+                            - text: string
+                            - paragraph [ref=e9158]: Full state name
+                    - row "postalBox string E.g. BP 220" [ref=e9159]:
+                      - cell "postalBox" [ref=e9160]
+                      - cell "string E.g. BP 220" [ref=e9161]:
+                        - generic [ref=e9163]:
+                          - button [expanded] [ref=e9164] [cursor=pointer]
+                          - generic [ref=e9166]:
+                            - text: string
+                            - paragraph [ref=e9168]: E.g. BP 220
+                    - row "text string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e9169]:
+                      - cell "text" [ref=e9170]
+                      - cell "string Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled." [ref=e9171]:
+                        - generic [ref=e9173]:
+                          - button [expanded] [ref=e9174] [cursor=pointer]
+                          - generic [ref=e9176]:
+                            - text: string
+                            - paragraph [ref=e9178]: Field containing a full unformatted address. Only applicable when the fields lines, postalCode, countryCode, cityName are not filled.
+                - text: "}"
+              - generic [ref=e9182]:
+                - generic [ref=e9183]:
+                  - button "Error_400" [expanded] [ref=e9184] [cursor=pointer]:
+                    - generic [ref=e9186]: Error_400
+                  - text: "{"
+                  - table [ref=e9189]:
+                    - rowgroup [ref=e9190]:
+                      - 'row "errors* [ Issue { status integer the HTTP status code applicable to this error code integer($int64) an application-specific error code title string a short summary of the error detail string explanation of the error source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1 }]" [ref=e9191]':
+                        - cell "errors*" [ref=e9192]
+                        - 'cell "[ Issue { status integer the HTTP status code applicable to this error code integer($int64) an application-specific error code title string a short summary of the error detail string explanation of the error source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1 }]" [ref=e9193]':
+                          - generic [ref=e9195]:
+                            - button [expanded] [ref=e9196] [cursor=pointer]
+                            - text: "["
+                            - generic [ref=e9200]:
+                              - button "Issue" [expanded] [ref=e9201] [cursor=pointer]:
+                                - generic [ref=e9203]: Issue
+                              - text: "{"
+                              - table [ref=e9206]:
+                                - rowgroup [ref=e9207]:
+                                  - row "status integer the HTTP status code applicable to this error" [ref=e9208]:
+                                    - cell "status" [ref=e9209]
+                                    - cell "integer the HTTP status code applicable to this error" [ref=e9210]:
+                                      - generic [ref=e9212]:
+                                        - button [expanded] [ref=e9213] [cursor=pointer]
+                                        - generic [ref=e9215]:
+                                          - text: integer
+                                          - paragraph [ref=e9217]: the HTTP status code applicable to this error
+                                  - row "code integer($int64) an application-specific error code" [ref=e9218]:
+                                    - cell "code" [ref=e9219]
+                                    - cell "integer($int64) an application-specific error code" [ref=e9220]:
+                                      - generic [ref=e9222]:
+                                        - button [expanded] [ref=e9223] [cursor=pointer]
+                                        - generic [ref=e9225]:
+                                          - text: integer
+                                          - generic [ref=e9226]: ($int64)
+                                          - paragraph [ref=e9228]: an application-specific error code
+                                  - row "title string a short summary of the error" [ref=e9229]:
+                                    - cell "title" [ref=e9230]
+                                    - cell "string a short summary of the error" [ref=e9231]:
+                                      - generic [ref=e9233]:
+                                        - button [expanded] [ref=e9234] [cursor=pointer]
+                                        - generic [ref=e9236]:
+                                          - text: string
+                                          - paragraph [ref=e9238]: a short summary of the error
+                                  - row "detail string explanation of the error" [ref=e9239]:
+                                    - cell "detail" [ref=e9240]
+                                    - cell "string explanation of the error" [ref=e9241]:
+                                      - generic [ref=e9243]:
+                                        - button [expanded] [ref=e9244] [cursor=pointer]
+                                        - generic [ref=e9246]:
+                                          - text: string
+                                          - paragraph [ref=e9248]: explanation of the error
+                                  - 'row "source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9249]':
+                                    - cell "source" [ref=e9250]
+                                    - 'cell "Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9251]':
+                                      - generic [ref=e9252]:
+                                        - generic [ref=e9253]:
+                                          - button "Issue_Source" [expanded] [ref=e9254] [cursor=pointer]:
+                                            - generic [ref=e9256]: Issue_Source
+                                          - text: "{"
+                                          - table [ref=e9259]:
+                                            - rowgroup [ref=e9260]:
+                                              - 'row "description: an object containing references to the source of the error" [ref=e9261]':
+                                                - cell "description:" [ref=e9262]
+                                                - cell "an object containing references to the source of the error" [ref=e9263]:
+                                                  - paragraph [ref=e9265]: an object containing references to the source of the error
+                                              - row "pointer string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9266]:
+                                                - cell "pointer" [ref=e9267]
+                                                - cell "string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9268]:
+                                                  - generic [ref=e9270]:
+                                                    - button [expanded] [ref=e9271] [cursor=pointer]
+                                                    - generic [ref=e9273]:
+                                                      - text: string
+                                                      - paragraph [ref=e9275]: a JSON Pointer [RFC6901] to the associated entity in the request document
+                                              - row "parameter string a string indicating which URI query parameter caused the issue" [ref=e9276]:
+                                                - cell "parameter" [ref=e9277]
+                                                - cell "string a string indicating which URI query parameter caused the issue" [ref=e9278]:
+                                                  - generic [ref=e9280]:
+                                                    - button [expanded] [ref=e9281] [cursor=pointer]
+                                                    - generic [ref=e9283]:
+                                                      - text: string
+                                                      - paragraph [ref=e9285]: a string indicating which URI query parameter caused the issue
+                                              - row "example string a string indicating an example of the right value" [ref=e9286]:
+                                                - cell "example" [ref=e9287]
+                                                - cell "string a string indicating an example of the right value" [ref=e9288]:
+                                                  - generic [ref=e9290]:
+                                                    - button [expanded] [ref=e9291] [cursor=pointer]
+                                                    - generic [ref=e9293]:
+                                                      - text: string
+                                                      - paragraph [ref=e9295]: a string indicating an example of the right value
+                                          - text: "}"
+                                        - generic [ref=e9296]: "maxProperties: 1"
+                              - text: "}"
+                            - text: "]"
+                  - text: "}"
+                - generic [ref=e9297]: "example: OrderedMap { \"errors\": List [ OrderedMap { \"status\": 400, \"code\": 477, \"title\": \"INVALID FORMAT\", \"detail\": \"invalid query parameter format\", \"source\": OrderedMap { \"parameter\": \"airport\", \"example\": \"CDG\" } } ] }"
+              - generic [ref=e9301]:
+                - generic [ref=e9302]:
+                  - button "Error_404" [expanded] [ref=e9303] [cursor=pointer]:
+                    - generic [ref=e9305]: Error_404
+                  - text: "{"
+                  - table [ref=e9308]:
+                    - rowgroup [ref=e9309]:
+                      - 'row "errors* [ Issue { status integer the HTTP status code applicable to this error code integer($int64) an application-specific error code title string a short summary of the error detail string explanation of the error source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1 }]" [ref=e9310]':
+                        - cell "errors*" [ref=e9311]
+                        - 'cell "[ Issue { status integer the HTTP status code applicable to this error code integer($int64) an application-specific error code title string a short summary of the error detail string explanation of the error source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1 }]" [ref=e9312]':
+                          - generic [ref=e9314]:
+                            - button [expanded] [ref=e9315] [cursor=pointer]
+                            - text: "["
+                            - generic [ref=e9319]:
+                              - button "Issue" [expanded] [ref=e9320] [cursor=pointer]:
+                                - generic [ref=e9322]: Issue
+                              - text: "{"
+                              - table [ref=e9325]:
+                                - rowgroup [ref=e9326]:
+                                  - row "status integer the HTTP status code applicable to this error" [ref=e9327]:
+                                    - cell "status" [ref=e9328]
+                                    - cell "integer the HTTP status code applicable to this error" [ref=e9329]:
+                                      - generic [ref=e9331]:
+                                        - button [expanded] [ref=e9332] [cursor=pointer]
+                                        - generic [ref=e9334]:
+                                          - text: integer
+                                          - paragraph [ref=e9336]: the HTTP status code applicable to this error
+                                  - row "code integer($int64) an application-specific error code" [ref=e9337]:
+                                    - cell "code" [ref=e9338]
+                                    - cell "integer($int64) an application-specific error code" [ref=e9339]:
+                                      - generic [ref=e9341]:
+                                        - button [expanded] [ref=e9342] [cursor=pointer]
+                                        - generic [ref=e9344]:
+                                          - text: integer
+                                          - generic [ref=e9345]: ($int64)
+                                          - paragraph [ref=e9347]: an application-specific error code
+                                  - row "title string a short summary of the error" [ref=e9348]:
+                                    - cell "title" [ref=e9349]
+                                    - cell "string a short summary of the error" [ref=e9350]:
+                                      - generic [ref=e9352]:
+                                        - button [expanded] [ref=e9353] [cursor=pointer]
+                                        - generic [ref=e9355]:
+                                          - text: string
+                                          - paragraph [ref=e9357]: a short summary of the error
+                                  - row "detail string explanation of the error" [ref=e9358]:
+                                    - cell "detail" [ref=e9359]
+                                    - cell "string explanation of the error" [ref=e9360]:
+                                      - generic [ref=e9362]:
+                                        - button [expanded] [ref=e9363] [cursor=pointer]
+                                        - generic [ref=e9365]:
+                                          - text: string
+                                          - paragraph [ref=e9367]: explanation of the error
+                                  - 'row "source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9368]':
+                                    - cell "source" [ref=e9369]
+                                    - 'cell "Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9370]':
+                                      - generic [ref=e9371]:
+                                        - generic [ref=e9372]:
+                                          - button "Issue_Source" [expanded] [ref=e9373] [cursor=pointer]:
+                                            - generic [ref=e9375]: Issue_Source
+                                          - text: "{"
+                                          - table [ref=e9378]:
+                                            - rowgroup [ref=e9379]:
+                                              - 'row "description: an object containing references to the source of the error" [ref=e9380]':
+                                                - cell "description:" [ref=e9381]
+                                                - cell "an object containing references to the source of the error" [ref=e9382]:
+                                                  - paragraph [ref=e9384]: an object containing references to the source of the error
+                                              - row "pointer string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9385]:
+                                                - cell "pointer" [ref=e9386]
+                                                - cell "string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9387]:
+                                                  - generic [ref=e9389]:
+                                                    - button [expanded] [ref=e9390] [cursor=pointer]
+                                                    - generic [ref=e9392]:
+                                                      - text: string
+                                                      - paragraph [ref=e9394]: a JSON Pointer [RFC6901] to the associated entity in the request document
+                                              - row "parameter string a string indicating which URI query parameter caused the issue" [ref=e9395]:
+                                                - cell "parameter" [ref=e9396]
+                                                - cell "string a string indicating which URI query parameter caused the issue" [ref=e9397]:
+                                                  - generic [ref=e9399]:
+                                                    - button [expanded] [ref=e9400] [cursor=pointer]
+                                                    - generic [ref=e9402]:
+                                                      - text: string
+                                                      - paragraph [ref=e9404]: a string indicating which URI query parameter caused the issue
+                                              - row "example string a string indicating an example of the right value" [ref=e9405]:
+                                                - cell "example" [ref=e9406]
+                                                - cell "string a string indicating an example of the right value" [ref=e9407]:
+                                                  - generic [ref=e9409]:
+                                                    - button [expanded] [ref=e9410] [cursor=pointer]
+                                                    - generic [ref=e9412]:
+                                                      - text: string
+                                                      - paragraph [ref=e9414]: a string indicating an example of the right value
+                                          - text: "}"
+                                        - generic [ref=e9415]: "maxProperties: 1"
+                              - text: "}"
+                            - text: "]"
+                  - text: "}"
+                - generic [ref=e9416]: "example: OrderedMap { \"errors\": List [ OrderedMap { \"status\": 404, \"code\": 1797, \"title\": \"NOT FOUND\", \"detail\": \"no response found for this query parameter\", \"source\": OrderedMap { \"parameter\": \"airport\" } } ] }"
+              - generic [ref=e9420]:
+                - generic [ref=e9421]:
+                  - button "Error_500" [expanded] [ref=e9422] [cursor=pointer]:
+                    - generic [ref=e9424]: Error_500
+                  - text: "{"
+                  - table [ref=e9427]:
+                    - rowgroup [ref=e9428]:
+                      - 'row "errors* [ Issue { status integer the HTTP status code applicable to this error code integer($int64) an application-specific error code title string a short summary of the error detail string explanation of the error source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1 }]" [ref=e9429]':
+                        - cell "errors*" [ref=e9430]
+                        - 'cell "[ Issue { status integer the HTTP status code applicable to this error code integer($int64) an application-specific error code title string a short summary of the error detail string explanation of the error source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1 }]" [ref=e9431]':
+                          - generic [ref=e9433]:
+                            - button [expanded] [ref=e9434] [cursor=pointer]
+                            - text: "["
+                            - generic [ref=e9438]:
+                              - button "Issue" [expanded] [ref=e9439] [cursor=pointer]:
+                                - generic [ref=e9441]: Issue
+                              - text: "{"
+                              - table [ref=e9444]:
+                                - rowgroup [ref=e9445]:
+                                  - row "status integer the HTTP status code applicable to this error" [ref=e9446]:
+                                    - cell "status" [ref=e9447]
+                                    - cell "integer the HTTP status code applicable to this error" [ref=e9448]:
+                                      - generic [ref=e9450]:
+                                        - button [expanded] [ref=e9451] [cursor=pointer]
+                                        - generic [ref=e9453]:
+                                          - text: integer
+                                          - paragraph [ref=e9455]: the HTTP status code applicable to this error
+                                  - row "code integer($int64) an application-specific error code" [ref=e9456]:
+                                    - cell "code" [ref=e9457]
+                                    - cell "integer($int64) an application-specific error code" [ref=e9458]:
+                                      - generic [ref=e9460]:
+                                        - button [expanded] [ref=e9461] [cursor=pointer]
+                                        - generic [ref=e9463]:
+                                          - text: integer
+                                          - generic [ref=e9464]: ($int64)
+                                          - paragraph [ref=e9466]: an application-specific error code
+                                  - row "title string a short summary of the error" [ref=e9467]:
+                                    - cell "title" [ref=e9468]
+                                    - cell "string a short summary of the error" [ref=e9469]:
+                                      - generic [ref=e9471]:
+                                        - button [expanded] [ref=e9472] [cursor=pointer]
+                                        - generic [ref=e9474]:
+                                          - text: string
+                                          - paragraph [ref=e9476]: a short summary of the error
+                                  - row "detail string explanation of the error" [ref=e9477]:
+                                    - cell "detail" [ref=e9478]
+                                    - cell "string explanation of the error" [ref=e9479]:
+                                      - generic [ref=e9481]:
+                                        - button [expanded] [ref=e9482] [cursor=pointer]
+                                        - generic [ref=e9484]:
+                                          - text: string
+                                          - paragraph [ref=e9486]: explanation of the error
+                                  - 'row "source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9487]':
+                                    - cell "source" [ref=e9488]
+                                    - 'cell "Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9489]':
+                                      - generic [ref=e9490]:
+                                        - generic [ref=e9491]:
+                                          - button "Issue_Source" [expanded] [ref=e9492] [cursor=pointer]:
+                                            - generic [ref=e9494]: Issue_Source
+                                          - text: "{"
+                                          - table [ref=e9497]:
+                                            - rowgroup [ref=e9498]:
+                                              - 'row "description: an object containing references to the source of the error" [ref=e9499]':
+                                                - cell "description:" [ref=e9500]
+                                                - cell "an object containing references to the source of the error" [ref=e9501]:
+                                                  - paragraph [ref=e9503]: an object containing references to the source of the error
+                                              - row "pointer string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9504]:
+                                                - cell "pointer" [ref=e9505]
+                                                - cell "string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9506]:
+                                                  - generic [ref=e9508]:
+                                                    - button [expanded] [ref=e9509] [cursor=pointer]
+                                                    - generic [ref=e9511]:
+                                                      - text: string
+                                                      - paragraph [ref=e9513]: a JSON Pointer [RFC6901] to the associated entity in the request document
+                                              - row "parameter string a string indicating which URI query parameter caused the issue" [ref=e9514]:
+                                                - cell "parameter" [ref=e9515]
+                                                - cell "string a string indicating which URI query parameter caused the issue" [ref=e9516]:
+                                                  - generic [ref=e9518]:
+                                                    - button [expanded] [ref=e9519] [cursor=pointer]
+                                                    - generic [ref=e9521]:
+                                                      - text: string
+                                                      - paragraph [ref=e9523]: a string indicating which URI query parameter caused the issue
+                                              - row "example string a string indicating an example of the right value" [ref=e9524]:
+                                                - cell "example" [ref=e9525]
+                                                - cell "string a string indicating an example of the right value" [ref=e9526]:
+                                                  - generic [ref=e9528]:
+                                                    - button [expanded] [ref=e9529] [cursor=pointer]
+                                                    - generic [ref=e9531]:
+                                                      - text: string
+                                                      - paragraph [ref=e9533]: a string indicating an example of the right value
+                                          - text: "}"
+                                        - generic [ref=e9534]: "maxProperties: 1"
+                              - text: "}"
+                            - text: "]"
+                  - text: "}"
+                - generic [ref=e9535]: "example: OrderedMap { \"errors\": List [ OrderedMap { \"status\": 500, \"code\": 141, \"title\": \"SYSTEM ERROR HAS OCCURRED\" } ] }"
+              - generic [ref=e9540]:
+                - button "Issue" [expanded] [ref=e9541] [cursor=pointer]:
+                  - generic [ref=e9543]: Issue
+                - text: "{"
+                - table [ref=e9546]:
+                  - rowgroup [ref=e9547]:
+                    - row "status integer the HTTP status code applicable to this error" [ref=e9548]:
+                      - cell "status" [ref=e9549]
+                      - cell "integer the HTTP status code applicable to this error" [ref=e9550]:
+                        - generic [ref=e9552]:
+                          - button [expanded] [ref=e9553] [cursor=pointer]
+                          - generic [ref=e9555]:
+                            - text: integer
+                            - paragraph [ref=e9557]: the HTTP status code applicable to this error
+                    - row "code integer($int64) an application-specific error code" [ref=e9558]:
+                      - cell "code" [ref=e9559]
+                      - cell "integer($int64) an application-specific error code" [ref=e9560]:
+                        - generic [ref=e9562]:
+                          - button [expanded] [ref=e9563] [cursor=pointer]
+                          - generic [ref=e9565]:
+                            - text: integer
+                            - generic [ref=e9566]: ($int64)
+                            - paragraph [ref=e9568]: an application-specific error code
+                    - row "title string a short summary of the error" [ref=e9569]:
+                      - cell "title" [ref=e9570]
+                      - cell "string a short summary of the error" [ref=e9571]:
+                        - generic [ref=e9573]:
+                          - button [expanded] [ref=e9574] [cursor=pointer]
+                          - generic [ref=e9576]:
+                            - text: string
+                            - paragraph [ref=e9578]: a short summary of the error
+                    - row "detail string explanation of the error" [ref=e9579]:
+                      - cell "detail" [ref=e9580]
+                      - cell "string explanation of the error" [ref=e9581]:
+                        - generic [ref=e9583]:
+                          - button [expanded] [ref=e9584] [cursor=pointer]
+                          - generic [ref=e9586]:
+                            - text: string
+                            - paragraph [ref=e9588]: explanation of the error
+                    - 'row "source Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9589]':
+                      - cell "source" [ref=e9590]
+                      - 'cell "Issue_Source { description: an object containing references to the source of the error pointer string a JSON Pointer [RFC6901] to the associated entity in the request document parameter string a string indicating which URI query parameter caused the issue example string a string indicating an example of the right value } maxProperties: 1" [ref=e9591]':
+                        - generic [ref=e9592]:
+                          - generic [ref=e9593]:
+                            - button "Issue_Source" [expanded] [ref=e9594] [cursor=pointer]:
+                              - generic [ref=e9596]: Issue_Source
+                            - text: "{"
+                            - table [ref=e9599]:
+                              - rowgroup [ref=e9600]:
+                                - 'row "description: an object containing references to the source of the error" [ref=e9601]':
+                                  - cell "description:" [ref=e9602]
+                                  - cell "an object containing references to the source of the error" [ref=e9603]:
+                                    - paragraph [ref=e9605]: an object containing references to the source of the error
+                                - row "pointer string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9606]:
+                                  - cell "pointer" [ref=e9607]
+                                  - cell "string a JSON Pointer [RFC6901] to the associated entity in the request document" [ref=e9608]:
+                                    - generic [ref=e9610]:
+                                      - button [expanded] [ref=e9611] [cursor=pointer]
+                                      - generic [ref=e9613]:
+                                        - text: string
+                                        - paragraph [ref=e9615]: a JSON Pointer [RFC6901] to the associated entity in the request document
+                                - row "parameter string a string indicating which URI query parameter caused the issue" [ref=e9616]:
+                                  - cell "parameter" [ref=e9617]
+                                  - cell "string a string indicating which URI query parameter caused the issue" [ref=e9618]:
+                                    - generic [ref=e9620]:
+                                      - button [expanded] [ref=e9621] [cursor=pointer]
+                                      - generic [ref=e9623]:
+                                        - text: string
+                                        - paragraph [ref=e9625]: a string indicating which URI query parameter caused the issue
+                                - row "example string a string indicating an example of the right value" [ref=e9626]:
+                                  - cell "example" [ref=e9627]
+                                  - cell "string a string indicating an example of the right value" [ref=e9628]:
+                                    - generic [ref=e9630]:
+                                      - button [expanded] [ref=e9631] [cursor=pointer]
+                                      - generic [ref=e9633]:
+                                        - text: string
+                                        - paragraph [ref=e9635]: a string indicating an example of the right value
+                            - text: "}"
+                          - generic [ref=e9636]: "maxProperties: 1"
+                - text: "}"
+              - generic [ref=e9641]:
+                - button "Collection_Meta" [expanded] [ref=e9642] [cursor=pointer]:
+                  - generic [ref=e9644]: Collection_Meta
+                - text: "{"
+                - table [ref=e9647]:
+                  - rowgroup [ref=e9648]:
+                    - 'row "count integer example: 1" [ref=e9649]':
+                      - cell "count" [ref=e9650]
+                      - 'cell "integer example: 1" [ref=e9651]':
+                        - generic [ref=e9653]:
+                          - button [expanded] [ref=e9654] [cursor=pointer]
+                          - generic [ref=e9656]:
+                            - text: integer
+                            - generic [ref=e9657]: "example: 1"
+                    - 'row "links CollectionLinks { self string($uri) example: https://test.api.amadeus.com/v1/area/resources?... next string($uri) example: https://test.api.amadeus.com/v1/area/resources?... previous string($uri) example: https://test.api.amadeus.com/v1/area/resources?... last string($uri) example: https://test.api.amadeus.com/v1/area/resources?... first string($uri) example: https://test.api.amadeus.com/v1/area/resources?... up string($uri) example: https://test.api.amadeus.com/v1/area/resources?... } example: OrderedMap { \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\" }" [ref=e9658]':
+                      - cell "links" [ref=e9659]
+                      - 'cell "CollectionLinks { self string($uri) example: https://test.api.amadeus.com/v1/area/resources?... next string($uri) example: https://test.api.amadeus.com/v1/area/resources?... previous string($uri) example: https://test.api.amadeus.com/v1/area/resources?... last string($uri) example: https://test.api.amadeus.com/v1/area/resources?... first string($uri) example: https://test.api.amadeus.com/v1/area/resources?... up string($uri) example: https://test.api.amadeus.com/v1/area/resources?... } example: OrderedMap { \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\" }" [ref=e9660]':
+                        - generic [ref=e9661]:
+                          - generic [ref=e9662]:
+                            - button "CollectionLinks" [expanded] [ref=e9663] [cursor=pointer]:
+                              - generic [ref=e9665]: CollectionLinks
+                            - text: "{"
+                            - table [ref=e9668]:
+                              - rowgroup [ref=e9669]:
+                                - 'row "self string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9670]':
+                                  - cell "self" [ref=e9671]
+                                  - 'cell "string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9672]':
+                                    - generic [ref=e9674]:
+                                      - button [expanded] [ref=e9675] [cursor=pointer]
+                                      - generic [ref=e9677]:
+                                        - text: string
+                                        - generic [ref=e9678]: ($uri)
+                                        - generic [ref=e9679]: "example: https://test.api.amadeus.com/v1/area/resources?..."
+                                - 'row "next string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9680]':
+                                  - cell "next" [ref=e9681]
+                                  - 'cell "string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9682]':
+                                    - generic [ref=e9684]:
+                                      - button [expanded] [ref=e9685] [cursor=pointer]
+                                      - generic [ref=e9687]:
+                                        - text: string
+                                        - generic [ref=e9688]: ($uri)
+                                        - generic [ref=e9689]: "example: https://test.api.amadeus.com/v1/area/resources?..."
+                                - 'row "previous string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9690]':
+                                  - cell "previous" [ref=e9691]
+                                  - 'cell "string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9692]':
+                                    - generic [ref=e9694]:
+                                      - button [expanded] [ref=e9695] [cursor=pointer]
+                                      - generic [ref=e9697]:
+                                        - text: string
+                                        - generic [ref=e9698]: ($uri)
+                                        - generic [ref=e9699]: "example: https://test.api.amadeus.com/v1/area/resources?..."
+                                - 'row "last string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9700]':
+                                  - cell "last" [ref=e9701]
+                                  - 'cell "string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9702]':
+                                    - generic [ref=e9704]:
+                                      - button [expanded] [ref=e9705] [cursor=pointer]
+                                      - generic [ref=e9707]:
+                                        - text: string
+                                        - generic [ref=e9708]: ($uri)
+                                        - generic [ref=e9709]: "example: https://test.api.amadeus.com/v1/area/resources?..."
+                                - 'row "first string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9710]':
+                                  - cell "first" [ref=e9711]
+                                  - 'cell "string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9712]':
+                                    - generic [ref=e9714]:
+                                      - button [expanded] [ref=e9715] [cursor=pointer]
+                                      - generic [ref=e9717]:
+                                        - text: string
+                                        - generic [ref=e9718]: ($uri)
+                                        - generic [ref=e9719]: "example: https://test.api.amadeus.com/v1/area/resources?..."
+                                - 'row "up string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9720]':
+                                  - cell "up" [ref=e9721]
+                                  - 'cell "string($uri) example: https://test.api.amadeus.com/v1/area/resources?..." [ref=e9722]':
+                                    - generic [ref=e9724]:
+                                      - button [expanded] [ref=e9725] [cursor=pointer]
+                                      - generic [ref=e9727]:
+                                        - text: string
+                                        - generic [ref=e9728]: ($uri)
+                                        - generic [ref=e9729]: "example: https://test.api.amadeus.com/v1/area/resources?..."
+                            - text: "}"
+                          - generic [ref=e9730]: "example: OrderedMap { \"self\": \"https://test.api.amadeus.com/v1/area/resources?param=value\" }"
+                - text: "}"
+              - generic [ref=e9734]:
+                - generic [ref=e9735]:
+                  - button "Link" [expanded] [ref=e9736] [cursor=pointer]:
+                    - generic [ref=e9738]: Link
+                  - text: "{"
+                  - table [ref=e9741]:
+                    - rowgroup [ref=e9742]:
+                      - row "href* string($uri)" [ref=e9743]:
+                        - cell "href*" [ref=e9744]
+                        - cell "string($uri)" [ref=e9745]:
+                          - generic [ref=e9747]:
+                            - button [expanded] [ref=e9748] [cursor=pointer]
+                            - generic [ref=e9750]:
+                              - text: string
+                              - generic [ref=e9751]: ($uri)
+                      - 'row "methods [ string Enum: [ GET, PUT, DELETE, POST, PATCH ] ]" [ref=e9752]':
+                        - cell "methods" [ref=e9753]
+                        - 'cell "[ string Enum: [ GET, PUT, DELETE, POST, PATCH ] ]" [ref=e9754]':
+                          - generic [ref=e9756]:
+                            - button [expanded] [ref=e9757] [cursor=pointer]
+                            - text: "["
+                            - generic [ref=e9761]:
+                              - button [expanded] [ref=e9762] [cursor=pointer]
+                              - generic [ref=e9764]:
+                                - text: string
+                                - generic [ref=e9765]:
+                                  - text: "Enum:"
+                                  - generic [ref=e9766]:
+                                    - button [expanded] [ref=e9767] [cursor=pointer]
+                                    - text: "[ GET, PUT, DELETE, POST, PATCH ]"
+                            - text: "]"
+                      - row "count integer" [ref=e9769]:
+                        - cell "count" [ref=e9770]
+                        - cell "integer" [ref=e9771]:
+                          - generic [ref=e9773]:
+                            - button [expanded] [ref=e9774] [cursor=pointer]
+                            - generic [ref=e9776]: integer
+                  - text: "}"
+                - generic [ref=e9777]: "example: OrderedMap { \"href\": \"string\" }"
+              - generic [ref=e9782]:
+                - button "QualifiedFreeText" [expanded] [ref=e9783] [cursor=pointer]:
+                  - generic [ref=e9785]: QualifiedFreeText
+                - text: "{"
+                - table [ref=e9788]:
+                  - rowgroup [ref=e9789]:
+                    - 'row "description: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e9790]':
+                      - cell "description:" [ref=e9791]
+                      - cell "Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language" [ref=e9792]:
+                        - paragraph [ref=e9794]: Specific type to convey a list of string for specific information type ( via qualifier) in specific character set, or language
+                    - 'row "text string example: Do you need and example ? Free Text" [ref=e9795]':
+                      - cell "text" [ref=e9796]
+                      - 'cell "string example: Do you need and example ? Free Text" [ref=e9797]':
+                        - generic [ref=e9799]:
+                          - button [expanded] [ref=e9800] [cursor=pointer]
+                          - generic [ref=e9802]:
+                            - text: string
+                            - generic [ref=e9803]: "example: Do you need and example ?"
+                            - paragraph [ref=e9805]: Free Text
+                    - 'row "lang string example: fr-FR see RFC 5646" [ref=e9806]':
+                      - cell "lang" [ref=e9807]
+                      - 'cell "string example: fr-FR see RFC 5646" [ref=e9808]':
+                        - generic [ref=e9810]:
+                          - button [expanded] [ref=e9811] [cursor=pointer]
+                          - generic [ref=e9813]:
+                            - text: string
+                            - generic [ref=e9814]: "example: fr-FR"
+                            - paragraph [ref=e9816]: see RFC 5646
+                - text: "}"
+  - generic [ref=e9818]:
+    - navigation [ref=e9819]:
+      - separator [ref=e9821]
+      - generic [ref=e9822]:
+        - list [ref=e9823]:
+          - listitem [ref=e9824]:
+            - link "Legal" [ref=e9825] [cursor=pointer]:
+              - /url: https://developers.amadeus.com/legal/terms-of-use
+          - listitem [ref=e9826]:
+            - link "Cookies policy" [ref=e9827] [cursor=pointer]:
+              - /url: https://developers.amadeus.com/legal/cookies-policy
+          - listitem [ref=e9828]:
+            - link "Privacy policy" [ref=e9829] [cursor=pointer]:
+              - /url: https://developers.amadeus.com/legal/privacy-policy
+          - listitem [ref=e9830]:
+            - link "Amadeus" [ref=e9831] [cursor=pointer]:
+              - /url: https://amadeus.com/
+        - list [ref=e9832]:
+          - listitem [ref=e9833]:
+            - list [ref=e9834]:
+              - listitem [ref=e9835]:
+                - link [ref=e9836] [cursor=pointer]:
+                  - /url: https://stackoverflow.com/questions/tagged/amadeus
+                  - generic [ref=e9837]: 
+              - listitem [ref=e9838]:
+                - link [ref=e9839] [cursor=pointer]:
+                  - /url: https://www.youtube.com/channel/UCwI48vMwtiE-hra2RAtk1PQ
+                  - generic [ref=e9840]: 
+              - listitem [ref=e9841]:
+                - link [ref=e9842] [cursor=pointer]:
+                  - /url: https://github.com/amadeus4dev
+                  - generic [ref=e9843]: 
+              - listitem [ref=e9844]:
+                - link [ref=e9845] [cursor=pointer]:
+                  - /url: https://twitter.com/amadeus4dev
+                  - generic [ref=e9846]: 
+              - listitem [ref=e9847]:
+                - link [ref=e9848] [cursor=pointer]:
+                  - /url: https://discord.gg/cVrFBqx
+                  - generic [ref=e9849]: 
+              - listitem [ref=e9850]:
+                - link [ref=e9851] [cursor=pointer]:
+                  - /url: https://www.linkedin.com/showcase/amadeus-for-developers/
+                  - generic [ref=e9852]: 
+      - separator [ref=e9854]
+    - generic [ref=e9856]:
+      - generic [ref=e9859]:
+        - img "Amadeus logo" [ref=e9861]
+        - generic [ref=e9862]: for Developers
+      - text: © Amadeus IT Group SA
+```

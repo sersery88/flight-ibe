@@ -1,8 +1,9 @@
-import { useState, useMemo, useRef, useEffect } from 'react';
-import { Luggage, Check, Plus, Plane, Briefcase, Coffee, Tv, Zap, Wifi, Crown, UtensilsCrossed, ChevronDown, Minus, Info } from 'lucide-react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
+import { Luggage, Check, Plus, Plane, ChevronDown, Minus, Info } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Card, Button, Badge } from '@/components/ui';
 import { cn, formatCurrency } from '@/lib/utils';
+import { translateAmenity, getAmenityIcon } from '@/lib/amenities';
 import { useBookingStore } from '@/stores/booking-store';
 import type { FlightOffer } from '@/types/flight';
 
@@ -12,23 +13,6 @@ const EXCLUDED_AMENITY_KEYWORDS = [
   'PREMIUM SEAT', 'PRE-RESERVED', 'SELECTION', 'ASSIGNMENT', 'BRANDED FARES'
 ];
 
-// Map amenity types to icons
-const getAmenityIcon = (amenityType: string | undefined, description?: string) => {
-  const type = (amenityType || '').toUpperCase();
-  const desc = (description || '').toUpperCase();
-  if (type.includes('BAGGAGE') || type.includes('BAG') || desc.includes('BAG')) return <Luggage className="h-5 w-5" />;
-  if (type.includes('MEAL') || type.includes('FOOD') || type.includes('SNACK') || desc.includes('MEAL')) return <UtensilsCrossed className="h-5 w-5" />;
-  if (type.includes('WIFI') || type.includes('INTERNET') || desc.includes('WI-FI')) return <Wifi className="h-5 w-5" />;
-  if (type.includes('ENTERTAINMENT') || desc.includes('ENTERTAINMENT')) return <Tv className="h-5 w-5" />;
-  if (type.includes('BEVERAGE') || desc.includes('BEVERAGE') || desc.includes('DRINK')) return <Coffee className="h-5 w-5" />;
-  if (type.includes('STREAMING') || desc.includes('STREAMING')) return <Tv className="h-5 w-5" />;
-  if (type.includes('POWER') || desc.includes('USB') || desc.includes('POWER')) return <Zap className="h-5 w-5" />;
-  if (type.includes('LOUNGE') || desc.includes('LOUNGE')) return <Crown className="h-5 w-5" />;
-  if (type.includes('PRIORITY') || desc.includes('PRIORITY')) return <Zap className="h-5 w-5" />;
-  if (desc.includes('CARRY') || desc.includes('CABIN') || desc.includes('PERSONAL')) return <Briefcase className="h-5 w-5" />;
-  return <Check className="h-5 w-5" />;
-};
-
 // Check if amenity should be excluded
 const shouldExcludeAmenity = (description: string, amenityType?: string): boolean => {
   const desc = (description || '').toUpperCase();
@@ -36,37 +20,6 @@ const shouldExcludeAmenity = (description: string, amenityType?: string): boolea
   return EXCLUDED_AMENITY_KEYWORDS.some(keyword => desc.includes(keyword) || type.includes(keyword));
 };
 
-// Translate amenity descriptions to German
-const translateAmenity = (description: string, _amenityType?: string): string => {
-  const desc = description.toUpperCase();
-  // Baggage
-  if (desc.includes('CHECKED BAG') || desc.includes('HOLD BAGGAGE')) {
-    if (desc.includes('NOT INCLUDED') || desc.includes('NOT OFFERED')) return 'Aufgabegepäck nicht inkludiert';
-    return 'Aufgabegepäck';
-  }
-  if (desc.includes('CARRY-ON') || desc.includes('CABIN BAG')) return 'Handgepäck';
-  if (desc.includes('PERSONAL ITEM')) return 'Persönlicher Gegenstand';
-  // Meals
-  if (desc.includes('MEAL') || desc.includes('SNACK')) {
-    if (desc.includes('NOT INCLUDED') || desc.includes('NOT OFFERED') || desc.includes('FOR PURCHASE'))
-      return 'Bordverpflegung (gegen Gebühr)';
-    return 'Bordverpflegung';
-  }
-  if (desc.includes('BEVERAGE') || desc.includes('DRINK')) return 'Getränke';
-  // Entertainment
-  if (desc.includes('ENTERTAINMENT') || desc.includes('IFE')) return 'Bordunterhaltung';
-  if (desc.includes('STREAMING')) return 'Streaming';
-  // WiFi
-  if (desc.includes('WIFI') || desc.includes('WI-FI')) return 'WLAN an Bord';
-  // Power
-  if (desc.includes('USB') || desc.includes('POWER')) return 'Strom/USB';
-  // Lounge
-  if (desc.includes('LOUNGE')) return 'Lounge-Zugang';
-  // Priority
-  if (desc.includes('PRIORITY')) return 'Priority Boarding';
-  // Return original if no translation found
-  return description;
-};
 
 // Special meal options (SSR codes)
 const SPECIAL_MEAL_OPTIONS = [
@@ -150,12 +103,10 @@ export function AncillariesSelection({ offer, className }: AncillariesSelectionP
 
           const translatedName = translateAmenity(amenity.description, amenity.amenityType);
           // Avoid duplicates by translated name
-          if (!amenityMap.has(translatedName)) {
-            amenityMap.set(translatedName, {
-              name: translatedName,
-              icon: getAmenityIcon(amenity.amenityType, amenity.description),
-            });
-          }
+          amenityMap.set(translatedName, {
+            name: translatedName,
+            icon: React.createElement(getAmenityIcon(amenity.amenityType, amenity.description), { className: "h-5 w-5" }),
+          });
         });
       });
     });
@@ -470,19 +421,26 @@ export function AncillariesSelection({ offer, className }: AncillariesSelectionP
                           <div
                             key={itinerary.id}
                             className={cn(
-                              'flex items-center justify-between p-3 rounded-lg border transition-all',
+                              'flex flex-col sm:flex-row sm:items-center justify-between p-3 rounded-xl border gap-4 transition-all',
                               isSelected
                                 ? 'border-primary bg-primary/5'
                                 : 'border-gray-200 dark:border-gray-700 hover:border-gray-300'
                             )}
                           >
-                            <div className="flex items-center gap-2">
-                              <Plane className={cn('h-4 w-4', itinerary.id === 1 && 'rotate-180')} />
-                              <span className="font-medium">{itinerary.short}</span>
-                              <span className="text-sm text-gray-500">{itinerary.label}</span>
-                            </div>
                             <div className="flex items-center gap-3">
-                              <span className="font-semibold">{formatCurrency(option.basePrice, currency)}</span>
+                              <div className={cn(
+                                'h-10 w-10 flex items-center justify-center rounded-full shrink-0',
+                                isSelected ? 'bg-primary/20 text-primary' : 'bg-gray-100 dark:bg-gray-800'
+                              )}>
+                                <Plane className={cn('h-5 w-5', itinerary.id === 1 && 'rotate-180')} />
+                              </div>
+                              <div className="min-w-0">
+                                <div className="font-semibold text-sm">{itinerary.short}</div>
+                                <div className="text-sm text-gray-500 truncate">{itinerary.label}</div>
+                              </div>
+                            </div>
+                            <div className="flex items-center justify-between sm:justify-end gap-4 border-t sm:border-t-0 pt-3 sm:pt-0">
+                              <span className="font-bold text-lg">{formatCurrency(option.basePrice, currency)}</span>
                               <Button
                                 variant={isSelected ? 'default' : 'outline'}
                                 size="sm"
@@ -510,31 +468,46 @@ export function AncillariesSelection({ offer, className }: AncillariesSelectionP
                     </div>
                   ) : (
                     /* Standard add/remove controls for non per-od options */
-                    <div className="mt-2 flex items-center justify-between">
-                      <div>
-                        <span className="text-lg font-bold">{formatCurrency(price, currency)}</span>
+                    <div className="mt-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-t dark:border-gray-800 pt-4">
+                      <div className="flex flex-col">
+                        <span className="text-2xl font-bold text-primary">{formatCurrency(price, currency)}</span>
                         {unitLabel && (
-                          <span className="text-xs text-gray-500 ml-1">
-                            ({unitLabel})
+                          <span className="text-xs text-gray-500">
+                            {unitLabel}
                           </span>
                         )}
                       </div>
-                      <div className="flex items-center gap-2">
-                        {count > 0 && (
-                          <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => handleRemove(option)}>
-                            <Minus className="h-4 w-4" />
+                      <div className="flex items-center justify-between sm:justify-end gap-4 p-1 bg-gray-50 dark:bg-gray-800/50 rounded-xl">
+                        {count > 0 ? (
+                          <>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-10 w-10 rounded-lg hover:bg-white dark:hover:bg-gray-700"
+                              onClick={() => handleRemove(option)}
+                            >
+                              <Minus className="h-5 w-5 text-red-500" />
+                            </Button>
+                            <span className="w-8 text-center font-bold text-lg">{count}</span>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="h-10 w-10 rounded-lg hover:bg-white dark:hover:bg-gray-700"
+                              onClick={() => handleAdd(option)}
+                              disabled={count >= option.maxQuantity}
+                            >
+                              <Plus className="h-5 w-5 text-primary" />
+                            </Button>
+                          </>
+                        ) : (
+                          <Button
+                            className="w-full sm:w-auto gap-2 rounded-lg px-6"
+                            onClick={() => handleAdd(option)}
+                          >
+                            <Plus className="h-4 w-4" />
+                            Hinzufügen
                           </Button>
                         )}
-                        {count > 0 && <span className="w-8 text-center font-semibold">{count}</span>}
-                        <Button
-                          variant={count > 0 ? 'outline' : 'default'}
-                          size="icon"
-                          className="h-8 w-8"
-                          onClick={() => handleAdd(option)}
-                          disabled={count >= option.maxQuantity}
-                        >
-                          <Plus className="h-4 w-4" />
-                        </Button>
                       </div>
                     </div>
                   )}
@@ -597,27 +570,34 @@ export function AncillariesSelection({ offer, className }: AncillariesSelectionP
               <Check className="h-5 w-5" />
               Im Tarif enthalten
             </h3>
-            <div className="flex flex-wrap gap-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-wrap gap-2 sm:gap-3">
               {/* Baggage info */}
               {includedBags && (includedBags.weight || includedBags.quantity) && (
-                <div className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 border border-green-200 dark:border-green-700">
-                  <Luggage className="h-4 w-4 text-green-600" />
-                  <span className="text-sm font-medium">
-                    Freigepäck: {includedBags.weight
-                      ? `${includedBags.weight}${includedBags.weightUnit || 'KG'}`
-                      : `${includedBags.quantity} Stück`
-                    }
-                  </span>
+                <div className="flex items-center gap-3 bg-white dark:bg-gray-800 rounded-xl px-4 py-3 border border-green-200 dark:border-green-700 shadow-sm">
+                  <div className="h-8 w-8 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center shrink-0">
+                    <Luggage className="h-4 w-4 text-green-600" />
+                  </div>
+                  <div className="min-w-0">
+                    <div className="text-xs text-green-600/70 dark:text-green-400/50 font-medium uppercase tracking-wider">Freigepäck</div>
+                    <div className="text-sm font-bold text-green-800 dark:text-green-300">
+                      {includedBags.weight
+                        ? `${includedBags.weight}${includedBags.weightUnit || 'KG'}`
+                        : `${includedBags.quantity} Stück`
+                      }
+                    </div>
+                  </div>
                 </div>
               )}
               {/* Dynamic amenities from API */}
               {includedAmenities.map((amenity, idx) => (
                 <div
                   key={idx}
-                  className="flex items-center gap-2 bg-white dark:bg-gray-800 rounded-lg px-3 py-2 border border-green-200 dark:border-green-700"
+                  className="flex items-center gap-3 bg-white dark:bg-gray-800 rounded-xl px-4 py-3 border border-green-200 dark:border-green-700 shadow-sm"
                 >
-                  <span className="text-green-600">{amenity.icon}</span>
-                  <span className="text-sm font-medium">{amenity.name}</span>
+                  <div className="h-8 w-8 rounded-full bg-green-100 dark:bg-green-900/50 flex items-center justify-center shrink-0 text-green-600">
+                    {amenity.icon}
+                  </div>
+                  <span className="text-sm font-bold text-green-800 dark:text-green-300">{amenity.name}</span>
                 </div>
               ))}
             </div>

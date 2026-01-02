@@ -15,5 +15,5 @@ export { SortDropdown, type SortOption } from './sort-dropdown';
 // Flight Details & Seatmap Components
 export { FlightDetailsModal } from './flight-details-modal';
 export { FareComparison } from './fare-comparison';
-export { SeatmapDisplay } from './seatmap-display';
+export { default as SeatmapDisplay } from './seatmap-display';
 

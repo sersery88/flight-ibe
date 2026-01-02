@@ -1,6 +1,7 @@
 import { Check, X, Luggage, Armchair, Crown } from 'lucide-react';
 import { motion } from 'motion/react';
 import { cn, formatCurrency, getCabinLabel } from '@/lib/utils';
+import { formatBrandedFareName, translateAmenity } from '@/lib/amenities';
 import { Button, Card } from '@/components/ui';
 import type { FlightOffer } from '@/types/flight';
 
@@ -37,7 +38,7 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
   const fareOptions: (FareOption & { offer: FlightOffer })[] = offers.map((offer) => {
     const fareDetails = offer.travelerPricings[0]?.fareDetailsBySegment[0];
     const amenities = fareDetails?.amenities || [];
-    
+
     // Calculate price per person (use first adult's price)
     const adultPricing = offer.travelerPricings.find(tp => tp.travelerType === 'ADULT');
     const pricePerPerson = adultPricing?.price?.total
@@ -46,7 +47,7 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
 
     return {
       id: offer.id,
-      name: fareDetails?.brandedFareLabel || getCabinLabel(fareDetails?.cabin || 'ECONOMY'),
+      name: fareDetails?.brandedFareLabel ? formatBrandedFareName(fareDetails.brandedFareLabel) : getCabinLabel(fareDetails?.cabin || 'ECONOMY'),
       brandedFare: fareDetails?.brandedFare,
       cabin: fareDetails?.cabin || 'ECONOMY',
       price: pricePerPerson,
@@ -61,26 +62,26 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
         {
           name: 'Aufgabegepäck',
           included: !!fareDetails?.includedCheckedBags?.weight || !!fareDetails?.includedCheckedBags?.quantity,
-          description: fareDetails?.includedCheckedBags?.weight 
-            ? `${fareDetails.includedCheckedBags.weight}kg` 
-            : fareDetails?.includedCheckedBags?.quantity 
-              ? `${fareDetails.includedCheckedBags.quantity}x` 
+          description: fareDetails?.includedCheckedBags?.weight
+            ? `${fareDetails.includedCheckedBags.weight}kg`
+            : fareDetails?.includedCheckedBags?.quantity
+              ? `${fareDetails.includedCheckedBags.quantity}x`
               : undefined
         },
         {
-          name: 'Sitzplatzwahl',
+          name: translateAmenity('Sitzplatzwahl', 'PRE_RESERVED_SEAT'),
           included: amenities.some(a => a.amenityType === 'PRE_RESERVED_SEAT' && !a.isChargeable) ?? false,
         },
         {
-          name: 'Umbuchbar',
+          name: translateAmenity('Umbuchbar', 'CHANGEABLE_TICKET'),
           included: fareDetails?.cabin !== 'ECONOMY' || (fareDetails?.brandedFare?.includes('FLEX') ?? false),
         },
         {
-          name: 'Priority Boarding',
+          name: translateAmenity('Priority Boarding', 'PRIORITY_BOARDING'),
           included: fareDetails?.cabin === 'BUSINESS' || fareDetails?.cabin === 'FIRST',
         },
         {
-          name: 'Lounge-Zugang',
+          name: translateAmenity('Lounge-Zugang', 'LOUNGE'),
           included: fareDetails?.cabin === 'BUSINESS' || fareDetails?.cabin === 'FIRST',
         },
       ],
@@ -111,7 +112,7 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
                 Empfohlen
               </div>
             )}
-            
+
             {/* Header */}
             <div className="border-b border-gray-100 p-4 dark:border-gray-800">
               <div className="flex items-center gap-2">
@@ -122,7 +123,7 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
                 </div>
               </div>
             </div>
-            
+
             {/* Features */}
             <div className="p-4">
               <ul className="space-y-2">
@@ -143,7 +144,7 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
                 ))}
               </ul>
             </div>
-            
+
             {/* Price & Action */}
             <div className="border-t border-gray-100 p-4 dark:border-gray-800">
               <div className="mb-3 text-center">
@@ -152,8 +153,8 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
                 </div>
                 <div className="text-xs text-gray-500">pro Person</div>
               </div>
-              <Button 
-                className="w-full" 
+              <Button
+                className="w-full"
                 variant={selectedOfferId === fare.id ? 'default' : 'outline'}
               >
                 {selectedOfferId === fare.id ? 'Ausgewählt' : 'Auswählen'}
@@ -168,7 +169,7 @@ export function FareComparison({ offers, selectedOfferId, onSelectOffer, classNa
 
 function FareIcon({ cabin }: { cabin: string }) {
   const iconClass = 'h-8 w-8 p-1.5 rounded-lg';
-  
+
   switch (cabin) {
     case 'FIRST':
       return <Crown className={cn(iconClass, 'bg-amber-100 text-amber-600 dark:bg-amber-900/30')} />;

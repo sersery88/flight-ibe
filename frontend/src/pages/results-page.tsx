@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useEffect } from 'react';
-import { ArrowLeft, Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2, SlidersHorizontal, X } from 'lucide-react';
+import { Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2, SlidersHorizontal, X } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
 import { FlightList } from '@/components/flight/flight-list';
 import { FilterSidebar, type FlightFilters } from '@/components/flight/filter-sidebar';
@@ -14,6 +14,7 @@ import { useBookingStore } from '@/stores/booking-store';
 import { useFlightSearch } from '@/hooks/use-flights';
 import type { FlightOffer } from '@/types/flight';
 import { cn, parseDuration } from '@/lib/utils';
+import { formatAirportName } from '@/lib/airports';
 
 // Helper to format date
 function formatSearchDate(date: Date | null): string {
@@ -26,12 +27,11 @@ function formatSearchDate(date: Date | null): string {
 // ============================================================================
 
 interface ResultsPageProps {
-  onBack?: () => void;
   onSelectFlight?: (offer: FlightOffer) => void;
   className?: string;
 }
 
-export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPageProps) {
+export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
   const store = useSearchStore();
   const {
     searchResults,
@@ -95,7 +95,7 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
     searchFlights(request);
     setShowSearchForm(false); // Close mobile popup after search
   };
-  
+
   const [sortBy, setSortBy] = useState<SortTabOption>('best');
   const [filters, setFilters] = useState<FlightFilters>({
     stops: [],
@@ -252,10 +252,6 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
       <div className="sticky top-0 z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm">
         <div className="mx-auto max-w-7xl px-4 py-3">
           <div className="flex items-center gap-3">
-            {/* Back button */}
-            <Button variant="ghost" size="icon" onClick={onBack} className="shrink-0">
-              <ArrowLeft className="h-5 w-5" />
-            </Button>
 
             {/* MOBILE: Compact Search Summary - Click to open popup */}
             <button
@@ -266,7 +262,7 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
               <div className="flex items-center gap-1.5 min-w-0">
                 <PlaneIcon className="h-4 w-4 shrink-0 text-gray-500" />
                 <span className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                  {origin || '???'} → {destination || '???'}
+                  {originName || formatAirportName(origin) || '???'} → {destinationName || formatAirportName(destination) || '???'}
                 </span>
               </div>
 
@@ -417,7 +413,7 @@ export function ResultsPage({ onBack, onSelectFlight, className }: ResultsPagePr
                     onClick={() => setShowSearchForm(false)}
                     className="shrink-0"
                   >
-                    <ArrowLeft className="h-5 w-5" />
+                    <X className="h-5 w-5" />
                   </Button>
                 </div>
 

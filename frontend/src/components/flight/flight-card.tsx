@@ -1,80 +1,17 @@
 import { useState, useEffect, useMemo } from 'react';
 import { Plane, Clock, Luggage, ChevronRight, ChevronDown, ChevronUp, Check, X, Loader2, Leaf, AlertTriangle } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
 
 import { cn, formatCurrency, formatDuration, formatDateTime, getStopsLabel } from '@/lib/utils';
 import { Badge, Button, Card, Tooltip, TooltipTrigger, TooltipContent } from '@/components/ui';
 import { getUpsellOffers } from '@/api/client';
+import { formatBrandedFareName, translateAmenity } from '@/lib/amenities';
+import { formatAircraftType } from '@/lib/aircraft';
+import { formatAirlineName } from '@/lib/airlines';
+import { formatAirportName } from '@/lib/airports';
 import type { FlightOffer, Segment } from '@/types/flight';
 
 // ============================================================================
-// Airline Names Map - Common IATA codes to full names
-// ============================================================================
-
-const AIRLINE_NAMES: Record<string, string> = {
-  // Lufthansa Group
-  LH: 'Lufthansa',
-  LX: 'Swiss International Air Lines',
-  OS: 'Austrian Airlines',
-  SN: 'Brussels Airlines',
-  EN: 'Air Dolomiti',
-  CL: 'Lufthansa CityLine',
-  EW: 'Eurowings',
-  '4Y': 'Eurowings Discover',
-  // Star Alliance
-  UA: 'United Airlines',
-  AC: 'Air Canada',
-  NH: 'All Nippon Airways',
-  SQ: 'Singapore Airlines',
-  TG: 'Thai Airways',
-  SK: 'SAS Scandinavian Airlines',
-  TK: 'Turkish Airlines',
-  ET: 'Ethiopian Airlines',
-  TP: 'TAP Air Portugal',
-  SA: 'South African Airways',
-  NZ: 'Air New Zealand',
-  AI: 'Air India',
-  // SkyTeam
-  AF: 'Air France',
-  KL: 'KLM Royal Dutch Airlines',
-  AZ: 'ITA Airways',
-  DL: 'Delta Air Lines',
-  KE: 'Korean Air',
-  MU: 'China Eastern Airlines',
-  SU: 'Aeroflot',
-  UX: 'Air Europa',
-  ME: 'Middle East Airlines',
-  // Oneworld
-  BA: 'British Airways',
-  AA: 'American Airlines',
-  QF: 'Qantas',
-  CX: 'Cathay Pacific',
-  IB: 'Iberia',
-  JL: 'Japan Airlines',
-  QR: 'Qatar Airways',
-  AY: 'Finnair',
-  RJ: 'Royal Jordanian',
-  MH: 'Malaysia Airlines',
-  // Low Cost & Others
-  FR: 'Ryanair',
-  U2: 'easyJet',
-  W6: 'Wizz Air',
-  VY: 'Vueling',
-  DE: 'Condor',
-  X3: 'TUIfly',
-  EK: 'Emirates',
-  EY: 'Etihad Airways',
-  WY: 'Oman Air',
-  GF: 'Gulf Air',
-  PC: 'Pegasus Airlines',
-  XQ: 'SunExpress',
-};
-
-/**
- * Get the full airline name from IATA code
- */
-function getAirlineName(carrierCode: string): string {
-  return AIRLINE_NAMES[carrierCode] || carrierCode;
-}
 
 // ============================================================================
 // Airline Logo Component - Displays airline logo from pics.avs.io with tooltip
@@ -90,7 +27,7 @@ interface AirlineLogoProps {
 function AirlineLogo({ carrierCode, size = 32, className, showTooltip = true }: AirlineLogoProps) {
   const [hasError, setHasError] = useState(false);
   const [showMobileTooltip, setShowMobileTooltip] = useState(false);
-  const airlineName = getAirlineName(carrierCode);
+  const airlineName = formatAirlineName(carrierCode);
 
   const logoElement = hasError ? (
     <div
@@ -181,6 +118,13 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
   const outbound = offer.itineraries[0];
   const returnFlight = offer.itineraries[1];
 
+  // Format outbound date for details
+  const formattedDepartureDate = new Date(outbound.segments[0]?.departure.at).toLocaleDateString('de-DE', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short'
+  });
+
   // Collect all segments for detail view
   const allSegments = [
     ...outbound.segments,
@@ -206,16 +150,6 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
   // Check if multiple fare options are available
   const hasMultipleFares = upsellOffers.length > 1;
 
-  // Format cabin class for display
-  const getCabinLabel = (cabin: string) => {
-    const labels: Record<string, string> = {
-      ECONOMY: 'Economy',
-      PREMIUM_ECONOMY: 'Premium Economy',
-      BUSINESS: 'Business',
-      FIRST: 'First',
-    };
-    return labels[cabin] || cabin;
-  };
 
   // Load upsell offers when fare selection is opened
   useEffect(() => {
@@ -327,41 +261,72 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
           )}
 
           {/* Expanded Flight Details - shown when card is clicked */}
-          {isExpanded && (
-            <div className="mt-4 rounded-lg bg-gray-50 dark:bg-gray-800/50 p-4 space-y-4">
-              {/* Outbound Details */}
-              <div>
-                <h5 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                  <Plane className="h-4 w-4" />
-                  Hinflug
-                </h5>
-                <FlightDetailsSection segments={outbound.segments} />
-              </div>
+          <AnimatePresence>
+            {isExpanded && (
+              <motion.div
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                exit={{ height: 0, opacity: 0 }}
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className="overflow-hidden"
+              >
+                <div className="mt-6 space-y-6 rounded-2xl bg-slate-50/50 dark:bg-neutral-800/30 p-4 sm:p-6 border border-slate-100 dark:border-neutral-700/50 backdrop-blur-sm">
+                  {/* Outbound Details */}
+                  <div className="space-y-4">
+                    <div className="flex flex-col gap-1 border-b border-slate-200/50 dark:border-neutral-700/50 pb-2">
+                      <h5 className="flex items-center gap-2 text-sm font-normal uppercase tracking-wider text-slate-500 dark:text-neutral-400">
+                        <Plane className="h-4 w-4 text-slate-400" />
+                        Hinflug
+                      </h5>
+                      <span className="text-base font-normal text-slate-800 dark:text-slate-200">{formattedDepartureDate}</span>
+                    </div>
+                    <FlightDetailsSection
+                      segments={outbound.segments}
+                      fareDetails={selectedTravelerPricing?.fareDetailsBySegment?.slice(0, outboundSegmentCount)}
+                    />
+                  </div>
 
-              {/* Return Details */}
-              {returnFlight && (
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
-                  <h5 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                    <Plane className="h-4 w-4 rotate-180" />
-                    Rückflug
-                  </h5>
-                  <FlightDetailsSection segments={returnFlight.segments} />
-                </div>
-              )}
+                  {/* Return Details */}
+                  {returnFlight && (
+                    <div className="space-y-4">
+                      <div className="flex flex-col gap-1 border-b border-slate-200/50 dark:border-neutral-700/50 pb-2 pt-2">
+                        <h5 className="flex items-center gap-2 text-sm font-normal uppercase tracking-wider text-slate-500 dark:text-neutral-400">
+                          <Plane className="h-4 w-4 rotate-180 text-slate-400" />
+                          Rückflug
+                        </h5>
+                        <span className="text-base font-normal text-slate-800 dark:text-slate-200">
+                          {new Date(returnFlight.segments[0].departure.at).toLocaleDateString('de-DE', {
+                            weekday: 'short', day: 'numeric', month: 'short'
+                          })}
+                        </span>
+                      </div>
+                      <FlightDetailsSection
+                        segments={returnFlight.segments}
+                        fareDetails={selectedTravelerPricing?.fareDetailsBySegment?.slice(outboundSegmentCount)}
+                      />
+                    </div>
+                  )}
 
-              {/* Total CO2 Summary */}
-              {totalJourneyCo2 > 0 && (
-                <div className="border-t border-gray-200 dark:border-gray-700 pt-3 flex items-center justify-between">
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                    Gesamt CO₂-Emissionen
-                  </span>
-                  <span className="font-semibold text-green-600 dark:text-green-400">
-                    {totalJourneyCo2.toFixed(0)} kg
-                  </span>
+                  {/* Journey Summary Badges */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 border-t border-slate-200/50 dark:border-neutral-700/50 pt-4">
+                    <div className="flex gap-2">
+                      {totalJourneyCo2 > 0 && (
+                        <Badge variant="outline" className="bg-emerald-50/50 text-emerald-700 border-emerald-100 dark:bg-emerald-500/10 dark:text-emerald-400 dark:border-emerald-500/20">
+                          <Leaf className="mr-1 h-3 w-3" />
+                          Gesamt {totalJourneyCo2.toFixed(0)} kg CO₂
+                        </Badge>
+                      )}
+                    </div>
+                    {brandedFareName && (
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                        Tarif: {brandedFareName}
+                      </span>
+                    )}
+                  </div>
                 </div>
-              )}
-            </div>
-          )}
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Footer: Fare Type, CO2, Price & Action - clicking opens fare selection */}
           <div
@@ -567,7 +532,7 @@ function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
   };
 
   const getFareName = () => {
-    if (brandedFare) return brandedFare;
+    if (brandedFare) return formatBrandedFareName(brandedFare);
     return getCabinLabel(cabin);
   };
 
@@ -641,15 +606,15 @@ function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
           />
           <FeatureItem
             status={hasFreeSeat ? 'included' : seatStatus.available ? 'chargeable' : 'not-available'}
-            label="Sitzplatzwahl"
+            label={translateAmenity('Sitzplatzwahl', 'PRE_RESERVED_SEAT')}
           />
           <FeatureItem
             status={isChangeableFree ? 'included' : isChangeable ? 'chargeable' : 'not-available'}
-            label="Umbuchbar"
+            label={translateAmenity('Umbuchbar', 'CHANGEABLE_TICKET')}
           />
           <FeatureItem
             status={isRefundableFree ? 'included' : isRefundable ? 'chargeable' : 'not-available'}
-            label="Erstattbar"
+            label={translateAmenity('Erstattbar', 'REFUNDABLE_TICKET')}
           />
         </div>
       </div>
@@ -912,96 +877,126 @@ function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegm
           <div className="text-base font-bold text-gray-900 dark:text-white sm:text-lg md:text-xl">
             {formatDateTime(first.departure.at, 'time')}
           </div>
-          <div className="text-xs text-gray-500 sm:text-xs md:text-sm">{first.departure.iataCode}</div>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="text-xs text-gray-500 sm:text-xs md:text-sm cursor-help hover:text-gray-700 dark:hover:text-gray-300">
+                {first.departure.iataCode}
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{formatAirportName(first.departure.iataCode)}</p>
+            </TooltipContent>
+          </Tooltip>
         </div>
 
         {/* Flight Path */}
         <div className="flex min-w-0 flex-1 flex-col items-center px-1 sm:px-2 md:px-4">
-        <div className="flex w-full items-center">
-          <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-pink-500 sm:h-2 sm:w-2" />
-          <div className="relative h-0.5 min-w-0 flex-1 bg-gray-200 dark:bg-gray-700">
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">
-              <Badge
-                variant="outline"
-                className={cn(
-                  "bg-white text-[10px] dark:bg-gray-900 sm:text-xs",
-                  hasAnyAirportChange && "border-red-300 dark:border-red-700"
-                )}
-              >
-                {stops > 0 ? (
-                  <>
-                    {hasAnyAirportChange && <AlertTriangle className="mr-0.5 h-2.5 w-2.5 text-red-500 sm:mr-1 sm:h-3 sm:w-3" />}
-                    {getStopsLabel(stops)}
-                  </>
-                ) : (
-                  'Direkt'
-                )}
-              </Badge>
+          <div className="flex w-full items-center">
+            <div className="h-1.5 w-1.5 shrink-0 rounded-full bg-pink-500 sm:h-2 sm:w-2" />
+            <div className="relative h-0.5 min-w-0 flex-1 bg-gray-200 dark:bg-gray-700">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap">
+                <Badge
+                  variant="outline"
+                  className={cn(
+                    "bg-white text-[10px] dark:bg-gray-900 sm:text-xs",
+                    hasAnyAirportChange && "border-red-300 dark:border-red-700"
+                  )}
+                >
+                  {stops > 0 ? (
+                    <>
+                      {hasAnyAirportChange && <AlertTriangle className="mr-0.5 h-2.5 w-2.5 text-red-500 sm:mr-1 sm:h-3 sm:w-3" />}
+                      {getStopsLabel(stops)}
+                    </>
+                  ) : (
+                    'Direkt'
+                  )}
+                </Badge>
+              </div>
             </div>
+            <Plane className="h-3 w-3 shrink-0 rotate-90 text-pink-500 sm:h-4 sm:w-4" />
           </div>
-          <Plane className="h-3 w-3 shrink-0 rotate-90 text-pink-500 sm:h-4 sm:w-4" />
-        </div>
-        {/* Show layover time for stops, total duration for direct */}
-        <div className="mt-1.5 flex items-center gap-0.5 text-[9px] sm:mt-2 sm:gap-1 sm:text-[10px] md:text-xs">
-          <Clock className="h-2.5 w-2.5 shrink-0 text-gray-400 sm:h-3 sm:w-3" />
-          {stops > 0 ? (
-            <span className={cn(
-              "min-w-0 truncate text-gray-400",
-              hasAnyAirportChange && "text-red-500"
-            )}>
-              {stopInfo.map(s => {
-                if (s.hasAirportChange) {
-                  return `${s.layover} Wechsel ${s.arrivalAirport}→${s.departureAirport}`;
-                }
-                return `${s.layover} in ${s.arrivalAirport}`;
-              }).join(', ')}
-            </span>
-          ) : (
-            <span className="text-gray-400">{formatDuration(duration)}</span>
-          )}
-        </div>
-      </div>
-
-      {/* Arrival */}
-      <div className="w-14 shrink-0 sm:w-20">
-        <div className="flex items-baseline gap-0.5 sm:gap-1">
-          <span className="text-base font-bold text-gray-900 dark:text-white sm:text-lg md:text-xl">
-            {formatDateTime(last.arrival.at, 'time')}
-          </span>
-          {isDifferentDay && (
-            <span className="text-[10px] text-orange-500 sm:text-xs" title={arrivalDate.toLocaleDateString('de-DE')}>
-              +1
-            </span>
-          )}
-        </div>
-        <div className="text-xs text-gray-500 sm:text-xs md:text-sm">{last.arrival.iataCode}</div>
-      </div>
-
-      {/* Airline Logo + RBD/Baggage - horizontal layout with fixed widths */}
-      <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-        {/* Flight numbers - vertical stack */}
-        <div className="flex w-[68px] flex-col gap-0.5 sm:w-[76px]">
-          {segments.map((seg) => (
-            <div key={seg.id} className="flex items-center gap-1">
-              <AirlineLogo carrierCode={seg.carrierCode} size={16} className="shrink-0 sm:h-5 sm:w-5" />
-              <span className="text-[10px] text-gray-500 sm:text-xs">
-                {seg.carrierCode}{seg.number}
+          {/* Show layover time for stops, total duration for direct */}
+          <div className="mt-1.5 flex items-center gap-0.5 text-[9px] sm:mt-2 sm:gap-1 sm:text-[10px] md:text-xs">
+            <Clock className="h-2.5 w-2.5 shrink-0 text-gray-400 sm:h-3 sm:w-3" />
+            {stops > 0 ? (
+              <span className={cn(
+                "min-w-0 truncate text-gray-400",
+                hasAnyAirportChange && "text-red-500"
+              )}>
+                {stopInfo.map(s => {
+                  if (s.hasAirportChange) {
+                    return `${s.layover} Wechsel ${s.arrivalAirport}→${s.departureAirport}`;
+                  }
+                  return `${s.layover} in ${s.arrivalAirport}`;
+                }).join(', ')}
               </span>
-            </div>
-          ))}
+            ) : (
+              <span className="text-gray-400">{formatDuration(duration)}</span>
+            )}
+          </div>
         </div>
-        {/* RBD above Baggage - vertical stack */}
-        <div className="flex w-10 flex-col items-center gap-1 sm:w-12">
-          {firstFareDetail?.class && (
-            <RBDTooltip bookingClass={firstFareDetail.class} cabin={firstFareDetail.cabin} />
-          )}
-          {checkedBags && <BaggageTooltip checkedBags={checkedBags} />}
+
+        {/* Arrival */}
+        <div className="w-14 shrink-0 sm:w-20">
+          <div className="flex items-baseline gap-0.5 sm:gap-1">
+            <span className="text-base font-bold text-gray-900 dark:text-white sm:text-lg md:text-xl">
+              {formatDateTime(last.arrival.at, 'time')}
+            </span>
+            {isDifferentDay && (
+              <span className="text-[10px] text-orange-500 sm:text-xs" title={arrivalDate.toLocaleDateString('de-DE')}>
+                +1
+              </span>
+            )}
+          </div>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <div className="text-xs text-gray-500 sm:text-xs md:text-sm cursor-help hover:text-gray-700 dark:hover:text-gray-300">
+                {last.arrival.iataCode}
+              </div>
+            </TooltipTrigger>
+            <TooltipContent>
+              <p>{formatAirportName(last.arrival.iataCode)}</p>
+            </TooltipContent>
+          </Tooltip>
+        </div>
+
+        {/* Airline Logo + RBD/Baggage - horizontal layout with fixed widths */}
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          {/* Flight numbers - vertical stack */}
+          <div className="flex w-[68px] flex-col gap-0.5 sm:w-[76px]">
+            {segments.map((seg) => (
+              <div key={seg.id} className="flex items-center gap-1">
+                <AirlineLogo carrierCode={seg.carrierCode} size={16} className="shrink-0 sm:h-5 sm:w-5" />
+                <span className="text-[10px] text-gray-500 sm:text-xs">
+                  {seg.carrierCode}{seg.number}
+                </span>
+              </div>
+            ))}
+          </div>
+          {/* RBD above Baggage - vertical stack */}
+          <div className="flex w-10 flex-col items-center gap-1 sm:w-12">
+            {firstFareDetail?.class && (
+              <RBDTooltip bookingClass={firstFareDetail.class} cabin={firstFareDetail.cabin} />
+            )}
+            {checkedBags && <BaggageTooltip checkedBags={checkedBags} />}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
+
+
+// Format cabin class for display
+const getCabinLabel = (cabin: string) => {
+  const labels: Record<string, string> = {
+    ECONOMY: 'Economy',
+    PREMIUM_ECONOMY: 'Premium Economy',
+    BUSINESS: 'Business',
+    FIRST: 'First',
+  };
+  return labels[cabin] || cabin;
+};
 
 // ============================================================================
 // Flight Details Section - Shows detailed segment info when card is expanded
@@ -1009,69 +1004,97 @@ function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegm
 
 interface FlightDetailsSectionProps {
   segments: Segment[];
+  fareDetails?: FareDetailsBySegment[];
 }
 
-function FlightDetailsSection({ segments }: FlightDetailsSectionProps) {
+function FlightDetailsSection({ segments, fareDetails }: FlightDetailsSectionProps) {
   return (
-    <div className="space-y-3">
+    <div className="space-y-4">
       {segments.map((seg, idx) => (
-        <div key={seg.id} className="space-y-2">
-          {/* Segment Header */}
-          <div className="flex items-center gap-3">
-            <AirlineLogo carrierCode={seg.carrierCode} size={32} />
-            <div className="flex-1">
-              <div className="flex items-center gap-2">
-                <span className="font-semibold text-gray-900 dark:text-white">
-                  {seg.carrierCode} {seg.number}
-                </span>
+        <div key={seg.id} className="relative">
+          {/* Segment Info Header - Left Aligned */}
+          <div className="flex items-start gap-2.5 mb-2">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white shadow-sm ring-1 ring-slate-100 dark:bg-neutral-800 dark:ring-neutral-700">
+              <AirlineLogo carrierCode={seg.carrierCode} size={24} showTooltip={false} />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-normal text-slate-900 dark:text-white leading-tight">
+                {formatAirlineName(seg.carrierCode)} · {seg.carrierCode}{seg.number}
+              </span>
+              <div className="flex flex-col mt-0.5">
                 {seg.aircraft?.code && (
-                  <Badge variant="outline" className="text-xs">
-                    <Plane className="h-3 w-3 mr-1" />
-                    {seg.aircraft.code}
-                  </Badge>
+                  <span className="text-xs font-normal text-slate-400">
+                    {formatAircraftType(seg.aircraft.code)}
+                    {fareDetails?.[idx] && (
+                      <span className="ml-1">
+                        • {getCabinLabel(fareDetails[idx].cabin || 'ECONOMY')} ({fareDetails[idx].class})
+                      </span>
+                    )}
+                  </span>
                 )}
-              </div>
-              <div className="text-sm text-gray-500">
-                {seg.departure.iataCode} → {seg.arrival.iataCode} • {formatDuration(seg.duration)}
-              </div>
-            </div>
-            {seg.co2Emissions?.[0] && (
-              <div className="text-right">
-                <div className="flex items-center gap-1 text-sm text-green-600 dark:text-green-400">
-                  <Leaf className="h-4 w-4" />
-                  {seg.co2Emissions[0].weight} {seg.co2Emissions[0].weightUnit}
+                <div className="flex flex-wrap items-center gap-x-2">
+                  <span className="text-xs font-normal text-slate-400">
+                    Flugdauer: {formatDuration(seg.duration)}
+                  </span>
+                  {seg.co2Emissions?.[0] && (
+                    <span className="text-xs text-emerald-600 dark:text-emerald-400 font-normal whitespace-nowrap">
+                      • {seg.co2Emissions[0].weight} {seg.co2Emissions[0].weightUnit} CO₂
+                    </span>
+                  )}
                 </div>
-                <div className="text-xs text-gray-400">CO₂</div>
               </div>
-            )}
+            </div>
           </div>
 
-          {/* Segment Timeline */}
-          <div className="flex items-center gap-2 pl-6 sm:gap-4 sm:pl-10">
-            <div className="flex shrink-0 flex-col items-center">
-              <div className="h-1.5 w-1.5 rounded-full bg-pink-500 sm:h-2 sm:w-2" />
-              <div className="h-6 w-0.5 bg-gray-300 dark:bg-gray-600 sm:h-8" />
-              <div className="h-1.5 w-1.5 rounded-full bg-pink-500 sm:h-2 sm:w-2" />
-            </div>
-            <div className="min-w-0 flex-1 space-y-1.5 sm:space-y-2">
-              <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
-                <span className="shrink-0 text-sm font-medium sm:text-base">{formatDateTime(seg.departure.at, 'time')}</span>
-                <span className="shrink-0 text-xs text-gray-500 sm:text-sm">{seg.departure.iataCode}</span>
+          {/* Vertical Timeline - Minimalist & Left Aligned */}
+          <div className="relative ml-[15.5px] border-l border-slate-200 dark:border-neutral-700 pl-6 py-1 space-y-4">
+            {/* Departure */}
+            <div className="relative">
+              <div className="absolute -left-[30px] top-1.5 h-2 w-2 rounded-full border-2 border-white bg-slate-400 dark:border-neutral-900" />
+              <div className="flex items-baseline gap-2">
+                <span className="text-base font-normal text-slate-900 dark:text-white">{formatDateTime(seg.departure.at, 'time')}</span>
+                <span className="text-base font-bold text-slate-900 dark:text-white">
+                  {seg.departure.iataCode}
+                </span>
+                <span className="text-sm font-normal text-slate-500 dark:text-slate-400">
+                  {formatAirportName(seg.departure.iataCode, 'full')}
+                </span>
                 {seg.departure.terminal && (
-                  <span className="truncate text-[10px] text-gray-400 sm:text-xs">Terminal {seg.departure.terminal}</span>
+                  <span className="text-[11px] text-slate-500 font-normal px-1.5 py-0.5 bg-slate-100 dark:bg-neutral-800 rounded">
+                    Terminal {seg.departure.terminal}
+                  </span>
                 )}
               </div>
-              <div className="flex min-w-0 items-center gap-1.5 sm:gap-2">
-                <span className="shrink-0 text-sm font-medium sm:text-base">{formatDateTime(seg.arrival.at, 'time')}</span>
-                <span className="shrink-0 text-xs text-gray-500 sm:text-sm">{seg.arrival.iataCode}</span>
+            </div>
+
+            {/* Arrival */}
+            <div className="relative">
+              <div className="absolute -left-[30px] top-1.5 h-2 w-2 rounded-full border-2 border-white bg-slate-400 dark:border-neutral-900" />
+              <div className="flex items-baseline gap-2">
+                <span className="text-base font-normal text-slate-900 dark:text-white">{formatDateTime(seg.arrival.at, 'time')}</span>
+                <span className="text-base font-bold text-slate-900 dark:text-white">
+                  {seg.arrival.iataCode}
+                </span>
+                <span className="text-sm font-normal text-slate-500 dark:text-slate-400">
+                  {formatAirportName(seg.arrival.iataCode, 'full')}
+                </span>
                 {seg.arrival.terminal && (
-                  <span className="truncate text-[10px] text-gray-400 sm:text-xs">Terminal {seg.arrival.terminal}</span>
+                  <span className="text-[11px] text-slate-500 font-normal px-1.5 py-0.5 bg-slate-100 dark:bg-neutral-800 rounded">
+                    Terminal {seg.arrival.terminal}
+                  </span>
                 )}
               </div>
             </div>
           </div>
 
-          {/* Layover Info */}
+          {/* Operating Info */}
+          {seg.operating && seg.operating.carrierCode !== seg.carrierCode && (
+            <div className="ml-[15.5px] pl-6 mt-1 text-xs font-normal text-slate-400 italic">
+              *Durchgeführt von {formatAirlineName(seg.operating.carrierCode)}
+            </div>
+          )}
+
+          {/* Connection / Layover */}
           {idx < segments.length - 1 && (() => {
             const nextSeg = segments[idx + 1];
             const hasAirportChange = seg.arrival.iataCode !== nextSeg.departure.iataCode;
@@ -1079,23 +1102,26 @@ function FlightDetailsSection({ segments }: FlightDetailsSectionProps) {
             const hours = Math.floor(layoverMs / (1000 * 60 * 60));
             const minutes = Math.floor((layoverMs % (1000 * 60 * 60)) / (1000 * 60));
 
-            return hasAirportChange ? (
-              <div className="ml-6 mt-2 w-full overflow-hidden rounded border border-red-200 bg-red-50 px-2 py-1.5 text-xs dark:border-red-800 dark:bg-red-900/20 sm:ml-10 sm:px-3 sm:py-2 sm:text-sm">
-                <div className="flex items-center gap-1.5 font-semibold text-red-700 dark:text-red-300 sm:gap-2">
-                  <AlertTriangle className="h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" />
-                  <span className="truncate">Flughafenwechsel erforderlich!</span>
+            return (
+              <div className="ml-[15.5px] border-l border-dashed border-slate-300 dark:border-neutral-700 pl-6 py-4 my-1">
+                <div className={cn(
+                  "inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-normal shadow-sm border transition-colors",
+                  hasAirportChange
+                    ? "bg-red-50 text-red-700 border-red-200 dark:bg-red-950/30 dark:text-red-400 dark:border-red-900/50"
+                    : "bg-slate-100 text-slate-700 border-slate-200 dark:bg-neutral-800 dark:text-neutral-300 dark:border-neutral-700"
+                )}>
+                  {hasAirportChange ? (
+                    <>
+                      <AlertTriangle className="h-5 w-5" />
+                      <span>Flughafenwechsel erforderlich: {formatAirportName(seg.arrival.iataCode)} → {formatAirportName(nextSeg.departure.iataCode)} ({hours}h {minutes}m)</span>
+                    </>
+                  ) : (
+                    <>
+                      <Clock className="h-5 w-5" />
+                      <span>{hours}h {minutes}m Aufenthalt in {formatAirportName(seg.arrival.iataCode)}</span>
+                    </>
+                  )}
                 </div>
-                <div className="mt-0.5 truncate text-red-600 dark:text-red-400 sm:mt-1">
-                  {seg.arrival.iataCode} → {nextSeg.departure.iataCode} • {hours}h {minutes}min für Transfer
-                </div>
-                <div className="mt-0.5 text-[10px] text-red-500 dark:text-red-400 sm:mt-1 sm:text-xs">
-                  Sie müssen selbstständig zum anderen Flughafen wechseln.
-                </div>
-              </div>
-            ) : (
-              <div className="ml-10 mt-2 flex items-center gap-2 rounded bg-orange-50 dark:bg-orange-900/20 px-3 py-2 text-sm text-orange-700 dark:text-orange-300">
-                <Clock className="h-4 w-4" />
-                <span>Umstieg in {seg.arrival.iataCode} • {hours}h {minutes}min Aufenthalt</span>
               </div>
             );
           })()}

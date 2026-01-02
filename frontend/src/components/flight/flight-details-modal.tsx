@@ -2,6 +2,8 @@ import { X, Plane, Clock, Luggage, Leaf, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button, Badge, Card } from '@/components/ui';
 import { formatCurrency, formatDuration, formatDateTime, formatDate, getCabinLabel } from '@/lib/utils';
+import { translateAmenity } from '@/lib/amenities';
+import { formatAircraftType } from '@/lib/aircraft';
 import type { FlightOffer, Segment } from '@/types/flight';
 
 // ============================================================================
@@ -32,7 +34,7 @@ export function FlightDetailsModal({ offer, isOpen, onClose, onContinue }: Fligh
             className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm"
             onClick={onClose}
           />
-          
+
           {/* Modal */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95, y: 20 }}
@@ -55,13 +57,13 @@ export function FlightDetailsModal({ offer, isOpen, onClose, onContinue }: Fligh
                   <h3 className="mb-4 text-sm font-medium uppercase text-gray-500">
                     {idx === 0 ? 'Hinflug' : 'Rückflug'} • {formatDate(itinerary.segments[0].departure.at)}
                   </h3>
-                  
+
                   <div className="space-y-4">
                     {itinerary.segments.map((segment) => (
                       <SegmentCard key={segment.id} segment={segment} />
                     ))}
                   </div>
-                  
+
                   {/* Layover indicator */}
                   {itinerary.segments.length > 1 && (
                     <div className="mt-2 text-center text-sm text-gray-500">
@@ -90,14 +92,14 @@ export function FlightDetailsModal({ offer, isOpen, onClose, onContinue }: Fligh
                       </div>
                     )}
                   </div>
-                  
+
                   {/* Baggage */}
                   {fareDetails.includedCheckedBags && (
                     <div className="mt-4 flex items-center gap-2 rounded-lg bg-gray-50 p-3 dark:bg-gray-800">
                       <Luggage className="h-5 w-5 text-pink-500" />
                       <span>
-                        Inkl. Freigepäck: {fareDetails.includedCheckedBags.weight 
-                          ? `${fareDetails.includedCheckedBags.weight} kg` 
+                        Inkl. Freigepäck: {fareDetails.includedCheckedBags.weight
+                          ? `${fareDetails.includedCheckedBags.weight} kg`
                           : `${fareDetails.includedCheckedBags.quantity || 0} Stück`}
                       </span>
                     </div>
@@ -110,7 +112,7 @@ export function FlightDetailsModal({ offer, isOpen, onClose, onContinue }: Fligh
                       <div className="flex flex-wrap gap-2">
                         {fareDetails.amenities.map((amenity, i) => (
                           <Badge key={i} variant={amenity.isChargeable ? 'outline' : 'secondary'}>
-                            {amenity.description}
+                            {translateAmenity(amenity.description, amenity.amenityType)}
                             {amenity.isChargeable && ' (€)'}
                           </Badge>
                         ))}
@@ -159,8 +161,13 @@ function SegmentCard({ segment }: { segment: Segment }) {
             {segment.carrierCode}
           </div>
           <div className="mt-1 text-xs text-gray-500">{segment.carrierCode}{segment.number}</div>
+          {segment.aircraft?.code && (
+            <Badge variant="outline" className="mt-2 text-[10px]">
+              {formatAircraftType(segment.aircraft.code)}
+            </Badge>
+          )}
         </div>
-        
+
         {/* Flight Info */}
         <div className="flex-1 p-4">
           <div className="flex items-center justify-between">
@@ -172,7 +179,7 @@ function SegmentCard({ segment }: { segment: Segment }) {
                 <div className="text-xs text-gray-400">Terminal {segment.departure.terminal}</div>
               )}
             </div>
-            
+
             {/* Duration */}
             <div className="flex flex-col items-center px-4">
               <div className="flex items-center gap-1 text-xs text-gray-400">
@@ -182,7 +189,7 @@ function SegmentCard({ segment }: { segment: Segment }) {
               <div className="my-1 h-0.5 w-24 bg-gray-200 dark:bg-gray-700" />
               <Plane className="h-4 w-4 rotate-90 text-pink-500" />
             </div>
-            
+
             {/* Arrival */}
             <div className="text-right">
               <div className="text-2xl font-bold">{formatDateTime(segment.arrival.at, 'time')}</div>
@@ -192,7 +199,7 @@ function SegmentCard({ segment }: { segment: Segment }) {
               )}
             </div>
           </div>
-          
+
           {/* CO2 */}
           {segment.co2Emissions && segment.co2Emissions.length > 0 && (
             <div className="mt-3 flex items-center gap-1 text-xs text-green-600">

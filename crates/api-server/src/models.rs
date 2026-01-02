@@ -119,6 +119,8 @@ pub struct Aircraft {
 #[serde(rename_all = "camelCase")]
 pub struct OperatingFlight {
     pub carrier_code: Option<String>,
+    pub number: Option<String>,  // Flight number (per Amadeus API)
+    pub suffix: Option<String>,  // Flight number suffix (per Amadeus API)
 }
 
 /// CO2 emissions data
@@ -130,7 +132,7 @@ pub struct Co2Emission {
     pub cabin: String,
 }
 
-/// Flight stop information
+/// Flight stop information (per Amadeus API FlightStop model)
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct FlightStop {
@@ -138,6 +140,7 @@ pub struct FlightStop {
     pub duration: Option<String>,
     pub arrival_at: Option<String>,
     pub departure_at: Option<String>,
+    pub new_aircraft: Option<bool>,  // Whether aircraft changes at this stop
 }
 
 /// Price information
@@ -289,6 +292,11 @@ pub struct Dictionaries {
     pub currencies: std::collections::HashMap<String, String>,
     #[serde(default)]
     pub locations: std::collections::HashMap<String, LocationValue>,
+    // Seatmap-specific dictionaries (per Amadeus API)
+    #[serde(default)]
+    pub facilities: std::collections::HashMap<String, String>,  // Facility code to name mapping
+    #[serde(default)]
+    pub seat_characteristics: std::collections::HashMap<String, String>,  // Seat characteristic code to description
 }
 
 /// Location dictionary value
@@ -642,12 +650,15 @@ pub struct SeatmapData {
     pub segment_id: Option<String>,
     pub carrier_code: Option<String>,
     pub number: Option<String>,
+    #[serde(rename = "class")]
+    pub cabin_class: Option<String>,  // Cabin class (per Amadeus API)
     pub aircraft: Option<SeatmapAircraft>,
     pub departure: Option<SeatmapDeparture>,
     pub arrival: Option<SeatmapArrival>,
     pub decks: Vec<Deck>,
     #[serde(default)]
     pub available_seats_counters: Vec<AvailableSeatsCounter>,
+    pub aircraft_cabin_amenities: Option<AircraftCabinAmenities>,  // Cabin amenities (per Amadeus API)
 }
 
 /// Aircraft info for seatmap
@@ -679,7 +690,33 @@ pub struct Deck {
     pub deck_configuration: Option<DeckConfiguration>,
     pub seats: Vec<Seat>,
     #[serde(default)]
-    pub facilities: Option<serde_json::Value>, // Keep as raw JSON - various formats possible
+    pub facilities: Option<Vec<Facility>>,
+}
+
+/// Facility in the aircraft (per Amadeus Seatmap API)
+/// Examples: LA = Lavatory, GA = Galley, ST = Stairs, CL = Closet, etc.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Facility {
+    /// Facility code (e.g., "LA" for lavatory, "GA" for galley)
+    pub code: Option<String>,
+    /// Column designation (e.g., "A", "B", "C")
+    pub column: Option<String>,
+    /// Row designation (e.g., "40", "41")
+    pub row: Option<String>,
+    /// Position relative to seats: FRONT, REAR, or SEAT
+    pub position: Option<String>,
+    /// Coordinates for positioning
+    pub coordinates: Option<FacilityCoordinates>,
+}
+
+/// Facility coordinates (per Amadeus API)
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct FacilityCoordinates {
+    /// X coordinate (Length/row position)
+    pub x: Option<i32>,
+    /// Y coordinate (Width/column position)
+    pub y: Option<i32>,
 }
 
 /// Deck configuration
@@ -706,6 +743,8 @@ pub struct Seat {
     pub characteristics_codes: Option<Vec<String>>,
     pub coordinates: Option<SeatCoordinates>,
     pub traveler_pricing: Option<Vec<SeatTravelerPricing>>,
+    pub medias: Option<Vec<Media>>,  // Rich content media (per Amadeus API)
+    pub amenities: Option<Vec<SeatAmenityDetail>>,  // Seat-specific amenities (per Amadeus API)
 }
 
 /// Seat coordinates
@@ -739,6 +778,103 @@ pub struct SeatPrice {
 pub struct AvailableSeatsCounter {
     pub traveler_id: Option<String>,
     pub value: Option<i32>,
+}
+
+// ============================================================================
+// Media (per Amadeus API Media model)
+// ============================================================================
+
+/// Media content (per Amadeus API Media model)
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Media {
+    pub title: Option<String>,
+    pub href: Option<String>,  // URI to display the original media
+    pub description: Option<QualifiedFreeText>,
+    pub media_type: Option<String>,  // application, audio, font, example, image, message, model, multipart, text, video
+}
+
+/// Qualified free text (per Amadeus API)
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct QualifiedFreeText {
+    pub text: Option<String>,
+    pub lang: Option<String>,  // Language code per RFC 5646
+}
+
+/// Seat amenity detail (per Amadeus API)
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SeatAmenityDetail {
+    pub is_chargeable: Option<bool>,
+    pub amenity_type: Option<String>,  // SEAT
+    pub medias: Option<Vec<Media>>,
+}
+
+// ============================================================================
+// Aircraft Cabin Amenities (per Amadeus API)
+// ============================================================================
+
+/// Aircraft cabin amenities (per Amadeus API AircraftCabinAmenities model)
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct AircraftCabinAmenities {
+    pub power: Option<CabinAmenity>,
+    pub wifi: Option<WifiAmenity>,
+    pub entertainment: Option<EntertainmentAmenity>,
+    pub food: Option<FoodAmenity>,
+    pub beverage: Option<BeverageAmenity>,
+    pub seat: Option<SeatAmenityInfo>,
+}
+
+/// Generic cabin amenity with power info
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CabinAmenity {
+    pub is_chargeable: Option<bool>,
+    pub power_type: Option<String>,  // PLUG, USB_PORT, ADAPTOR, PLUG_OR_USB_PORT
+    pub usb_type: Option<String>,    // USB_A, USB_C, USB_A_AND_USB_C
+}
+
+/// WiFi amenity
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WifiAmenity {
+    pub is_chargeable: Option<bool>,
+    pub wifi_coverage: Option<String>,  // FULL, PARTIAL, NONE
+}
+
+/// Entertainment amenity
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EntertainmentAmenity {
+    pub is_chargeable: Option<bool>,
+    pub entertainment_type: Option<String>,  // LIVE_TV, MOVIES, AUDIO_VIDEO_ON_DEMAND, TV_SHOWS, IP_TV
+}
+
+/// Food amenity
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FoodAmenity {
+    pub is_chargeable: Option<bool>,
+    pub food_type: Option<String>,  // MEAL, FRESH_MEAL, SNACK, FRESH_SNACK
+}
+
+/// Beverage amenity
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BeverageAmenity {
+    pub is_chargeable: Option<bool>,
+    pub beverage_type: Option<String>,  // ALCOHOLIC, NON_ALCOHOLIC, ALCOHOLIC_AND_NON_ALCOHOLIC
+}
+
+/// Seat amenity info
+#[derive(Debug, Clone, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SeatAmenityInfo {
+    pub is_chargeable: Option<bool>,
+    pub seat_tilt: Option<String>,  // FULL_FLAT, ANGLE_FLAT, NORMAL
+    pub leg_space: Option<i32>,     // Leg space in inches
+    pub space_unit: Option<String>, // Unit for leg space
 }
 
 // ============================================================================

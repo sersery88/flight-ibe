@@ -5,6 +5,8 @@ import * as Slider from '@radix-ui/react-slider';
 import { cn, formatCurrency, parseDuration, formatDuration } from '@/lib/utils';
 import { Button, Badge } from '@/components/ui';
 import type { FlightOffer } from '@/types/flight';
+import { formatAirlineName } from '@/lib/airlines';
+import { formatAirportName } from '@/lib/airports';
 
 // ============================================================================
 // Filter Sidebar Component - Filter flight results
@@ -393,7 +395,10 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
                   className="h-4 w-4 rounded border-neutral-300 accent-pink-500 focus:ring-pink-500 dark:border-neutral-600"
                 />
                 <ArrowRight className="h-3 w-3 text-gray-400" />
-                <span className="flex-1">{airport.code}</span>
+                <span className="flex-1">
+                  <span className="font-medium">{airport.code}</span>
+                  <span className="ml-1.5 text-gray-500">{formatAirportName(airport.code, 'both')}</span>
+                </span>
                 <span className="text-gray-400">({airport.count})</span>
               </label>
             ))}
@@ -436,7 +441,10 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
                   onChange={() => toggleAirline(airline.code)}
                   className="h-4 w-4 rounded border-neutral-300 accent-pink-500 focus:ring-pink-500 dark:border-neutral-600"
                 />
-                <span className="flex-1">{airline.code}</span>
+                <span className="flex-1">
+                  <span className="font-medium">{airline.code}</span>
+                  <span className="ml-1.5 text-gray-500">{formatAirlineName(airline.code)}</span>
+                </span>
                 <span className="whitespace-nowrap text-xs text-pink-500">
                   ab {formatCurrency(airline.minPrice, priceStats.currency)}
                 </span>
@@ -473,7 +481,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
 // Collapsible Filter Section
 function FilterSection({ title, children, defaultOpen = true }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
-  
+
   return (
     <div className="border-t border-gray-100 py-4 dark:border-gray-800">
       <button

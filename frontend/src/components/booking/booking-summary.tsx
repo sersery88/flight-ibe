@@ -145,32 +145,68 @@ export function BookingSummary({ onConfirm, onEdit, isLoading, className }: Book
         </div>
         <div className="p-4">
           <div className="space-y-2 text-sm">
-            {/* Show price per traveler type */}
-            {(() => {
-              const travelerTypeLabels: Record<string, string> = {
-                'ADULT': 'Erwachsener',
-                'CHILD': 'Kind',
-                'SEATED_INFANT': 'Kleinkind (mit Sitz)',
-                'HELD_INFANT': 'Baby (auf Schoss)',
-              };
+            {/* Base fare */}
+            <div className="flex justify-between">
+              <span>Flugpreis (Basis)</span>
+              <span>{formatCurrency(parseFloat(offer.price.base), currency)}</span>
+            </div>
 
-              // Group travelers by type
-              const typeGroups = offer.travelerPricings.reduce((acc, tp) => {
-                const type = tp.travelerType;
-                if (!acc[type]) {
-                  acc[type] = { count: 0, pricePerPerson: parseFloat(tp.price.total) };
-                }
-                acc[type].count++;
-                return acc;
-              }, {} as Record<string, { count: number; pricePerPerson: number }>);
+            {/* Taxes breakdown - show if available */}
+            {offer.price.taxes && offer.price.taxes.length > 0 && (
+              <div className="space-y-1 border-l-2 border-gray-200 pl-3 dark:border-gray-700">
+                <div className="text-xs font-medium text-gray-500">Steuern & Gebühren:</div>
+                {offer.price.taxes.map((tax, idx) => (
+                  <div key={idx} className="flex justify-between text-xs text-gray-500">
+                    <span>{tax.code || `Steuer ${idx + 1}`}</span>
+                    <span>{formatCurrency(parseFloat(tax.amount), currency)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
 
-              return Object.entries(typeGroups).map(([type, data]) => (
-                <div key={type} className="flex justify-between">
-                  <span>{data.count}x {travelerTypeLabels[type] || type}</span>
-                  <span>{formatCurrency(data.pricePerPerson * data.count, currency)}</span>
-                </div>
-              ));
-            })()}
+            {/* Fees if available */}
+            {offer.price.fees && offer.price.fees.length > 0 && offer.price.fees.some(f => parseFloat(f.amount) > 0) && (
+              <div className="space-y-1 border-l-2 border-gray-200 pl-3 dark:border-gray-700">
+                <div className="text-xs font-medium text-gray-500">Zusätzliche Gebühren:</div>
+                {offer.price.fees.filter(f => parseFloat(f.amount) > 0).map((fee, idx) => (
+                  <div key={idx} className="flex justify-between text-xs text-gray-500">
+                    <span>{fee.type}</span>
+                    <span>{formatCurrency(parseFloat(fee.amount), currency)}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {/* Subtotal per traveler type */}
+            <div className="border-t border-gray-100 pt-2 dark:border-gray-800">
+              <div className="text-xs font-medium text-gray-500 mb-1">Aufschlüsselung pro Reisenden:</div>
+              {(() => {
+                const travelerTypeLabels: Record<string, string> = {
+                  'ADULT': 'Erwachsener',
+                  'CHILD': 'Kind',
+                  'SEATED_INFANT': 'Kleinkind (mit Sitz)',
+                  'HELD_INFANT': 'Baby (auf Schoß)',
+                };
+
+                // Group travelers by type
+                const typeGroups = offer.travelerPricings.reduce((acc, tp) => {
+                  const type = tp.travelerType;
+                  if (!acc[type]) {
+                    acc[type] = { count: 0, pricePerPerson: parseFloat(tp.price.total) };
+                  }
+                  acc[type].count++;
+                  return acc;
+                }, {} as Record<string, { count: number; pricePerPerson: number }>);
+
+                return Object.entries(typeGroups).map(([type, data]) => (
+                  <div key={type} className="flex justify-between">
+                    <span>{data.count}x {travelerTypeLabels[type] || type}</span>
+                    <span>{formatCurrency(data.pricePerPerson * data.count, currency)}</span>
+                  </div>
+                ));
+              })()}
+            </div>
+
             {seatsTotal > 0 && (
               <div className="flex justify-between">
                 <span>Sitzplätze</span>
