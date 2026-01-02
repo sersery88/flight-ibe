@@ -317,11 +317,6 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
                         </Badge>
                       )}
                     </div>
-                    {brandedFareName && (
-                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                        Tarif: {brandedFareName}
-                      </span>
-                    )}
                   </div>
                 </div>
               </motion.div>
