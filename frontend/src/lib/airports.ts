@@ -11810,7 +11810,7 @@ export const AIRPORT_NAMES: Record<string, AirportInfo> = {
         "name": "Wiscasset Airport"
     },
     "IST": {
-        "city": "Arnavutkoy",
+        "city": "Istanbul",
         "name": "Istanbul Airport"
     },
     "ISU": {

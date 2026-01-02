@@ -27,6 +27,7 @@ function formatSearchDate(date: Date | null): string {
 // ============================================================================
 
 interface ResultsPageProps {
+  onBack?: () => void;
   onSelectFlight?: (offer: FlightOffer) => void;
   className?: string;
 }
