@@ -854,11 +854,11 @@ function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegm
       {label && (
         <div className="mb-2 sm:hidden">
           <div className="text-xs font-medium uppercase text-gray-400">{label}</div>
-          <div className="flex items-start gap-2">
+          <div className="flex items-center gap-2">
             <div className="text-xs text-gray-500">{formattedDepartureDate}</div>
-            <div className="flex flex-col gap-0.5">
+            <div className="flex items-center gap-1">
               {segments.map((seg) => (
-                <div key={seg.id} className="flex items-center gap-1">
+                <div key={seg.id} className="flex items-center gap-0.5">
                   <AirlineLogo carrierCode={seg.carrierCode} size={16} showTooltip={true} />
                   <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400">
                     {seg.carrierCode}{seg.number}
