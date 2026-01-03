@@ -850,31 +850,43 @@ function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegm
 
   return (
     <div>
-      {/* Label with Date and Airline Logo - Full width on mobile */}
+      {/* Label with Date and Airline Logos - Full width on mobile */}
       {label && (
         <div className="mb-2 sm:hidden">
           <div className="text-xs font-medium uppercase text-gray-400">{label}</div>
-          <div className="text-xs text-gray-500 mb-1">{formattedDepartureDate}</div>
-          <div className="flex items-center gap-2">
-            <AirlineLogo carrierCode={first.carrierCode} size={20} showTooltip={true} />
-            <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
-              {first.carrierCode} {first.number}
-            </span>
+          <div className="flex items-start gap-2">
+            <div className="text-xs text-gray-500">{formattedDepartureDate}</div>
+            <div className="flex flex-col gap-0.5">
+              {segments.map((seg) => (
+                <div key={seg.id} className="flex items-center gap-1">
+                  <AirlineLogo carrierCode={seg.carrierCode} size={16} showTooltip={true} />
+                  <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400">
+                    {seg.carrierCode}{seg.number}
+                  </span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       )}
 
       <div className="flex min-h-[60px] items-center gap-2 sm:min-h-[72px] sm:gap-4">
-        {/* Label with Date and Airline Logo - Side on desktop */}
+        {/* Label with Date and Airline Logos - Side on desktop */}
         {label && (
-          <div className="hidden shrink-0 sm:block">
-            <div className="text-xs font-medium uppercase text-gray-400">{label}</div>
-            <div className="text-xs text-gray-500 mb-1">{formattedDepartureDate}</div>
-            <div className="flex items-center gap-2">
-              <AirlineLogo carrierCode={first.carrierCode} size={24} showTooltip={true} />
-              <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
-                {first.carrierCode} {first.number}
-              </span>
+          <div className="hidden shrink-0 sm:flex sm:items-start sm:gap-2">
+            <div className="flex flex-col gap-1">
+              <div className="text-xs font-medium uppercase text-gray-400">{label}</div>
+              <div className="text-xs text-gray-500 whitespace-nowrap">{formattedDepartureDate}</div>
+            </div>
+            <div className="flex flex-col gap-0.5 min-h-[48px] justify-start">
+              {segments.map((seg) => (
+                <div key={seg.id} className="flex items-center gap-1">
+                  <AirlineLogo carrierCode={seg.carrierCode} size={20} showTooltip={true} />
+                  <span className="text-[10px] font-medium text-gray-600 dark:text-gray-400">
+                    {seg.carrierCode}{seg.number}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         )}
@@ -967,20 +979,8 @@ function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegm
           </Tooltip>
         </div>
 
-        {/* Airline Logo + RBD/Baggage - horizontal layout with fixed widths */}
+        {/* RBD/Baggage - vertical stack */}
         <div className="flex shrink-0 items-center gap-2 sm:gap-3">
-          {/* Flight numbers - vertical stack */}
-          <div className="flex w-[68px] flex-col gap-0.5 sm:w-[76px]">
-            {segments.map((seg) => (
-              <div key={seg.id} className="flex items-center gap-1">
-                <AirlineLogo carrierCode={seg.carrierCode} size={16} className="shrink-0 sm:h-5 sm:w-5" />
-                <span className="text-[10px] text-gray-500 sm:text-xs">
-                  {seg.carrierCode}{seg.number}
-                </span>
-              </div>
-            ))}
-          </div>
-          {/* RBD above Baggage - vertical stack */}
           <div className="flex w-10 flex-col items-center gap-1 sm:w-12">
             {firstFareDetail?.class && (
               <RBDTooltip bookingClass={firstFareDetail.class} cabin={firstFareDetail.cabin} />
