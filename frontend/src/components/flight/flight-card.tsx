@@ -850,20 +850,32 @@ function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegm
 
   return (
     <div>
-      {/* Label with Date - Full width on mobile */}
+      {/* Label with Date and Airline Logo - Full width on mobile */}
       {label && (
         <div className="mb-2 sm:hidden">
           <div className="text-xs font-medium uppercase text-gray-400">{label}</div>
-          <div className="text-xs text-gray-500">{formattedDepartureDate}</div>
+          <div className="text-xs text-gray-500 mb-1">{formattedDepartureDate}</div>
+          <div className="flex items-center gap-2">
+            <AirlineLogo carrierCode={first.carrierCode} size={20} showTooltip={true} />
+            <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+              {first.carrierCode} {first.number}
+            </span>
+          </div>
         </div>
       )}
 
       <div className="flex min-h-[60px] items-center gap-2 sm:min-h-[72px] sm:gap-4">
-        {/* Label with Date - Side on desktop */}
+        {/* Label with Date and Airline Logo - Side on desktop */}
         {label && (
-          <div className="hidden w-24 shrink-0 sm:block">
+          <div className="hidden shrink-0 sm:block">
             <div className="text-xs font-medium uppercase text-gray-400">{label}</div>
-            <div className="text-xs text-gray-500">{formattedDepartureDate}</div>
+            <div className="text-xs text-gray-500 mb-1">{formattedDepartureDate}</div>
+            <div className="flex items-center gap-2">
+              <AirlineLogo carrierCode={first.carrierCode} size={24} showTooltip={true} />
+              <span className="text-xs font-medium text-gray-600 dark:text-gray-400">
+                {first.carrierCode} {first.number}
+              </span>
+            </div>
           </div>
         )}
 
