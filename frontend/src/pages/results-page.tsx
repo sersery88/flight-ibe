@@ -257,42 +257,39 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
             {/* MOBILE: Compact Search Summary - Click to open popup */}
             <button
               onClick={() => setShowSearchForm(true)}
-              className="flex flex-1 items-center gap-2 rounded-xl border border-gray-200 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/60 px-3 py-2 text-left transition-all hover:bg-gray-200/80 dark:hover:bg-gray-700/60 lg:hidden overflow-hidden"
+              className="flex flex-1 flex-col gap-1.5 rounded-xl border border-gray-200 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/60 px-3 py-2 text-left transition-all hover:bg-gray-200/80 dark:hover:bg-gray-700/60 lg:hidden overflow-hidden"
             >
-              {/* Route */}
-              <div className="flex items-center gap-1.5 min-w-0 flex-1">
-                <PlaneIcon className="h-4 w-4 shrink-0 text-gray-500" />
-                <span className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                  {originName || formatAirportName(origin) || '???'} → {destinationName || formatAirportName(destination) || '???'}
-                </span>
+              {/* Top Row: Route and Edit Icon */}
+              <div className="flex items-center gap-2 w-full">
+                <div className="flex items-center gap-1.5 min-w-0 flex-1">
+                  <PlaneIcon className="h-4 w-4 shrink-0 text-gray-500" />
+                  <span className="text-sm font-medium text-gray-900 dark:text-white truncate">
+                    {originName || formatAirportName(origin) || '???'} → {destinationName || formatAirportName(destination) || '???'}
+                  </span>
+                </div>
+                <Edit2 className="h-4 w-4 shrink-0 text-gray-400" />
               </div>
 
-              {/* Dates */}
-              {departureDate && (
-                <>
-                  <div className="h-4 w-px bg-gray-300 dark:bg-gray-600 shrink-0 hidden xs:block" />
-                  <div className="hidden xs:flex items-center gap-1.5 shrink-0">
-                    <Calendar className="h-4 w-4 text-gray-500" />
-                    <span className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
-                      {formatSearchDate(departureDate)}
-                      {returnDate && ` - ${formatSearchDate(returnDate)}`}
-                    </span>
-                  </div>
-                </>
-              )}
-
-              {/* Passengers */}
-              <div className="hidden sm:flex items-center gap-1.5 shrink-0">
-                <div className="h-4 w-px bg-gray-300 dark:bg-gray-600" />
-                <Users className="h-4 w-4 text-gray-500" />
-                <span className="text-sm text-gray-700 dark:text-gray-300">
-                  {adults + children + infants}
-                </span>
-              </div>
-
-              {/* Edit Icon */}
-              <div className="ml-auto shrink-0">
-                <Edit2 className="h-4 w-4 text-gray-400" />
+              {/* Bottom Row: Dates, Passengers, and Cabin Class */}
+              <div className="flex items-center gap-2 text-xs text-gray-600 dark:text-gray-400">
+                {departureDate && (
+                  <>
+                    <div className="flex items-center gap-1">
+                      <Calendar className="h-3.5 w-3.5" />
+                      <span>
+                        {formatSearchDate(departureDate)}
+                        {returnDate && ` - ${formatSearchDate(returnDate)}`}
+                      </span>
+                    </div>
+                    <div className="h-3 w-px bg-gray-300 dark:bg-gray-600" />
+                  </>
+                )}
+                <div className="flex items-center gap-1">
+                  <Users className="h-3.5 w-3.5" />
+                  <span>{adults + children + infants}</span>
+                </div>
+                <div className="h-3 w-px bg-gray-300 dark:bg-gray-600" />
+                <span className="capitalize">{travelClass?.toLowerCase() || 'Economy'}</span>
               </div>
             </button>
 
