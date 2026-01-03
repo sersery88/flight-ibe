@@ -257,10 +257,10 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
             {/* MOBILE: Compact Search Summary - Click to open popup */}
             <button
               onClick={() => setShowSearchForm(true)}
-              className="flex flex-1 items-center gap-2 rounded-xl border border-gray-200 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/60 px-3 py-2 text-left transition-all hover:bg-gray-200/80 dark:hover:bg-gray-700/60 lg:hidden"
+              className="flex flex-1 items-center gap-2 rounded-xl border border-gray-200 bg-gray-100/80 dark:border-gray-700 dark:bg-gray-800/60 px-3 py-2 text-left transition-all hover:bg-gray-200/80 dark:hover:bg-gray-700/60 lg:hidden overflow-hidden"
             >
               {/* Route */}
-              <div className="flex items-center gap-1.5 min-w-0">
+              <div className="flex items-center gap-1.5 min-w-0 flex-1">
                 <PlaneIcon className="h-4 w-4 shrink-0 text-gray-500" />
                 <span className="text-sm font-medium text-gray-900 dark:text-white truncate">
                   {originName || formatAirportName(origin) || '???'} → {destinationName || formatAirportName(destination) || '???'}
@@ -270,10 +270,10 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
               {/* Dates */}
               {departureDate && (
                 <>
-                  <div className="h-4 w-px bg-gray-300 dark:bg-gray-600 shrink-0" />
-                  <div className="flex items-center gap-1.5 shrink-0">
+                  <div className="h-4 w-px bg-gray-300 dark:bg-gray-600 shrink-0 hidden xs:block" />
+                  <div className="hidden xs:flex items-center gap-1.5 shrink-0">
                     <Calendar className="h-4 w-4 text-gray-500" />
-                    <span className="text-sm text-gray-700 dark:text-gray-300">
+                    <span className="text-xs text-gray-700 dark:text-gray-300 whitespace-nowrap">
                       {formatSearchDate(departureDate)}
                       {returnDate && ` - ${formatSearchDate(returnDate)}`}
                     </span>
