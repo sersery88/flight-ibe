@@ -41,7 +41,7 @@ function Header({ onHomeClick }: { onHomeClick: () => void }) {
     <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-950/80" style={{ maxWidth: '100vw' }}>
       <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:h-24">
         <button onClick={onHomeClick} className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <img src="/logo.png" alt="Pink Travel" className="h-20 w-auto sm:h-24" />
+          <img src="/logo.svg" alt="Pink Travel" className="h-16 w-auto sm:h-20" />
         </button>
 
         <nav className="flex items-center gap-4">
