@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
-import { Plane, Moon, Sun } from 'lucide-react';
+import { Moon, Sun } from 'lucide-react';
 import { Button, ErrorBoundary, ToastProvider } from '@/components/ui';
 import { SearchForm } from '@/components/flight';
 import { ResultsPage } from '@/pages/results-page';
@@ -39,10 +39,9 @@ function ThemeToggle() {
 function Header({ onHomeClick }: { onHomeClick: () => void }) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-neutral-200 bg-white/80 backdrop-blur-sm dark:border-neutral-800 dark:bg-neutral-950/80" style={{ maxWidth: '100vw' }}>
-      <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4">
+      <div className="mx-auto flex h-20 w-full max-w-7xl items-center justify-between px-4 sm:h-24">
         <button onClick={onHomeClick} className="flex items-center gap-2 transition-opacity hover:opacity-80">
-          <Plane className="h-8 w-8 text-pink-500" />
-          <span className="text-xl font-bold text-neutral-800 dark:text-white">Fly<span className="text-pink-500">pink</span></span>
+          <img src="/logo.png" alt="Pink Travel" className="h-20 w-auto sm:h-24" />
         </button>
 
         <nav className="flex items-center gap-4">
