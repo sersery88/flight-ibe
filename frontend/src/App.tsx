@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/react-query';
-import { Moon, Sun } from 'lucide-react';
+import { Moon, Sun, Loader2 } from 'lucide-react';
 import { Button, ErrorBoundary, ToastProvider } from '@/components/ui';
 import { SearchForm } from '@/components/flight';
-import { ResultsPage } from '@/pages/results-page';
-import { BookingPage } from '@/pages/booking-page';
 import { useThemeStore } from '@/stores/theme-store';
 import { useSearchStore } from '@/stores/search-store';
 import { useBookingStore } from '@/stores/booking-store';
 import { usePriceFlights } from '@/hooks/use-flights';
+
+// Code-Splitting: Lazy load pages for faster initial load
+const ResultsPage = lazy(() => import('@/pages/results-page').then(m => ({ default: m.ResultsPage })));
+const BookingPage = lazy(() => import('@/pages/booking-page').then(m => ({ default: m.BookingPage })));
 
 type AppView = 'search' | 'results' | 'booking';
 
@@ -52,6 +54,18 @@ function Header({ onHomeClick }: { onHomeClick: () => void }) {
   );
 }
 
+// Loading Fallback for Code-Splitting
+function PageLoadingFallback() {
+  return (
+    <div className="flex min-h-[50vh] items-center justify-center">
+      <div className="flex flex-col items-center gap-3">
+        <Loader2 className="h-8 w-8 animate-spin text-neutral-500" aria-hidden="true" />
+        <span className="text-sm text-neutral-500">Seite wird geladen...</span>
+      </div>
+    </div>
+  );
+}
+
 // Main App Content (inside QueryClientProvider)
 function AppContent() {
   const [currentView, setCurrentView] = useState<AppView>('search');
@@ -92,7 +106,7 @@ function AppContent() {
 
   return (
     <ToastProvider>
-      <ErrorBoundary onReset={handleHomeClick}>
+      <ErrorBoundary onReset={handleHomeClick} onHome={handleHomeClick}>
         <div className="flex min-h-screen w-full flex-col overflow-x-hidden" style={{ maxWidth: '100vw' }}>
           <Header onHomeClick={handleHomeClick} />
 
@@ -121,17 +135,21 @@ function AppContent() {
             )}
 
             {currentView === 'results' && (
-              <ResultsPage
-                onBack={handleHomeClick}
-                onSelectFlight={handleSelectFlight}
-              />
+              <Suspense fallback={<PageLoadingFallback />}>
+                <ResultsPage
+                  onBack={handleHomeClick}
+                  onSelectFlight={handleSelectFlight}
+                />
+              </Suspense>
             )}
 
             {currentView === 'booking' && (
-              <BookingPage
-                onBack={() => setCurrentView('results')}
-                onComplete={handleBookingComplete}
-              />
+              <Suspense fallback={<PageLoadingFallback />}>
+                <BookingPage
+                  onBack={() => setCurrentView('results')}
+                  onComplete={handleBookingComplete}
+                />
+              </Suspense>
             )}
           </main>
 

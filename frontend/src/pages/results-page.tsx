@@ -1,4 +1,4 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, useTransition } from 'react';
 import { Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2, SlidersHorizontal, X } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
 import { FlightList } from '@/components/flight/flight-list';
@@ -110,6 +110,22 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
     transitAirports: [],
   });
   const [selectedOfferId, setSelectedOfferId] = useState<string>();
+
+  // React 19 useTransition for non-blocking filter/sort updates
+  const [isFilterPending, startFilterTransition] = useTransition();
+
+  // Wrap filter and sort changes in transitions for smooth UI
+  const handleFiltersChange = useCallback((newFilters: FlightFilters) => {
+    startFilterTransition(() => {
+      setFilters(newFilters);
+    });
+  }, []);
+
+  const handleSortChange = useCallback((newSort: SortTabOption) => {
+    startFilterTransition(() => {
+      setSortBy(newSort);
+    });
+  }, []);
 
   // Filter offers
   const filteredOffers = useMemo(() => {
@@ -434,7 +450,7 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
               <FilterSidebar
                 offers={searchResults}
                 filters={filters}
-                onFiltersChange={setFilters}
+                onFiltersChange={handleFiltersChange}
               />
             </aside>
 
@@ -443,7 +459,7 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
               {/* Sort Tabs - above flight cards only */}
               <SortTabs
                 value={sortBy}
-                onChange={setSortBy}
+                onChange={handleSortChange}
                 offers={filteredOffers}
                 className="mb-4 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
               />
@@ -464,12 +480,14 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
                 )}
               </Button>
 
-              <FlightList
-                offers={sortedOffers}
-                isLoading={isSearching}
-                selectedOfferId={selectedOfferId}
-                onSelectOffer={handleSelectOffer}
-              />
+              <div className={isFilterPending ? 'opacity-60 transition-opacity duration-150' : 'transition-opacity duration-150'}>
+                <FlightList
+                  offers={sortedOffers}
+                  isLoading={isSearching}
+                  selectedOfferId={selectedOfferId}
+                  onSelectOffer={handleSelectOffer}
+                />
+              </div>
             </main>
           </div>
         </div>
@@ -510,7 +528,7 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
                 <FilterSidebar
                   offers={searchResults}
                   filters={filters}
-                  onFiltersChange={setFilters}
+                  onFiltersChange={handleFiltersChange}
                   className="border-0 p-0"
                 />
               </div>

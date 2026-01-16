@@ -94,6 +94,8 @@ import type {
   FlightSearchRequest,
   FlightOffersResponse,
   FlightOffer,
+  Traveler,
+  TravelerContact,
 } from '@/types/flight';
 
 // Flight Search
@@ -165,11 +167,29 @@ export async function getSeatmaps(offers: FlightOffer[]): Promise<{ data: Seatma
 }
 
 // Create Booking
+
+/** Payment method types */
+export type PaymentMethod = 'CREDIT_CARD' | 'DEBIT_CARD' | 'INVOICE';
+
+/** Payment information for booking */
+export interface PaymentInfo {
+  method: PaymentMethod;
+  cardNumber?: string;
+  expiryDate?: string;
+  cardHolderName?: string;
+  billingAddress?: {
+    street?: string;
+    city?: string;
+    postalCode?: string;
+    countryCode?: string;
+  };
+}
+
 export interface BookingRequest {
   flightOffers: FlightOffer[];
-  travelers: unknown[];
-  contact?: unknown;
-  payment?: unknown;
+  travelers: Traveler[];
+  contact?: TravelerContact;
+  payment?: PaymentInfo;
 }
 
 export interface BookingResponse {

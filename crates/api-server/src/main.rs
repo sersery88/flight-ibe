@@ -1,6 +1,6 @@
 use axum::{
     extract::{Path, Query, State},
-    http::StatusCode,
+    http::{HeaderValue, Method, StatusCode},
     response::Json,
     routing::{delete, get, post},
     Router,
@@ -8,7 +8,7 @@ use axum::{
 
 use std::sync::Arc;
 use tokio::net::TcpListener;
-use tower_http::cors::CorsLayer;
+use tower_http::cors::{AllowOrigin, CorsLayer};
 use tracing_subscriber;
 use redis::AsyncCommands;
 
@@ -86,14 +86,61 @@ async fn main() {
         .route("/air-traffic-booked", get(get_air_traffic_booked))
         .route("/recommended-locations", get(get_recommended_locations))
         .route("/location-score", get(get_location_score))
-        .layer(CorsLayer::permissive())
+        .layer(build_cors_layer())
         .with_state(Arc::new(state));
 
-    let listener = TcpListener::bind(&std::env::var("ADDR").unwrap_or_else(|_| "0.0.0.0:3000".to_string())).await.unwrap();
+    let addr = std::env::var("ADDR").unwrap_or_else(|_| "0.0.0.0:3000".to_string());
 
-    println!("🚀 Server running on http://{}", listener.local_addr().unwrap());
+    let listener = match TcpListener::bind(&addr).await {
+        Ok(l) => l,
+        Err(e) => {
+            tracing::error!("Failed to bind to {}: {}", addr, e);
+            std::process::exit(1);
+        }
+    };
 
-    axum::serve(listener, app).await.unwrap();
+    let local_addr = listener.local_addr()
+        .map(|a| a.to_string())
+        .unwrap_or_else(|_| addr.clone());
+
+    tracing::info!("Server running on http://{}", local_addr);
+
+    if let Err(e) = axum::serve(listener, app).await {
+        tracing::error!("Server error: {}", e);
+        std::process::exit(1);
+    }
+}
+
+/// Build CORS layer based on environment configuration.
+///
+/// Set CORS_ORIGINS env var to comma-separated list of allowed origins.
+/// If not set, defaults to permissive CORS (development mode).
+fn build_cors_layer() -> CorsLayer {
+    let origins = std::env::var("CORS_ORIGINS").ok();
+
+    match origins {
+        Some(origins_str) if !origins_str.is_empty() => {
+            let allowed_origins: Vec<HeaderValue> = origins_str
+                .split(',')
+                .filter_map(|s| s.trim().parse().ok())
+                .collect();
+
+            if allowed_origins.is_empty() {
+                tracing::warn!("CORS_ORIGINS set but no valid origins found, using permissive CORS");
+                CorsLayer::permissive()
+            } else {
+                tracing::info!("CORS configured for origins: {}", origins_str);
+                CorsLayer::new()
+                    .allow_origin(AllowOrigin::list(allowed_origins))
+                    .allow_methods([Method::GET, Method::POST, Method::DELETE, Method::OPTIONS])
+                    .allow_headers(tower_http::cors::Any)
+            }
+        }
+        _ => {
+            tracing::warn!("CORS_ORIGINS not set, using permissive CORS (development mode)");
+            CorsLayer::permissive()
+        }
+    }
 }
 
 async fn health() -> StatusCode {

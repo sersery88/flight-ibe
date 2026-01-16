@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { devtools } from 'zustand/middleware';
 import type { FlightOffer, BagOption } from '@/types/flight';
 
 // ============================================================================
@@ -23,7 +24,7 @@ export interface TravelerData {
   };
   // APIS (Passport) data
   document?: {
-    type: 'PASSPORT' | 'ID_CARD';
+    type: 'PASSPORT' | 'IDENTITY_CARD';
     number: string;
     expiryDate: string;
     issuanceCountry: string;
@@ -134,7 +135,9 @@ const STEPS: BookingStep[] = ['travelers', 'seats', 'ancillaries', 'payment', 'r
 
 const generateTravelerId = (index: number) => `traveler-${index + 1}`;
 
-export const useBookingStore = create<BookingState>((set, get) => ({
+export const useBookingStore = create<BookingState>()(
+  devtools(
+    (set, get) => ({
   currentStep: 'travelers',
   selectedOffer: null,
   pricedOffer: null,
@@ -257,5 +260,8 @@ export const useBookingStore = create<BookingState>((set, get) => ({
     isPricing: false,
     isBooking: false,
   }),
-}));
+}),
+    { name: 'BookingStore', enabled: import.meta.env.DEV }
+  )
+);
 

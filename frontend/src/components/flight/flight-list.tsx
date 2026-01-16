@@ -28,17 +28,18 @@ export function FlightList({
   // Loading State
   if (isLoading) {
     return (
-      <div className={className}>
+      <div className={className} role="status" aria-busy="true" aria-label="Flüge werden geladen">
         <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
+            aria-hidden="true"
           >
             <Plane className="h-4 w-4" />
           </motion.div>
-          Suche nach Flügen...
+          <span aria-live="polite">Suche nach Flügen...</span>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-4" aria-hidden="true">
           {Array.from({ length: 5 }).map((_, i) => (
             <motion.div
               key={i}
@@ -57,13 +58,13 @@ export function FlightList({
   // Error State
   if (error) {
     return (
-      <div className={className}>
+      <div className={className} role="alert" aria-live="assertive">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className="rounded-xl border border-red-200 bg-red-50 p-6 text-center dark:border-red-800 dark:bg-red-900/20"
         >
-          <AlertCircle className="mx-auto mb-3 h-10 w-10 text-red-500" />
+          <AlertCircle className="mx-auto mb-3 h-10 w-10 text-red-500" aria-hidden="true" />
           <h3 className="mb-1 font-semibold text-red-800 dark:text-red-300">
             Fehler bei der Suche
           </h3>
@@ -98,15 +99,15 @@ export function FlightList({
 
   // Results
   return (
-    <div className={className}>
-      <div className="mb-3 text-xs text-gray-500 sm:mb-4 sm:text-sm">
+    <div className={className} role="region" aria-label="Suchergebnisse">
+      <div className="mb-3 text-xs text-gray-500 sm:mb-4 sm:text-sm" aria-live="polite">
         {offers.length} {offers.length === 1 ? 'Flug' : 'Flüge'} gefunden
       </div>
 
       <AnimatePresence mode="popLayout">
-        <div className="w-full space-y-3 sm:space-y-4">
+        <ul className="w-full space-y-3 sm:space-y-4" role="list" aria-label="Flugangebote">
           {offers.map((offer, index) => (
-            <motion.div
+            <motion.li
               key={offer.id}
               layout
               initial={{ opacity: 0, y: 20 }}
@@ -120,9 +121,9 @@ export function FlightList({
                 onSelect={onSelectOffer}
                 isSelected={offer.id === selectedOfferId}
               />
-            </motion.div>
+            </motion.li>
           ))}
-        </div>
+        </ul>
       </AnimatePresence>
     </div>
   );

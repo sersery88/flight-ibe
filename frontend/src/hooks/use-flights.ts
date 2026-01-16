@@ -1,4 +1,5 @@
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient, QueryClient } from '@tanstack/react-query';
+import { useCallback } from 'react';
 import {
   searchFlights,
   priceFlightOffers,
@@ -137,6 +138,56 @@ export function useBooking(orderId: string) {
     queryKey: flightKeys.booking(orderId),
     queryFn: () => getBooking(orderId),
     enabled: !!orderId,
+  });
+}
+
+// ============================================================================
+// Prefetch Hooks - For improved UX with data prefetching
+// ============================================================================
+
+/**
+ * Hook to prefetch seatmaps when hovering over flight offers
+ * This provides instant seat selection when user selects a flight
+ */
+export function usePrefetchSeatmaps() {
+  const queryClient = useQueryClient();
+
+  return useCallback((offers: FlightOffer[]) => {
+    const offerIds = offers.map(o => o.id);
+    queryClient.prefetchQuery({
+      queryKey: flightKeys.seatmaps(offerIds),
+      queryFn: () => getSeatmaps(offers),
+      staleTime: 5 * 60 * 1000, // 5 minutes
+    });
+  }, [queryClient]);
+}
+
+/**
+ * Hook to prefetch flight pricing
+ * Useful when user hovers over "Select" button
+ */
+export function usePrefetchPricing() {
+  const queryClient = useQueryClient();
+
+  return useCallback((offers: FlightOffer[]) => {
+    const offerIds = offers.map(o => o.id);
+    queryClient.prefetchQuery({
+      queryKey: flightKeys.price(offerIds),
+      queryFn: () => priceFlightOffers(offers),
+      staleTime: 2 * 60 * 1000, // 2 minutes (pricing changes more frequently)
+    });
+  }, [queryClient]);
+}
+
+/**
+ * Standalone prefetch function for use outside React components
+ */
+export function prefetchSeatmaps(queryClient: QueryClient, offers: FlightOffer[]) {
+  const offerIds = offers.map(o => o.id);
+  return queryClient.prefetchQuery({
+    queryKey: flightKeys.seatmaps(offerIds),
+    queryFn: () => getSeatmaps(offers),
+    staleTime: 5 * 60 * 1000,
   });
 }
 

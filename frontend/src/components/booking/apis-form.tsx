@@ -12,7 +12,7 @@ import { useBookingStore, type TravelerData } from '@/stores/booking-store';
 // ============================================================================
 
 const apisSchema = z.object({
-  documentType: z.enum(['PASSPORT', 'ID_CARD']),
+  documentType: z.enum(['PASSPORT', 'IDENTITY_CARD']),
   number: z.string().min(5, 'Dokumentnummer erforderlich').max(20),
   expiryDate: z.string().regex(/^\d{4}-\d{2}-\d{2}$/, 'Format: JJJJ-MM-TT'),
   issuanceCountry: z.string().length(2, '2-Buchstaben Ländercode'),
@@ -87,7 +87,7 @@ export function APISForm({ travelerIndex, traveler, className }: APISFormProps) 
                 <span>Reisepass</span>
               </label>
               <label className="flex cursor-pointer items-center gap-2">
-                <input type="radio" value="ID_CARD" {...register('documentType')} onBlur={onBlur}
+                <input type="radio" value="IDENTITY_CARD" {...register('documentType')} onBlur={onBlur}
                   className="h-4 w-4 border-neutral-300 accent-pink-500 focus:ring-pink-500 dark:border-neutral-600" />
                 <span>Personalausweis</span>
               </label>
