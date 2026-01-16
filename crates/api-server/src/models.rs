@@ -1496,3 +1496,184 @@ pub mod error_codes {
     /// Rate limit exceeded
     pub const RATE_LIMIT_EXCEEDED: i32 = 38194;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_flight_search_request_deserialization() {
+        let json = r#"{
+            "origin": "FRA",
+            "destination": "LHR",
+            "departureDate": "2024-06-15",
+            "adults": 2,
+            "children": 1,
+            "infants": 0
+        }"#;
+
+        let request: FlightSearchRequest = serde_json::from_str(json).unwrap();
+        assert_eq!(request.origin, "FRA");
+        assert_eq!(request.destination, "LHR");
+        assert_eq!(request.departure_date, "2024-06-15");
+        assert_eq!(request.adults, 2);
+        assert_eq!(request.children, 1);
+        assert_eq!(request.infants, 0);
+        assert!(request.return_date.is_none());
+    }
+
+    #[test]
+    fn test_flight_search_request_with_optional_fields() {
+        let json = r#"{
+            "origin": "FRA",
+            "destination": "LHR",
+            "departureDate": "2024-06-15",
+            "returnDate": "2024-06-22",
+            "adults": 1,
+            "travelClass": "BUSINESS",
+            "nonStop": true,
+            "maxPrice": 1000
+        }"#;
+
+        let request: FlightSearchRequest = serde_json::from_str(json).unwrap();
+        assert_eq!(request.return_date, Some("2024-06-22".to_string()));
+        assert_eq!(request.travel_class, Some("BUSINESS".to_string()));
+        assert_eq!(request.non_stop, Some(true));
+        assert_eq!(request.max_price, Some(1000));
+    }
+
+    #[test]
+    fn test_flight_offer_serialization() {
+        let offer = FlightOffer {
+            id: "1".to_string(),
+            offer_type: "flight-offer".to_string(),
+            source: "GDS".to_string(),
+            instant_ticketing_required: false,
+            non_homogeneous: false,
+            one_way: false,
+            is_upsell_offer: false,
+            last_ticketing_date: Some("2024-06-14".to_string()),
+            last_ticketing_date_time: None,
+            number_of_bookable_seats: Some(9),
+            itineraries: vec![],
+            price: Price {
+                currency: "EUR".to_string(),
+                total: "299.00".to_string(),
+                base: "250.00".to_string(),
+                fees: vec![],
+                taxes: vec![],
+                grand_total: Some("299.00".to_string()),
+                refundable_taxes: None,
+                billing_currency: None,
+            },
+            pricing_options: Some(PricingOptions {
+                fare_type: vec!["PUBLISHED".to_string()],
+                included_checked_bags_only: true,
+            }),
+            validating_airline_codes: vec!["LH".to_string()],
+            traveler_pricings: vec![],
+        };
+
+        let json = serde_json::to_string(&offer).unwrap();
+        assert!(json.contains("\"id\":\"1\""));
+        assert!(json.contains("\"source\":\"GDS\""));
+    }
+
+    #[test]
+    fn test_price_structure() {
+        let price = Price {
+            currency: "EUR".to_string(),
+            total: "299.00".to_string(),
+            base: "250.00".to_string(),
+            fees: vec![Fee {
+                amount: "10.00".to_string(),
+                fee_type: "SUPPLIER".to_string(),
+            }],
+            taxes: vec![Tax {
+                amount: "39.00".to_string(),
+                code: "MX".to_string(),
+            }],
+            grand_total: Some("299.00".to_string()),
+            refundable_taxes: None,
+            billing_currency: None,
+        };
+
+        // Parse amounts
+        let base: f64 = price.base.parse().unwrap();
+        let total: f64 = price.total.parse().unwrap();
+        let grand_total: f64 = price.grand_total.unwrap().parse().unwrap();
+
+        assert_eq!(base, 250.0);
+        assert_eq!(total, 299.0);
+        assert_eq!(grand_total, 299.0);
+        assert_eq!(price.fees.len(), 1);
+        assert_eq!(price.taxes.len(), 1);
+    }
+
+    #[test]
+    fn test_segment_deserialization() {
+        let json = r#"{
+            "id": "1",
+            "departure": {
+                "iataCode": "FRA",
+                "terminal": "1",
+                "at": "2024-06-15T10:00:00"
+            },
+            "arrival": {
+                "iataCode": "LHR",
+                "terminal": "5",
+                "at": "2024-06-15T11:30:00"
+            },
+            "carrierCode": "LH",
+            "number": "900",
+            "aircraft": { "code": "320" },
+            "duration": "PT1H30M",
+            "numberOfStops": 0,
+            "blacklistedInEU": false
+        }"#;
+
+        let segment: Segment = serde_json::from_str(json).unwrap();
+        assert_eq!(segment.id, "1");
+        assert_eq!(segment.departure.iata_code, "FRA");
+        assert_eq!(segment.arrival.iata_code, "LHR");
+        assert_eq!(segment.carrier_code, "LH");
+        assert_eq!(segment.number, "900");
+        assert_eq!(segment.duration, Some("PT1H30M".to_string()));
+        assert_eq!(segment.number_of_stops, 0);
+    }
+
+    #[test]
+    fn test_traveler_pricing() {
+        let json = r#"{
+            "travelerId": "1",
+            "fareOption": "STANDARD",
+            "travelerType": "ADULT",
+            "price": {
+                "currency": "EUR",
+                "total": "299.00",
+                "base": "250.00"
+            },
+            "fareDetailsBySegment": [{
+                "segmentId": "1",
+                "cabin": "ECONOMY",
+                "fareBasis": "YOWEU",
+                "class": "Y"
+            }]
+        }"#;
+
+        let pricing: TravelerPricing = serde_json::from_str(json).unwrap();
+        assert_eq!(pricing.traveler_id, "1");
+        assert_eq!(pricing.traveler_type, "ADULT");
+        assert_eq!(pricing.price.total, "299.00");
+        assert_eq!(pricing.fare_details_by_segment.len(), 1);
+        assert_eq!(pricing.fare_details_by_segment[0].cabin, "ECONOMY");
+    }
+
+    #[test]
+    fn test_error_codes() {
+        assert_eq!(error_codes::INVALID_FORMAT, 477);
+        assert_eq!(error_codes::RESOURCE_NOT_FOUND, 1797);
+        assert_eq!(error_codes::UNAUTHORIZED, 38190);
+        assert_eq!(error_codes::RATE_LIMIT_EXCEEDED, 38194);
+    }
+}

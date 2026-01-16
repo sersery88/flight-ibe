@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import React, { useState, useMemo } from 'react';
 import { motion } from 'motion/react';
 import {
     Check,
@@ -49,6 +49,15 @@ interface GridCell {
     col: number;
     label?: string; // e.g., "12A"
 }
+
+interface LegendItem {
+    label: string;
+    color?: string;
+    icon?: React.ReactNode;
+}
+
+/** CSS properties with custom properties support */
+type CSSPropertiesWithVars = React.CSSProperties & Record<`--${string}`, string | number>;
 
 // ============================================================================
 // Helpers
@@ -625,12 +634,10 @@ const DeckGrid = ({
                 "lg:[--row-step:50px] lg:[--nose-offset:60px]"
             )}
             style={{
-                ...({
-                    '--grid-start-row': startRow,
-                    '--wing-start-row': (config.startWingsX !== undefined ? config.startWingsX : config.startWingsRow) ?? (rowCount > 10 ? startRow + 10 : startRow),
-                    '--wing-end-row': (config.endWingsX !== undefined ? config.endWingsX : config.endWingsRow) ?? (rowCount > 10 ? startRow + 25 : startRow + 2),
-                } as any)
-            }}
+                '--grid-start-row': startRow,
+                '--wing-start-row': (config.startWingsX !== undefined ? config.startWingsX : config.startWingsRow) ?? (rowCount > 10 ? startRow + 10 : startRow),
+                '--wing-end-row': (config.endWingsX !== undefined ? config.endWingsX : config.endWingsRow) ?? (rowCount > 10 ? startRow + 25 : startRow + 2),
+            } as CSSPropertiesWithVars}
         >
             {/* Fuselage Background (Architectural Design) */}
             <div className="absolute inset-0 bg-slate-50 dark:bg-neutral-800 rounded-[16px] lg:rounded-[40px] shadow-2xl border border-slate-200 dark:border-neutral-700 pointer-events-none overflow-hidden transition-colors duration-500 z-0">
@@ -780,7 +787,7 @@ export default function SeatmapDisplay({
     const activeDeck = activeSeatmap?.decks?.[activeDeckIndex];
 
     // Legend Data
-    const legendItems = [
+    const legendItems: LegendItem[] = [
         { label: 'Verfügbar', color: 'bg-white dark:bg-neutral-800 border md:border-2 border-blue-200 dark:border-blue-900 overflow-hidden' },
         { label: 'Ausgewählt', color: 'bg-fuchsia-600' },
         { label: 'Belegt', color: 'bg-slate-200 dark:bg-neutral-600 border border-slate-300 dark:border-neutral-500' },
@@ -843,9 +850,9 @@ export default function SeatmapDisplay({
                                 {item.color && (
                                     <div className={cn("w-3 h-3 rounded shadow-sm", item.color)} />
                                 )}
-                                {(item as any).icon && (
+                                {item.icon && (
                                     <div className="scale-75">
-                                        {(item as any).icon}
+                                        {item.icon}
                                     </div>
                                 )}
                                 <span className="text-[10px] font-medium text-slate-500 dark:text-neutral-500">{item.label}</span>

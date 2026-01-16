@@ -23,7 +23,7 @@ export interface TravelerData {
   };
   // APIS (Passport) data
   document?: {
-    type: 'PASSPORT' | 'ID_CARD';
+    type: 'PASSPORT' | 'IDENTITY_CARD';
     number: string;
     expiryDate: string;
     issuanceCountry: string;

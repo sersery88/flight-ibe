@@ -47,7 +47,9 @@ export function TooltipContent({
   align = 'center',
   forceShow,
 }: TooltipContentProps) {
-  const positionClasses = {
+  type AlignPosition = Record<'center' | 'start' | 'end', string>;
+
+  const positionClasses: Record<'top' | 'bottom', AlignPosition> & Record<'left' | 'right', string> = {
     top: {
       center: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
       start: 'bottom-full left-0 mb-2',
@@ -62,9 +64,10 @@ export function TooltipContent({
     right: 'left-full top-1/2 -translate-y-1/2 ml-2',
   };
 
-  const currentPos = typeof positionClasses[side] === 'string'
-    ? positionClasses[side]
-    : (positionClasses[side] as any)[align];
+  const positionValue = positionClasses[side];
+  const currentPos = typeof positionValue === 'string'
+    ? positionValue
+    : positionValue[align];
 
   return (
     <div
