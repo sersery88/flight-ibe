@@ -1,10 +1,11 @@
+import { memo } from 'react';
 import { Check, X } from 'lucide-react';
 import { cn, formatCurrency } from '@/lib/utils';
 import { formatBrandedFareName, translateAmenity } from '@/lib/amenities';
 import type { FlightOffer } from '@/types/flight';
 
 // ============================================================================
-// Fare Tile - Individual branded fare option tile
+// Fare Tile - Individual branded fare option tile (memoized for performance)
 // ============================================================================
 
 export interface FareTileProps {
@@ -13,7 +14,7 @@ export interface FareTileProps {
   onSelect: () => void;
 }
 
-export function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
+export const FareTile = memo(function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
   const fareDetails = offer.travelerPricings[0]?.fareDetailsBySegment[0];
   const brandedFare = fareDetails?.brandedFareLabel || fareDetails?.brandedFare;
   const cabin = fareDetails?.cabin || 'ECONOMY';
@@ -150,10 +151,10 @@ export function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
       )}
     </div>
   );
-}
+});
 
 // ============================================================================
-// Feature Item - Single feature row in fare tile
+// Feature Item - Single feature row in fare tile (memoized for performance)
 // ============================================================================
 
 export type FeatureStatus = 'included' | 'chargeable' | 'not-available';
@@ -163,7 +164,7 @@ export interface FeatureItemProps {
   label: string;
 }
 
-export function FeatureItem({ status, label }: FeatureItemProps) {
+export const FeatureItem = memo(function FeatureItem({ status, label }: FeatureItemProps) {
   const getIcon = () => {
     switch (status) {
       case 'included':
@@ -193,4 +194,4 @@ export function FeatureItem({ status, label }: FeatureItemProps) {
       )}
     </div>
   );
-}
+});

@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo, memo } from 'react';
 import { Plane, Clock, Luggage, ChevronRight, ChevronDown, ChevronUp, Check, X, Loader2, Leaf, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -97,7 +97,7 @@ function AirlineLogo({ carrierCode, size = 32, className, showTooltip = true }: 
 }
 
 // ============================================================================
-// Flight Card Component - Display a single flight offer
+// Flight Card Component - Display a single flight offer (memoized)
 // ============================================================================
 
 interface FlightCardProps {
@@ -107,7 +107,7 @@ interface FlightCardProps {
   className?: string;
 }
 
-export function FlightCard({ offer, onSelect, isSelected, className }: FlightCardProps) {
+export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected, className }: FlightCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showFareSelection, setShowFareSelection] = useState(false);
   const [upsellOffers, setUpsellOffers] = useState<FlightOffer[]>([]);
@@ -471,10 +471,10 @@ export function FlightCard({ offer, onSelect, isSelected, className }: FlightCar
       </Card>
     </div>
   );
-}
+});
 
 // ============================================================================
-// Fare Tile - Individual branded fare option tile
+// Fare Tile - Individual branded fare option tile (memoized)
 // ============================================================================
 
 interface FareTileProps {
@@ -483,7 +483,7 @@ interface FareTileProps {
   onSelect: () => void;
 }
 
-function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
+const FareTile = memo(function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
   const fareDetails = offer.travelerPricings[0]?.fareDetailsBySegment[0];
   const brandedFare = fareDetails?.brandedFareLabel || fareDetails?.brandedFare;
   const cabin = fareDetails?.cabin || 'ECONOMY';
@@ -620,11 +620,11 @@ function FareTile({ offer, isSelected, onSelect }: FareTileProps) {
       )}
     </div>
   );
-}
+});
 
 type FeatureStatus = 'included' | 'chargeable' | 'not-available';
 
-function FeatureItem({ status, label }: { status: FeatureStatus; label: string }) {
+const FeatureItem = memo(function FeatureItem({ status, label }: { status: FeatureStatus; label: string }) {
   const getIcon = () => {
     switch (status) {
       case 'included':
@@ -654,7 +654,7 @@ function FeatureItem({ status, label }: { status: FeatureStatus; label: string }
       )}
     </div>
   );
-}
+});
 
 // ============================================================================
 // Baggage Tooltip Component - Click-based on mobile, hover on desktop
@@ -785,7 +785,7 @@ function RBDTooltip({ bookingClass, cabin }: RBDTooltipProps) {
 }
 
 // ============================================================================
-// Flight Segment Row - Shows departure -> arrival with duration
+// Flight Segment Row - Shows departure -> arrival with duration (memoized)
 // ============================================================================
 
 interface FareDetailsBySegment {
@@ -809,7 +809,7 @@ interface FlightSegmentRowProps {
   fareDetails?: FareDetailsBySegment[];
 }
 
-function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegmentRowProps) {
+const FlightSegmentRow = memo(function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegmentRowProps) {
   const first = segments[0];
   const last = segments[segments.length - 1];
   const stops = segments.length - 1;
@@ -991,7 +991,7 @@ function FlightSegmentRow({ segments, duration, label, fareDetails }: FlightSegm
       </div>
     </div>
   );
-}
+});
 
 
 // Format cabin class for display
@@ -1006,7 +1006,7 @@ const getCabinLabel = (cabin: string) => {
 };
 
 // ============================================================================
-// Flight Details Section - Shows detailed segment info when card is expanded
+// Flight Details Section - Shows detailed segment info when card is expanded (memoized)
 // ============================================================================
 
 interface FlightDetailsSectionProps {
@@ -1014,7 +1014,7 @@ interface FlightDetailsSectionProps {
   fareDetails?: FareDetailsBySegment[];
 }
 
-function FlightDetailsSection({ segments, fareDetails }: FlightDetailsSectionProps) {
+const FlightDetailsSection = memo(function FlightDetailsSection({ segments, fareDetails }: FlightDetailsSectionProps) {
   return (
     <div className="space-y-4">
       {segments.map((seg, idx) => (
@@ -1136,5 +1136,5 @@ function FlightDetailsSection({ segments, fareDetails }: FlightDetailsSectionPro
       ))}
     </div>
   );
-}
+});
 
