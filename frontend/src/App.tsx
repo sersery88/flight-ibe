@@ -3,6 +3,7 @@ import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/reac
 import { Moon, Sun, Loader2 } from 'lucide-react';
 import { Button, ErrorBoundary, ToastProvider } from '@/components/ui';
 import { SearchForm } from '@/components/flight';
+import { InspirationSearch, TrendingDestinations } from '@/components/inspiration';
 import { useThemeStore } from '@/stores/theme-store';
 import { useSearchStore } from '@/stores/search-store';
 import { useBookingStore } from '@/stores/booking-store';
@@ -130,7 +131,34 @@ function AppContent() {
                   </div>
                 </section>
 
+                {/* Inspiration Section */}
+                <section className="w-full px-4 py-12 sm:py-16">
+                  <div className="mx-auto w-full max-w-6xl">
+                    <div className="grid gap-8 lg:grid-cols-3">
+                      {/* Inspiration Search - 2/3 width */}
+                      <div className="lg:col-span-2">
+                        <InspirationSearch
+                          defaultOrigin="FRA"
+                          onSelectDestination={(dest) => {
+                            console.log('Selected destination:', dest);
+                            // TODO: Pre-fill search form with destination
+                          }}
+                        />
+                      </div>
 
+                      {/* Trending Destinations - 1/3 width */}
+                      <div>
+                        <TrendingDestinations
+                          originCityCode="FRA"
+                          onSelectDestination={(code) => {
+                            console.log('Selected trending:', code);
+                            // TODO: Pre-fill search form with destination
+                          }}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </>
             )}
 

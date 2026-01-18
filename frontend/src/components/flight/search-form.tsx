@@ -3,7 +3,8 @@ import { ArrowRightLeft, Search, Plus, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '@/components/ui';
 import { AirportCombobox } from './airport-combobox';
-import { DatePicker, DateRangePicker, type DateRange } from './date-picker';
+import { DatePicker, type DateRange } from './date-picker';
+import { PriceDateRangePicker } from './price-date-picker';
 import { PassengerSelector } from './passenger-selector';
 import { CabinClassSelect } from './cabin-class-select';
 import { TripTypeToggle, type TripType } from './trip-type-toggle';
@@ -152,9 +153,11 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                   compact
                 />
               ) : (
-                <DateRangePicker
+                <PriceDateRangePicker
                   value={dateRangeValue}
                   onChange={handleDateRangeChange}
+                  origin={store.origin}
+                  destination={store.destination}
                   compact
                 />
               )}
