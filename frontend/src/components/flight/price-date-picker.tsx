@@ -172,8 +172,11 @@ export function PriceDateRangePicker({
   };
 
   const getDateKey = (day: number, month: Date) => {
-    const date = new Date(month.getFullYear(), month.getMonth(), day);
-    return date.toISOString().split('T')[0];
+    // Use local date format to avoid UTC timezone shift issues
+    const year = month.getFullYear();
+    const monthNum = String(month.getMonth() + 1).padStart(2, '0');
+    const dayNum = String(day).padStart(2, '0');
+    return `${year}-${monthNum}-${dayNum}`;
   };
 
   const getPriceLevel = (price: number): 'low' | 'medium' | 'high' => {
