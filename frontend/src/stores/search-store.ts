@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
+import { persist, devtools } from 'zustand/middleware';
 import type { FlightSearchRequest, FlightOffer, TravelClass } from '@/types/flight';
 
 // ============================================================================
@@ -87,8 +87,9 @@ const initialState = {
 };
 
 export const useSearchStore = create<SearchState>()(
-  persist(
-    (set, get) => ({
+  devtools(
+    persist(
+      (set, get) => ({
       ...initialState,
       
       setTripType: (tripType) => set({ tripType }),
@@ -173,19 +174,21 @@ export const useSearchStore = create<SearchState>()(
         };
       },
     }),
-    {
-      name: 'flight-search',
-      partialize: (state) => ({
-        origin: state.origin,
-        originName: state.originName,
-        destination: state.destination,
-        destinationName: state.destinationName,
-        adults: state.adults,
-        children: state.children,
-        infants: state.infants,
-        travelClass: state.travelClass,
-      }),
-    }
+      {
+        name: 'flight-search',
+        partialize: (state) => ({
+          origin: state.origin,
+          originName: state.originName,
+          destination: state.destination,
+          destinationName: state.destinationName,
+          adults: state.adults,
+          children: state.children,
+          infants: state.infants,
+          travelClass: state.travelClass,
+        }),
+      }
+    ),
+    { name: 'SearchStore', enabled: import.meta.env.DEV }
   )
 );
 

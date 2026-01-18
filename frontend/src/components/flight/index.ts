@@ -12,6 +12,10 @@ export { FlightList } from './flight-list';
 export { FilterSidebar, type FlightFilters } from './filter-sidebar';
 export { SortDropdown, type SortOption } from './sort-dropdown';
 
+// Reusable Flight UI Components
+export { AirlineLogo, type AirlineLogoProps } from './airline-logo';
+export { FareTile, FeatureItem, type FareTileProps, type FeatureItemProps, type FeatureStatus } from './fare-tile';
+
 // Flight Details & Seatmap Components
 export { FlightDetailsModal } from './flight-details-modal';
 export { FareComparison } from './fare-comparison';
