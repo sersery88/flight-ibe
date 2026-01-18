@@ -1,6 +1,7 @@
 // Flight Search Components - Re-exports
 export { AirportCombobox } from './airport-combobox';
 export { DatePicker, DateRangePicker } from './date-picker';
+export { PriceDateRangePicker } from './price-date-picker';
 export { PassengerSelector, type PassengerCount } from './passenger-selector';
 export { CabinClassSelect } from './cabin-class-select';
 export { TripTypeToggle, type TripType } from './trip-type-toggle';
