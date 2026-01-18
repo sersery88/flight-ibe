@@ -10,6 +10,7 @@ import { formatAircraftType } from '@/lib/aircraft';
 import { formatAirlineName } from '@/lib/airlines';
 import { formatAirportName } from '@/lib/airports';
 import type { FlightOffer, Segment } from '@/types/flight';
+import { DealIndicator } from '@/components/price';
 
 // ============================================================================
 
@@ -362,8 +363,16 @@ export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected
               )}
             </div>
 
-            {/* Price & Select */}
+            {/* Deal Indicator & Price & Select */}
             <div className="flex min-w-0 items-center justify-between gap-2 sm:gap-3 md:gap-4">
+              {/* Deal Indicator */}
+              <DealIndicator
+                origin={outbound.segments[0].departure.iataCode}
+                destination={outbound.segments[outbound.segments.length - 1].arrival.iataCode}
+                departureDate={outbound.segments[0].departure.at.split('T')[0]}
+                currentPrice={parseFloat(selectedFareOffer.price.total) / selectedFareOffer.travelerPricings.length}
+                className="hidden sm:flex"
+              />
               {(() => {
                 // Calculate price per person for selected fare
                 const selectedAdultPricing = selectedFareOffer.travelerPricings.find(tp => tp.travelerType === 'ADULT');
