@@ -116,25 +116,14 @@ export const TrendingDestinations = memo(function TrendingDestinations({
     );
   }
 
-  // Error state
+  // Error state - hide component if API unavailable (e.g., sandbox mode)
   if (error) {
-    return (
-      <div className={cn('rounded-xl border border-red-200 bg-red-50 dark:bg-red-900/20 p-6', className)}>
-        <p className="text-red-600 dark:text-red-400">
-          Trending-Daten konnten nicht geladen werden.
-        </p>
-      </div>
-    );
+    return null;
   }
 
-  // No data
-  if (destinations.length === 0) {
-    return (
-      <div className={cn('rounded-xl border p-6 text-center', className)}>
-        <TrendingUp className="h-10 w-10 text-gray-300 mx-auto mb-3" />
-        <p className="text-gray-500">Keine Trending-Daten verfügbar.</p>
-      </div>
-    );
+  // No data - hide component
+  if (destinations.length === 0 && !isLoading) {
+    return null;
   }
 
   return (

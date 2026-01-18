@@ -71,6 +71,11 @@ export const InspirationSearch = memo(function InspirationSearch({
 
   const currentOriginName = POPULAR_ORIGINS.find(o => o.code === origin)?.name || origin;
 
+  // Hide component if API is not available (e.g., in sandbox mode)
+  if (error && !isLoading) {
+    return null;
+  }
+
   return (
     <div className={cn('space-y-6', className)}>
       {/* Header */}
@@ -168,14 +173,6 @@ export const InspirationSearch = memo(function InspirationSearch({
         </div>
       )}
 
-      {/* Error state */}
-      {error && (
-        <div className="rounded-lg border border-red-200 bg-red-50 dark:bg-red-900/20 p-4">
-          <p className="text-red-600 dark:text-red-400">
-            Flugziele konnten nicht geladen werden. Bitte versuchen Sie es später erneut.
-          </p>
-        </div>
-      )}
 
       {/* Results */}
       {!isLoading && !error && destinations.length > 0 && (
