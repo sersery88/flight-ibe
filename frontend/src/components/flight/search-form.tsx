@@ -156,7 +156,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
               <FlightDatePicker
                 value={dateRangeValue}
                 onChange={handleDateRangeChange}
-                tripType={store.tripType === 'multicity' ? 'roundtrip' : store.tripType}
+                tripType={store.tripType as 'roundtrip' | 'oneway'}
                 onTripTypeChange={(type) => store.setTripType(type)}
                 origin={store.origin}
                 destination={store.destination}
