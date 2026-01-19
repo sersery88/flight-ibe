@@ -86,10 +86,10 @@ export function PassengerSelector({
       <Popover>
         <PopoverTrigger
           className={cn(
-            'flex w-full items-center gap-2 text-left text-sm transition-all duration-150 cursor-pointer',
+            'flex items-center gap-2 text-left text-sm transition-all duration-150 cursor-pointer',
             compact
-              ? 'rounded-lg border-0 bg-background/60 py-3 px-3 hover:bg-background hover:shadow-sm focus:bg-background focus:shadow-md focus:ring-2 focus:ring-primary/50 sm:py-2.5'
-              : 'rounded-lg border border-border bg-background px-3 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20',
+              ? 'w-[190px] rounded-lg border-0 bg-background/60 py-3 px-3 hover:bg-background hover:shadow-sm focus:bg-background focus:shadow-md focus:ring-2 focus:ring-primary/50 sm:py-2.5'
+              : 'w-full rounded-lg border border-border bg-background px-3 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20',
             'focus:outline-none'
           )}
         >
