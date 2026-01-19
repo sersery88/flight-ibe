@@ -153,22 +153,16 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
             <div className="hidden h-10 w-px bg-border md:mx-2 md:block" />
 
             <div className="flex-1 md:max-w-xs">
-              {store.tripType === 'oneway' ? (
-                <SingleFlightDatePicker
-                  value={store.departureDate ?? undefined}
-                  onChange={(date) => store.setDepartureDate(date)}
-                  placeholder="Hinflug"
-                  compact
-                />
-              ) : (
-                <FlightDatePicker
-                  value={dateRangeValue}
-                  onChange={handleDateRangeChange}
-                  origin={store.origin}
-                  destination={store.destination}
-                  compact
-                />
-              )}
+              <FlightDatePicker
+                value={dateRangeValue}
+                onChange={handleDateRangeChange}
+                tripType={store.tripType === 'multicity' ? 'roundtrip' : store.tripType}
+                onTripTypeChange={(type) => store.setTripType(type)}
+                origin={store.origin}
+                destination={store.destination}
+                showTripTypeSelector
+                compact
+              />
             </div>
 
             <div className="md:ml-2">
