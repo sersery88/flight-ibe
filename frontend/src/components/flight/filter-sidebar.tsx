@@ -1,9 +1,12 @@
+'use client';
+
 import { useState, useMemo } from 'react';
 import { SlidersHorizontal, ChevronDown, ChevronUp, Luggage, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import * as Slider from '@radix-ui/react-slider';
 import { cn, formatCurrency, parseDuration, formatDuration } from '@/lib/utils';
-import { Button, Badge } from '@/components/ui';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Slider } from '@/components/ui/slider';
 import type { FlightOffer } from '@/types/flight';
 import { formatAirlineName } from '@/lib/airlines';
 import { formatAirportName } from '@/lib/airports';
@@ -30,7 +33,7 @@ const formatHour = (hour: number): string => {
 };
 
 // ============================================================================
-// Dual Range Slider Component using Radix UI
+// Dual Range Slider Component using Base UI
 // ============================================================================
 
 interface DualRangeSliderProps {
@@ -51,25 +54,16 @@ function DualRangeSlider({
   formatLabel = (v) => v.toString(),
 }: DualRangeSliderProps) {
   return (
-    <div className="space-y-2">
-      <Slider.Root
-        className="relative flex items-center select-none touch-none w-full h-5"
+    <div className="space-y-3">
+      <Slider
         value={value}
         onValueChange={(val) => onChange(val as [number, number])}
         min={min}
         max={max}
         step={step}
-        minStepsBetweenThumbs={1}
-      >
-        <Slider.Track className="bg-neutral-300 dark:bg-neutral-600 relative grow h-[5px] rounded-sm">
-          <Slider.Range className="absolute bg-neutral-600 dark:bg-neutral-400 h-full rounded-sm" />
-        </Slider.Track>
-        <Slider.Thumb className="block w-[15px] h-[15px] bg-neutral-700 dark:bg-neutral-300 rounded-full focus:outline-none cursor-pointer hover:bg-neutral-800 dark:hover:bg-neutral-200" />
-        <Slider.Thumb className="block w-[15px] h-[15px] bg-neutral-700 dark:bg-neutral-300 rounded-full focus:outline-none cursor-pointer hover:bg-neutral-800 dark:hover:bg-neutral-200" />
-      </Slider.Root>
-
+      />
       {/* Labels */}
-      <div className="flex justify-between text-xs text-gray-500">
+      <div className="flex justify-between text-xs text-muted-foreground">
         <span>{formatLabel(value[0])}</span>
         <span>bis {formatLabel(value[1])}</span>
       </div>
@@ -255,11 +249,11 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
   };
 
   return (
-    <div className={cn('rounded-xl border border-gray-200 bg-white p-4 dark:border-gray-700 dark:bg-gray-900', className)}>
+    <div className={cn('rounded-xl border border-border bg-card p-4', className)}>
       {/* Header */}
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <SlidersHorizontal className="h-5 w-5 text-gray-500" />
+          <SlidersHorizontal className="h-5 w-5 text-muted-foreground" />
           <span className="font-semibold">Filter</span>
           {activeFilterCount > 0 && (
             <Badge variant="default">{activeFilterCount}</Badge>
@@ -285,36 +279,36 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
                   type="checkbox"
                   checked={filters.stops.includes(stop)}
                   onChange={() => toggleStop(stop)}
-                  className="h-4 w-4 rounded border-neutral-300 accent-pink-500 focus:ring-pink-500 dark:border-neutral-600"
+                  className="h-4 w-4 rounded border-border accent-primary focus:ring-primary"
                 />
                 <span className="flex-1">
                   {stop === 0 ? 'Direkt' : stop === 1 ? '1 Stopp' : '2+ Stopps'}
                 </span>
-                <span className="text-gray-400">({count})</span>
+                <span className="text-muted-foreground">({count})</span>
               </label>
             ))}
           </div>
         </FilterSection>
       )}
 
-      {/* Baggage Info - Note: Full baggage options available in fare selection */}
+      {/* Baggage Info */}
       {(baggageStats.withBaggage > 0 || baggageStats.withoutBaggage > 0) && (
         <FilterSection title="Gepäck">
           <div className="space-y-2">
-            <div className="flex items-start gap-2 rounded-lg bg-neutral-100 p-2 text-xs text-neutral-600 dark:bg-neutral-800/50 dark:text-neutral-300">
+            <div className="flex items-start gap-2 rounded-lg bg-muted/50 p-2 text-xs text-muted-foreground">
               <Luggage className="mt-0.5 h-3 w-3 flex-shrink-0" />
               <span>
                 Gepäck-Optionen variieren je nach Tarif. Klicken Sie auf "Weitere Tarife" bei einem Flug,
                 um alle Tarife mit/ohne Freigepäck zu sehen.
               </span>
             </div>
-            <div className="mt-2 space-y-1 text-xs text-gray-500">
+            <div className="mt-2 space-y-1 text-xs text-muted-foreground">
               <div className="flex items-center gap-2">
                 <Luggage className="h-3 w-3 text-green-500" />
                 <span>{baggageStats.withBaggage} Angebote mit Freigepäck im Basistarif</span>
               </div>
               <div className="flex items-center gap-2">
-                <Luggage className="h-3 w-3 text-gray-400" />
+                <Luggage className="h-3 w-3 text-muted-foreground" />
                 <span>{baggageStats.withoutBaggage} Angebote nur mit Handgepäck im Basistarif</span>
               </div>
             </div>
@@ -327,7 +321,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
         <div className="space-y-4">
           {/* Outbound Departure */}
           <div>
-            <div className="mb-2 text-xs font-medium text-gray-600 dark:text-gray-400">Abflug</div>
+            <div className="mb-2 text-xs font-medium text-muted-foreground">Abflug</div>
             <DualRangeSlider
               min={0}
               max={24}
@@ -339,7 +333,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
           </div>
           {/* Outbound Arrival */}
           <div>
-            <div className="mb-2 text-xs font-medium text-gray-600 dark:text-gray-400">Ankunft</div>
+            <div className="mb-2 text-xs font-medium text-muted-foreground">Ankunft</div>
             <DualRangeSlider
               min={0}
               max={24}
@@ -358,7 +352,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
           <div className="space-y-4">
             {/* Return Departure */}
             <div>
-              <div className="mb-2 text-xs font-medium text-gray-600 dark:text-gray-400">Abflug</div>
+              <div className="mb-2 text-xs font-medium text-muted-foreground">Abflug</div>
               <DualRangeSlider
                 min={0}
                 max={24}
@@ -370,7 +364,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
             </div>
             {/* Return Arrival */}
             <div>
-              <div className="mb-2 text-xs font-medium text-gray-600 dark:text-gray-400">Ankunft</div>
+              <div className="mb-2 text-xs font-medium text-muted-foreground">Ankunft</div>
               <DualRangeSlider
                 min={0}
                 max={24}
@@ -394,14 +388,14 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
                   type="checkbox"
                   checked={filters.transitAirports.includes(airport.code)}
                   onChange={() => toggleTransitAirport(airport.code)}
-                  className="h-4 w-4 rounded border-neutral-300 accent-pink-500 focus:ring-pink-500 dark:border-neutral-600"
+                  className="h-4 w-4 rounded border-border accent-primary focus:ring-primary"
                 />
-                <ArrowRight className="h-3 w-3 text-gray-400" />
+                <ArrowRight className="h-3 w-3 text-muted-foreground" />
                 <span className="flex-1">
                   <span className="font-medium">{airport.code}</span>
-                  <span className="ml-1.5 text-gray-500">{formatAirportName(airport.code, 'both')}</span>
+                  <span className="ml-1.5 text-muted-foreground">{formatAirportName(airport.code, 'both')}</span>
                 </span>
-                <span className="text-gray-400">({airport.count})</span>
+                <span className="text-muted-foreground">({airport.count})</span>
               </label>
             ))}
           </div>
@@ -411,19 +405,20 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
       {/* Duration Filter */}
       {durationStats.max > durationStats.min && (
         <FilterSection title="Flugdauer" defaultOpen={false}>
-          <div className="space-y-2">
-            <input
-              type="range"
+          <div className="space-y-3">
+            <Slider
               min={durationStats.min}
               max={durationStats.max}
-              value={filters.durationRange[1]}
-              onChange={(e) => onFiltersChange({
-                ...filters,
-                durationRange: [filters.durationRange[0], parseInt(e.target.value)]
-              })}
-              className="w-full accent-pink-500"
+              value={[filters.durationRange[1]]}
+              onValueChange={(val) => {
+                const newVal = Array.isArray(val) ? val[0] : val;
+                onFiltersChange({
+                  ...filters,
+                  durationRange: [filters.durationRange[0], newVal]
+                });
+              }}
             />
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex justify-between text-sm text-muted-foreground">
               <span>{formatDuration(`PT${Math.floor(filters.durationRange[0] / 60)}H${filters.durationRange[0] % 60}M`)}</span>
               <span>max. {formatDuration(`PT${Math.floor(filters.durationRange[1] / 60)}H${filters.durationRange[1] % 60}M`)}</span>
             </div>
@@ -441,15 +436,15 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
                   type="checkbox"
                   checked={filters.airlines.includes(airline.code)}
                   onChange={() => toggleAirline(airline.code)}
-                  className="h-4 w-4 rounded border-neutral-300 accent-pink-500 focus:ring-pink-500 dark:border-neutral-600"
+                  className="h-4 w-4 rounded border-border accent-primary focus:ring-primary"
                 />
                 <span className="flex-1">
                   {formatAirlineName(airline.code)}
                 </span>
-                <span className="whitespace-nowrap text-xs text-pink-500">
+                <span className="whitespace-nowrap text-xs text-primary">
                   ab {formatCurrency(airline.minPrice, priceStats.currency)}
                 </span>
-                <span className="text-gray-400">({airline.count})</span>
+                <span className="text-muted-foreground">({airline.count})</span>
               </label>
             ))}
           </div>
@@ -459,16 +454,17 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
       {/* Price Range */}
       {priceStats.max > priceStats.min && (
         <FilterSection title="Preis">
-          <div className="space-y-2">
-            <input
-              type="range"
+          <div className="space-y-3">
+            <Slider
               min={priceStats.min}
               max={priceStats.max}
-              value={filters.priceRange[1]}
-              onChange={(e) => onFiltersChange({ ...filters, priceRange: [filters.priceRange[0], parseInt(e.target.value)] })}
-              className="w-full"
+              value={[filters.priceRange[1]]}
+              onValueChange={(val) => {
+                const newVal = Array.isArray(val) ? val[0] : val;
+                onFiltersChange({ ...filters, priceRange: [filters.priceRange[0], newVal] });
+              }}
             />
-            <div className="flex justify-between text-sm text-gray-500">
+            <div className="flex justify-between text-sm text-muted-foreground">
               <span>{formatCurrency(filters.priceRange[0], priceStats.currency)}</span>
               <span>max. {formatCurrency(filters.priceRange[1], priceStats.currency)}</span>
             </div>
@@ -484,7 +480,7 @@ function FilterSection({ title, children, defaultOpen = true }: { title: string;
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="border-t border-gray-100 py-4 dark:border-gray-800">
+    <div className="border-t border-border py-4">
       <button
         className="flex w-full items-center justify-between text-left font-medium"
         onClick={() => setIsOpen(!isOpen)}
@@ -507,4 +503,3 @@ function FilterSection({ title, children, defaultOpen = true }: { title: string;
     </div>
   );
 }
-

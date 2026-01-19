@@ -1,98 +1,95 @@
-import * as React from 'react';
-import { cn } from '@/lib/utils';
+import * as React from "react";
+import { Tooltip as TooltipPrimitive } from "@base-ui/react/tooltip";
 
-// ============================================================================
-// Simple Tooltip Component (CSS-based, no external dependencies)
-// ============================================================================
+import { cn } from "@/lib/utils";
 
-interface TooltipProviderProps {
-  children: React.ReactNode;
-  delayDuration?: number;
-}
-
-export function TooltipProvider({ children }: TooltipProviderProps) {
-  return <>{children}</>;
-}
-
-interface TooltipProps {
-  children: React.ReactNode;
-}
-
-export function Tooltip({ children }: TooltipProps) {
-  return <div className="group relative inline-block">{children}</div>;
-}
-
-interface TooltipTriggerProps {
-  children: React.ReactNode;
-  asChild?: boolean;
-}
-
-export function TooltipTrigger({ children }: TooltipTriggerProps) {
-  return <>{children}</>;
-}
-
-interface TooltipContentProps {
-  children: React.ReactNode;
-  className?: string;
-  side?: 'top' | 'bottom' | 'left' | 'right';
-  align?: 'start' | 'end' | 'center';
-  sideOffset?: number;
-  forceShow?: boolean;
-}
-
-export function TooltipContent({
-  children,
-  className,
-  side = 'top',
-  align = 'center',
-  forceShow,
-}: TooltipContentProps) {
-  type AlignPosition = Record<'center' | 'start' | 'end', string>;
-
-  const positionClasses: Record<'top' | 'bottom', AlignPosition> & Record<'left' | 'right', string> = {
-    top: {
-      center: 'bottom-full left-1/2 -translate-x-1/2 mb-2',
-      start: 'bottom-full left-0 mb-2',
-      end: 'bottom-full right-0 mb-2',
-    },
-    bottom: {
-      center: 'top-full left-1/2 -translate-x-1/2 mt-2',
-      start: 'top-full left-0 mt-2',
-      end: 'top-full right-0 mt-2',
-    },
-    left: 'right-full top-1/2 -translate-y-1/2 mr-2',
-    right: 'left-full top-1/2 -translate-y-1/2 ml-2',
-  };
-
-  const positionValue = positionClasses[side];
-  const currentPos = typeof positionValue === 'string'
-    ? positionValue
-    : positionValue[align];
-
+function TooltipProvider({
+  delay = 0,
+  ...props
+}: TooltipPrimitive.Provider.Props) {
   return (
-    <div
-      className={cn(
-        'pointer-events-none absolute z-50 opacity-0 transition-opacity group-hover:opacity-100',
-        forceShow && 'opacity-100 pointer-events-auto',
-        'rounded-md bg-gray-900 px-2 py-1 text-xs text-white shadow-md dark:bg-gray-100 dark:text-gray-900',
-        'whitespace-nowrap',
-        currentPos,
-        className
-      )}
-      role="tooltip"
-    >
-      {children}
-      {/* Arrow */}
-      <div
-        className={cn(
-          'absolute h-2 w-2 rotate-45 bg-gray-900 dark:bg-gray-100',
-          side === 'top' && 'left-1/2 top-full -translate-x-1/2 -translate-y-1/2',
-          side === 'bottom' && 'left-1/2 bottom-full -translate-x-1/2 translate-y-1/2',
-          side === 'left' && 'top-1/2 left-full -translate-y-1/2 -translate-x-1/2',
-          side === 'right' && 'top-1/2 right-full -translate-y-1/2 translate-x-1/2',
-        )}
-      />
-    </div>
+    <TooltipPrimitive.Provider
+      data-slot="tooltip-provider"
+      delay={delay}
+      {...props}
+    />
   );
 }
 
+function Tooltip({ ...props }: TooltipPrimitive.Root.Props) {
+  return (
+    <TooltipProvider>
+      <TooltipPrimitive.Root data-slot="tooltip" {...props} />
+    </TooltipProvider>
+  );
+}
+
+function TooltipTrigger({ ...props }: TooltipPrimitive.Trigger.Props) {
+  return <TooltipPrimitive.Trigger data-slot="tooltip-trigger" {...props} />;
+}
+
+function TooltipPositioner({
+  className,
+  ...props
+}: TooltipPrimitive.Positioner.Props) {
+  return (
+    <TooltipPrimitive.Portal>
+      <TooltipPrimitive.Positioner
+        data-slot="tooltip-positioner"
+        sideOffset={8}
+        className={cn("z-50", className)}
+        {...props}
+      />
+    </TooltipPrimitive.Portal>
+  );
+}
+
+function TooltipContent({
+  className,
+  children,
+  side,
+  sideOffset = 8,
+  ...props
+}: TooltipPrimitive.Popup.Props & { side?: 'top' | 'bottom' | 'left' | 'right'; sideOffset?: number }) {
+  return (
+    <TooltipPrimitive.Portal>
+      <TooltipPrimitive.Positioner side={side} sideOffset={sideOffset} className="z-50">
+        <TooltipPrimitive.Popup
+          data-slot="tooltip-content"
+          className={cn(
+            "bg-popover text-popover-foreground animate-in fade-in-0 zoom-in-95 data-[closed]:animate-out data-[closed]:fade-out-0 data-[closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 z-50 w-fit rounded-md border px-3 py-1.5 text-xs shadow-md",
+            className
+          )}
+          {...props}
+        >
+          {children}
+        </TooltipPrimitive.Popup>
+      </TooltipPrimitive.Positioner>
+    </TooltipPrimitive.Portal>
+  );
+}
+
+function TooltipArrow({ className, ...props }: TooltipPrimitive.Arrow.Props) {
+  return (
+    <TooltipPrimitive.Arrow
+      data-slot="tooltip-arrow"
+      className={cn(
+        "bg-primary fill-primary z-50 size-2.5 rotate-45 rounded-[2px]",
+        "data-[side=bottom]:-translate-y-1/2 data-[side=bottom]:top-px",
+        "data-[side=top]:translate-y-1/2 data-[side=top]:bottom-px",
+        "data-[side=left]:translate-x-1/2 data-[side=left]:right-px",
+        "data-[side=right]:-translate-x-1/2 data-[side=right]:left-px",
+        className
+      )}
+      {...props}
+    />
+  );
+}
+
+export {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+  TooltipPositioner,
+};

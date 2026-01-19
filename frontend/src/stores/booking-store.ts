@@ -1,3 +1,5 @@
+'use client';
+
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import type { FlightOffer, BagOption } from '@/types/flight';
@@ -151,9 +153,9 @@ export const useBookingStore = create<BookingState>()(
   pnr: null,
   isPricing: false,
   isBooking: false,
-  
+
   setStep: (step) => set({ currentStep: step }),
-  
+
   nextStep: () => {
     const { currentStep } = get();
     const currentIndex = STEPS.indexOf(currentStep);
@@ -161,7 +163,7 @@ export const useBookingStore = create<BookingState>()(
       set({ currentStep: STEPS[currentIndex + 1] });
     }
   },
-  
+
   prevStep: () => {
     const { currentStep } = get();
     const currentIndex = STEPS.indexOf(currentStep);
@@ -169,13 +171,13 @@ export const useBookingStore = create<BookingState>()(
       set({ currentStep: STEPS[currentIndex - 1] });
     }
   },
-  
+
   setSelectedOffer: (offer) => set({ selectedOffer: offer }),
 
   setPricedOffer: (offer) => set({ pricedOffer: offer }),
 
   setAvailableBagOptions: (bags) => set({ availableBagOptions: bags }),
-  
+
   initializeTravelers: (adults, children, infants) => {
     const travelers: TravelerData[] = [];
     // Create adults first
@@ -201,21 +203,21 @@ export const useBookingStore = create<BookingState>()(
     }
     set({ travelers });
   },
-  
+
   updateTraveler: (index, data) => set((state) => ({
     travelers: state.travelers.map((t, i) => i === index ? { ...t, ...data } : t),
   })),
-  
+
   setContact: (contact) => set({ contact }),
-  
+
   addSeat: (seat) => set((state) => ({
     selectedSeats: [...state.selectedSeats.filter(s => !(s.segmentId === seat.segmentId && s.travelerId === seat.travelerId)), seat],
   })),
-  
+
   removeSeat: (segmentId, travelerId) => set((state) => ({
     selectedSeats: state.selectedSeats.filter(s => !(s.segmentId === segmentId && s.travelerId === travelerId)),
   })),
-  
+
   addAncillary: (ancillary) => set((state) => ({ selectedAncillaries: [...state.selectedAncillaries, ancillary] })),
 
   removeAncillary: (type, travelerId, itineraryId) => set((state) => ({
@@ -227,14 +229,14 @@ export const useBookingStore = create<BookingState>()(
       return false;
     }),
   })),
-  
+
   setPayment: (payment) => set({ payment }),
-  
+
   setBookingResult: (reference, pnr) => set({ bookingReference: reference, pnr, currentStep: 'confirmation' }),
-  
+
   setIsPricing: (isPricing) => set({ isPricing }),
   setIsBooking: (isBooking) => set({ isBooking }),
-  
+
   getTotalPrice: () => {
     const { pricedOffer, selectedOffer, selectedSeats, selectedAncillaries } = get();
     // Use pricedOffer if available, otherwise fall back to selectedOffer
@@ -244,7 +246,7 @@ export const useBookingStore = create<BookingState>()(
     total += selectedAncillaries.reduce((sum, a) => sum + a.price, 0);
     return total;
   },
-  
+
   reset: () => set({
     currentStep: 'travelers',
     selectedOffer: null,
@@ -261,7 +263,6 @@ export const useBookingStore = create<BookingState>()(
     isBooking: false,
   }),
 }),
-    { name: 'BookingStore', enabled: import.meta.env.DEV }
+    { name: 'BookingStore', enabled: process.env.NODE_ENV === 'development' }
   )
 );
-

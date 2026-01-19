@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp list:*)",
+      "Bash(npx shadcn@latest init:*)",
+      "Bash(npx shadcn@3.7.0 init:*)",
+      "Bash(npm install:*)",
+      "Bash(npm search:*)",
+      "Bash(npx shadcn@3.7.0 add:*)",
+      "Bash(npm run build:*)",
+      "Bash(timeout:*)",
+      "Bash(npm run dev:*)",
+      "Bash(tasklist:*)",
+      "Bash(curl:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nMigrate flight-ibe from Vite to Next.js 16.1.3 with shadcn/ui + Base UI\n\nComplete migration of the flight booking frontend:\n\n- Setup Next.js 16.1.3 with App Router and Turbopack\n- Initialize shadcn/ui 3.7.0 with Base UI backend \\(via basecn.dev\\)\n- Migrate Zustand stores with skipHydration for SSR compatibility\n- Add React Query provider and next-themes for dark mode\n- Migrate Home Page with hero section and SearchForm\n- Migrate Results Page with filters, sorting, and flight cards\n- Migrate Booking Page with multi-step wizard\n- Add all flight components \\(search-form, flight-card, filter-sidebar, etc.\\)\n- Configure Tailwind CSS 4 with custom pink theme\n\nStack:\n- Next.js 16.1.3 \\(App Router\\)\n- React 19.2\n- shadcn/ui 3.7.0 + Base UI\n- Zustand + React Query\n- Tailwind CSS 4\n- motion/react for animations\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(git branch:*)",
+      "Bash(git remote add:*)",
+      "Bash(git fetch:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

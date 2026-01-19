@@ -1,7 +1,10 @@
+'use client';
+
 import { useMemo, useCallback, useEffect } from 'react';
-import { ArrowRightLeft, Search, Plus, X } from 'lucide-react';
+import { useRouter } from 'next/navigation';
+import { ArrowRightLeft, Search, Plus, X, Loader2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/button';
 import { AirportCombobox } from './airport-combobox';
 import { FlightDatePicker, SingleFlightDatePicker, type DateRange } from './flight-date-picker';
 import { PassengerSelector } from './passenger-selector';
@@ -23,6 +26,7 @@ interface SearchFormProps {
 
 export function SearchForm({ onSearch, onSearchComplete, className }: SearchFormProps) {
   const store = useSearchStore();
+  const router = useRouter();
   const { mutate: searchFlights, isPending } = useFlightSearch();
 
   // Memoize the date range value to prevent re-renders
@@ -43,6 +47,9 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
 
     // Call onSearch immediately to navigate to results page
     onSearch?.();
+
+    // Navigate to results page
+    router.push('/results');
 
     searchFlights(request, {
       onSuccess: (data) => {
@@ -73,7 +80,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
             onChange={(type) => store.setTripType(type as TripType)}
           />
         </div>
-        <div className="hidden h-6 w-px bg-neutral-200 dark:bg-neutral-700 sm:block" />
+        <div className="hidden h-6 w-px bg-border sm:block" />
         <div className="flex items-center justify-center gap-2">
           <PassengerSelector
             value={{
@@ -99,7 +106,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
       {/* Main Search Bar - Modern unified design */}
       {store.tripType !== 'multicity' ? (
         // Standard layout for roundtrip/oneway
-        <div className="relative rounded-2xl bg-neutral-100 p-2 dark:bg-neutral-800">
+        <div className="relative rounded-2xl bg-muted p-2">
           <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-0">
             {/* Origin & Destination Group */}
             <div className="relative flex flex-1 flex-col gap-3 md:flex-row md:gap-0">
@@ -122,9 +129,9 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                 <button
                   type="button"
                   onClick={handleSwapLocations}
-                  className="flex h-8 w-8 items-center justify-center rounded-full border border-neutral-300 bg-white shadow-sm transition-all active:scale-95 hover:bg-neutral-50 hover:shadow dark:border-neutral-600 dark:bg-neutral-700 dark:hover:bg-neutral-600"
+                  className="flex h-8 w-8 items-center justify-center rounded-full border bg-background shadow-sm transition-all active:scale-95 hover:bg-accent hover:shadow"
                 >
-                  <ArrowRightLeft className="h-3.5 w-3.5 text-neutral-500 dark:text-neutral-400" />
+                  <ArrowRightLeft className="h-3.5 w-3.5 text-muted-foreground" />
                 </button>
               </div>
 
@@ -143,7 +150,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
               </div>
             </div>
 
-            <div className="hidden h-10 w-px bg-neutral-300 dark:bg-neutral-600 md:mx-2 md:block" />
+            <div className="hidden h-10 w-px bg-border md:mx-2 md:block" />
 
             <div className="flex-1 md:max-w-xs">
               {store.tripType === 'oneway' ? (
@@ -167,12 +174,15 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
             <div className="md:ml-2">
               <Button
                 size="lg"
-                className="w-full gap-2 rounded-xl bg-pink-500 px-6 hover:bg-pink-600 md:w-auto"
+                className="w-full gap-2 rounded-xl bg-primary px-6 hover:bg-primary/90 md:w-auto"
                 onClick={handleSearch}
-                isLoading={isPending}
-                disabled={!store.origin || !store.destination || !store.departureDate}
+                disabled={isPending || !store.origin || !store.destination || !store.departureDate}
               >
-                <Search className="h-5 w-5" />
+                {isPending ? (
+                  <Loader2 className="h-5 w-5 animate-spin" />
+                ) : (
+                  <Search className="h-5 w-5" />
+                )}
                 <span className="md:hidden lg:inline">Suchen</span>
               </Button>
             </div>
@@ -182,7 +192,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
         // Multi-City layout
         <div className="space-y-3">
           {/* First Segment (main) */}
-          <div className="relative rounded-2xl bg-neutral-100 p-2 dark:bg-neutral-800">
+          <div className="relative rounded-2xl bg-muted p-2">
             <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-0">
               <div className="relative flex flex-1 flex-col gap-3 md:flex-row md:gap-0">
                 <div className="flex-1">
@@ -200,7 +210,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                 </div>
 
                 <div className="flex justify-center md:px-1">
-                  <div className="flex h-8 w-8 items-center justify-center text-base text-neutral-400">
+                  <div className="flex h-8 w-8 items-center justify-center text-base text-muted-foreground">
                     →
                   </div>
                 </div>
@@ -220,7 +230,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                 </div>
               </div>
 
-              <div className="hidden h-10 w-px bg-neutral-300 dark:bg-neutral-600 md:mx-2 md:block" />
+              <div className="hidden h-10 w-px bg-border md:mx-2 md:block" />
 
               <div className="w-full md:w-40">
                 <SingleFlightDatePicker
@@ -244,7 +254,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -10 }}
-                className="relative rounded-2xl bg-neutral-100 p-2 dark:bg-neutral-800"
+                className="relative rounded-2xl bg-muted p-2"
               >
                 <div className="flex flex-col gap-3 md:flex-row md:items-center md:gap-0">
                   <div className="relative flex flex-1 flex-col gap-3 md:flex-row md:gap-0">
@@ -260,7 +270,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                     </div>
 
                     <div className="flex justify-center md:px-1">
-                      <div className="flex h-8 w-8 items-center justify-center text-base text-neutral-400">
+                      <div className="flex h-8 w-8 items-center justify-center text-base text-muted-foreground">
                         →
                       </div>
                     </div>
@@ -277,7 +287,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                     </div>
                   </div>
 
-                  <div className="hidden h-10 w-px bg-neutral-300 dark:bg-neutral-600 md:mx-2 md:block" />
+                  <div className="hidden h-10 w-px bg-border md:mx-2 md:block" />
 
                   <div className="w-full md:w-40">
                     <SingleFlightDatePicker
@@ -294,7 +304,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                       <button
                         type="button"
                         onClick={() => store.removeLeg(index)}
-                        className="flex h-8 w-8 items-center justify-center rounded-full text-neutral-400 transition-colors active:scale-95 hover:bg-neutral-200 hover:text-neutral-600 dark:hover:bg-neutral-700"
+                        className="flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition-colors active:scale-95 hover:bg-accent hover:text-foreground"
                       >
                         <X className="h-4 w-4" />
                       </button>
@@ -310,7 +320,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
             <button
               type="button"
               onClick={() => store.addLeg()}
-              className="flex items-center justify-center gap-2 rounded-full bg-neutral-100 px-5 py-2 text-sm font-medium text-neutral-600 transition-colors active:scale-95 hover:bg-neutral-200 dark:bg-neutral-800 dark:text-neutral-300 dark:hover:bg-neutral-700 sm:justify-start"
+              className="flex items-center justify-center gap-2 rounded-full bg-muted px-5 py-2 text-sm font-medium text-muted-foreground transition-colors active:scale-95 hover:bg-accent hover:text-foreground sm:justify-start"
             >
               <Plus className="h-4 w-4" />
               Flug hinzufügen
@@ -318,12 +328,15 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
 
             <Button
               size="lg"
-              className="w-full gap-2 rounded-xl bg-pink-500 px-8 hover:bg-pink-600 sm:w-auto"
+              className="w-full gap-2 rounded-xl bg-primary px-8 hover:bg-primary/90 sm:w-auto"
               onClick={handleSearch}
-              isLoading={isPending}
-              disabled={!store.origin || !store.destination || !store.departureDate}
+              disabled={isPending || !store.origin || !store.destination || !store.departureDate}
             >
-              <Search className="h-5 w-5" />
+              {isPending ? (
+                <Loader2 className="h-5 w-5 animate-spin" />
+              ) : (
+                <Search className="h-5 w-5" />
+              )}
               Suchen
             </Button>
           </div>

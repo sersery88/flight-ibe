@@ -61,4 +61,3 @@ export function findMatchingFlight(
 ): FlightOffer | null {
   return offers.find(offer => isSameFlight(targetOffer, offer)) || null;
 }
-

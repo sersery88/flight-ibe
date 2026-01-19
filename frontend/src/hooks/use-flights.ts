@@ -1,3 +1,5 @@
+'use client';
+
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   searchFlights,
@@ -8,7 +10,7 @@ import {
   getBooking,
   getFlightDates,
   type BookingRequest,
-} from '@/api/client';
+} from '@/lib/api-client';
 import type { FlightSearchRequest, FlightOffer } from '@/types/flight';
 import { useSearchStore } from '@/stores/search-store';
 import { useBookingStore } from '@/stores/booking-store';
@@ -99,7 +101,7 @@ export function useLocationSearch(keyword: string) {
 
 export function useSeatmaps(offers: FlightOffer[]) {
   const offerIds = offers.map(o => o.id);
-  
+
   return useQuery({
     queryKey: flightKeys.seatmaps(offerIds),
     queryFn: () => getSeatmaps(offers),
@@ -115,7 +117,7 @@ export function useSeatmaps(offers: FlightOffer[]) {
 export function useCreateBooking() {
   const queryClient = useQueryClient();
   const { setBookingResult, setIsBooking } = useBookingStore();
-  
+
   return useMutation({
     mutationFn: async (request: BookingRequest) => {
       setIsBooking(true);

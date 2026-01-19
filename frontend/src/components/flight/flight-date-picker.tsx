@@ -1,8 +1,10 @@
+'use client';
+
 import { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { Calendar, ChevronLeft, ChevronRight, ChevronDown, Loader2 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui';
+import { Button } from '@/components/ui/button';
 import { useFlightDates } from '@/hooks/use-flights';
 
 // ============================================================================
@@ -116,12 +118,18 @@ export function FlightDatePicker({
   const [tempFrom, setTempFrom] = useState<Date | undefined>(value?.from);
   const [tempTo, setTempTo] = useState<Date | undefined>(value?.to);
   const [showTripTypeDropdown, setShowTripTypeDropdown] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const tripTypeRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   const rightMonth = new Date(leftMonth.getFullYear(), leftMonth.getMonth() + 1, 1);
   const isOneway = tripType === 'oneway';
+
+  // For SSR compatibility
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Fetch price data when origin and destination are available
   const canFetchPrices = !!origin && !!destination && origin.length === 3 && destination.length === 3;
@@ -256,7 +264,7 @@ export function FlightDatePicker({
   };
 
   const getPriceColor = (price: number) => {
-    if (priceValues.length === 0 || maxPrice === minPrice) return 'text-neutral-500';
+    if (priceValues.length === 0 || maxPrice === minPrice) return 'text-muted-foreground';
     const ratio = (price - minPrice) / (maxPrice - minPrice);
     if (ratio < 0.33) return 'text-green-600 dark:text-green-400';
     if (ratio < 0.66) return 'text-yellow-600 dark:text-yellow-400';
@@ -317,23 +325,23 @@ export function FlightDatePicker({
             <button
               type="button"
               onClick={handlePrevMonth}
-              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-accent rounded-full transition-colors"
             >
-              <ChevronLeft className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+              <ChevronLeft className="h-5 w-5 text-muted-foreground" />
             </button>
           ) : (
             <div className="w-9" />
           )}
-          <span className="text-base font-medium text-neutral-900 dark:text-white">
+          <span className="text-base font-medium text-foreground">
             {MONTHS[month.getMonth()]}
           </span>
           {showNavigation === 'right' || showNavigation === 'both' ? (
             <button
               type="button"
               onClick={handleNextMonth}
-              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-accent rounded-full transition-colors"
             >
-              <ChevronRight className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+              <ChevronRight className="h-5 w-5 text-muted-foreground" />
             </button>
           ) : (
             <div className="w-9" />
@@ -343,7 +351,7 @@ export function FlightDatePicker({
         {/* Weekday headers */}
         <div className="grid grid-cols-7 gap-1 mb-2">
           {WEEKDAYS.map((day, i) => (
-            <div key={i} className="text-center text-sm font-medium text-neutral-500 py-2 w-10 mx-auto">
+            <div key={i} className="text-center text-sm font-medium text-muted-foreground py-2 w-10 mx-auto">
               {day}
             </div>
           ))}
@@ -369,11 +377,11 @@ export function FlightDatePicker({
                 disabled={disabled}
                 className={cn(
                   'h-16 w-10 mx-auto flex flex-col items-center justify-start pt-2 text-sm transition-all relative',
-                  disabled && 'text-neutral-300 cursor-not-allowed dark:text-neutral-600',
-                  !disabled && !isStart && !isEnd && !inRange && 'text-neutral-700 hover:bg-neutral-100 cursor-pointer dark:text-neutral-200 dark:hover:bg-neutral-800 rounded-full',
-                  inRange && 'bg-pink-50 dark:bg-pink-900/20',
-                  isStart && 'bg-pink-500 text-white rounded-l-full',
-                  isEnd && 'bg-pink-500 text-white rounded-r-full',
+                  disabled && 'text-muted-foreground/40 cursor-not-allowed',
+                  !disabled && !isStart && !isEnd && !inRange && 'text-foreground hover:bg-accent cursor-pointer rounded-full',
+                  inRange && 'bg-primary/10',
+                  isStart && 'bg-primary text-primary-foreground rounded-l-full',
+                  isEnd && 'bg-primary text-primary-foreground rounded-r-full',
                   isStart && isEnd && 'rounded-full',
                   isStart && !isEnd && inRange && 'rounded-l-full',
                   today && !isStart && !isEnd && 'font-bold'
@@ -381,14 +389,14 @@ export function FlightDatePicker({
               >
                 <span className={cn(
                   'text-sm font-medium',
-                  today && !isStart && !isEnd && 'w-7 h-7 flex items-center justify-center rounded-full ring-2 ring-pink-500'
+                  today && !isStart && !isEnd && 'w-7 h-7 flex items-center justify-center rounded-full ring-2 ring-primary'
                 )}>
                   {day}
                 </span>
                 {price !== undefined && !disabled && (
                   <span className={cn(
                     'text-[10px] mt-1 font-medium',
-                    isStart || isEnd ? 'text-white/90' : getPriceColor(price)
+                    isStart || isEnd ? 'text-primary-foreground/90' : getPriceColor(price)
                   )}>
                     {formatPrice(price)}
                   </span>
@@ -403,11 +411,11 @@ export function FlightDatePicker({
 
   const calendarContent = (
     <div className={cn(
-      'bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden',
+      'bg-background rounded-2xl shadow-2xl border overflow-hidden',
       isMobile ? 'w-full max-w-[400px]' : 'w-auto'
     )}>
       {/* Header */}
-      <div className="border-b border-neutral-200 dark:border-neutral-700 px-4 py-3">
+      <div className="border-b px-4 py-3">
         <div className="flex items-center gap-4">
           {/* Trip Type Selector */}
           {showTripTypeSelector && (
@@ -415,13 +423,13 @@ export function FlightDatePicker({
               <button
                 type="button"
                 onClick={() => setShowTripTypeDropdown(!showTripTypeDropdown)}
-                className="flex items-center gap-1 text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white"
+                className="flex items-center gap-1 text-sm font-medium text-muted-foreground hover:text-foreground"
               >
                 {TRIP_TYPES.find((t) => t.value === tripType)?.label}
                 <ChevronDown className="h-4 w-4" />
               </button>
               {showTripTypeDropdown && (
-                <div className="absolute top-full left-0 mt-1 bg-white dark:bg-neutral-800 rounded-lg shadow-lg border border-neutral-200 dark:border-neutral-700 py-1 z-10">
+                <div className="absolute top-full left-0 mt-1 bg-popover rounded-lg shadow-lg border py-1 z-10">
                   {TRIP_TYPES.map((type) => (
                     <button
                       key={type.value}
@@ -435,8 +443,8 @@ export function FlightDatePicker({
                         }
                       }}
                       className={cn(
-                        'w-full px-4 py-2 text-left text-sm hover:bg-neutral-100 dark:hover:bg-neutral-700',
-                        tripType === type.value && 'text-pink-500 font-medium'
+                        'w-full px-4 py-2 text-left text-sm hover:bg-accent',
+                        tripType === type.value && 'text-primary font-medium'
                       )}
                     >
                       {type.label}
@@ -451,7 +459,7 @@ export function FlightDatePicker({
           <button
             type="button"
             onClick={handleReset}
-            className="flex items-center gap-2 text-sm text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"
           >
             Zurücksetzen
             {isPriceLoading && canFetchPrices && (
@@ -461,15 +469,15 @@ export function FlightDatePicker({
 
           {/* Date Tabs */}
           <div className="flex-1 flex justify-end">
-            <div className="flex bg-neutral-100 dark:bg-neutral-800 rounded-lg p-1">
+            <div className="flex bg-muted rounded-lg p-1">
               <button
                 type="button"
                 onClick={() => setActiveTab('departure')}
                 className={cn(
                   'flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all',
                   activeTab === 'departure'
-                    ? 'bg-white dark:bg-neutral-700 shadow-sm text-neutral-900 dark:text-white'
-                    : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                    ? 'bg-background shadow-sm text-foreground'
+                    : 'text-muted-foreground hover:text-foreground'
                 )}
               >
                 <Calendar className="h-4 w-4" />
@@ -482,8 +490,8 @@ export function FlightDatePicker({
                   className={cn(
                     'flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all',
                     activeTab === 'return'
-                      ? 'bg-white dark:bg-neutral-700 shadow-sm text-neutral-900 dark:text-white'
-                      : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-white'
+                      ? 'bg-background shadow-sm text-foreground'
+                      : 'text-muted-foreground hover:text-foreground'
                   )}
                 >
                   <span>{tempTo ? formatShortDate(tempTo) : 'Rückflug'}</span>
@@ -511,11 +519,11 @@ export function FlightDatePicker({
       </div>
 
       {/* Footer */}
-      <div className="border-t border-neutral-200 dark:border-neutral-700 px-4 py-3 flex justify-end">
+      <div className="border-t px-4 py-3 flex justify-end">
         <Button
           onClick={handleDone}
           disabled={!canComplete}
-          className="bg-pink-500 hover:bg-pink-600 text-white px-6 rounded-full"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 rounded-full"
         >
           Fertig
         </Button>
@@ -539,19 +547,19 @@ export function FlightDatePicker({
         className={cn(
           'flex w-full items-center gap-2 text-left text-sm transition-all duration-150 cursor-pointer',
           compact
-            ? 'rounded-lg border-0 bg-white/60 dark:bg-neutral-700/40 px-3 py-2 hover:bg-white hover:shadow-sm dark:hover:bg-neutral-700 focus:bg-white focus:shadow-md focus:ring-2 focus:ring-pink-500/50 dark:focus:bg-neutral-700'
-            : 'rounded-lg border border-neutral-300 bg-white px-3 py-3 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 dark:border-neutral-600 dark:bg-neutral-900',
-          'focus:outline-none dark:text-white'
+            ? 'rounded-lg border-0 bg-background/60 px-3 py-2 hover:bg-background hover:shadow-sm focus:bg-background focus:shadow-md focus:ring-2 focus:ring-primary/50'
+            : 'rounded-lg border bg-background px-3 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20',
+          'focus:outline-none'
         )}
       >
-        <Calendar className={cn('text-neutral-400 shrink-0', compact ? 'h-4 w-4' : 'h-5 w-5')} />
-        <span className={cn('whitespace-nowrap', !value?.from && 'text-neutral-400 dark:text-neutral-500')}>
+        <Calendar className={cn('text-muted-foreground shrink-0', compact ? 'h-4 w-4' : 'h-5 w-5')} />
+        <span className={cn('whitespace-nowrap', !value?.from && 'text-muted-foreground')}>
           {value?.from ? formatShortDate(value.from) : 'Hinflug'}
         </span>
         {!isOneway && (
           <>
-            <span className="text-neutral-400">→</span>
-            <span className={cn('whitespace-nowrap', !value?.to && 'text-neutral-400 dark:text-neutral-500')}>
+            <span className="text-muted-foreground">→</span>
+            <span className={cn('whitespace-nowrap', !value?.to && 'text-muted-foreground')}>
               {value?.to ? formatShortDate(value.to) : 'Rückflug'}
             </span>
           </>
@@ -559,7 +567,7 @@ export function FlightDatePicker({
       </button>
 
       {/* Calendar Popup */}
-      {isOpen && createPortal(
+      {mounted && isOpen && createPortal(
         <>
           {/* Backdrop */}
           <div
@@ -611,10 +619,16 @@ export function SingleFlightDatePicker({
     return new Date(new Date().getFullYear(), new Date().getMonth(), 1);
   });
   const [tempDate, setTempDate] = useState<Date | undefined>(value);
+  const [mounted, setMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   const nextMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1);
+
+  // For SSR compatibility
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   // Create price map
   const priceMap = new Map<string, number>();
@@ -684,7 +698,7 @@ export function SingleFlightDatePicker({
   };
 
   const getPriceColor = (price: number) => {
-    if (priceValues.length === 0 || maxPrice === minPriceValue) return 'text-neutral-500';
+    if (priceValues.length === 0 || maxPrice === minPriceValue) return 'text-muted-foreground';
     const ratio = (price - minPriceValue) / (maxPrice - minPriceValue);
     if (ratio < 0.33) return 'text-green-600 dark:text-green-400';
     if (ratio < 0.66) return 'text-yellow-600 dark:text-yellow-400';
@@ -724,23 +738,23 @@ export function SingleFlightDatePicker({
             <button
               type="button"
               onClick={handlePrevMonth}
-              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-accent rounded-full transition-colors"
             >
-              <ChevronLeft className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+              <ChevronLeft className="h-5 w-5 text-muted-foreground" />
             </button>
           ) : (
             <div className="w-9" />
           )}
-          <span className="text-base font-medium text-neutral-900 dark:text-white">
+          <span className="text-base font-medium text-foreground">
             {MONTHS[month.getMonth()]}
           </span>
           {showNavigation === 'right' || showNavigation === 'both' ? (
             <button
               type="button"
               onClick={handleNextMonth}
-              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-accent rounded-full transition-colors"
             >
-              <ChevronRight className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
+              <ChevronRight className="h-5 w-5 text-muted-foreground" />
             </button>
           ) : (
             <div className="w-9" />
@@ -749,7 +763,7 @@ export function SingleFlightDatePicker({
 
         <div className="grid grid-cols-7 gap-1 mb-2">
           {WEEKDAYS.map((day, i) => (
-            <div key={i} className="text-center text-sm font-medium text-neutral-500 py-2 w-10 mx-auto">
+            <div key={i} className="text-center text-sm font-medium text-muted-foreground py-2 w-10 mx-auto">
               {day}
             </div>
           ))}
@@ -772,22 +786,22 @@ export function SingleFlightDatePicker({
                 disabled={disabled}
                 className={cn(
                   'h-16 w-10 mx-auto flex flex-col items-center justify-start pt-2 text-sm transition-all relative rounded-full',
-                  disabled && 'text-neutral-300 cursor-not-allowed dark:text-neutral-600',
-                  !disabled && !selected && 'text-neutral-700 hover:bg-neutral-100 cursor-pointer dark:text-neutral-200 dark:hover:bg-neutral-800',
-                  selected && 'bg-pink-500 text-white',
+                  disabled && 'text-muted-foreground/40 cursor-not-allowed',
+                  !disabled && !selected && 'text-foreground hover:bg-accent cursor-pointer',
+                  selected && 'bg-primary text-primary-foreground',
                   today && !selected && 'font-bold'
                 )}
               >
                 <span className={cn(
                   'text-sm font-medium',
-                  today && !selected && 'w-7 h-7 flex items-center justify-center rounded-full ring-2 ring-pink-500'
+                  today && !selected && 'w-7 h-7 flex items-center justify-center rounded-full ring-2 ring-primary'
                 )}>
                   {day}
                 </span>
                 {price !== undefined && !disabled && (
                   <span className={cn(
                     'text-[10px] mt-1 font-medium',
-                    selected ? 'text-white/90' : getPriceColor(price)
+                    selected ? 'text-primary-foreground/90' : getPriceColor(price)
                   )}>
                     {formatPrice(price)}
                   </span>
@@ -802,22 +816,22 @@ export function SingleFlightDatePicker({
 
   const calendarContent = (
     <div className={cn(
-      'bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl border border-neutral-200 dark:border-neutral-700 overflow-hidden',
+      'bg-background rounded-2xl shadow-2xl border overflow-hidden',
       isMobile ? 'w-full max-w-[400px]' : 'w-auto'
     )}>
       {/* Header */}
-      <div className="border-b border-neutral-200 dark:border-neutral-700 px-4 py-3">
+      <div className="border-b px-4 py-3">
         <div className="flex items-center justify-between">
           <button
             type="button"
             onClick={handleReset}
-            className="text-sm text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-300"
+            className="text-sm text-muted-foreground hover:text-foreground"
           >
             Zurücksetzen
           </button>
-          <div className="flex items-center gap-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg px-4 py-2">
-            <Calendar className="h-4 w-4 text-neutral-500" />
-            <span className="text-sm font-medium text-neutral-900 dark:text-white">
+          <div className="flex items-center gap-2 bg-muted rounded-lg px-4 py-2">
+            <Calendar className="h-4 w-4 text-muted-foreground" />
+            <span className="text-sm font-medium text-foreground">
               {tempDate ? formatShortDate(tempDate) : placeholder}
             </span>
           </div>
@@ -839,11 +853,11 @@ export function SingleFlightDatePicker({
       </div>
 
       {/* Footer */}
-      <div className="border-t border-neutral-200 dark:border-neutral-700 px-4 py-3 flex justify-end">
+      <div className="border-t px-4 py-3 flex justify-end">
         <Button
           onClick={handleDone}
           disabled={!tempDate}
-          className="bg-pink-500 hover:bg-pink-600 text-white px-6 rounded-full"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 rounded-full"
         >
           Fertig
         </Button>
@@ -864,17 +878,17 @@ export function SingleFlightDatePicker({
         className={cn(
           'flex w-full items-center gap-2 text-left text-sm transition-all duration-150 cursor-pointer',
           compact
-            ? 'rounded-lg border-0 bg-white/60 dark:bg-neutral-700/40 py-3 px-3 hover:bg-white hover:shadow-sm dark:hover:bg-neutral-700 focus:bg-white focus:shadow-md focus:ring-2 focus:ring-pink-500/50 dark:focus:bg-neutral-700 sm:py-2.5'
-            : 'rounded-lg border border-neutral-300 bg-white px-3 py-3 focus:border-pink-500 focus:ring-2 focus:ring-pink-500/20 dark:border-neutral-600 dark:bg-neutral-900',
-          'focus:outline-none dark:text-white',
-          !value && 'text-neutral-400 dark:text-neutral-500'
+            ? 'rounded-lg border-0 bg-background/60 py-3 px-3 hover:bg-background hover:shadow-sm focus:bg-background focus:shadow-md focus:ring-2 focus:ring-primary/50 sm:py-2.5'
+            : 'rounded-lg border bg-background px-3 py-3 focus:border-primary focus:ring-2 focus:ring-primary/20',
+          'focus:outline-none',
+          !value && 'text-muted-foreground'
         )}
       >
-        <Calendar className={cn('text-neutral-400 shrink-0', compact ? 'h-4 w-4' : 'h-5 w-5')} />
+        <Calendar className={cn('text-muted-foreground shrink-0', compact ? 'h-4 w-4' : 'h-5 w-5')} />
         {value ? formatShortDate(value) : placeholder}
       </button>
 
-      {isOpen && createPortal(
+      {mounted && isOpen && createPortal(
         <>
           <div
             className="fixed inset-0 z-[9998] bg-black/20 backdrop-blur-[1px]"

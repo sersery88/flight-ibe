@@ -1,3 +1,5 @@
+'use client';
+
 import { cn, formatCurrency, parseDuration } from '@/lib/utils';
 import type { FlightOffer } from '@/types/flight';
 
@@ -34,7 +36,7 @@ export function calculateBestScore(
     (sum, it) => sum + parseDuration(it.duration),
     0
   );
-  
+
   // Calculate total stops across all itineraries
   const totalStops = offer.itineraries.reduce(
     (sum, it) => sum + (it.segments.length - 1),
@@ -130,35 +132,35 @@ export function SortTabs({ value, onChange, offers, className }: SortTabsProps) 
   ];
 
   return (
-    <div className={cn('flex w-full overflow-x-auto border-b border-neutral-200 dark:border-neutral-700', className)}>
+    <div className={cn('flex w-full overflow-x-auto border-b border-border', className)}>
       {tabs.map((tab) => (
         <button
           key={tab.id}
           onClick={() => onChange(tab.id)}
           className={cn(
             'relative min-w-0 flex-1 px-2 py-2 text-left transition-colors sm:px-3 sm:py-2.5 md:px-4 md:py-3',
-            'hover:bg-neutral-50 dark:hover:bg-neutral-800/50',
-            value === tab.id && 'bg-pink-50 dark:bg-pink-900/20'
+            'hover:bg-muted/50',
+            value === tab.id && 'bg-primary/10'
           )}
         >
           {/* Active indicator */}
           {value === tab.id && (
-            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-pink-500" />
+            <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-primary" />
           )}
 
           {/* Label */}
           <span className={cn(
             'block truncate text-xs font-medium sm:text-sm',
             value === tab.id
-              ? 'text-pink-500 dark:text-pink-400'
-              : 'text-neutral-600 dark:text-neutral-400'
+              ? 'text-primary'
+              : 'text-muted-foreground'
           )}>
             {tab.label}
           </span>
 
           {/* Price and duration preview */}
-          <div className="mt-0.5 flex min-w-0 items-center gap-1 text-[10px] text-neutral-500 dark:text-neutral-400 sm:gap-1.5 sm:text-xs">
-            <span className="shrink-0 font-medium text-neutral-900 dark:text-neutral-100">{tab.price}</span>
+          <div className="mt-0.5 flex min-w-0 items-center gap-1 text-[10px] text-muted-foreground sm:gap-1.5 sm:text-xs">
+            <span className="shrink-0 font-medium text-foreground">{tab.price}</span>
             <span className="shrink-0">•</span>
             <span className="truncate">{tab.duration}</span>
           </div>
@@ -167,4 +169,3 @@ export function SortTabs({ value, onChange, offers, className }: SortTabsProps) 
     </div>
   );
 }
-

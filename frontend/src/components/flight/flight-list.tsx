@@ -1,8 +1,66 @@
+'use client';
+
 import { AnimatePresence, motion } from 'motion/react';
 import { Plane, AlertCircle, CalendarDays } from 'lucide-react';
-import { SkeletonFlightCard, Button } from '@/components/ui';
+import { Skeleton } from '@/components/ui/skeleton';
+import { Button } from '@/components/ui/button';
 import { FlightCard } from './flight-card';
 import type { FlightOffer } from '@/types/flight';
+
+// ============================================================================
+// Skeleton Flight Card - Loading placeholder
+// ============================================================================
+
+function SkeletonFlightCard() {
+  return (
+    <div className="rounded-xl border border-border bg-card p-4 sm:p-6">
+      <div className="space-y-4">
+        {/* Header row */}
+        <div className="flex items-center gap-4">
+          <Skeleton className="h-10 w-10 rounded-lg" />
+          <div className="flex-1 space-y-2">
+            <Skeleton className="h-4 w-32" />
+            <Skeleton className="h-3 w-24" />
+          </div>
+          <Skeleton className="h-8 w-20" />
+        </div>
+
+        {/* Flight path */}
+        <div className="flex items-center gap-4">
+          <div className="flex-1">
+            <Skeleton className="h-6 w-16" />
+            <Skeleton className="mt-1 h-3 w-12" />
+          </div>
+          <div className="flex-1">
+            <Skeleton className="mx-auto h-0.5 w-full" />
+            <div className="mt-2 flex justify-center">
+              <Skeleton className="h-4 w-24" />
+            </div>
+          </div>
+          <div className="flex-1 text-right">
+            <Skeleton className="ml-auto h-6 w-16" />
+            <Skeleton className="ml-auto mt-1 h-3 w-12" />
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="flex items-center justify-between border-t border-border pt-4">
+          <div className="flex gap-2">
+            <Skeleton className="h-5 w-16 rounded-full" />
+            <Skeleton className="h-5 w-12 rounded-full" />
+          </div>
+          <div className="flex items-center gap-4">
+            <div className="text-right">
+              <Skeleton className="h-6 w-20" />
+              <Skeleton className="mt-1 h-3 w-16" />
+            </div>
+            <Skeleton className="h-9 w-24 rounded-lg" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ============================================================================
 // Flight List Component - Display list of flight offers with loading state
@@ -35,7 +93,7 @@ export function FlightList({
   if (isLoading) {
     return (
       <div className={className}>
-        <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
+        <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
@@ -67,13 +125,13 @@ export function FlightList({
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="rounded-xl border border-red-200 bg-red-50 p-6 text-center dark:border-red-800 dark:bg-red-900/20"
+          className="rounded-xl border border-destructive/50 bg-destructive/10 p-6 text-center"
         >
-          <AlertCircle className="mx-auto mb-3 h-10 w-10 text-red-500" />
-          <h3 className="mb-1 font-semibold text-red-800 dark:text-red-300">
+          <AlertCircle className="mx-auto mb-3 h-10 w-10 text-destructive" />
+          <h3 className="mb-1 font-semibold text-destructive">
             Fehler bei der Suche
           </h3>
-          <p className="text-sm text-red-600 dark:text-red-400">
+          <p className="text-sm text-destructive/80">
             {error.message || 'Ein unerwarteter Fehler ist aufgetreten. Bitte versuchen Sie es erneut.'}
           </p>
         </motion.div>
@@ -88,13 +146,13 @@ export function FlightList({
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="rounded-xl border border-gray-200 bg-gray-50 p-12 text-center dark:border-gray-700 dark:bg-gray-800/50"
+          className="rounded-xl border border-border bg-muted/50 p-12 text-center"
         >
-          <Plane className="mx-auto mb-4 h-16 w-16 text-gray-300 dark:text-gray-600" />
-          <h3 className="mb-2 text-lg font-semibold text-gray-700 dark:text-gray-300">
+          <Plane className="mx-auto mb-4 h-16 w-16 text-muted-foreground/30" />
+          <h3 className="mb-2 text-lg font-semibold text-muted-foreground">
             Keine Flüge gefunden
           </h3>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             Versuchen Sie andere Daten oder Flughäfen für mehr Ergebnisse.
           </p>
         </motion.div>
@@ -107,7 +165,7 @@ export function FlightList({
     <div className={className}>
       {/* Header with flight count and calendar button (desktop only) */}
       <div className="mb-3 flex items-center justify-between sm:mb-4">
-        <div className="text-xs text-gray-500 sm:text-sm">
+        <div className="text-xs text-muted-foreground sm:text-sm">
           {offers.length} {offers.length === 1 ? 'Flug' : 'Flüge'} gefunden
         </div>
         {onTogglePriceCalendar && (
@@ -154,4 +212,3 @@ export function FlightList({
     </div>
   );
 }
-
