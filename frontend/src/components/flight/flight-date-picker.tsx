@@ -360,7 +360,7 @@ export function FlightDatePicker({
         {/* Days grid */}
         <div className="grid grid-cols-7 gap-1">
           {days.map((day, index) => {
-            if (day === null) return <div key={`empty-${index}`} className="h-16 w-10 mx-auto" />;
+            if (day === null) return <div key={`empty-${index}`} className="h-11 w-10 mx-auto" />;
 
             const disabled = isDateDisabled(day, month);
             const inRange = isDateInRange(day, month);
@@ -376,7 +376,7 @@ export function FlightDatePicker({
                 onClick={() => handleDateClick(day, month)}
                 disabled={disabled}
                 className={cn(
-                  'h-16 w-10 mx-auto flex flex-col items-center justify-start pt-2 text-sm transition-all relative',
+                  'h-11 w-10 mx-auto flex flex-col items-center justify-start pt-1 text-sm transition-all relative',
                   disabled && 'text-muted-foreground/40 cursor-not-allowed',
                   !disabled && !isStart && !isEnd && !inRange && 'text-foreground hover:bg-accent cursor-pointer rounded-full',
                   inRange && 'bg-primary/10',
@@ -771,7 +771,7 @@ export function SingleFlightDatePicker({
 
         <div className="grid grid-cols-7 gap-1">
           {days.map((day, index) => {
-            if (day === null) return <div key={`empty-${index}`} className="h-16 w-10 mx-auto" />;
+            if (day === null) return <div key={`empty-${index}`} className="h-11 w-10 mx-auto" />;
 
             const disabled = isDateDisabled(day, month);
             const selected = isDateSelected(day, month);
@@ -785,7 +785,7 @@ export function SingleFlightDatePicker({
                 onClick={() => handleDateClick(day, month)}
                 disabled={disabled}
                 className={cn(
-                  'h-16 w-10 mx-auto flex flex-col items-center justify-start pt-2 text-sm transition-all relative rounded-full',
+                  'h-11 w-10 mx-auto flex flex-col items-center justify-start pt-1 text-sm transition-all relative rounded-full',
                   disabled && 'text-muted-foreground/40 cursor-not-allowed',
                   !disabled && !selected && 'text-foreground hover:bg-accent cursor-pointer',
                   selected && 'bg-primary text-primary-foreground',
