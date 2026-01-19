@@ -52,7 +52,7 @@ export function CabinClassSelect({
         <SelectTrigger
           size={compact ? 'sm' : 'default'}
           className={cn(
-            'w-[155px]',
+            'w-[175px]',
             compact
               ? 'border-0 bg-background/60 hover:bg-background hover:shadow-sm focus:bg-background focus:shadow-md'
               : ''
