@@ -310,49 +310,49 @@ export function FlightDatePicker({
     const days = getDaysInMonth(month);
 
     return (
-      <div className="flex-1 min-w-0">
+      <div className="flex-1 min-w-[280px]">
         {/* Month header with navigation */}
-        <div className="flex items-center justify-between mb-4 px-1">
+        <div className="flex items-center justify-between mb-6 px-2">
           {showNavigation === 'left' || showNavigation === 'both' ? (
             <button
               type="button"
               onClick={handlePrevMonth}
-              className="p-1.5 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
             >
               <ChevronLeft className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
             </button>
           ) : (
-            <div className="w-8" />
+            <div className="w-9" />
           )}
-          <span className="text-sm font-medium text-neutral-900 dark:text-white">
+          <span className="text-base font-medium text-neutral-900 dark:text-white">
             {MONTHS[month.getMonth()]}
           </span>
           {showNavigation === 'right' || showNavigation === 'both' ? (
             <button
               type="button"
               onClick={handleNextMonth}
-              className="p-1.5 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
             >
               <ChevronRight className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
             </button>
           ) : (
-            <div className="w-8" />
+            <div className="w-9" />
           )}
         </div>
 
         {/* Weekday headers */}
-        <div className="grid grid-cols-7 mb-1">
+        <div className="grid grid-cols-7 gap-1 mb-2">
           {WEEKDAYS.map((day, i) => (
-            <div key={i} className="text-center text-xs font-medium text-neutral-500 py-1">
+            <div key={i} className="text-center text-sm font-medium text-neutral-500 py-2 w-10 mx-auto">
               {day}
             </div>
           ))}
         </div>
 
         {/* Days grid */}
-        <div className="grid grid-cols-7">
+        <div className="grid grid-cols-7 gap-1">
           {days.map((day, index) => {
-            if (day === null) return <div key={`empty-${index}`} className="h-14" />;
+            if (day === null) return <div key={`empty-${index}`} className="h-16 w-10 mx-auto" />;
 
             const disabled = isDateDisabled(day, month);
             const inRange = isDateInRange(day, month);
@@ -368,9 +368,9 @@ export function FlightDatePicker({
                 onClick={() => handleDateClick(day, month)}
                 disabled={disabled}
                 className={cn(
-                  'h-14 flex flex-col items-center justify-start pt-1.5 text-sm transition-all relative',
+                  'h-16 w-10 mx-auto flex flex-col items-center justify-start pt-2 text-sm transition-all relative',
                   disabled && 'text-neutral-300 cursor-not-allowed dark:text-neutral-600',
-                  !disabled && !isStart && !isEnd && !inRange && 'text-neutral-700 hover:bg-neutral-100 cursor-pointer dark:text-neutral-200 dark:hover:bg-neutral-800',
+                  !disabled && !isStart && !isEnd && !inRange && 'text-neutral-700 hover:bg-neutral-100 cursor-pointer dark:text-neutral-200 dark:hover:bg-neutral-800 rounded-full',
                   inRange && 'bg-pink-50 dark:bg-pink-900/20',
                   isStart && 'bg-pink-500 text-white rounded-l-full',
                   isEnd && 'bg-pink-500 text-white rounded-r-full',
@@ -381,13 +381,13 @@ export function FlightDatePicker({
               >
                 <span className={cn(
                   'text-sm font-medium',
-                  today && !isStart && !isEnd && 'w-6 h-6 flex items-center justify-center rounded-full ring-1 ring-pink-500'
+                  today && !isStart && !isEnd && 'w-7 h-7 flex items-center justify-center rounded-full ring-2 ring-pink-500'
                 )}>
                   {day}
                 </span>
                 {price !== undefined && !disabled && (
                   <span className={cn(
-                    'text-[10px] mt-0.5 font-medium',
+                    'text-[10px] mt-1 font-medium',
                     isStart || isEnd ? 'text-white/90' : getPriceColor(price)
                   )}>
                     {formatPrice(price)}
@@ -495,8 +495,8 @@ export function FlightDatePicker({
       </div>
 
       {/* Calendar */}
-      <div className="p-4">
-        <div className={cn('flex gap-8', isMobile && 'flex-col gap-6')}>
+      <div className="p-6">
+        <div className={cn('flex gap-12', isMobile && 'flex-col gap-8')}>
           {isMobile ? (
             // Mobile: Single month with both navigation arrows
             renderMonth(leftMonth, 'both')
@@ -718,46 +718,46 @@ export function SingleFlightDatePicker({
     const days = getDaysInMonth(month);
 
     return (
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center justify-between mb-4 px-1">
+      <div className="flex-1 min-w-[280px]">
+        <div className="flex items-center justify-between mb-6 px-2">
           {showNavigation === 'left' || showNavigation === 'both' ? (
             <button
               type="button"
               onClick={handlePrevMonth}
-              className="p-1.5 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
             >
               <ChevronLeft className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
             </button>
           ) : (
-            <div className="w-8" />
+            <div className="w-9" />
           )}
-          <span className="text-sm font-medium text-neutral-900 dark:text-white">
+          <span className="text-base font-medium text-neutral-900 dark:text-white">
             {MONTHS[month.getMonth()]}
           </span>
           {showNavigation === 'right' || showNavigation === 'both' ? (
             <button
               type="button"
               onClick={handleNextMonth}
-              className="p-1.5 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
+              className="p-2 hover:bg-neutral-100 rounded-full dark:hover:bg-neutral-800 transition-colors"
             >
               <ChevronRight className="h-5 w-5 text-neutral-600 dark:text-neutral-400" />
             </button>
           ) : (
-            <div className="w-8" />
+            <div className="w-9" />
           )}
         </div>
 
-        <div className="grid grid-cols-7 mb-1">
+        <div className="grid grid-cols-7 gap-1 mb-2">
           {WEEKDAYS.map((day, i) => (
-            <div key={i} className="text-center text-xs font-medium text-neutral-500 py-1">
+            <div key={i} className="text-center text-sm font-medium text-neutral-500 py-2 w-10 mx-auto">
               {day}
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-7">
+        <div className="grid grid-cols-7 gap-1">
           {days.map((day, index) => {
-            if (day === null) return <div key={`empty-${index}`} className="h-14" />;
+            if (day === null) return <div key={`empty-${index}`} className="h-16 w-10 mx-auto" />;
 
             const disabled = isDateDisabled(day, month);
             const selected = isDateSelected(day, month);
@@ -771,7 +771,7 @@ export function SingleFlightDatePicker({
                 onClick={() => handleDateClick(day, month)}
                 disabled={disabled}
                 className={cn(
-                  'h-14 flex flex-col items-center justify-start pt-1.5 text-sm transition-all relative rounded-full',
+                  'h-16 w-10 mx-auto flex flex-col items-center justify-start pt-2 text-sm transition-all relative rounded-full',
                   disabled && 'text-neutral-300 cursor-not-allowed dark:text-neutral-600',
                   !disabled && !selected && 'text-neutral-700 hover:bg-neutral-100 cursor-pointer dark:text-neutral-200 dark:hover:bg-neutral-800',
                   selected && 'bg-pink-500 text-white',
@@ -780,13 +780,13 @@ export function SingleFlightDatePicker({
               >
                 <span className={cn(
                   'text-sm font-medium',
-                  today && !selected && 'w-6 h-6 flex items-center justify-center rounded-full ring-1 ring-pink-500'
+                  today && !selected && 'w-7 h-7 flex items-center justify-center rounded-full ring-2 ring-pink-500'
                 )}>
                   {day}
                 </span>
                 {price !== undefined && !disabled && (
                   <span className={cn(
-                    'text-[10px] mt-0.5 font-medium',
+                    'text-[10px] mt-1 font-medium',
                     selected ? 'text-white/90' : getPriceColor(price)
                   )}>
                     {formatPrice(price)}
@@ -825,8 +825,8 @@ export function SingleFlightDatePicker({
       </div>
 
       {/* Calendar */}
-      <div className="p-4">
-        <div className={cn('flex gap-8', isMobile && 'flex-col gap-6')}>
+      <div className="p-6">
+        <div className={cn('flex gap-12', isMobile && 'flex-col gap-8')}>
           {isMobile ? (
             renderMonth(currentMonth, 'both')
           ) : (
