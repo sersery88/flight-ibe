@@ -3,8 +3,7 @@ import { ArrowRightLeft, Search, Plus, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Button } from '@/components/ui';
 import { AirportCombobox } from './airport-combobox';
-import { DatePicker, type DateRange } from './date-picker';
-import { PriceDateRangePicker } from './price-date-picker';
+import { FlightDatePicker, SingleFlightDatePicker, type DateRange } from './flight-date-picker';
 import { PassengerSelector } from './passenger-selector';
 import { CabinClassSelect } from './cabin-class-select';
 import { TripTypeToggle, type TripType } from './trip-type-toggle';
@@ -42,10 +41,12 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
     const request = store.getSearchRequest();
     if (!request) return;
 
+    // Call onSearch immediately to navigate to results page
+    onSearch?.();
+
     searchFlights(request, {
       onSuccess: (data) => {
         store.setSearchResults(data.data);
-        onSearch?.();
         onSearchComplete?.();
       },
     });
@@ -146,14 +147,14 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
 
             <div className="flex-1 md:max-w-xs">
               {store.tripType === 'oneway' ? (
-                <DatePicker
+                <SingleFlightDatePicker
                   value={store.departureDate ?? undefined}
                   onChange={(date) => store.setDepartureDate(date)}
                   placeholder="Hinflug"
                   compact
                 />
               ) : (
-                <PriceDateRangePicker
+                <FlightDatePicker
                   value={dateRangeValue}
                   onChange={handleDateRangeChange}
                   origin={store.origin}
@@ -222,7 +223,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
               <div className="hidden h-10 w-px bg-neutral-300 dark:bg-neutral-600 md:mx-2 md:block" />
 
               <div className="w-full md:w-40">
-                <DatePicker
+                <SingleFlightDatePicker
                   value={store.departureDate ?? undefined}
                   onChange={(date) => store.setDepartureDate(date)}
                   placeholder="Datum"
@@ -279,7 +280,7 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
                   <div className="hidden h-10 w-px bg-neutral-300 dark:bg-neutral-600 md:mx-2 md:block" />
 
                   <div className="w-full md:w-40">
-                    <DatePicker
+                    <SingleFlightDatePicker
                       value={leg.departureDate ?? undefined}
                       onChange={(date) => store.updateLeg(index, { departureDate: date ?? null })}
                       placeholder="Datum"
@@ -331,4 +332,3 @@ export function SearchForm({ onSearch, onSearchComplete, className }: SearchForm
     </div>
   );
 }
-

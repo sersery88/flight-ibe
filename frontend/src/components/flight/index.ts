@@ -2,6 +2,7 @@
 export { AirportCombobox } from './airport-combobox';
 export { DatePicker, DateRangePicker } from './date-picker';
 export { PriceDateRangePicker } from './price-date-picker';
+export { FlightDatePicker, SingleFlightDatePicker, type DayPrice } from './flight-date-picker';
 export { PassengerSelector, type PassengerCount } from './passenger-selector';
 export { CabinClassSelect } from './cabin-class-select';
 export { TripTypeToggle, type TripType } from './trip-type-toggle';
@@ -12,6 +13,7 @@ export { FlightCard } from './flight-card';
 export { FlightList } from './flight-list';
 export { FilterSidebar, type FlightFilters } from './filter-sidebar';
 export { SortDropdown, type SortOption } from './sort-dropdown';
+export { PriceCalendar } from './price-calendar';
 
 // Reusable Flight UI Components
 export { AirlineLogo, type AirlineLogoProps } from './airline-logo';
@@ -21,4 +23,4 @@ export { FareTile, FeatureItem, type FareTileProps, type FeatureItemProps, type 
 export { FlightDetailsModal } from './flight-details-modal';
 export { FareComparison } from './fare-comparison';
 export { default as SeatmapDisplay } from './seatmap-display';
-
+export { PriceChangeDialog } from './price-change-dialog';
