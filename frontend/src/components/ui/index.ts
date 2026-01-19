@@ -6,6 +6,7 @@ export { Skeleton, SkeletonCard, SkeletonFlightCard } from './skeleton';
 export { Badge, type BadgeProps } from './badge';
 export { Label, type LabelProps } from './label';
 export { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from './tooltip';
+export { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from './dialog';
 
 // Error & Loading
 export { ErrorBoundary, ErrorFallback } from './error-boundary';

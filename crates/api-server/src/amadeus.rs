@@ -1,22 +1,21 @@
 use reqwest::Client;
 use serde::Deserialize;
-use tracing::{info, warn, error, debug, instrument};
+use tracing::{debug, error, info, instrument, warn};
 
 use anyhow::{Result, anyhow};
 use std::env;
 use std::sync::OnceLock;
+use std::time::{Duration, Instant};
 use tokio::sync::RwLock;
-use std::time::{Instant, Duration};
 
 use crate::models::{
-    FlightSearchRequest, FlightOffersResponse, FlightOffer, FlightPriceResponse,
-    FlightOrderRequest, FlightOrderResponse, SeatmapResponse,
-    FlightAvailabilityRequest, FlightAvailabilityResponse,
-    FlightDestinationsResponse, FlightDatesResponse, ItineraryPriceMetricsResponse,
-    FlightDelayPredictionResponse, DirectDestinationsResponse, AirlineDestinationsResponse,
-    FlightStatusResponse, CheckinLinksResponse, LocationsResponse, AirlinesResponse,
-    BusiestPeriodResponse, AirTrafficBookedResponse, RecommendedLocationsResponse,
-    LocationScoreResponse, AmadeusErrorResponse,
+    AirTrafficBookedResponse, AirlineDestinationsResponse, AirlinesResponse, AmadeusErrorResponse,
+    BusiestPeriodResponse, CheckinLinksResponse, DirectDestinationsResponse,
+    FlightAvailabilityRequest, FlightAvailabilityResponse, FlightDatesResponse,
+    FlightDelayPredictionResponse, FlightDestinationsResponse, FlightOffer, FlightOffersResponse,
+    FlightOrderRequest, FlightOrderResponse, FlightPriceResponse, FlightSearchRequest,
+    FlightStatusResponse, ItineraryPriceMetricsResponse, LocationScoreResponse, LocationsResponse,
+    RecommendedLocationsResponse, SeatmapResponse,
 };
 
 /// Amadeus API Base URL - configurable via AMADEUS_ENV environment variable
@@ -24,11 +23,9 @@ use crate::models::{
 static BASE_URL_CACHE: OnceLock<String> = OnceLock::new();
 
 fn get_base_url() -> &'static str {
-    BASE_URL_CACHE.get_or_init(|| {
-        match env::var("AMADEUS_ENV").as_deref() {
-            Ok("production") => "https://api.amadeus.com".to_string(),
-            _ => "https://test.api.amadeus.com".to_string(),
-        }
+    BASE_URL_CACHE.get_or_init(|| match env::var("AMADEUS_ENV").as_deref() {
+        Ok("production") => "https://api.amadeus.com".to_string(),
+        _ => "https://test.api.amadeus.com".to_string(),
     })
 }
 
@@ -45,13 +42,19 @@ fn get_token_cache() -> &'static RwLock<Option<TokenCache>> {
 }
 
 /// Check if running in production environment
+#[allow(dead_code)]
 pub fn is_production() -> bool {
     env::var("AMADEUS_ENV").as_deref() == Ok("production")
 }
 
 /// Get current environment name
+#[allow(dead_code)]
 pub fn get_environment() -> &'static str {
-    if is_production() { "production" } else { "test" }
+    if is_production() {
+        "production"
+    } else {
+        "test"
+    }
 }
 
 #[derive(Deserialize, Debug)]
@@ -95,7 +98,8 @@ pub async fn get_token(client: &Client) -> Result<String> {
     let token = token_response.access_token.clone();
 
     // Cache the token (expires_in is in seconds, subtract buffer)
-    let expires_at = Instant::now() + Duration::from_secs((token_response.expires_in as u64).saturating_sub(120));
+    let expires_at = Instant::now()
+        + Duration::from_secs((token_response.expires_in as u64).saturating_sub(120));
 
     {
         let mut cache = get_token_cache().write().await;
@@ -133,8 +137,15 @@ async fn fetch_new_token(client: &Client) -> Result<TokenResponse> {
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        error!("Token request failed: status={}, error={}", status, error_text);
-        return Err(anyhow!("Token request failed with status {}: {}", status, error_text));
+        error!(
+            "Token request failed: status={}, error={}",
+            status, error_text
+        );
+        return Err(anyhow!(
+            "Token request failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
     info!("Successfully obtained Amadeus access token");
@@ -142,8 +153,22 @@ async fn fetch_new_token(client: &Client) -> Result<TokenResponse> {
 }
 
 /// Search for flight offers
-pub async fn search_flights(client: &Client, token: &str, req: &FlightSearchRequest) -> Result<FlightOffersResponse> {
-    info!("search_flights called: origin={}, destination={}, date={}", req.origin, req.destination, req.departure_date);
+pub async fn search_flights(
+    client: &Client,
+    token: &str,
+    req: &FlightSearchRequest,
+) -> Result<FlightOffersResponse> {
+    if let Some(ref return_date) = req.return_date {
+        info!(
+            "search_flights called: origin={}, destination={}, departure={}, return={}",
+            req.origin, req.destination, req.departure_date, return_date
+        );
+    } else {
+        info!(
+            "search_flights called: origin={}, destination={}, departure={} (one-way)",
+            req.origin, req.destination, req.departure_date
+        );
+    }
 
     // Build travelers array - each traveler needs a unique ID
     let mut travelers = Vec::new();
@@ -223,8 +248,9 @@ pub async fn search_flights(client: &Client, token: &str, req: &FlightSearchRequ
     }
 
     // Build search criteria
+    // Amadeus allows up to 250 results per request
     let mut search_criteria = serde_json::json!({
-        "maxFlightOffers": req.max_results.unwrap_or(50)
+        "maxFlightOffers": req.max_results.unwrap_or(250)
     });
 
     // Add flight filters if specified
@@ -232,23 +258,32 @@ pub async fn search_flights(client: &Client, token: &str, req: &FlightSearchRequ
 
     if let Some(non_stop) = req.non_stop {
         if non_stop {
-            flight_filters.insert("connectionRestriction".to_string(), serde_json::json!({
-                "maxNumberOfConnections": 0
-            }));
+            flight_filters.insert(
+                "connectionRestriction".to_string(),
+                serde_json::json!({
+                    "maxNumberOfConnections": 0
+                }),
+            );
         }
     }
 
     if let Some(ref included) = req.included_airline_codes {
         if !included.is_empty() {
-            flight_filters.insert("carrierRestrictions".to_string(), serde_json::json!({
-                "includedCarrierCodes": included
-            }));
+            flight_filters.insert(
+                "carrierRestrictions".to_string(),
+                serde_json::json!({
+                    "includedCarrierCodes": included
+                }),
+            );
         }
     } else if let Some(ref excluded) = req.excluded_airline_codes {
         if !excluded.is_empty() {
-            flight_filters.insert("carrierRestrictions".to_string(), serde_json::json!({
-                "excludedCarrierCodes": excluded
-            }));
+            flight_filters.insert(
+                "carrierRestrictions".to_string(),
+                serde_json::json!({
+                    "excludedCarrierCodes": excluded
+                }),
+            );
         }
     }
 
@@ -265,11 +300,14 @@ pub async fn search_flights(client: &Client, token: &str, req: &FlightSearchRequ
             }
         }
 
-        flight_filters.insert("cabinRestrictions".to_string(), serde_json::json!([{
-            "cabin": travel_class,
-            "coverage": "ALL_SEGMENTS",
-            "originDestinationIds": od_ids
-        }]));
+        flight_filters.insert(
+            "cabinRestrictions".to_string(),
+            serde_json::json!([{
+                "cabin": travel_class,
+                "coverage": "ALL_SEGMENTS",
+                "originDestinationIds": od_ids
+            }]),
+        );
     }
 
     if let Some(max_price) = req.max_price {
@@ -288,45 +326,97 @@ pub async fn search_flights(client: &Client, token: &str, req: &FlightSearchRequ
         "searchCriteria": search_criteria
     });
 
-    debug!("Searching flights: {} -> {}, date: {}", req.origin, req.destination, req.departure_date);
-    debug!("Request body: {}", serde_json::to_string_pretty(&body).unwrap_or_default());
+    debug!(
+        "Searching flights: {} -> {}, date: {}",
+        req.origin, req.destination, req.departure_date
+    );
 
-    let response = client
-        .post(format!("{}/v2/shopping/flight-offers", get_base_url()))
-        .header("Authorization", format!("Bearer {}", token))
-        .json(&body)
-        .send()
-        .await?;
+    // Retry loop for 429 Too Many Requests
+    let max_retries = 3;
+    let mut retry_count = 0;
 
-    if !response.status().is_success() {
-        let status = response.status();
-        let error_text = response.text().await.unwrap_or_default();
+    loop {
+        let response = client
+            .post(format!("{}/v2/shopping/flight-offers", get_base_url()))
+            .header("Authorization", format!("Bearer {}", token))
+            .json(&body)
+            .send()
+            .await?;
 
-        error!("Amadeus API error response: status={}, body={}", status, error_text);
+        if response.status().is_success() {
+            // Parse the full response into our typed structs
+            let response_text = response.text().await?;
+            debug!(
+                "Amadeus response (first 500 chars): {}",
+                &response_text[..response_text.len().min(500)]
+            );
 
-        // Try to parse as Amadeus error response for better logging
-        if let Ok(error_resp) = serde_json::from_str::<AmadeusErrorResponse>(&error_text) {
-            for err in &error_resp.errors {
-                error!("Amadeus API error: code={:?}, title={:?}, detail={:?}",
-                    err.code, err.title, err.detail);
+            let amadeus_resp: FlightOffersResponse =
+                serde_json::from_str(&response_text).map_err(|e| {
+                    error!(
+                        "Failed to parse Amadeus response: {}. Response: {}",
+                        e,
+                        &response_text[..response_text.len().min(1000)]
+                    );
+                    anyhow!("Failed to parse Amadeus response: {}", e)
+                })?;
+
+            info!("Flight search returned {} offers", amadeus_resp.data.len());
+            return Ok(amadeus_resp);
+        } else if response.status() == 429 {
+            // Too Many Requests - Retry logic
+            if retry_count >= max_retries {
+                let error_text = response.text().await.unwrap_or_default();
+                error!(
+                    "Amadeus API 429 Quota Exceeded after {} retries: {}",
+                    max_retries, error_text
+                );
+                return Err(anyhow!(
+                    "Flight search rate limit exceeded after retries. Quota might be exhausted."
+                ));
             }
+
+            retry_count += 1;
+            let wait_time = if let Some(retry_after) = response.headers().get("Retry-After") {
+                retry_after.to_str().unwrap_or("1").parse().unwrap_or(1)
+            } else {
+                // Exponential backoff: 1, 2, 4 seconds
+                1 << (retry_count - 1)
+            };
+
+            warn!(
+                "Amadeus API 429 Too Many Requests. Retrying in {} seconds (attempt {}/{})",
+                wait_time, retry_count, max_retries
+            );
+            tokio::time::sleep(Duration::from_secs(wait_time)).await;
+            continue;
+        } else {
+            // Other error
+            let status = response.status();
+            let error_text = response.text().await.unwrap_or_default();
+
+            error!(
+                "Amadeus API error response: status={}, body={}",
+                status, error_text
+            );
+
+            // Try to parse as Amadeus error response for better logging
+            if let Ok(error_resp) = serde_json::from_str::<AmadeusErrorResponse>(&error_text) {
+                for err in &error_resp.errors {
+                    error!(
+                        "Amadeus API error: code={:?}, title={:?}, detail={:?}",
+                        err.code, err.title, err.detail
+                    );
+                }
+            }
+
+            return Err(anyhow!(
+                "Flight search failed with status {}: {}",
+                status,
+                error_text
+            ));
         }
-
-        return Err(anyhow!("Flight search failed with status {}: {}", status, error_text));
     }
-
-    // Parse the full response into our typed structs
-    let response_text = response.text().await?;
-    debug!("Amadeus response (first 500 chars): {}", &response_text[..response_text.len().min(500)]);
-
-    let amadeus_resp: FlightOffersResponse = serde_json::from_str(&response_text)
-        .map_err(|e| {
-            error!("Failed to parse Amadeus response: {}. Response: {}", e, &response_text[..response_text.len().min(1000)]);
-            anyhow!("Failed to parse Amadeus response: {}", e)
-        })?;
-
-    info!("Flight search returned {} offers", amadeus_resp.data.len());
-    Ok(amadeus_resp)
 }
 
 /// Price flight offers - confirms price and gets detailed pricing info
@@ -361,10 +451,16 @@ pub async fn price_flight_offers(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Flight pricing failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Flight pricing failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let price_resp: FlightPriceResponse = response.json().await
+    let price_resp: FlightPriceResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse pricing response: {}", e))?;
 
     Ok(price_resp)
@@ -395,7 +491,10 @@ pub async fn create_flight_order(
         "data": data
     });
 
-    info!("Creating flight order for {} travelers", order_request.travelers.len());
+    info!(
+        "Creating flight order for {} travelers",
+        order_request.travelers.len()
+    );
 
     let response = client
         .post(format!("{}/v1/booking/flight-orders", get_base_url()))
@@ -415,19 +514,30 @@ pub async fn create_flight_order(
                 if err.code == Some(crate::models::error_codes::SEGMENT_SELL_FAILURE) {
                     warn!("Segment sell failure (common in sandbox): {:?}", err.detail);
                 } else {
-                    error!("Amadeus booking error: code={:?}, title={:?}, detail={:?}",
-                        err.code, err.title, err.detail);
+                    error!(
+                        "Amadeus booking error: code={:?}, title={:?}, detail={:?}",
+                        err.code, err.title, err.detail
+                    );
                 }
             }
         }
 
-        return Err(anyhow!("Flight order creation failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Flight order creation failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let order_resp: FlightOrderResponse = response.json().await
+    let order_resp: FlightOrderResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse order response: {}", e))?;
 
-    info!("Flight order created successfully: id={}", order_resp.data.id);
+    info!(
+        "Flight order created successfully: id={}",
+        order_resp.data.id
+    );
     Ok(order_resp)
 }
 
@@ -439,7 +549,11 @@ pub async fn get_flight_order(
     order_id: &str,
 ) -> Result<FlightOrderResponse> {
     let response = client
-        .get(format!("{}/v1/booking/flight-orders/{}", get_base_url(), order_id))
+        .get(format!(
+            "{}/v1/booking/flight-orders/{}",
+            get_base_url(),
+            order_id
+        ))
         .header("Authorization", format!("Bearer {}", token))
         .send()
         .await?;
@@ -447,10 +561,16 @@ pub async fn get_flight_order(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get flight order failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get flight order failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let order_resp: FlightOrderResponse = response.json().await
+    let order_resp: FlightOrderResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse order response: {}", e))?;
 
     Ok(order_resp)
@@ -458,13 +578,13 @@ pub async fn get_flight_order(
 
 /// Delete (cancel) a flight order by ID
 /// DELETE /v1/booking/flight-orders/{id}
-pub async fn delete_flight_order(
-    client: &Client,
-    token: &str,
-    order_id: &str,
-) -> Result<()> {
+pub async fn delete_flight_order(client: &Client, token: &str, order_id: &str) -> Result<()> {
     let response = client
-        .delete(format!("{}/v1/booking/flight-orders/{}", get_base_url(), order_id))
+        .delete(format!(
+            "{}/v1/booking/flight-orders/{}",
+            get_base_url(),
+            order_id
+        ))
         .header("Authorization", format!("Bearer {}", token))
         .send()
         .await?;
@@ -472,7 +592,11 @@ pub async fn delete_flight_order(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Delete flight order failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Delete flight order failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
     Ok(())
@@ -502,18 +626,25 @@ pub async fn get_seatmaps(
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
         tracing::error!("Seatmap API error: status={}, body={}", status, error_text);
-        return Err(anyhow!("Get seatmaps failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get seatmaps failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
     // Get the raw response text first for debugging
     let response_text = response.text().await?;
     tracing::debug!("Seatmap raw response length: {} bytes", response_text.len());
 
-    let seatmap_resp: SeatmapResponse = serde_json::from_str(&response_text)
-        .map_err(|e| {
-            tracing::error!("Failed to parse seatmap response: {}. Response preview: {}...", e, &response_text[..response_text.len().min(500)]);
-            anyhow!("Failed to parse seatmap response: {}", e)
-        })?;
+    let seatmap_resp: SeatmapResponse = serde_json::from_str(&response_text).map_err(|e| {
+        tracing::error!(
+            "Failed to parse seatmap response: {}. Response preview: {}...",
+            e,
+            &response_text[..response_text.len().min(500)]
+        );
+        anyhow!("Failed to parse seatmap response: {}", e)
+    })?;
 
     tracing::debug!("Parsed {} seatmaps successfully", seatmap_resp.data.len());
     Ok(seatmap_resp)
@@ -527,7 +658,11 @@ pub async fn get_seatmaps_by_order(
     order_id: &str,
 ) -> Result<SeatmapResponse> {
     let response = client
-        .get(format!("{}/v1/shopping/seatmaps?flight-orderId={}", get_base_url(), order_id))
+        .get(format!(
+            "{}/v1/shopping/seatmaps?flight-orderId={}",
+            get_base_url(),
+            order_id
+        ))
         .header("Authorization", format!("Bearer {}", token))
         .send()
         .await?;
@@ -535,10 +670,16 @@ pub async fn get_seatmaps_by_order(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get seatmaps by order failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get seatmaps by order failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let seatmap_resp: SeatmapResponse = response.json().await
+    let seatmap_resp: SeatmapResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse seatmap response: {}", e))?;
 
     Ok(seatmap_resp)
@@ -558,10 +699,16 @@ pub async fn get_upsell_offers(
         }
     });
 
-    tracing::info!("Upsell request body: {}", serde_json::to_string(&body).unwrap_or_default());
+    tracing::info!(
+        "Upsell request body: {}",
+        serde_json::to_string(&body).unwrap_or_default()
+    );
 
     let response = client
-        .post(format!("{}/v1/shopping/flight-offers/upselling", get_base_url()))
+        .post(format!(
+            "{}/v1/shopping/flight-offers/upselling",
+            get_base_url()
+        ))
         .header("Authorization", format!("Bearer {}", token))
         .json(&body)
         .send()
@@ -581,12 +728,23 @@ pub async fn get_upsell_offers(
             });
         }
 
-        tracing::error!("Upsell API error - Status: {}, Response: {}", status, error_text);
-        return Err(anyhow!("Get upsell offers failed with status {}: {}", status, error_text));
+        tracing::error!(
+            "Upsell API error - Status: {}, Response: {}",
+            status,
+            error_text
+        );
+        return Err(anyhow!(
+            "Get upsell offers failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
     let response_text = response.text().await?;
-    tracing::debug!("Upsell API response: {}", &response_text[..std::cmp::min(500, response_text.len())]);
+    tracing::debug!(
+        "Upsell API response: {}",
+        &response_text[..std::cmp::min(500, response_text.len())]
+    );
 
     let upsell_resp: FlightOffersResponse = serde_json::from_str(&response_text)
         .map_err(|e| anyhow!("Failed to parse upsell response: {}", e))?;
@@ -608,7 +766,10 @@ pub async fn get_flight_availabilities(
     });
 
     let response = client
-        .post(format!("{}/v1/shopping/availability/flight-availabilities", get_base_url()))
+        .post(format!(
+            "{}/v1/shopping/availability/flight-availabilities",
+            get_base_url()
+        ))
         .header("Authorization", format!("Bearer {}", token))
         .json(&body)
         .send()
@@ -617,10 +778,16 @@ pub async fn get_flight_availabilities(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get flight availabilities failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get flight availabilities failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let availability_resp: FlightAvailabilityResponse = response.json().await
+    let availability_resp: FlightAvailabilityResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse availability response: {}", e))?;
 
     Ok(availability_resp)
@@ -634,7 +801,11 @@ pub async fn get_flight_destinations(
     origin: &str,
     max_price: Option<i32>,
 ) -> Result<FlightDestinationsResponse> {
-    let mut url = format!("{}/v1/shopping/flight-destinations?origin={}", get_base_url(), origin);
+    let mut url = format!(
+        "{}/v1/shopping/flight-destinations?origin={}",
+        get_base_url(),
+        origin
+    );
     if let Some(price) = max_price {
         url.push_str(&format!("&maxPrice={}", price));
     }
@@ -648,10 +819,16 @@ pub async fn get_flight_destinations(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get flight destinations failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get flight destinations failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let destinations_resp: FlightDestinationsResponse = response.json().await
+    let destinations_resp: FlightDestinationsResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse destinations response: {}", e))?;
 
     Ok(destinations_resp)
@@ -667,7 +844,9 @@ pub async fn get_flight_dates(
 ) -> Result<FlightDatesResponse> {
     let url = format!(
         "{}/v1/shopping/flight-dates?origin={}&destination={}",
-        get_base_url(), origin, destination
+        get_base_url(),
+        origin,
+        destination
     );
 
     let response = client
@@ -679,10 +858,16 @@ pub async fn get_flight_dates(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get flight dates failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get flight dates failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let dates_resp: FlightDatesResponse = response.json().await
+    let dates_resp: FlightDatesResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse dates response: {}", e))?;
 
     Ok(dates_resp)
@@ -701,7 +886,10 @@ pub async fn get_itinerary_price_metrics(
 ) -> Result<ItineraryPriceMetricsResponse> {
     let mut url = format!(
         "{}/v1/analytics/itinerary-price-metrics?originIataCode={}&destinationIataCode={}&departureDate={}",
-        get_base_url(), origin, destination, departure_date
+        get_base_url(),
+        origin,
+        destination,
+        departure_date
     );
     if let Some(currency) = currency_code {
         url.push_str(&format!("&currencyCode={}", currency));
@@ -719,10 +907,16 @@ pub async fn get_itinerary_price_metrics(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get itinerary price metrics failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get itinerary price metrics failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let metrics_resp: ItineraryPriceMetricsResponse = response.json().await
+    let metrics_resp: ItineraryPriceMetricsResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse price metrics response: {}", e))?;
 
     Ok(metrics_resp)
@@ -746,7 +940,17 @@ pub async fn predict_flight_delay(
 ) -> Result<FlightDelayPredictionResponse> {
     let url = format!(
         "{}/v1/travel/predictions/flight-delay?originLocationCode={}&destinationLocationCode={}&departureDate={}&departureTime={}&arrivalDate={}&arrivalTime={}&aircraftCode={}&carrierCode={}&flightNumber={}&duration={}",
-        get_base_url(), origin, destination, departure_date, departure_time, arrival_date, arrival_time, aircraft_code, carrier_code, flight_number, duration
+        get_base_url(),
+        origin,
+        destination,
+        departure_date,
+        departure_time,
+        arrival_date,
+        arrival_time,
+        aircraft_code,
+        carrier_code,
+        flight_number,
+        duration
     );
 
     let response = client
@@ -758,10 +962,16 @@ pub async fn predict_flight_delay(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Predict flight delay failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Predict flight delay failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let delay_resp: FlightDelayPredictionResponse = response.json().await
+    let delay_resp: FlightDelayPredictionResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse delay prediction response: {}", e))?;
 
     Ok(delay_resp)
@@ -779,7 +989,10 @@ pub async fn predict_flight_choice(
     });
 
     let response = client
-        .post(format!("{}/v2/shopping/flight-offers/prediction", get_base_url()))
+        .post(format!(
+            "{}/v2/shopping/flight-offers/prediction",
+            get_base_url()
+        ))
         .header("Authorization", format!("Bearer {}", token))
         .json(&body)
         .send()
@@ -788,10 +1001,16 @@ pub async fn predict_flight_choice(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Predict flight choice failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Predict flight choice failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let prediction_resp: FlightOffersResponse = response.json().await
+    let prediction_resp: FlightOffersResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse choice prediction response: {}", e))?;
 
     Ok(prediction_resp)
@@ -807,7 +1026,8 @@ pub async fn get_airport_direct_destinations(
 ) -> Result<DirectDestinationsResponse> {
     let mut url = format!(
         "{}/v1/airport/direct-destinations?departureAirportCode={}",
-        get_base_url(), departure_airport_code
+        get_base_url(),
+        departure_airport_code
     );
     if let Some(max_val) = max {
         url.push_str(&format!("&max={}", max_val));
@@ -822,10 +1042,16 @@ pub async fn get_airport_direct_destinations(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get airport direct destinations failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get airport direct destinations failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let destinations_resp: DirectDestinationsResponse = response.json().await
+    let destinations_resp: DirectDestinationsResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse direct destinations response: {}", e))?;
 
     Ok(destinations_resp)
@@ -841,7 +1067,8 @@ pub async fn get_airline_destinations(
 ) -> Result<AirlineDestinationsResponse> {
     let mut url = format!(
         "{}/v1/airline/destinations?airlineCode={}",
-        get_base_url(), airline_code
+        get_base_url(),
+        airline_code
     );
     if let Some(max_val) = max {
         url.push_str(&format!("&max={}", max_val));
@@ -856,10 +1083,16 @@ pub async fn get_airline_destinations(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get airline destinations failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get airline destinations failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let destinations_resp: AirlineDestinationsResponse = response.json().await
+    let destinations_resp: AirlineDestinationsResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse airline destinations response: {}", e))?;
 
     Ok(destinations_resp)
@@ -876,7 +1109,10 @@ pub async fn get_flight_status(
 ) -> Result<FlightStatusResponse> {
     let url = format!(
         "{}/v2/schedule/flights?carrierCode={}&flightNumber={}&scheduledDepartureDate={}",
-        get_base_url(), carrier_code, flight_number, scheduled_departure_date
+        get_base_url(),
+        carrier_code,
+        flight_number,
+        scheduled_departure_date
     );
 
     let response = client
@@ -888,10 +1124,16 @@ pub async fn get_flight_status(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get flight status failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get flight status failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let status_resp: FlightStatusResponse = response.json().await
+    let status_resp: FlightStatusResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse flight status response: {}", e))?;
 
     Ok(status_resp)
@@ -907,7 +1149,8 @@ pub async fn get_checkin_links(
 ) -> Result<CheckinLinksResponse> {
     let mut url = format!(
         "{}/v2/reference-data/urls/checkin-links?airlineCode={}",
-        get_base_url(), airline_code
+        get_base_url(),
+        airline_code
     );
     if let Some(lang) = language {
         url.push_str(&format!("&language={}", lang));
@@ -922,10 +1165,16 @@ pub async fn get_checkin_links(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get checkin links failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get checkin links failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let checkin_resp: CheckinLinksResponse = response.json().await
+    let checkin_resp: CheckinLinksResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse checkin links response: {}", e))?;
 
     Ok(checkin_resp)
@@ -947,7 +1196,9 @@ pub async fn search_locations(
     // Use view=FULL for more complete data and sort by traveler score for relevance
     let mut url = format!(
         "{}/v1/reference-data/locations?keyword={}&subType={}&view=FULL&sort=analytics.travelers.score",
-        get_base_url(), encoded_keyword, sub_type
+        get_base_url(),
+        encoded_keyword,
+        sub_type
     );
     if let Some(limit) = page_limit {
         url.push_str(&format!("&page[limit]={}", limit));
@@ -962,10 +1213,16 @@ pub async fn search_locations(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Search locations failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Search locations failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let locations_resp: LocationsResponse = response.json().await
+    let locations_resp: LocationsResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse locations response: {}", e))?;
 
     Ok(locations_resp)
@@ -983,7 +1240,9 @@ pub async fn get_airports_by_geocode(
 ) -> Result<LocationsResponse> {
     let mut url = format!(
         "{}/v1/reference-data/locations/airports?latitude={}&longitude={}",
-        get_base_url(), latitude, longitude
+        get_base_url(),
+        latitude,
+        longitude
     );
     if let Some(r) = radius {
         url.push_str(&format!("&radius={}", r));
@@ -1001,10 +1260,16 @@ pub async fn get_airports_by_geocode(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get airports failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get airports failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let airports_resp: LocationsResponse = response.json().await
+    let airports_resp: LocationsResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse airports response: {}", e))?;
 
     Ok(airports_resp)
@@ -1031,10 +1296,16 @@ pub async fn get_airlines(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get airlines failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get airlines failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let airlines_resp: AirlinesResponse = response.json().await
+    let airlines_resp: AirlinesResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse airlines response: {}", e))?;
 
     Ok(airlines_resp)
@@ -1051,7 +1322,9 @@ pub async fn get_busiest_period(
 ) -> Result<BusiestPeriodResponse> {
     let mut url = format!(
         "{}/v1/travel/analytics/air-traffic/busiest-period?cityCode={}&period={}",
-        get_base_url(), city_code, period
+        get_base_url(),
+        city_code,
+        period
     );
     if let Some(dir) = direction {
         url.push_str(&format!("&direction={}", dir));
@@ -1066,10 +1339,16 @@ pub async fn get_busiest_period(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get busiest period failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get busiest period failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let busiest_resp: BusiestPeriodResponse = response.json().await
+    let busiest_resp: BusiestPeriodResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse busiest period response: {}", e))?;
 
     Ok(busiest_resp)
@@ -1086,7 +1365,9 @@ pub async fn get_air_traffic_booked(
 ) -> Result<AirTrafficBookedResponse> {
     let mut url = format!(
         "{}/v1/travel/analytics/air-traffic/booked?originCityCode={}&period={}",
-        get_base_url(), origin_city_code, period
+        get_base_url(),
+        origin_city_code,
+        period
     );
     if let Some(max_val) = max {
         url.push_str(&format!("&max={}", max_val));
@@ -1101,10 +1382,16 @@ pub async fn get_air_traffic_booked(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get air traffic booked failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get air traffic booked failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let booked_resp: AirTrafficBookedResponse = response.json().await
+    let booked_resp: AirTrafficBookedResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse air traffic booked response: {}", e))?;
 
     Ok(booked_resp)
@@ -1120,7 +1407,8 @@ pub async fn get_recommended_locations(
 ) -> Result<RecommendedLocationsResponse> {
     let mut url = format!(
         "{}/v1/reference-data/recommended-locations?cityCodes={}",
-        get_base_url(), city_codes
+        get_base_url(),
+        city_codes
     );
     if let Some(country) = traveler_country_code {
         url.push_str(&format!("&travelerCountryCode={}", country));
@@ -1135,10 +1423,16 @@ pub async fn get_recommended_locations(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get recommended locations failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get recommended locations failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let resp: RecommendedLocationsResponse = response.json().await
+    let resp: RecommendedLocationsResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse recommended locations response: {}", e))?;
 
     Ok(resp)
@@ -1154,7 +1448,9 @@ pub async fn get_location_score(
 ) -> Result<LocationScoreResponse> {
     let url = format!(
         "{}/v1/location/analytics/category-rated-areas?latitude={}&longitude={}",
-        get_base_url(), latitude, longitude
+        get_base_url(),
+        latitude,
+        longitude
     );
 
     let response = client
@@ -1166,10 +1462,16 @@ pub async fn get_location_score(
     if !response.status().is_success() {
         let status = response.status();
         let error_text = response.text().await.unwrap_or_default();
-        return Err(anyhow!("Get location score failed with status {}: {}", status, error_text));
+        return Err(anyhow!(
+            "Get location score failed with status {}: {}",
+            status,
+            error_text
+        ));
     }
 
-    let resp: LocationScoreResponse = response.json().await
+    let resp: LocationScoreResponse = response
+        .json()
+        .await
         .map_err(|e| anyhow!("Failed to parse location score response: {}", e))?;
 
     Ok(resp)

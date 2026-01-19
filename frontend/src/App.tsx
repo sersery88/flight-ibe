@@ -3,11 +3,14 @@ import { QueryClient, QueryClientProvider, useQueryClient } from '@tanstack/reac
 import { Moon, Sun, Loader2 } from 'lucide-react';
 import { Button, ErrorBoundary, ToastProvider } from '@/components/ui';
 import { SearchForm } from '@/components/flight';
-import { InspirationSearch, TrendingDestinations } from '@/components/inspiration';
+// TODO: Re-enable when inspiration components are complete
+// import { InspirationSearch, TrendingDestinations } from '@/components/inspiration';
 import { useThemeStore } from '@/stores/theme-store';
 import { useSearchStore } from '@/stores/search-store';
 import { useBookingStore } from '@/stores/booking-store';
-import { usePriceFlights } from '@/hooks/use-flights';
+import { usePriceFlights, useFlightSearch } from '@/hooks/use-flights';
+import { findMatchingFlight } from '@/lib/flight-matcher';
+import { PriceChangeDialog } from '@/components/flight/price-change-dialog';
 
 // Code-Splitting: Lazy load pages for faster initial load
 const ResultsPage = lazy(() => import('@/pages/results-page').then(m => ({ default: m.ResultsPage })));
@@ -70,39 +73,139 @@ function PageLoadingFallback() {
 // Main App Content (inside QueryClientProvider)
 function AppContent() {
   const [currentView, setCurrentView] = useState<AppView>('search');
-  const { searchResults, setSelectedOffer } = useSearchStore();
+  const [showPriceChangeDialog, setShowPriceChangeDialog] = useState(false);
+  const [priceChangeData, setPriceChangeData] = useState<{ oldPrice: number; newPrice: number; newOffer: any } | null>(null);
+  const [isRepricingFlight, setIsRepricingFlight] = useState(false);
+
+  const { searchResults, setSelectedOffer, getSearchRequest, setSearchResults } = useSearchStore();
   const { setSelectedOffer: setBookingOffer, reset: resetBooking } = useBookingStore();
   const qc = useQueryClient();
   const priceFlightsMutation = usePriceFlights();
+  const { mutate: searchFlights } = useFlightSearch();
 
   const handleHomeClick = () => {
     setCurrentView('search');
     resetBooking();
   };
 
-  const handleSearchComplete = () => {
-    // Get fresh results from store (searchResults from render may be stale)
-    const results = useSearchStore.getState().searchResults;
-    if (results.length > 0) {
-      setCurrentView('results');
-    }
+  const handleSearchStart = () => {
+    // Navigate to results page immediately when search starts
+    setCurrentView('results');
   };
 
-  const handleSelectFlight = (offer: typeof searchResults[0]) => {
+  const handleSearchComplete = () => {
+    // Already on results page, just let the data load
+  };
+
+  const handleSelectFlight = async (offer: typeof searchResults[0]) => {
     // Reset booking state when selecting a new flight to clear old seats/ancillaries
     resetBooking();
     // Invalidate seatmap cache to force re-fetch for new flight
     qc.removeQueries({ queryKey: ['flights', 'seatmaps'] });
-    setSelectedOffer(offer);
-    setBookingOffer(offer);
-    setCurrentView('booking');
 
-    // Call pricing API to get baggage options and updated pricing
-    priceFlightsMutation.mutate([offer]);
+    const oldPrice = parseFloat(offer.price.total);
+
+    // First, try to price the flight to check availability
+    setIsRepricingFlight(true);
+
+    try {
+      const pricingResult = await priceFlightsMutation.mutateAsync([offer]);
+
+      // Check if price changed
+      const newPrice = parseFloat(pricingResult.data.flightOffers[0].price.total);
+      const priceDifference = Math.abs(newPrice - oldPrice);
+      const priceChangeThreshold = 0.01; // 1 cent threshold
+
+      if (priceDifference > priceChangeThreshold) {
+        // Price changed - show dialog
+        setPriceChangeData({
+          oldPrice,
+          newPrice,
+          newOffer: pricingResult.data.flightOffers[0],
+        });
+        setShowPriceChangeDialog(true);
+        setIsRepricingFlight(false);
+        return;
+      }
+
+      // Price unchanged - proceed to booking page
+      setSelectedOffer(offer);
+      setBookingOffer(offer);
+      setCurrentView('booking');
+    } catch (error: any) {
+      // Pricing failed - check if it's error 4926 (no fare applicable)
+      console.log('Pricing error caught:', error);
+      console.log('Error response:', error?.response);
+      console.log('Error data:', error?.response?.data);
+
+      const errorMessage = error?.response?.data?.errors?.[0]?.detail || error?.message || '';
+      const errorCode = error?.response?.data?.errors?.[0]?.code;
+
+      console.log('Error message:', errorMessage);
+      console.log('Error code:', errorCode);
+
+      if (errorMessage.includes('No fare applicable') || errorCode === 4926 || errorMessage.includes('4926')) {
+        // RBD not available - need to re-search for updated price
+        console.log('RBD not available, re-searching for updated price...');
+
+        const searchRequest = getSearchRequest();
+        if (!searchRequest) {
+          alert('Fehler: Suchparameter nicht gefunden.');
+          return;
+        }
+
+        // Re-search with same parameters
+        searchFlights(searchRequest, {
+          onSuccess: (data) => {
+            // Find the same flight in new results
+            const matchingFlight = findMatchingFlight(offer, data.data);
+
+            if (matchingFlight) {
+              const newPrice = parseFloat(matchingFlight.price.total);
+
+              // Show price change dialog
+              setPriceChangeData({
+                oldPrice,
+                newPrice,
+                newOffer: matchingFlight,
+              });
+              setShowPriceChangeDialog(true);
+            } else {
+              alert('Dieser Flug ist nicht mehr verfügbar. Bitte wählen Sie einen anderen Flug.');
+            }
+          },
+          onError: () => {
+            alert('Fehler beim Aktualisieren des Preises. Bitte versuchen Sie es erneut.');
+          },
+        });
+      } else {
+        // Other error - show generic message
+        alert('Fehler beim Prüfen der Verfügbarkeit. Bitte versuchen Sie es erneut.');
+      }
+    } finally {
+      setIsRepricingFlight(false);
+    }
   };
 
   const handleBookingComplete = () => {
     handleHomeClick();
+  };
+
+  const handleConfirmPriceChange = () => {
+    if (!priceChangeData) return;
+
+    setShowPriceChangeDialog(false);
+
+    // The offer is already priced, just proceed to booking page
+    setSelectedOffer(priceChangeData.newOffer);
+    setBookingOffer(priceChangeData.newOffer);
+    setCurrentView('booking');
+    setPriceChangeData(null);
+  };
+
+  const handleCancelPriceChange = () => {
+    setShowPriceChangeDialog(false);
+    setPriceChangeData(null);
   };
 
   return (
@@ -126,39 +229,12 @@ function AppContent() {
 
                     {/* Search Form */}
                     <div className="w-full rounded-2xl bg-white p-4 text-left text-neutral-800 shadow-2xl dark:bg-neutral-900 dark:text-white sm:p-6">
-                      <SearchForm onSearchComplete={handleSearchComplete} />
+                      <SearchForm onSearch={handleSearchStart} onSearchComplete={handleSearchComplete} />
                     </div>
                   </div>
                 </section>
 
-                {/* Inspiration Section */}
-                <section className="w-full px-4 py-12 sm:py-16">
-                  <div className="mx-auto w-full max-w-6xl">
-                    <div className="grid gap-8 lg:grid-cols-3">
-                      {/* Inspiration Search - 2/3 width */}
-                      <div className="lg:col-span-2">
-                        <InspirationSearch
-                          defaultOrigin="FRA"
-                          onSelectDestination={(dest) => {
-                            console.log('Selected destination:', dest);
-                            // TODO: Pre-fill search form with destination
-                          }}
-                        />
-                      </div>
-
-                      {/* Trending Destinations - 1/3 width */}
-                      <div>
-                        <TrendingDestinations
-                          originCityCode="FRA"
-                          onSelectDestination={(code) => {
-                            console.log('Selected trending:', code);
-                            // TODO: Pre-fill search form with destination
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </section>
+                {/* TODO: Re-enable Inspiration Section when components are complete */}
               </>
             )}
 
@@ -188,6 +264,30 @@ function AppContent() {
             </div>
           </footer>
         </div>
+
+        {/* Price Change Dialog */}
+        {priceChangeData && (
+          <PriceChangeDialog
+            isOpen={showPriceChangeDialog}
+            onClose={handleCancelPriceChange}
+            onConfirm={handleConfirmPriceChange}
+            oldPrice={priceChangeData.oldPrice}
+            newPrice={priceChangeData.newPrice}
+            currency={priceChangeData.newOffer.price.currency}
+          />
+        )}
+
+        {/* Loading Overlay during repricing */}
+        {isRepricingFlight && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+            <div className="rounded-lg bg-white p-6 shadow-xl dark:bg-neutral-900">
+              <div className="flex items-center gap-3">
+                <Loader2 className="h-6 w-6 animate-spin text-pink-500" />
+                <span className="text-lg font-medium">Verfügbarkeitscheck...</span>
+              </div>
+            </div>
+          </div>
+        )}
       </ErrorBoundary>
     </ToastProvider>
   );

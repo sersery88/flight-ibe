@@ -131,9 +131,11 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
         existing.minPrice = Math.min(existing.minPrice, price);
       }
     });
-    return Array.from(airlineMap.entries())
+    const result = Array.from(airlineMap.entries())
       .map(([code, data]) => ({ code, count: data.offerIds.size, minPrice: data.minPrice }))
       .sort((a, b) => a.minPrice - b.minPrice);
+
+    return result;
   }, [offers]);
 
   // Extract stop counts
@@ -385,7 +387,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
       {/* Transit Airports Filter */}
       {transitAirports.length > 0 && (
         <FilterSection title="Umstieg via" defaultOpen={false}>
-          <div className="max-h-48 space-y-2 overflow-y-auto">
+          <div className="space-y-2">
             {transitAirports.map((airport) => (
               <label key={airport.code} className="flex cursor-pointer items-center gap-2 text-sm">
                 <input
@@ -432,7 +434,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
       {/* Airlines Filter */}
       {airlines.length > 0 && (
         <FilterSection title="Airlines" defaultOpen={false}>
-          <div className="max-h-48 space-y-2 overflow-y-auto">
+          <div className="space-y-2">
             {airlines.map((airline) => (
               <label key={airline.code} className="flex cursor-pointer items-center gap-2 text-sm">
                 <input
@@ -442,8 +444,7 @@ export function FilterSidebar({ offers, filters, onFiltersChange, className }: F
                   className="h-4 w-4 rounded border-neutral-300 accent-pink-500 focus:ring-pink-500 dark:border-neutral-600"
                 />
                 <span className="flex-1">
-                  <span className="font-medium">{airline.code}</span>
-                  <span className="ml-1.5 text-gray-500">{formatAirlineName(airline.code)}</span>
+                  {formatAirlineName(airline.code)}
                 </span>
                 <span className="whitespace-nowrap text-xs text-pink-500">
                   ab {formatCurrency(airline.minPrice, priceStats.currency)}

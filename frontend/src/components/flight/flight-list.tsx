@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'motion/react';
-import { Plane, AlertCircle } from 'lucide-react';
-import { SkeletonFlightCard } from '@/components/ui';
+import { Plane, AlertCircle, CalendarDays } from 'lucide-react';
+import { SkeletonFlightCard, Button } from '@/components/ui';
 import { FlightCard } from './flight-card';
 import type { FlightOffer } from '@/types/flight';
 
@@ -14,6 +14,9 @@ interface FlightListProps {
   error?: Error | null;
   selectedOfferId?: string;
   onSelectOffer: (offer: FlightOffer) => void;
+  showPriceCalendar?: boolean;
+  onTogglePriceCalendar?: () => void;
+  priceCalendarContent?: React.ReactNode;
   className?: string;
 }
 
@@ -23,29 +26,31 @@ export function FlightList({
   error,
   selectedOfferId,
   onSelectOffer,
+  showPriceCalendar,
+  onTogglePriceCalendar,
+  priceCalendarContent,
   className,
 }: FlightListProps) {
   // Loading State
   if (isLoading) {
     return (
-      <div className={className} role="status" aria-busy="true" aria-label="Flüge werden geladen">
+      <div className={className}>
         <div className="mb-4 flex items-center gap-2 text-sm text-gray-500">
           <motion.div
             animate={{ rotate: 360 }}
             transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}
-            aria-hidden="true"
           >
             <Plane className="h-4 w-4" />
           </motion.div>
-          <span aria-live="polite">Suche nach Flügen...</span>
+          Suche nach Flügen...
         </div>
-        <div className="space-y-4" aria-hidden="true">
-          {Array.from({ length: 5 }).map((_, i) => (
+        <div className="space-y-4">
+          {Array.from({ length: 10 }).map((_, i) => (
             <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1 }}
+              transition={{ delay: i * 0.05 }}
             >
               <SkeletonFlightCard />
             </motion.div>
@@ -58,13 +63,13 @@ export function FlightList({
   // Error State
   if (error) {
     return (
-      <div className={className} role="alert" aria-live="assertive">
+      <div className={className}>
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           className="rounded-xl border border-red-200 bg-red-50 p-6 text-center dark:border-red-800 dark:bg-red-900/20"
         >
-          <AlertCircle className="mx-auto mb-3 h-10 w-10 text-red-500" aria-hidden="true" />
+          <AlertCircle className="mx-auto mb-3 h-10 w-10 text-red-500" />
           <h3 className="mb-1 font-semibold text-red-800 dark:text-red-300">
             Fehler bei der Suche
           </h3>
@@ -99,15 +104,36 @@ export function FlightList({
 
   // Results
   return (
-    <div className={className} role="region" aria-label="Suchergebnisse">
-      <div className="mb-3 text-xs text-gray-500 sm:mb-4 sm:text-sm" aria-live="polite">
-        {offers.length} {offers.length === 1 ? 'Flug' : 'Flüge'} gefunden
+    <div className={className}>
+      {/* Header with flight count and calendar button (desktop only) */}
+      <div className="mb-3 flex items-center justify-between sm:mb-4">
+        <div className="text-xs text-gray-500 sm:text-sm">
+          {offers.length} {offers.length === 1 ? 'Flug' : 'Flüge'} gefunden
+        </div>
+        {onTogglePriceCalendar && (
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={onTogglePriceCalendar}
+            className="hidden md:flex gap-2"
+          >
+            <CalendarDays className="h-4 w-4" />
+            <span>Kalender</span>
+          </Button>
+        )}
       </div>
 
+      {/* Price Calendar (desktop only) */}
+      {showPriceCalendar && priceCalendarContent && (
+        <div className="mb-4 hidden md:block">
+          {priceCalendarContent}
+        </div>
+      )}
+
       <AnimatePresence mode="popLayout">
-        <ul className="w-full space-y-3 sm:space-y-4" role="list" aria-label="Flugangebote">
+        <div className="w-full space-y-3 sm:space-y-4">
           {offers.map((offer, index) => (
-            <motion.li
+            <motion.div
               key={offer.id}
               layout
               initial={{ opacity: 0, y: 20 }}
@@ -121,9 +147,9 @@ export function FlightList({
                 onSelect={onSelectOffer}
                 isSelected={offer.id === selectedOfferId}
               />
-            </motion.li>
+            </motion.div>
           ))}
-        </ul>
+        </div>
       </AnimatePresence>
     </div>
   );

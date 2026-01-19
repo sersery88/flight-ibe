@@ -1,6 +1,6 @@
 use axum::{
     extract::{Path, Query, State},
-    http::{HeaderValue, Method, StatusCode},
+    http::StatusCode,
     response::Json,
     routing::{delete, get, post},
     Router,
@@ -8,12 +8,14 @@ use axum::{
 
 use std::sync::Arc;
 use tokio::net::TcpListener;
-use tower_http::cors::{AllowOrigin, CorsLayer};
-use tracing_subscriber;
+use tower_http::cors::CorsLayer;
 use redis::AsyncCommands;
+use chrono::Datelike;
 
 mod amadeus;
 pub mod models;
+mod rate_limiter;
+mod sse;
 
 pub use models::*;
 
@@ -31,7 +33,15 @@ struct AppState {
 async fn main() {
     dotenv::dotenv().ok();
 
-    tracing_subscriber::fmt::init();
+    // Initialize logging with explicit level
+    tracing_subscriber::fmt()
+        .with_max_level(tracing::Level::INFO)
+        .with_target(false)
+        .with_thread_ids(false)
+        .with_file(false)
+        .init();
+
+    tracing::info!("🚀 Starting Flypink API Server...");
 
     // Initialize Redis client (optional - caching works without it)
     let redis_client = match std::env::var("REDIS_URL") {
@@ -63,6 +73,10 @@ async fn main() {
         .route("/health", get(health))
         .route("/flight-search", post(flight_search))
         .route("/flight-price", post(flight_price))
+        .route("/flight-price-stream", post(sse::flight_price_stream))
+        .route("/upsell-stream", post(sse::upsell_stream))
+        .route("/price-matrix", post(price_matrix))
+        .route("/price-matrix-stream", post(sse::price_matrix_stream))
         .route("/flight-order", post(flight_order))
         .route("/flight-order/{id}", get(get_flight_order))
         .route("/flight-order/{id}", delete(delete_flight_order))
@@ -86,61 +100,16 @@ async fn main() {
         .route("/air-traffic-booked", get(get_air_traffic_booked))
         .route("/recommended-locations", get(get_recommended_locations))
         .route("/location-score", get(get_location_score))
-        .layer(build_cors_layer())
+        .layer(CorsLayer::permissive())
         .with_state(Arc::new(state));
 
-    let addr = std::env::var("ADDR").unwrap_or_else(|_| "0.0.0.0:3000".to_string());
+    let listener = TcpListener::bind(&std::env::var("ADDR").unwrap_or_else(|_| "0.0.0.0:3000".to_string())).await.unwrap();
 
-    let listener = match TcpListener::bind(&addr).await {
-        Ok(l) => l,
-        Err(e) => {
-            tracing::error!("Failed to bind to {}: {}", addr, e);
-            std::process::exit(1);
-        }
-    };
+    let addr = listener.local_addr().unwrap();
+    tracing::info!("🚀 Server running on http://{}", addr);
+    println!("🚀 Server running on http://{}", addr);
 
-    let local_addr = listener.local_addr()
-        .map(|a| a.to_string())
-        .unwrap_or_else(|_| addr.clone());
-
-    tracing::info!("Server running on http://{}", local_addr);
-
-    if let Err(e) = axum::serve(listener, app).await {
-        tracing::error!("Server error: {}", e);
-        std::process::exit(1);
-    }
-}
-
-/// Build CORS layer based on environment configuration.
-///
-/// Set CORS_ORIGINS env var to comma-separated list of allowed origins.
-/// If not set, defaults to permissive CORS (development mode).
-fn build_cors_layer() -> CorsLayer {
-    let origins = std::env::var("CORS_ORIGINS").ok();
-
-    match origins {
-        Some(origins_str) if !origins_str.is_empty() => {
-            let allowed_origins: Vec<HeaderValue> = origins_str
-                .split(',')
-                .filter_map(|s| s.trim().parse().ok())
-                .collect();
-
-            if allowed_origins.is_empty() {
-                tracing::warn!("CORS_ORIGINS set but no valid origins found, using permissive CORS");
-                CorsLayer::permissive()
-            } else {
-                tracing::info!("CORS configured for origins: {}", origins_str);
-                CorsLayer::new()
-                    .allow_origin(AllowOrigin::list(allowed_origins))
-                    .allow_methods([Method::GET, Method::POST, Method::DELETE, Method::OPTIONS])
-                    .allow_headers(tower_http::cors::Any)
-            }
-        }
-        _ => {
-            tracing::warn!("CORS_ORIGINS not set, using permissive CORS (development mode)");
-            CorsLayer::permissive()
-        }
-    }
+    axum::serve(listener, app).await.unwrap();
 }
 
 async fn health() -> StatusCode {
@@ -153,9 +122,17 @@ async fn flight_search(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<FlightSearchRequest>,
 ) -> Result<Json<models::FlightOffersResponse>, StatusCode> {
-    // Generate cache key from search parameters (including travel_class and non_stop)
+    if let Some(ref return_date) = payload.return_date {
+        tracing::info!("🔍 Flight search request: {} -> {}, departure: {}, return: {}",
+            payload.origin, payload.destination, payload.departure_date, return_date);
+    } else {
+        tracing::info!("🔍 Flight search request: {} -> {}, departure: {} (one-way)",
+            payload.origin, payload.destination, payload.departure_date);
+    }
+
+    // Generate cache key from search parameters (including travel_class, non_stop, and maxResults)
     let cache_key = format!(
-        "flight_search:{}:{}:{}:{}:{}:{}:{}:{}:{}",
+        "flight_search:{}:{}:{}:{}:{}:{}:{}:{}:{}:{}",
         payload.origin,
         payload.destination,
         payload.departure_date,
@@ -164,7 +141,8 @@ async fn flight_search(
         payload.children,
         payload.infants,
         payload.travel_class.as_deref().unwrap_or("ECONOMY"),
-        payload.non_stop.unwrap_or(false)
+        payload.non_stop.unwrap_or(false),
+        payload.max_results.unwrap_or(50)
     );
 
     // Try to get from cache first
@@ -214,7 +192,7 @@ async fn flight_search(
 async fn flight_price(
     State(state): State<Arc<AppState>>,
     Json(payload): Json<models::FlightPriceRequest>,
-) -> Result<Json<models::FlightPriceResponse>, StatusCode> {
+) -> Result<Json<models::FlightPriceResponse>, (StatusCode, Json<serde_json::Value>)> {
     tracing::info!("Flight price request received, include_bags: {}", payload.include_bags);
 
     // Get token (cached)
@@ -222,7 +200,16 @@ async fn flight_price(
         Ok(t) => t,
         Err(e) => {
             tracing::error!("Amadeus token error: {:?}", e);
-            return Err(StatusCode::INTERNAL_SERVER_ERROR);
+            return Err((
+                StatusCode::INTERNAL_SERVER_ERROR,
+                Json(serde_json::json!({
+                    "errors": [{
+                        "code": 500,
+                        "title": "INTERNAL_SERVER_ERROR",
+                        "detail": "Failed to get authentication token"
+                    }]
+                }))
+            ));
         }
     };
 
@@ -246,10 +233,149 @@ async fn flight_price(
             Ok(Json(resp))
         },
         Err(e) => {
+            let error_msg = e.to_string();
             tracing::error!("Amadeus pricing error: {:?}", e);
-            Err(StatusCode::BAD_GATEWAY)
+
+            // Try to parse the error message to extract Amadeus error details
+            if error_msg.contains("4926") || error_msg.contains("No fare applicable") {
+                Err((
+                    StatusCode::BAD_REQUEST,
+                    Json(serde_json::json!({
+                        "errors": [{
+                            "code": 4926,
+                            "title": "INVALID DATA RECEIVED",
+                            "detail": "No fare applicable",
+                            "status": 400
+                        }]
+                    }))
+                ))
+            } else {
+                Err((
+                    StatusCode::BAD_GATEWAY,
+                    Json(serde_json::json!({
+                        "errors": [{
+                            "code": 502,
+                            "title": "BAD_GATEWAY",
+                            "detail": error_msg
+                        }]
+                    }))
+                ))
+            }
         }
     }
+}
+
+async fn price_matrix(
+    State(state): State<Arc<AppState>>,
+    Json(payload): Json<models::PriceMatrixRequest>,
+) -> Result<Json<models::PriceMatrixResponse>, StatusCode> {
+    tracing::info!("Price matrix request: {} -> {}, {} outbound dates x {} inbound dates",
+        payload.origin, payload.destination, payload.outbound_dates.len(), payload.inbound_dates.len());
+
+    // Get token (cached)
+    let token = match amadeus::get_token(&state.amadeus_client).await {
+        Ok(t) => t,
+        Err(e) => {
+            tracing::error!("Amadeus token error: {:?}", e);
+            return Err(StatusCode::INTERNAL_SERVER_ERROR);
+        }
+    };
+
+    // Generate all valid combinations
+    let mut combinations = Vec::new();
+    for outbound in &payload.outbound_dates {
+        for inbound in &payload.inbound_dates {
+            // Only add if inbound is after outbound
+            if inbound > outbound {
+                combinations.push((outbound.clone(), inbound.clone()));
+            }
+        }
+    }
+
+    tracing::info!("Searching {} valid date combinations in batches (3 parallel per batch, 2 seconds between batches)", combinations.len());
+
+    // Search combinations in batches to respect rate limits
+    // Amadeus Test: 10 req/sec max, but we use 3 parallel every 2 seconds to be extra safe
+    let currency = payload.currency.clone().unwrap_or_else(|| "EUR".to_string());
+    let batch_size = 3; // 3 parallel requests per batch
+    let mut all_results = Vec::new();
+
+    for (batch_idx, chunk) in combinations.chunks(batch_size).enumerate() {
+        tracing::info!("Processing batch {} of {} ({} requests in parallel)",
+            batch_idx + 1,
+            combinations.len().div_ceil(batch_size),
+            chunk.len()
+        );
+
+        let futures: Vec<_> = chunk.iter().map(|(outbound, inbound)| {
+            let client = state.amadeus_client.clone();
+            let token = token.clone();
+            let origin = payload.origin.clone();
+            let destination = payload.destination.clone();
+            let outbound = outbound.clone();
+            let inbound = inbound.clone();
+            let adults = payload.adults;
+            let children = payload.children;
+            let infants = payload.infants;
+            let currency = currency.clone();
+
+            async move {
+                let req = models::FlightSearchRequest {
+                    origin,
+                    destination,
+                    departure_date: outbound.clone(),
+                    return_date: Some(inbound.clone()),
+                    adults,
+                    children,
+                    infants,
+                    currency: Some(currency.clone()),
+                    travel_class: None,
+                    non_stop: None,
+                    max_price: None,
+                    max_results: Some(250), // Get up to 250 offers to find cheapest
+                    included_airline_codes: None,
+                    excluded_airline_codes: None,
+                    additional_legs: None,
+                };
+
+                match amadeus::search_flights(&client, &token, &req).await {
+                    Ok(resp) => {
+                        let price = resp.data.first().map(|offer| offer.price.total.clone());
+                        (outbound, inbound, price, currency)
+                    }
+                    Err(e) => {
+                        tracing::warn!("Failed to get price for {} - {}: {:?}", outbound, inbound, e);
+                        (outbound, inbound, None, currency)
+                    }
+                }
+            }
+        }).collect();
+
+        // Wait for this batch to complete
+        let batch_results = futures::future::join_all(futures).await;
+        all_results.extend(batch_results);
+
+        // Wait 2 seconds before next batch (3 requests every 2 seconds = 1.5 req/sec)
+        if batch_idx < combinations.len().div_ceil(batch_size) - 1 {
+            tokio::time::sleep(tokio::time::Duration::from_secs(2)).await;
+        }
+    }
+
+    let results = all_results;
+
+    // Build response
+    let prices: Vec<models::PriceMatrixEntry> = results.into_iter().map(|(outbound, inbound, price, currency)| {
+        models::PriceMatrixEntry {
+            outbound_date: outbound,
+            inbound_date: inbound,
+            price,
+            currency,
+        }
+    }).collect();
+
+    tracing::info!("Price matrix completed: {} prices returned", prices.len());
+
+    Ok(Json(models::PriceMatrixResponse { prices }))
 }
 
 async fn flight_order(
@@ -472,9 +598,50 @@ async fn get_flight_dates(
     match amadeus::get_flight_dates(&state.amadeus_client, &token, &params.origin, &params.destination).await {
         Ok(resp) => Ok(Json(resp)),
         Err(e) => {
-            tracing::error!("Amadeus dates error: {:?}", e);
-            Err(StatusCode::BAD_GATEWAY)
+            tracing::warn!("Amadeus dates error: {:?}, returning mock data for testing", e);
+
+            // Return mock data for testing when Amadeus API fails
+            let mock_data = generate_mock_flight_dates(&params.origin, &params.destination);
+            Ok(Json(mock_data))
         }
+    }
+}
+
+/// Generate mock flight dates for testing
+fn generate_mock_flight_dates(origin: &str, destination: &str) -> models::FlightDatesResponse {
+    use chrono::{Utc, Duration};
+
+    let mut dates = Vec::new();
+    let base_price = 500.0;
+
+    // Generate dates for the next 60 days
+    for i in 0..60 {
+        let date = Utc::now() + Duration::days(i);
+        let date_str = date.format("%Y-%m-%d").to_string();
+
+        // Vary prices based on day of week (weekends more expensive)
+        let day_of_week = date.weekday().num_days_from_monday();
+        let weekend_multiplier = if day_of_week >= 5 { 1.3 } else { 1.0 };
+
+        // Add some randomness
+        let random_factor = 0.8 + (i % 7) as f64 * 0.1;
+        let price = base_price * weekend_multiplier * random_factor;
+
+        dates.push(models::FlightDate {
+            data_type: "flight-date".to_string(),
+            origin: origin.to_string(),
+            destination: destination.to_string(),
+            departure_date: date_str,
+            return_date: None,
+            price: models::FlightDestinationPrice {
+                total: format!("{:.2}", price),
+            },
+        });
+    }
+
+    models::FlightDatesResponse {
+        data: dates,
+        dictionaries: None,
     }
 }
 

@@ -63,6 +63,7 @@ interface SearchState {
   setSearchResults: (results: FlightOffer[]) => void;
   setSelectedOffer: (offer: FlightOffer | null) => void;
   setIsSearching: (isSearching: boolean) => void;
+  updateOfferPricing: (offerId: string, updatedOffer: FlightOffer) => void;
   reset: () => void;
   getSearchRequest: () => FlightSearchRequest | null;
 }
@@ -138,11 +139,17 @@ export const useSearchStore = create<SearchState>()(
       })),
       
       setSearchResults: (results) => set({ searchResults: results }),
-      
+
       setSelectedOffer: (offer) => set({ selectedOffer: offer }),
-      
+
       setIsSearching: (isSearching) => set({ isSearching }),
-      
+
+      updateOfferPricing: (offerId, updatedOffer) => set((state) => ({
+        searchResults: state.searchResults.map((offer) =>
+          offer.id === offerId ? updatedOffer : offer
+        ),
+      })),
+
       reset: () => set(initialState),
       
       getSearchRequest: () => {

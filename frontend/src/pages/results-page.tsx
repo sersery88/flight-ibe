@@ -1,5 +1,5 @@
-import { useState, useMemo, useCallback, useEffect, useTransition } from 'react';
-import { Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2, SlidersHorizontal, X } from 'lucide-react';
+import { useState, useMemo, useCallback, useEffect } from 'react';
+import { Calendar, Users, Plane as PlaneIcon, Search, ArrowRightLeft, Edit2, SlidersHorizontal, X, CalendarDays } from 'lucide-react';
 import { Button, Badge } from '@/components/ui';
 import { FlightList } from '@/components/flight/flight-list';
 import { FilterSidebar, type FlightFilters } from '@/components/flight/filter-sidebar';
@@ -9,10 +9,13 @@ import { DateRangePicker, type DateRange } from '@/components/flight/date-picker
 import { PassengerSelector } from '@/components/flight/passenger-selector';
 import { CabinClassSelect } from '@/components/flight/cabin-class-select';
 import { SearchForm } from '@/components/flight/search-form';
+import { PriceCalendar } from '@/components/flight/price-calendar';
+import { PriceMatrix } from '@/components/flight/price-matrix';
 import { useSearchStore } from '@/stores/search-store';
 import { useBookingStore } from '@/stores/booking-store';
 import { useFlightSearch } from '@/hooks/use-flights';
-import type { FlightOffer } from '@/types/flight';
+import { usePricingStream } from '@/hooks/use-pricing-stream';
+import type { FlightOffer, FlightDate } from '@/types/flight';
 import { cn, parseDuration } from '@/lib/utils';
 import { formatAirportName } from '@/lib/airports';
 
@@ -51,10 +54,30 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
   const { setSelectedOffer } = useBookingStore();
   const { mutate: searchFlights, isPending: isSearchPending } = useFlightSearch();
 
+  // Progressive pricing with SSE
+  const { isStreaming: isPricingStreaming, startStream: startPricingStream } = usePricingStream({
+    onResult: (result) => {
+      // Update the offer in the search results with the new pricing
+      if (result.status === 'success' && result.result) {
+        store.updateOfferPricing(result.offerId, result.result.data.flightOffers[0]);
+      }
+    },
+  });
+
   // State for mobile search form popup
   const [showSearchForm, setShowSearchForm] = useState(false);
   // State for mobile filter sheet
   const [showFilters, setShowFilters] = useState(false);
+  // State for price calendar visibility
+  const [showPriceCalendar, setShowPriceCalendar] = useState(false);
+
+  // Start pricing stream when search results change
+  useEffect(() => {
+    if (searchResults.length > 0 && !isPricingStreaming) {
+      // Start progressive pricing for all offers
+      startPricingStream(searchResults, true);
+    }
+  }, [searchResults.length]); // Only trigger when results count changes
 
   // Block body scroll when popup is open
   useEffect(() => {
@@ -110,22 +133,6 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
     transitAirports: [],
   });
   const [selectedOfferId, setSelectedOfferId] = useState<string>();
-
-  // React 19 useTransition for non-blocking filter/sort updates
-  const [isFilterPending, startFilterTransition] = useTransition();
-
-  // Wrap filter and sort changes in transitions for smooth UI
-  const handleFiltersChange = useCallback((newFilters: FlightFilters) => {
-    startFilterTransition(() => {
-      setFilters(newFilters);
-    });
-  }, []);
-
-  const handleSortChange = useCallback((newSort: SortTabOption) => {
-    startFilterTransition(() => {
-      setSortBy(newSort);
-    });
-  }, []);
 
   // Filter offers
   const filteredOffers = useMemo(() => {
@@ -261,6 +268,40 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
     setSelectedOfferId(offer.id);
     setSelectedOffer(offer);
     onSelectFlight?.(offer);
+  };
+
+  const handleDateSelect = (flightDate: FlightDate) => {
+    // Update search dates and trigger new search
+    const newDepartureDate = new Date(flightDate.departureDate);
+    store.setDepartureDate(newDepartureDate);
+
+    if (flightDate.returnDate) {
+      const newReturnDate = new Date(flightDate.returnDate);
+      store.setReturnDate(newReturnDate);
+    }
+
+    // Trigger search with new dates
+    const request = store.getSearchRequest();
+    if (request) {
+      searchFlights(request);
+      setShowPriceCalendar(false);
+    }
+  };
+
+  const handleMatrixDateSelect = (outbound: string, inbound: string) => {
+    // Update search dates and trigger new search
+    const newDepartureDate = new Date(outbound);
+    const newReturnDate = new Date(inbound);
+
+    store.setDepartureDate(newDepartureDate);
+    store.setReturnDate(newReturnDate);
+
+    // Trigger search with new dates
+    const request = store.getSearchRequest();
+    if (request) {
+      searchFlights(request);
+      setShowPriceCalendar(false);
+    }
   };
 
   return (
@@ -450,7 +491,7 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
               <FilterSidebar
                 offers={searchResults}
                 filters={filters}
-                onFiltersChange={handleFiltersChange}
+                onFiltersChange={setFilters}
               />
             </aside>
 
@@ -459,7 +500,7 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
               {/* Sort Tabs - above flight cards only */}
               <SortTabs
                 value={sortBy}
-                onChange={handleSortChange}
+                onChange={setSortBy}
                 offers={filteredOffers}
                 className="mb-4 rounded-lg bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 overflow-hidden"
               />
@@ -480,14 +521,33 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
                 )}
               </Button>
 
-              <div className={isFilterPending ? 'opacity-60 transition-opacity duration-150' : 'transition-opacity duration-150'}>
-                <FlightList
-                  offers={sortedOffers}
-                  isLoading={isSearching}
-                  selectedOfferId={selectedOfferId}
-                  onSelectOffer={handleSelectOffer}
-                />
-              </div>
+              <FlightList
+                offers={sortedOffers}
+                isLoading={isSearching}
+                selectedOfferId={selectedOfferId}
+                onSelectOffer={handleSelectOffer}
+                showPriceCalendar={showPriceCalendar}
+                onTogglePriceCalendar={() => setShowPriceCalendar(!showPriceCalendar)}
+                priceCalendarContent={
+                  showPriceCalendar ? (
+                    returnDate ? (
+                      <PriceMatrix
+                        origin={origin}
+                        destination={destination}
+                        departureDate={departureDate.toISOString().split('T')[0]}
+                        returnDate={returnDate.toISOString().split('T')[0]}
+                        onDateSelect={handleMatrixDateSelect}
+                      />
+                    ) : (
+                      <PriceCalendar
+                        origin={origin}
+                        destination={destination}
+                        onDateSelect={handleDateSelect}
+                      />
+                    )
+                  ) : undefined
+                }
+              />
             </main>
           </div>
         </div>
@@ -528,7 +588,7 @@ export function ResultsPage({ onSelectFlight, className }: ResultsPageProps) {
                 <FilterSidebar
                   offers={searchResults}
                   filters={filters}
-                  onFiltersChange={handleFiltersChange}
+                  onFiltersChange={setFilters}
                   className="border-0 p-0"
                 />
               </div>

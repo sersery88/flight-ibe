@@ -498,6 +498,29 @@ export interface Traveler {
 }
 
 // ============================================================================
+// Flight Dates (Cheapest Date Search) Types
+// ============================================================================
+
+export interface FlightDatesResponse {
+  data: FlightDate[];
+  dictionaries?: Dictionaries;
+}
+
+export interface FlightDate {
+  type: string;
+  origin: string;
+  destination: string;
+  departureDate: string;
+  returnDate?: string;
+  price: FlightDestinationPrice;
+}
+
+export interface FlightDestinationPrice {
+  total: string;
+  currency?: string;
+}
+
+// ============================================================================
 // Amadeus Error Types (per Amadeus API Error Response)
 // ============================================================================
 

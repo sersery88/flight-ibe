@@ -36,6 +36,39 @@ pub struct FlightLegRequest {
     pub departure_date: String,
 }
 
+/// Request for batch price matrix search
+#[derive(Debug, Clone, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PriceMatrixRequest {
+    pub origin: String,
+    pub destination: String,
+    pub outbound_dates: Vec<String>,
+    pub inbound_dates: Vec<String>,
+    pub adults: u32,
+    #[serde(default)]
+    pub children: u32,
+    #[serde(default)]
+    pub infants: u32,
+    pub currency: Option<String>,
+}
+
+/// Response for batch price matrix search
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PriceMatrixResponse {
+    pub prices: Vec<PriceMatrixEntry>,
+}
+
+/// A single price entry in the matrix
+#[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PriceMatrixEntry {
+    pub outbound_date: String,
+    pub inbound_date: String,
+    pub price: Option<String>,
+    pub currency: String,
+}
+
 /// Root response from Flight Offers Search API
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct FlightOffersResponse {

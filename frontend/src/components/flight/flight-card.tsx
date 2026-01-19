@@ -10,7 +10,8 @@ import { formatAircraftType } from '@/lib/aircraft';
 import { formatAirlineName } from '@/lib/airlines';
 import { formatAirportName } from '@/lib/airports';
 import type { FlightOffer, Segment } from '@/types/flight';
-import { DealIndicator } from '@/components/price';
+// TODO: Re-enable when price components are complete
+// import { DealIndicator } from '@/components/price';
 
 // ============================================================================
 
@@ -363,21 +364,9 @@ export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected
               )}
             </div>
 
-            {/* Deal Indicator & Price & Select */}
+            {/* Price & Select */}
             <div className="flex min-w-0 items-center justify-between gap-2 sm:gap-3 md:gap-4">
-              {/* Deal Indicator - uses same per-person price calculation as displayed */}
-              <DealIndicator
-                origin={outbound.segments[0].departure.iataCode}
-                destination={outbound.segments[outbound.segments.length - 1].arrival.iataCode}
-                departureDate={outbound.segments[0].departure.at.split('T')[0]}
-                currentPrice={(() => {
-                  const adultPricing = selectedFareOffer.travelerPricings.find(tp => tp.travelerType === 'ADULT');
-                  return adultPricing?.price?.total
-                    ? parseFloat(adultPricing.price.total)
-                    : parseFloat(selectedFareOffer.price.total) / selectedFareOffer.travelerPricings.length;
-                })()}
-                className="hidden sm:flex"
-              />
+              {/* TODO: Re-enable DealIndicator when price components are complete */}
               {(() => {
                 // Calculate price per person for selected fare
                 const selectedAdultPricing = selectedFareOffer.travelerPricings.find(tp => tp.travelerType === 'ADULT');

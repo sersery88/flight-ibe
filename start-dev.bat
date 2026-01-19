@@ -2,8 +2,8 @@
 echo Starting Flypink Development Servers...
 echo.
 
-:: Start Backend in new window
-start "Flypink Backend" cmd /k "cd /d %~dp0crates\api-server && cargo run"
+:: Start Backend in new window with logging enabled
+start "Flypink Backend" cmd /k "cd /d %~dp0crates\api-server && set RUST_LOG=info && cargo run"
 
 :: Wait a moment for backend to start
 timeout /t 3 /nobreak > nul
