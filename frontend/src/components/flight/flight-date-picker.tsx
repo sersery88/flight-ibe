@@ -357,8 +357,8 @@ export function FlightDatePicker({
           ))}
         </div>
 
-        {/* Days grid */}
-        <div className="grid grid-cols-7 gap-1">
+        {/* Days grid - fixed height for 6 rows to prevent layout shift */}
+        <div className="grid grid-cols-7 gap-1 min-h-[292px]">
           {days.map((day, index) => {
             if (day === null) return <div key={`empty-${index}`} className="h-11 w-10 mx-auto" />;
 
@@ -769,7 +769,8 @@ export function SingleFlightDatePicker({
           ))}
         </div>
 
-        <div className="grid grid-cols-7 gap-1">
+        {/* Days grid - fixed height for 6 rows to prevent layout shift */}
+        <div className="grid grid-cols-7 gap-1 min-h-[292px]">
           {days.map((day, index) => {
             if (day === null) return <div key={`empty-${index}`} className="h-11 w-10 mx-auto" />;
 
