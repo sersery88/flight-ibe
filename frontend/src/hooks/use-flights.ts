@@ -4,30 +4,16 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import {
   searchFlights,
   priceFlightOffers,
-  searchLocations,
-  getSeatmaps,
   createBooking,
-  getBooking,
-  getFlightDates,
   type BookingRequest,
 } from '@/lib/api-client';
 import type { FlightSearchRequest, FlightOffer } from '@/types/flight';
 import { useSearchStore } from '@/stores/search-store';
 import { useBookingStore } from '@/stores/booking-store';
+import { flightKeys, flightQueries } from '@/queries/flight-queries';
 
-// ============================================================================
-// Query Keys
-// ============================================================================
-
-export const flightKeys = {
-  all: ['flights'] as const,
-  search: (params: FlightSearchRequest) => [...flightKeys.all, 'search', params] as const,
-  price: (offerIds: string[]) => [...flightKeys.all, 'price', offerIds] as const,
-  seatmaps: (offerIds: string[]) => [...flightKeys.all, 'seatmaps', offerIds] as const,
-  booking: (orderId: string) => [...flightKeys.all, 'booking', orderId] as const,
-  locations: (keyword: string) => ['locations', keyword] as const,
-  dates: (origin: string, destination: string) => [...flightKeys.all, 'dates', origin, destination] as const,
-};
+// Re-export keys for backward compatibility
+export { flightKeys };
 
 // ============================================================================
 // Search Flights Mutation Hook
@@ -83,31 +69,19 @@ export function usePriceFlights() {
 }
 
 // ============================================================================
-// Location Search Hook
+// Location Search Hook (uses queryOptions)
 // ============================================================================
 
 export function useLocationSearch(keyword: string) {
-  return useQuery({
-    queryKey: flightKeys.locations(keyword),
-    queryFn: () => searchLocations(keyword),
-    enabled: keyword.length >= 2,
-    staleTime: 60 * 1000, // 1 minute
-  });
+  return useQuery(flightQueries.locations(keyword));
 }
 
 // ============================================================================
-// Seatmaps Hook
+// Seatmaps Hook (uses queryOptions)
 // ============================================================================
 
 export function useSeatmaps(offers: FlightOffer[]) {
-  const offerIds = offers.map(o => o.id);
-
-  return useQuery({
-    queryKey: flightKeys.seatmaps(offerIds),
-    queryFn: () => getSeatmaps(offers),
-    enabled: offers.length > 0,
-    staleTime: 5 * 60 * 1000,
-  });
+  return useQuery(flightQueries.seatmaps(offers));
 }
 
 // ============================================================================
@@ -138,78 +112,45 @@ export function useCreateBooking() {
 }
 
 // ============================================================================
-// Get Booking Hook
+// Get Booking Hook (uses queryOptions)
 // ============================================================================
 
 export function useBooking(orderId: string) {
-  return useQuery({
-    queryKey: flightKeys.booking(orderId),
-    queryFn: () => getBooking(orderId),
-    enabled: !!orderId,
-  });
+  return useQuery(flightQueries.booking(orderId));
 }
 
 // ============================================================================
-// Flight Cheapest Date Search Hook
+// Flight Cheapest Date Search Hook (uses queryOptions)
 // ============================================================================
 
 export function useFlightDates(origin: string, destination: string, enabled = true) {
-  return useQuery({
-    queryKey: flightKeys.dates(origin, destination),
-    queryFn: () => getFlightDates(origin, destination),
-    enabled: enabled && !!origin && !!destination,
-    staleTime: 5 * 60 * 1000, // 5 minutes
-  });
+  return useQuery(flightQueries.dates(origin, destination, enabled));
 }
 
 // ============================================================================
-// Stub Hooks (TODO: Implement these)
+// Stub Hooks (use queryOptions)
 // ============================================================================
 
-export function useDirectDestinations(_origin: string) {
-  return useQuery({
-    queryKey: ['direct-destinations', _origin],
-    queryFn: () => Promise.resolve({ data: [] }),
-    enabled: false,
-  });
+export function useDirectDestinations(origin: string) {
+  return useQuery(flightQueries.directDestinations(origin));
 }
 
-export function useFlightInspiration(_origin: string) {
-  return useQuery({
-    queryKey: ['flight-inspiration', _origin],
-    queryFn: () => Promise.resolve({ data: [] }),
-    enabled: false,
-  });
+export function useFlightInspiration(origin: string) {
+  return useQuery(flightQueries.flightInspiration(origin));
 }
 
 export function useTrendingDestinations() {
-  return useQuery({
-    queryKey: ['trending-destinations'],
-    queryFn: () => Promise.resolve({ data: [] }),
-    enabled: false,
-  });
+  return useQuery(flightQueries.trendingDestinations());
 }
 
-export function useCheckinLinks(_airlineCode: string) {
-  return useQuery({
-    queryKey: ['checkin-links', _airlineCode],
-    queryFn: () => Promise.resolve({ data: [] }),
-    enabled: false,
-  });
+export function useCheckinLinks(airlineCode: string) {
+  return useQuery(flightQueries.checkinLinks(airlineCode));
 }
 
-export function useFlightStatus(_carrierCode: string, _flightNumber: string, _date: string) {
-  return useQuery({
-    queryKey: ['flight-status', _carrierCode, _flightNumber, _date],
-    queryFn: () => Promise.resolve({ data: [] }),
-    enabled: false,
-  });
+export function useFlightStatus(carrierCode: string, flightNumber: string, date: string) {
+  return useQuery(flightQueries.flightStatus(carrierCode, flightNumber, date));
 }
 
-export function usePriceMetrics(_origin: string, _destination: string, _date: string) {
-  return useQuery({
-    queryKey: ['price-metrics', _origin, _destination, _date],
-    queryFn: () => Promise.resolve({ data: [] }),
-    enabled: false,
-  });
+export function usePriceMetrics(origin: string, destination: string, date: string) {
+  return useQuery(flightQueries.priceMetrics(origin, destination, date));
 }

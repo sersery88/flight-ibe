@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useMemo, memo } from 'react';
+import { useState, useEffect, useMemo, useCallback, useRef, memo } from 'react';
 import { Plane, Clock, Luggage, ChevronRight, ChevronDown, ChevronUp, Check, X, Loader2, Leaf, AlertTriangle } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { useQueryClient } from '@tanstack/react-query';
 
 import { cn, formatCurrency, formatDuration, formatDateTime, getStopsLabel } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -81,12 +82,26 @@ interface FlightCardProps {
 }
 
 export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected, className }: FlightCardProps) {
+  const queryClient = useQueryClient();
+  const hasPrefetched = useRef(false);
   const [isExpanded, setIsExpanded] = useState(false);
   const [showFareSelection, setShowFareSelection] = useState(false);
   const [upsellOffers, setUpsellOffers] = useState<FlightOffer[]>([]);
   const [isLoadingUpsell, setIsLoadingUpsell] = useState(false);
   const [upsellFailed, setUpsellFailed] = useState(false);
   const [selectedFareOffer, setSelectedFareOffer] = useState<FlightOffer>(offer);
+
+  // Prefetch upsell offers on hover for instant fare selection
+  const handleCardMouseEnter = useCallback(() => {
+    if (hasPrefetched.current) return;
+    hasPrefetched.current = true;
+
+    queryClient.prefetchQuery({
+      queryKey: ['upsell', offer.id],
+      queryFn: () => getUpsellOffers([offer]),
+      staleTime: 60 * 1000, // 1 minute cache
+    });
+  }, [queryClient, offer]);
 
   const outbound = offer.itineraries[0];
   const returnFlight = offer.itineraries[1];
@@ -123,10 +138,20 @@ export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected
   // Check if multiple fare options are available
   const hasMultipleFares = upsellOffers.length > 1;
 
-  // Load upsell offers when fare selection is opened
+  // Load upsell offers when fare selection is opened (checks prefetch cache first)
   useEffect(() => {
     if (showFareSelection && upsellOffers.length === 0 && !isLoadingUpsell && !upsellFailed) {
       setIsLoadingUpsell(true);
+
+      // Check if data was already prefetched into the query cache
+      const cachedData = queryClient.getQueryData<{ data: FlightOffer[] }>(['upsell', offer.id]);
+
+      if (cachedData?.data && cachedData.data.length > 1) {
+        setUpsellOffers(cachedData.data);
+        setIsLoadingUpsell(false);
+        return;
+      }
+
       getUpsellOffers([offer])
         .then((response) => {
           if (response.data && response.data.length > 1) {
@@ -143,7 +168,7 @@ export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected
           setIsLoadingUpsell(false);
         });
     }
-  }, [showFareSelection, offer, upsellOffers.length, isLoadingUpsell, upsellFailed]);
+  }, [showFareSelection, offer, upsellOffers.length, isLoadingUpsell, upsellFailed, queryClient]);
 
   // Click on card toggles flight details
   const handleCardClick = (e: React.MouseEvent) => {
@@ -203,6 +228,7 @@ export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected
           className
         )}
         onClick={handleCardClick}
+        onMouseEnter={handleCardMouseEnter}
       >
         <div className="p-3 sm:p-4 md:p-6">
           {/* Outbound Flight */}
@@ -298,15 +324,9 @@ export const FlightCard = memo(function FlightCard({ offer, onSelect, isSelected
             {/* Left: Fare Badge, CO2, Tarife Button */}
             <div className="flex min-w-0 flex-wrap items-center gap-1.5 sm:gap-2 md:gap-4">
               <div className="flex flex-col gap-1">
-                {brandedFareName ? (
-                  <Badge variant="secondary" className="w-fit text-[10px] font-medium sm:text-xs">
-                    {brandedFareName}
-                  </Badge>
-                ) : (
-                  <Badge variant="outline" className="w-fit text-[10px] sm:text-xs">
-                    {getCabinLabel(cabinClass)}
-                  </Badge>
-                )}
+                <Badge variant="outline" className="w-fit text-[10px] sm:text-xs">
+                  {getCabinLabel(cabinClass)}
+                </Badge>
               </div>
               {/* CO2 Badge */}
               {totalJourneyCo2 > 0 && (
@@ -776,7 +796,11 @@ const getCabinLabel = (cabin: string) => {
     BUSINESS: 'Business',
     FIRST: 'First',
   };
-  return labels[cabin] || cabin;
+  // Normalize: extract base cabin class (e.g., "ECONOMY BASIC" → "ECONOMY")
+  const normalized = cabin?.toUpperCase().split(/[\s_]/)[0] || 'ECONOMY';
+  // Map common variations
+  if (normalized === 'PREMIUM') return 'Premium Economy';
+  return labels[normalized] || labels['ECONOMY'];
 };
 
 // ============================================================================

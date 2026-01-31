@@ -26,3 +26,6 @@ Thumbs.db
 *.so
 *.dylib
 
+
+# Next.js
+.next/

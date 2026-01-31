@@ -225,3 +225,72 @@ select {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ============================================================================
+   View Transitions - Smooth Page Navigation
+   ============================================================================ */
+
+/* Default crossfade for page content */
+::view-transition-old(page-content) {
+  animation: fade-out 200ms ease-in forwards;
+}
+
+::view-transition-new(page-content) {
+  animation: fade-in 250ms ease-out 50ms forwards;
+}
+
+/* Slide transitions for forward navigation */
+::view-transition-old(page-content):is(.navigation-forward *) {
+  animation: slide-out-left 250ms ease-in forwards;
+}
+
+::view-transition-new(page-content):is(.navigation-forward *) {
+  animation: slide-in-right 300ms ease-out forwards;
+}
+
+/* Slide transitions for backward navigation */
+::view-transition-old(page-content):is(.navigation-back *) {
+  animation: slide-out-right 250ms ease-in forwards;
+}
+
+::view-transition-new(page-content):is(.navigation-back *) {
+  animation: slide-in-left 300ms ease-out forwards;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-out-left {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(-30px); }
+}
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slide-out-right {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(30px); }
+}
+
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(page-content),
+  ::view-transition-new(page-content) {
+    animation: none !important;
+  }
+}

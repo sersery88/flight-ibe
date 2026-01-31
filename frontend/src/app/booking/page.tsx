@@ -15,6 +15,7 @@ import { useSearchStore } from '@/stores/search-store';
 import { formatCurrency, formatDuration, formatDateTime } from '@/lib/utils';
 import { formatAirlineName } from '@/lib/airlines';
 import { formatAirportName } from '@/lib/airports';
+import { formatBrandedFareName } from '@/lib/amenities';
 
 // ============================================================================
 // Booking Steps
@@ -181,7 +182,21 @@ function BookingContent() {
           <div className="lg:col-span-2 space-y-6">
             {/* Flight Summary Card */}
             <Card className="p-4">
-              <h2 className="font-semibold mb-4">Ihre Flugauswahl</h2>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="font-semibold">Ihre Flugauswahl</h2>
+                {(() => {
+                  const fareDetail = offer.travelerPricings[0]?.fareDetailsBySegment?.[0];
+                  const fareName = fareDetail?.brandedFareLabel || fareDetail?.brandedFare;
+                  if (fareName) {
+                    return (
+                      <Badge variant="secondary" className="text-xs">
+                        {formatBrandedFareName(fareName)}
+                      </Badge>
+                    );
+                  }
+                  return null;
+                })()}
+              </div>
 
               {/* Outbound */}
               <div className="mb-4">

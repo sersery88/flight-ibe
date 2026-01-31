@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Inter } from "next/font/google";
 import { Providers } from "@/components/layout/providers";
 import { Header } from "@/components/layout/header";
@@ -26,7 +27,9 @@ export default function RootLayout({
         <Providers>
           <div className="flex min-h-screen flex-col">
             <Header />
-            <main className="flex-1">{children}</main>
+            <ViewTransition name="page-content">
+              <main className="flex-1">{children}</main>
+            </ViewTransition>
             <Footer />
           </div>
         </Providers>
